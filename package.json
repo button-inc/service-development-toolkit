@@ -1,0 +1,12 @@
+{
+  "name": "pangolin",
+  "version": "1.0.0",
+  "description": "Toolkit for button applications",
+  "main": "index.js",
+  "repository": "git@github.com:thebuttonclan/pangolin.git",
+  "author": "Button team",
+  "license": "MIT",
+  "dependencies": {
+    "git-cz": "^4.7.1"
+  }
+}
