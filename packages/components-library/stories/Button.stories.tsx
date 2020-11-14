@@ -7,17 +7,17 @@ export default {
   argTypes: { onClick: { action: 'click' } },
 };
 
-const Template = (args) => <Button {...args}>Click!</Button>
+const Template = args => <Button {...args}>Click!</Button>;
 
 export const Primary = Template.bind({});
 export const Secondary = Template.bind({});
 
 Primary.args = {
   primary: true,
-  large: false
+  large: false,
 };
 
 Secondary.args = {
   secondary: true,
-  large: false
+  large: false,
 };
