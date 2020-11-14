@@ -8,7 +8,7 @@ Need to decide whether to organize this repository to export a single NPM packag
 
   - React compliation will use tree-shaking, removing unused imports.
   - Using a single package will have a simpler setup, allowing for quicker development.
-  - As library grows decision can be re-evaluated if single imports has a large preference. 
+  - As library grows decision can be re-evaluated if single imports has a large preference.
 
 ## Decision
 
