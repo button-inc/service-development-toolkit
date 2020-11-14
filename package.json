@@ -6,7 +6,8 @@
   "repository": "git@github.com:thebuttonclan/pangolin.git",
   "author": "Button team",
   "license": "MIT",
-  "dependencies": {
-    "git-cz": "^4.7.1"
+  "dependencies": {},
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0"
   }
 }
