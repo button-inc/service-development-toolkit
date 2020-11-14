@@ -1,4 +1,5 @@
 import { DefaultTheme } from 'styled-components';
+
 const primaryColor = '#003366';
 
 export const GovTheme: DefaultTheme = {
@@ -30,7 +31,7 @@ export const GovTheme: DefaultTheme = {
 
       &:hover {
         text-decoration: underline;
-        opacity: 0.80;  
+        opacity: 0.80;
       }
     `,
     secondary: `
@@ -38,16 +39,15 @@ export const GovTheme: DefaultTheme = {
       border: 2px solid #003366;
       padding: 10px 30px;
       color: #003366;
-  
+
       &:hover {
         opacity: 0.80;
         text-decoration: underline;
         background-color: #003366;
         color: #FFFFFF;
       }
-    `
+    `,
   },
-
-}
+};
 
 export default GovTheme;

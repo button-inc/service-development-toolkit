@@ -13,7 +13,7 @@ Decision of how to style components needs to be made.
 When choosing a styling library, the issues of code splitting, ease of use, theming, and likely longevity were considered.
 The following libraries have been reviewed:
 - [styled-components](https://styled-components.com/)
-- [styled-jsx](https://github.com/vercel/styled-jsx) 
+- [styled-jsx](https://github.com/vercel/styled-jsx)
 - [CSS modules](https://github.com/css-modules/css-modules)
 
 ## Findings
