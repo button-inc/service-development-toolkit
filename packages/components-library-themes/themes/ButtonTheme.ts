@@ -19,7 +19,7 @@ export const ButtonTheme: DefaultTheme = {
       border:none;
     `,
     secondary: `
-      background: red
+      background: blue
     `
   }
 }

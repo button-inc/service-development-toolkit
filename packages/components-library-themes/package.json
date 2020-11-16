@@ -1,0 +1,12 @@
+{
+  "name": "components-library-themes",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "tsc": "npx tsc"
+  },
+  "dependencies": {
+    "styled-components": "^5.2.1"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "components",
+    "outDir": "dist",
+    "noEmit": false
+  },
+  "include": ["components"]
+}

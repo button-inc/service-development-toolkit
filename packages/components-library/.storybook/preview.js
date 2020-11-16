@@ -1,6 +1,6 @@
 import { withThemesProvider } from 'storybook-addon-styled-component-theme';
-import { ButtonTheme } from '../themes/ButtonTheme';
-import { GovTheme } from '../themes/GovTheme';
+import { ButtonTheme } from 'components-library-themes';
+import { GovTheme } from 'components-library-themes';
 
 const themes = [ButtonTheme, GovTheme];
 

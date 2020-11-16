@@ -6,7 +6,6 @@
   "repository": "git@github.com:thebuttonclan/pangolin.git",
   "author": "Button team",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
@@ -20,10 +19,14 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.1.2",
+    "lerna": "^3.22.1",
     "typescript": "^4.0.5"
   },
   "scripts": {
     "format": "prettier --write .",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
-  }
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "prepublish": "lerna run tsc"
+  },
+  "private": true,
+  "workspaces": ["packages/*"]
 }
