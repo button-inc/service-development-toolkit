@@ -19,3 +19,54 @@ To test components in another local project, you can import locally using [yarn 
   - In your local project, run `yarn link components-library`
 
 Note: If you run into errors with yarn link, consider using [yalc](https://www.npmjs.com/package/yalc) as an alternative.
+
+# Components
+
+Unless otherwise specified, props are type boolean and can be passed alone. e.g `<Button primary></Button>`
+
+## Button
+
+Props | Decription
+--|--
+primary | Main theme styling
+secondary | Secondary theme styling
+warning | Potentially destructive action button styling
+danger | Destructive action button styling
+success | Destructive action button styling
+large | Larger button size
+small | Smaller button size
+
+## Input
+
+Props | Decription
+--|--
+large | Larger button size
+small | Smaller button size
+
+## TextArea
+
+Props | Decription
+--|--
+large | Larger button size
+small | Smaller button size
+
+## Checkbox
+
+Props | Decription
+--|--
+large | Larger button size
+small | Smaller button size
+
+## Radio
+
+Props | Decription
+--|--
+large | Larger button size
+small | Smaller button size
+
+## Label
+
+Props | Decription
+--|--
+large | Larger button size
+small | Smaller button size
