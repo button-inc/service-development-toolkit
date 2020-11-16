@@ -1,11 +1,11 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
     "strict": false,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -17,9 +17,9 @@
     "paths": {
       "*": ["*", "../*", "__generated__/*"]
     },
-    "allowJs": true,
-    "downlevelIteration": true
+    "rootDir": "themes",
+    "outDir": "dist",
+    "noEmit": false
   },
-  "exclude": ["node_modules", "static"],
-  "include": ["./**/*", "./.eslintrc.js"]
-}
+  "include": ["themes/index.ts"]
+}  
