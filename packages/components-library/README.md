@@ -8,7 +8,7 @@ To initialize:
   - Run `lerna bootstrap` from the root pangolin directory
   - Run `lerna run tsc` from the root pangolin directory
 
-To view changes to components using storybook, run `yarn storybook` from this directory. 
+To view changes to components using storybook, run `yarn storybook` from this directory.
 If developing and altering the components-library-themes package, you may want to run `npx tsc -w` in the
 components-library-themes directory to update storybook themes on save.
 

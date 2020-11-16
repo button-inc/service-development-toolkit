@@ -1,4 +1,4 @@
-import { ButtonTheme } from "./ButtonTheme";
-import { GovTheme } from "./GovTheme";
+import { ButtonTheme } from './ButtonTheme';
+import { GovTheme } from './GovTheme';
 
-export { ButtonTheme, GovTheme }
+export { ButtonTheme, GovTheme };

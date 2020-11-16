@@ -1,12 +1,12 @@
-import 'styled-components'
+import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    name: string,
+    name: string;
     btn: {
-      shared: string,
-      primary: string,
-      secondary: string
-    }
+      shared: string;
+      primary: string;
+      secondary: string;
+    };
   }
 }
