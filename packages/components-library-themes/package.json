@@ -5,5 +5,8 @@
   "license": "MIT",
   "scripts": {
     "tsc": "npx tsc"
+  },
+  "dependencies": {
+    "styled-components": "^5.2.1"
   }
 }
