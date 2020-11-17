@@ -30,6 +30,6 @@
   "private": true,
   "workspaces": {
     "packages": ["packages/*"],
-    "nohoist": ["**/components-library/**"]
+    "nohoist": ["**/components-library-themes/**"]
   }
 }

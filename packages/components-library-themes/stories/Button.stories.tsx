@@ -1,5 +1,7 @@
 import React from 'react';
-import Button from '../src/components/Button';
+import components from 'components-library';
+const { Button } = components;
+
 
 export default {
   title: 'Button',
