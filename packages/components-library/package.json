@@ -2,9 +2,9 @@
   "name": "components-library",
   "version": "1.0.0",
   "description": "Component library",
-  "main": "dist/index.js",
+  "main": "dist/components/index.js",
   "license": "MIT",
-  "types": "dist/index.d.ts",
+  "types": "dist/components/index.d.ts",
   "dependencies": {
     "styled-components": "^5.2.1"
   },
