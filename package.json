@@ -28,5 +28,8 @@
     "prepublish": "lerna run tsc"
   },
   "private": true,
-  "workspaces": ["packages/*"]
+  "workspaces": {
+    "packages": ["packages/*"],
+    "nohoist": ["**/components-library/**"]
+  }
 }
