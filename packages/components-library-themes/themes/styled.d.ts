@@ -7,6 +7,11 @@ declare module 'styled-components' {
       shared: string;
       primary: string;
       secondary: string;
+      warning: string;
+      danger: string;
+      success: string;
+      small: string;
+      large: string;
     };
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../components/Button';
+import Button from '../src/components/Button';
 
 export default {
   title: 'Button',
@@ -11,13 +11,38 @@ const Template = args => <Button {...args}>Click!</Button>;
 
 export const Primary = Template.bind({});
 export const Secondary = Template.bind({});
+export const Warning = Template.bind({});
+export const Danger = Template.bind({});
+export const Success = Template.bind({});
+export const Small = Template.bind({});
+export const Large = Template.bind({});
 
 Primary.args = {
   primary: true,
-  large: false,
 };
 
 Secondary.args = {
   secondary: true,
-  large: false,
+};
+
+Small.args = {
+  primary: true,
+  small: true,
+};
+
+Large.args = {
+  primary: true,
+  large: true,
+};
+
+Warning.args = {
+  warning: true,
+};
+
+Danger.args = {
+  danger: true,
+};
+
+Success.args = {
+  success: true,
 };

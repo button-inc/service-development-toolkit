@@ -47,6 +47,11 @@ export const GovTheme: DefaultTheme = {
         color: #FFFFFF;
       }
     `,
+    danger: ``,
+    warning: ``,
+    success: ``,
+    small: ``,
+    large: ``
   },
 };
 
