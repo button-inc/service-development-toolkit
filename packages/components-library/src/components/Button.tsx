@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getCssFromDisplayProps } from '../helpers';
+import getCssFromDisplayProps from '../helpers';
 import { buttonDisplayProps } from '../constants';
 
 interface ButtonProps {
