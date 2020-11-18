@@ -1,11 +1,22 @@
-import { DefaultTheme } from 'styled-components';
+import styled, { DefaultTheme } from 'styled-components';
+import getCssFromDisplayProps from './helpers';
+import GlobalStyles from './GlobalStyles';
 
-const primaryColor = '#003366';
+interface ButtonProps {
+  secondary: boolean;
+  primary: boolean;
+  large: boolean;
+  theme: DefaultTheme;
+}
 
-export const GovTheme: DefaultTheme = {
-  name: 'Gov',
-  btn: {
-    shared: `
+interface Styles {
+  shared: string;
+  primary: string;
+  secondary: string;
+}
+
+const styles: Styles = {
+  shared: `
       border-radius: 4px;
       text-align: center;
       text-decoration: none;
@@ -23,8 +34,8 @@ export const GovTheme: DefaultTheme = {
         opacity: 1;
       }
     `,
-    primary: `
-      background-color: ${primaryColor};
+  primary: `
+      background-color: ${GlobalStyles.primaryColor};
       border: none;
       color: white;
       padding: 12px 32px;
@@ -34,7 +45,7 @@ export const GovTheme: DefaultTheme = {
         opacity: 0.80;
       }
     `,
-    secondary: `
+  secondary: `
       background: none;
       border: 2px solid #003366;
       padding: 10px 30px;
@@ -47,7 +58,16 @@ export const GovTheme: DefaultTheme = {
         color: #FFFFFF;
       }
     `,
-  },
 };
 
-export default GovTheme;
+const defaultButton = styled.button`
+  ${styles.shared}
+`;
+
+const Button = styled(defaultButton)`
+  ${(props: ButtonProps) => {
+    return getCssFromDisplayProps<ButtonProps, Styles>(props, styles);
+  }}
+`;
+
+export default Button;

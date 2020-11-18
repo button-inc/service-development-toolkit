@@ -1,0 +1,19 @@
+{
+  "name": "component-library",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/styled-components": "^5.1.4",
+    "react": "^17.0.1",
+    "styled-components": "^5.2.1",
+    "typescript": "^4.0.5"
+  },
+  "devDependencies": {
+    "@4c/tsconfig": "^0.3.1"
+  },
+  "scripts": {
+    "tsc": "npx tsc"
+  },
+  "types": "lib/index.d.ts"
+}
