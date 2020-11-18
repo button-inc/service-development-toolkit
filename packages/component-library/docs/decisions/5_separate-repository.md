@@ -6,8 +6,8 @@ Whether to include project as a subdirectory of the pangolin repository, or brea
 
 ## Findings
 
-  - This package is part of the pangolin toolkit, and can be kept in the same directory
-  - Package management tools like [lerna](https://github.com/lerna/lerna) will be explored to facilitate this.
+- This package is part of the pangolin toolkit, and can be kept in the same directory
+- Package management tools like [lerna](https://github.com/lerna/lerna) will be explored to facilitate this.
 
 ## Decision
 

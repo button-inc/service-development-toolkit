@@ -53,16 +53,16 @@ const styles: Styles = {
   `,
   success: `
     background-color: ${GlobalStyles.successColor}
-  `
-}
+  `,
+};
 
 const defaultButton = styled.button`
   ${styles.shared}
-`
+`;
 
 const Button = styled(defaultButton)`
   ${(props: ButtonProps) => {
-    return getCssFromDisplayProps<ButtonProps, Styles>(props, styles)
+    return getCssFromDisplayProps<ButtonProps, Styles>(props, styles);
   }}
 `;
 
