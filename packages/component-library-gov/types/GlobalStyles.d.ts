@@ -1,4 +1,4 @@
 declare const _default: {
-  primaryColor: string;
+    primaryColor: string;
 };
 export default _default;

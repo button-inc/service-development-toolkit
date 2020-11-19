@@ -11,10 +11,10 @@ const getConfig = require('./dist.webpack.config');
 
 let targets = process.argv.slice(2);
 
-const srcRoot = path.join(__dirname, '../', targets[0], '../src');
-const typesRoot = path.join(__dirname, '../', targets[0], '../types');
+const srcRoot = path.join(__dirname, '../', targets[0], 'src');
+const typesRoot = path.join(__dirname, '../', targets[0], 'types');
 
-const libRoot = path.join(__dirname, '../', targets[0], '../lib');
+const libRoot = path.join(__dirname, '../', targets[0], 'lib');
 const distRoot = path.join(libRoot, 'dist');
 const cjsRoot = path.join(libRoot, 'cjs');
 const esRoot = path.join(libRoot, 'esm');

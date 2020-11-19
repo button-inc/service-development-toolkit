@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import ButtonGov from 'component-library-gov/lib/Button';
-import Button from 'component-library/lib/Button';
+import ButtonGov from 'component-library-gov/Button';
+import Button from 'component-library/Button';
 
 const Title = styled.h1`
   font-size: 50px;
