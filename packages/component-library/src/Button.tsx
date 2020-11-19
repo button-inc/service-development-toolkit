@@ -10,17 +10,17 @@ interface ButtonProps {
 }
 
 interface Styles {
-  shared: string;
-  primary: string;
-  secondary: string;
-  large: string;
-  small: string;
-  warning: string;
-  danger: string;
-  success: string;
+  shared?: string;
+  primary?: string;
+  secondary?: string;
+  large?: string;
+  small?: string;
+  warning?: string;
+  danger?: string;
+  success?: string;
 }
 
-const styles: Styles = {
+const defaultStyles: Styles = {
   shared: `
   color: ${GlobalStyles.fontColor};
   border-radius: 70px;
@@ -56,14 +56,20 @@ const styles: Styles = {
   `,
 };
 
-const defaultButton = styled.button`
-  ${styles.shared}
-`;
+export const applyTheme = (styles: Styles) => {
+  const stylesToApply = { ...defaultStyles, ...styles };
 
-const Button = styled(defaultButton)`
-  ${(props: ButtonProps) => {
-    return getCssFromDisplayProps<ButtonProps, Styles>(props, styles);
-  }}
-`;
+  const defaultButton = styled.button`
+    ${stylesToApply.shared}
+  `;
+
+  return styled(defaultButton)`
+    ${(props: ButtonProps) => {
+      return getCssFromDisplayProps<ButtonProps, Styles>(props, stylesToApply);
+    }}
+  `;
+};
+
+const Button = applyTheme(defaultStyles);
 
 export default Button;

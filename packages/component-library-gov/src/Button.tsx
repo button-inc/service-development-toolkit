@@ -1,19 +1,10 @@
-import styled, { DefaultTheme, ThemeProvider } from 'styled-components';
-import getCssFromDisplayProps from './helpers';
 import GlobalStyles from './GlobalStyles';
-import _Button from 'component-library/lib/Button';
-
-interface ButtonProps {
-  secondary: boolean;
-  primary: boolean;
-  large: boolean;
-  theme: DefaultTheme;
-}
+import _Button, { applyTheme } from 'component-library/lib/Button';
 
 interface Styles {
-  shared: string;
-  primary: string;
-  secondary: string;
+  shared?: string;
+  primary?: string;
+  secondary?: string;
 }
 
 const styles: Styles = {
@@ -61,14 +52,6 @@ const styles: Styles = {
     `,
 };
 
-const defaultButton = styled(_Button)`
-  ${styles.shared}
-`;
-
-const Button = styled(defaultButton)`
-  ${(props: ButtonProps) => {
-    return getCssFromDisplayProps<ButtonProps, Styles>(props, styles);
-  }}
-`;
+const Button = applyTheme(styles);
 
 export default Button;
