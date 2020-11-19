@@ -1,5 +1,5 @@
+import { applyTheme } from 'component-library/lib/Button';
 import GlobalStyles from './GlobalStyles';
-import _Button, { applyTheme } from 'component-library/lib/Button';
 
 interface Styles {
   shared?: string;
