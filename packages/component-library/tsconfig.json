@@ -1,8 +1,9 @@
 {
-  "extends": "@4c/tsconfig/workspaces.json",
+  "extends": "@4c/tsconfig/web.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "lib"
+    "outDir": "lib",
+    "noImplicitAny": false
   },
   "include": ["src"]
 }

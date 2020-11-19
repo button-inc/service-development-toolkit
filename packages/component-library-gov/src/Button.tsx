@@ -1,6 +1,7 @@
-import styled, { DefaultTheme } from 'styled-components';
+import styled, { DefaultTheme, ThemeProvider } from 'styled-components';
 import getCssFromDisplayProps from './helpers';
 import GlobalStyles from './GlobalStyles';
+import _Button from 'component-library/lib/Button';
 
 interface ButtonProps {
   secondary: boolean;
@@ -60,7 +61,7 @@ const styles: Styles = {
     `,
 };
 
-const defaultButton = styled.button`
+const defaultButton = styled(_Button)`
   ${styles.shared}
 `;
 
