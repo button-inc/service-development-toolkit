@@ -52,14 +52,14 @@ And structure the compiled npm module as:
 │       │   ...
 |   ...
 │   └───esm
-        └───Component1
-        │       │   index.ts
-        │       │   component.ts
-        │       │   ...
-        │   └───Component2
-        │       │   index.ts
-        │       │   component.ts
-        │       │   ...
+|       └───Component1
+|       │       │   index.ts
+|       │       │   component.ts
+|       │       │   ...
+|       │   └───Component2
+|       │       │   index.ts
+|       │       │   component.ts
+|       │       │   ...
 │   └───umd
 ```
 
