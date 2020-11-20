@@ -1,4 +1,4 @@
-import { applyTheme } from 'component-library/lib/Button';
+import { applyTheme } from 'component-library/Button';
 import GlobalStyles from './GlobalStyles';
 
 const styles = {

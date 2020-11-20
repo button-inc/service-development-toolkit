@@ -33,14 +33,15 @@
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
-    "prepublish": "lerna run tsc",
+    "bootstrap": "lerna bootstrap",
+    "llink": "lerna link",
     "build": "lerna run build",
-    "llink": "lerna link"
+    "clean": "lerna clean"
   },
   "private": true,
   "resolutions": {
-    "**/react": "17.0.1",
-    "**/react-dom": "17.0.1"
+    "**/react": "^17.0.1",
+    "**/react-dom": "^17.0.1"
   },
   "workspaces": {
     "packages": [
