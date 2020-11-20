@@ -1,25 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "skipLibCheck": true,
-    "strict": false,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "declaration": true,
+    "target": "es5",
+    "lib": ["es6", "dom"],
     "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["*", "../*", "__generated__/*"]
-    },
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noEmit": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
+    "noErrorTruncation": true,
     "allowJs": true,
-    "downlevelIteration": true
+    "paths": {
+      "component-library": ["./packages/component-library/src"],
+      "component-library-gov": ["./packages/component-library-gov/src"],
+      "test/*": ["./test/*"]
+    }
   },
-  "exclude": ["node_modules", "static"],
-  "include": ["./**/*", "./.eslintrc.js"]
+  "exclude": ["**/build/"]
 }
