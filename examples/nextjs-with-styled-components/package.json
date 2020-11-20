@@ -11,8 +11,8 @@
     "react-dom": "16.8.0",
     "react-is": "^16.8.0",
     "styled-components": "^5.0.0",
-    "component-library": "^1.0.0",
-    "component-library-gov": "^1.0.0"
+    "component-library": "^0.1.0",
+    "component-library-gov": "^0.1.0"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.8.0"

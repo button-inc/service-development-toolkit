@@ -1,6 +1,6 @@
 {
   "name": "component-library-gov",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Library for theme-able, accessible, progressively-enhancing react components",
   "license": "MIT",
   "main": "lib/cjs/index.js",
@@ -16,7 +16,7 @@
     "@babel/runtime": "^7.4.2",
     "@types/styled-components": "^5.1.4",
     "styled-components": "^5.2.1",
-    "component-library": "0.1.0"
+    "component-library": "^0.1.0"
   },
   "devDependencies": {
     "@4c/tsconfig": "^0.3.1",
