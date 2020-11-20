@@ -1,0 +1,46 @@
+{
+  "name": "component-library-gov",
+  "version": "0.1.0",
+  "description": "Library for theme-able, accessible, progressively-enhancing react components",
+  "license": "MIT",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/esm/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "node ../../scripts/build.js --name=component-library-gov",
+    "build-docs": "yarn --cwd www build",
+    "build-types": "yarn tsc -d --emitDeclarationOnly --outDir types"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.4.2",
+    "@types/styled-components": "^5.1.4",
+    "styled-components": "^5.2.1",
+    "component-library": "^0.1.0"
+  },
+  "devDependencies": {
+    "@4c/tsconfig": "^0.3.1",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-typescript": "^7.12.1",
+    "@babel/register": "^7.12.1",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.1",
+    "babel-plugin-istanbul": "^6.0.0",
+    "chalk": "^4.1.0",
+    "cherry-pick": "^0.5.0",
+    "cpy-cli": "^3.1.1",
+    "execa": "^4.1.0",
+    "typescript": "^4.0.5",
+    "webpack": "^4.44.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "publishConfig": {
+    "directory": "lib"
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "rootDir": "themes",
-    "outDir": "dist",
-    "noEmit": false
-  },
-  "include": ["themes/index.ts"]
-}

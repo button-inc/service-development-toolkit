@@ -1,7 +1,6 @@
 name: Run Lint and Style
 
-on:
-  push
+on: push
 
 jobs:
   pre-commit:

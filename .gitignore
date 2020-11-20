@@ -1,2 +1,6 @@
 node_modules
+lib
+build
 dist
+packages/**/types
+yarn-error.log
