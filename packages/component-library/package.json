@@ -1,6 +1,6 @@
 {
   "name": "component-library",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Library for theme-able, accessible, progressively-enhancing react components",
   "license": "MIT",
   "main": "lib/cjs/index.js",
@@ -8,7 +8,7 @@
   "types": "lib/esm/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "build": "node ../../scripts/build.js packages/component-library",
+    "build": "node ../../scripts/build.js --name=component-library",
     "build-docs": "yarn --cwd www build",
     "build-types": "yarn tsc -d --emitDeclarationOnly --outDir types"
   },

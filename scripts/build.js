@@ -1,4 +1,5 @@
 // Build configuration taken from https://github.com/react-bootstrap/react-bootstrap/blob/master/tools/build.js
+// and optimized to fit to this project.
 
 const { green, cyan, red } = require('chalk');
 const webpack = require('webpack');
@@ -7,19 +8,28 @@ const path = require('path');
 const fse = require('fs-extra');
 const execa = require('execa');
 const cherryPick = require('cherry-pick').default;
+const argv = require('yargs').argv;
 const getConfig = require('./dist.webpack.config');
+const name = argv.name;
+const targets = (argv.target && (Array.isArray(argv.target) ? argv.target : [argv.target])) || [];
 
-let targets = process.argv.slice(2);
+if (!name) {
+  console.error(red('package name is not provided!'));
+  process.exit(1);
+}
 
-const srcRoot = path.join(__dirname, '../', targets[0], 'src');
-const typesRoot = path.join(__dirname, '../', targets[0], 'types');
+const packageDir = `packages/${name}`;
+const packageRoot = path.join(__dirname, '../', packageDir);
 
-const libRoot = path.join(__dirname, '../', targets[0], 'lib');
-const distRoot = path.join(libRoot, 'dist');
+const srcRoot = path.join(packageRoot, 'src');
+const typesRoot = path.join(packageRoot, 'types');
+const libRoot = path.join(packageRoot, 'lib');
+
+const umdRoot = path.join(libRoot, 'umd');
 const cjsRoot = path.join(libRoot, 'cjs');
-const esRoot = path.join(libRoot, 'esm');
+const esmRoot = path.join(libRoot, 'esm');
 
-targets = [];
+console.log(green(`Start building: ${name}`));
 
 const clean = () => fse.existsSync(libRoot) && fse.removeSync(libRoot);
 
@@ -44,7 +54,7 @@ const babel = (outDir, envName) =>
  * Run babel over the src directory and output
  * compiled common js files to ./lib.
  */
-const buildLib = step('commonjs modules', async () => {
+const buildCjs = step('commonjs modules', async () => {
   await babel(cjsRoot, 'cjs');
   await copyTypes(cjsRoot);
 });
@@ -54,19 +64,19 @@ const buildLib = step('commonjs modules', async () => {
  * compiled es modules (but otherwise es5) to /es
  */
 const buildEsm = step('es modules', async () => {
-  await babel(esRoot, 'esm');
-  await copyTypes(esRoot);
+  await babel(esmRoot, 'esm');
+  await copyTypes(esmRoot);
 });
 
 /**
- * Bundles a minified and unminified version of react-bootstrap including
+ * Bundles a minified and unminified version of package including
  * all it's immediate dependencies (excluding React, ReactDOM, etc)
  */
-const buildDist = step(
+const buildUmd = step(
   'browser distributable',
   () =>
     new Promise((resolve, reject) => {
-      webpack([getConfig(distRoot, false), getConfig(distRoot, true)], async (err, stats) => {
+      webpack([getConfig(umdRoot, name, false), getConfig(umdRoot, name, true)], (err, stats) => {
         if (err || stats.hasErrors()) {
           reject(err || stats.toJson().errors);
           return;
@@ -90,11 +100,13 @@ console.log(green(`Building targets: ${targets.length ? targets.join(', ') : 'al
 
 clean();
 
-Promise.resolve(true)
-  .then(buildTypes)
-  .then(() => Promise.all([has('lib') && buildLib(), has('es') && buildEsm(), has('dist') && buildDist()]))
-  .then(buildDirectories)
-  .catch(err => {
-    if (err) console.error(red(err.stack || err.toString()));
+(async () => {
+  try {
+    await buildTypes();
+    await Promise.all([has('cjs') && buildCjs(), has('esm') && buildEsm(), has('umd') && buildUmd()]);
+    await buildDirectories();
+  } catch (err) {
+    console.error(red(err.stack || err.toString()));
     process.exit(1);
-  });
+  }
+})();

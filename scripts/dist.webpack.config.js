@@ -1,12 +1,12 @@
-module.exports = (distRoot, optimize) => ({
+module.exports = (path, name, optimize) => ({
   mode: 'production',
   optimization: {
     minimize: !!optimize,
   },
   entry: './src/index.tsx',
   output: {
-    path: distRoot,
-    filename: optimize ? 'react-bootstrap.min.js' : 'react-bootstrap.js',
+    path,
+    filename: optimize ? `${name}.min.js` : `${name}.js`,
     library: 'ReactBootstrap',
     libraryTarget: 'umd',
   },
@@ -18,7 +18,7 @@ module.exports = (distRoot, optimize) => ({
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
-            envName: `dist-${optimize ? 'prod' : 'dev'}`,
+            envName: `umd-${optimize ? 'prod' : 'dev'}`,
           },
         },
       },
