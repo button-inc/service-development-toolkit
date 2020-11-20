@@ -16,7 +16,7 @@
     "@babel/runtime": "^7.4.4",
     "@types/styled-components": "^5.1.4",
     "styled-components": "^5.2.1",
-    "component-library": "latest"
+    "component-library": "0.1.0"
   },
   "devDependencies": {},
   "peerDependencies": {
