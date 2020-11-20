@@ -1,13 +1,7 @@
 import { applyTheme } from 'component-library/lib/Button';
 import GlobalStyles from './GlobalStyles';
 
-interface Styles {
-  shared?: string;
-  primary?: string;
-  secondary?: string;
-}
-
-const styles: Styles = {
+const styles = {
   shared: `
       border-radius: 4px;
       text-align: center;

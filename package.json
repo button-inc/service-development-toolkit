@@ -34,7 +34,8 @@
     "format": "prettier --write .",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "prepublish": "lerna run tsc",
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "llink": "lerna link"
   },
   "private": true,
   "resolutions": {
