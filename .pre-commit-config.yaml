@@ -3,6 +3,7 @@ repos:
     rev: v2.3.0
     hooks:
       - id: check-added-large-files
+        exclude: yarn.lock
       - id: check-case-conflict
       - id: check-executables-have-shebangs
         files: \.sh
