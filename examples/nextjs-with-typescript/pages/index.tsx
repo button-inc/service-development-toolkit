@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Button from 'component-library/Button'
 import Button2 from 'component-library-gov/Button'
+import Input from 'component-library-gov/Input'
 
 const Title = styled.h1`
   color: red;
@@ -10,7 +10,9 @@ const Title = styled.h1`
 export default function Home() {
   return <>
     <Title>My page</Title>
-    <Button primary>Click!</Button>
-    <Button2 primary>Click!</Button2>
+    <form action="">
+      <Input large placeholder="placeholder" required type="email"></Input>
+      <Button2 large primary type="submit">Click!</Button2>
+    </form>
     </>
 }
