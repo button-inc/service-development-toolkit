@@ -1,13 +1,11 @@
+import React from 'react';
 import styled from 'styled-components';
 import getCssFromDisplayProps from './helpers';
-import React from 'react';
-import GlobalStyles from './GlobalStyles';
-import { StyledComponentProps } from 'styled-components';
 
 type InputProps = {
   large?: boolean;
   small?: boolean;
-  type?: "email" | "url" | "number" | 'password' | 'tel' | 'text'
+  type?: 'email' | 'url' | 'number' | 'password' | 'tel' | 'text';
 };
 
 interface Styles {
@@ -16,21 +14,13 @@ interface Styles {
   small?: string;
 }
 
-const allowedTypes = [
-  'email',
-  'number',
-  'password',
-  'tel',
-  'text',
-  'url'
-]
+const allowedTypes = ['email', 'number', 'password', 'tel', 'text', 'url'];
 
-function restrictInputTypeProps(props){
-  if (allowedTypes.includes(props.type)){
-    return props
-  } else {
-    return {...props, type: undefined}
+function restrictInputTypeProps(props) {
+  if (allowedTypes.includes(props.type)) {
+    return props;
   }
+  return { ...props, type: undefined };
 }
 
 const defaultStyles: Styles = {
@@ -43,28 +33,29 @@ const defaultStyles: Styles = {
   small: `
     line-height: 13px;
     font-size: 0.75rem;
-  `
+  `,
+};
+
+const BaseInput = props => {
+  const newProps = restrictInputTypeProps(props);
+  return <input {...newProps} />;
 };
 
 export const applyTheme = (styles: Styles) => {
   const stylesToApply = { ...defaultStyles, ...styles };
 
-  const defaultInput = styled.input`
+  const defaultInput = styled(BaseInput)`
     ${stylesToApply.shared}
   `;
 
   return styled(defaultInput)<InputProps>`
     ${(props: InputProps) => {
-      return getCssFromDisplayProps<InputProps, Styles>(props, stylesToApply);
+      const newProps = restrictInputTypeProps(props);
+      return getCssFromDisplayProps<InputProps, Styles>(newProps, stylesToApply);
     }}
   `;
 };
 
-const Input = applyTheme(defaultStyles)
+const Input = applyTheme(defaultStyles);
 
-export default function(props: InputProps & React.HTMLProps<HTMLInputElement> ){
-  const newProps = restrictInputTypeProps(props);
-  return (
-    <Input {...newProps}></Input>
-  )}
-;
+export default Input;
