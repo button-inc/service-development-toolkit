@@ -33,7 +33,7 @@
   },
   "scripts": {
     "format": "prettier --write .",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint": "git ls-files '*.js' '*.jsx' '*.ts' '*.tsx' | xargs yarn eslint",
     "bootstrap": "lerna bootstrap",
     "llink": "lerna link",
     "build": "lerna run build",

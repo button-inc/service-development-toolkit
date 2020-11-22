@@ -6,12 +6,16 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
+    '@typescript-eslint/naming-convention': 0,
     'import/no-extraneous-dependencies': 0,
-    'react/jsx-props-no-spreading': 0,
+    'import/no-unresolved': 0,
     'import/prefer-default-export': 0,
     'no-console': 0,
-    '@typescript-eslint/naming-convention': 0,
     'no-underscore-dangle': 0,
+    'react/jsx-filename-extension': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/prop-types': 0,
+    'react/react-in-jsx-scope': 0,
   },
   overrides: [],
 };
