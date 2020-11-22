@@ -12,10 +12,9 @@ We considered module-support (See decision 6), bundler tools, and general struct
 - [semantic-ui react](https://github.com/Semantic-Org/Semantic-UI-React)
 - [material-ui](https://github.com/mui-org/material-ui)
 
-| React Bootstrap                                                                   | Semantic UI                                                                | Material UI                                                                           |
-| --------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| React Bootstrap                                                                                                     | Semantic UI                                                                | Material UI                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Supports cjs, ems, and umd. Uses webpack to bundle. Matches our current structure. Builds components in typescript. | Supports cjs, ems, and umd. Structures components into individual folders. | Supports cjs, ems, and umd. Uses rollup as bundler. Organizes components into folders. Builds components in js, and exports type support for typescript |
-
 
 ## Decision
 
