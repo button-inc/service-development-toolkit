@@ -28,4 +28,4 @@ repos:
     rev: v0.12.0
     hooks:
       - id: gitlint
-exclude: "examples/*"
+exclude: 'examples/*'

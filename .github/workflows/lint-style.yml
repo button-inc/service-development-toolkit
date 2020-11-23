@@ -4,12 +4,24 @@ on: push
 
 jobs:
   pre-commit:
-    runs-on: 'ubuntu-latest'
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - name: Install asdf
+        uses: asdf-vm/actions/setup@v1
+      - uses: actions/cache@v2
+        id: asdf-cache
         with:
-          python-version: 3.x
+          path: |
+            /home/runner/.asdf
+          key: ${{ runner.os }}-asdf-${{ hashFiles('**/.tool-versions') }}
+      - name: Install asdf tools
+        run: |
+          cat .tool-versions | cut -f 1 -d ' ' | xargs -n 1 asdf plugin-add || true
+          asdf plugin-update --all
+          bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+          asdf install
+          asdf reshim
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -23,11 +35,15 @@ jobs:
       - name: Install Yarn Dependencies
         run: |
           yarn
-      - name: Rerun Pre-Commit Hooks on CI
+      - name: Rerun Pre-Commit Hooks in CI
         run: |
           pip install -r requirements.txt
+          asdf reshim
           chmod +x .bin/format.sh
-          pre-commit run --all-files
+          pre-commit run -a -v
+      - name: Run linter
+        run: |
+          yarn lint
   commitlint:
     runs-on: ubuntu-latest
     steps:

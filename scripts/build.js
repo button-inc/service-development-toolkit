@@ -8,9 +8,10 @@ const path = require('path');
 const fse = require('fs-extra');
 const execa = require('execa');
 const cherryPick = require('cherry-pick').default;
-const argv = require('yargs').argv;
+const { argv } = require('yargs');
 const getConfig = require('./dist.webpack.config');
-const name = argv.name;
+
+const { name } = argv;
 const targets = (argv.target && (Array.isArray(argv.target) ? argv.target : [argv.target])) || [];
 
 if (!name) {
@@ -33,10 +34,10 @@ console.log(green(`Start building: ${name}`));
 
 const clean = () => fse.existsSync(libRoot) && fse.removeSync(libRoot);
 
-const step = (name, fn) => async () => {
-  console.log(cyan('Building: ') + green(name));
+const step = (msg, fn) => async () => {
+  console.log(cyan('Building: ') + green(msg));
   await fn();
-  console.log(cyan('Built: ') + green(name));
+  console.log(cyan('Built: ') + green(msg));
 };
 
 const shell = cmd => execa(cmd, { stdio: ['pipe', 'pipe', 'inherit'], shell: true });
