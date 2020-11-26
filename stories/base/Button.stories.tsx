@@ -6,22 +6,23 @@ import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../helpers';
 export default {
   title: 'Button',
   component: Button,
+  argTypes: { onClick: { action: 'clicked' } },
 } as Meta;
 
 const Template: Story = args => (
   <>
     <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
-      <Button {...args}>Button</Button>
+      <Button {...args} >Button</Button>
     </HtmlOnlyWrapper>
 
     <h3>HTML + CSS</h3>
     <HtmlWithCssWrapper>
-      <Button {...args}>Button</Button>
+      <Button {...args} >Button</Button>
     </HtmlWithCssWrapper>
 
     <h3>HTML + CSS + JS</h3>
-    <Button {...args}>Button</Button>
+    <Button {...args} >Button</Button>
   </>
 );
 
