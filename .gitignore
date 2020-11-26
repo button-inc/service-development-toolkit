@@ -4,3 +4,7 @@ build
 dist
 packages/**/types
 yarn-error.log
+
+# storybook
+storybook-static
+out*
