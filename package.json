@@ -16,6 +16,7 @@
     "@storybook/addon-essentials": "^6.1.6",
     "@storybook/addon-links": "^6.1.6",
     "@storybook/react": "^6.1.6",
+    "@storybook/storybook-deployer": "^2.8.7",
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
     "babel-core": "7.0.0-bridge.0",
@@ -45,6 +46,7 @@
     "clean": "lerna clean",
     "storybook:base": "start-storybook -p 6006 -c .storybook/base",
     "storybook:gov": "start-storybook -p 6006 -c .storybook/gov",
+    "deploy-storybook": "storybook-to-ghpages --packages packages --branch=storybook",
     "build-storybook:base": "build-storybook -c .storybook/base",
     "build-storybook:gov": "build-storybook -c .storybook/gov"
   },

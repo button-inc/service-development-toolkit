@@ -1,5 +1,5 @@
-import storyBuilder from '../templates/ButtonTemplate';
-import Button from '../../packages/component-library/src/Button';
+import storyBuilder from '../../../stories/templates/ButtonTemplate';
+import Button from '../src/Button';
 
 const exported = storyBuilder(Button, 'Button');
 const metaData = exported.default;
