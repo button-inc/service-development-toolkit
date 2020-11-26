@@ -36,6 +36,9 @@ jobs:
       - name: Install Yarn Dependencies
         run: |
           yarn
+          yarn bootstrap
+          yarn llink
+          yarn build
 
       - name: Decrypt secrets
         env:
