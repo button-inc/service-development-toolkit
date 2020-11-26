@@ -10,3 +10,17 @@ yarn bootstrap
 yarn llink
 yarn build
 ```
+
+## Storybook
+
+To run locally, run `yarn llink` followed by `yarn storybook:<theme>` where theme is one of:
+
+- base
+- gov
+
+To build, run `yarn llink` followed by `yarn build-storybook:<theme>` where theme is one of:
+
+- base
+- gov
+
+To test build locally, run `npx http-server ./storybook-static` after building.
