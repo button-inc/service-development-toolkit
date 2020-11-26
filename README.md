@@ -10,3 +10,10 @@ yarn bootstrap
 yarn llink
 yarn build
 ```
+
+## Storybook
+
+
+To run locally, run `yarn llink` followed by `yarn storybook:<theme>` where theme is one of:
+  - base
+  - gov
