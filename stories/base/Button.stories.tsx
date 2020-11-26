@@ -1,15 +1,29 @@
 import React from 'react';
-// also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
 import Button from '../../packages/component-library/src/Button';
+import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../helpers';
 
 export default {
   title: 'Button',
   component: Button,
 } as Meta;
 
-// const Template: Story<ButtonProps> = (args) => <Button {...args} />;
-const Template: Story = args => <Button {...args}>Button</Button>;
+const Template: Story = args => (
+  <>
+    <h3>HTML Only</h3>
+    <HtmlOnlyWrapper>
+      <Button {...args}>Button</Button>
+    </HtmlOnlyWrapper>
+
+    <h3>HTML + CSS</h3>
+    <HtmlWithCssWrapper>
+      <Button {...args}>Button</Button>
+    </HtmlWithCssWrapper>
+
+    <h3>HTML + CSS + JS</h3>
+    <Button {...args}>Button</Button>
+  </>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
