@@ -1,7 +1,7 @@
 import React from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Story, Meta } from '@storybook/react/types-6-0';
-import Button from '../../packages/component-library/src/Button';
+import Button from '../../packages/component-library-gov/src/Button';
 
 export default {
   title: 'Button',
@@ -9,7 +9,7 @@ export default {
 } as Meta;
 
 // const Template: Story<ButtonProps> = (args) => <Button {...args} />;
-const Template: Story = (args) => <Button {...args}>Button</Button>;
+const Template: Story = args => <Button {...args}>Button</Button>;
 
 export const Primary = Template.bind({});
 Primary.args = {

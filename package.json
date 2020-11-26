@@ -44,7 +44,8 @@
     "clean": "lerna clean",
     "storybook:base": "start-storybook -p 6006 -c .storybook/base",
     "storybook:gov": "start-storybook -p 6006 -c .storybook/gov",
-    "build-storybook": "build-storybook"
+    "build-storybook:base": "build-storybook -c .storybook/base",
+    "build-storybook:gov": "build-storybook -c .storybook/gov"
   },
   "private": true,
   "resolutions": {
