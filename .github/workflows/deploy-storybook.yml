@@ -61,4 +61,6 @@ jobs:
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
+          git config --global user.name "Junmin Ahn"
+          git config --global user.email "junmin@button.is"
           yarn deploy-storybook
