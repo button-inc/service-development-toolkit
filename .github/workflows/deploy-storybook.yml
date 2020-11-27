@@ -61,9 +61,12 @@ jobs:
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
+          yarn deploy-storybook -- --dry-run
           rm -rf .git
           git init
+          git add .
+          git commit -m "deploy storybook"
           git status
           git config --local user.name "Junmin Ahn"
           git config --local user.email "junmin@button.is"
-          yarn deploy-storybook
+          git push -f git@github.com:thebuttonclan/pangolin.github.io.git storybook
