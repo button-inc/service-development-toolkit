@@ -7,6 +7,13 @@ module.exports = api => {
   switch (env) {
     case 'docs':
     case 'test':
+      return {
+          presets: [
+            '@babel/react',
+            '@babel/preset-typescript',
+            ['@babel/preset-env', {targets: {node: 'current'}}],
+          ]
+      }
     case 'umd-dev':
       dev = true;
       modules = false;
@@ -31,6 +38,7 @@ module.exports = api => {
         },
       ],
       '@babel/preset-typescript',
+      ['@babel/preset-env', {targets: {node: 'current'}}],
     ],
     plugins: [env === 'test' && 'istanbul'].filter(Boolean),
   };
