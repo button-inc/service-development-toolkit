@@ -1,7 +1,12 @@
 # see https://tabris.com/using-deploy-keys-on-github-actions/
 name: Deploy Storybook
 
-on: push
+on:
+  workflow_run:
+    workflows: ["Run Lint and Style"]
+    branches: [develop]
+    types:
+      - completed
 
 jobs:
   main:
