@@ -67,8 +67,7 @@ jobs:
           git init
           git config user.name "Junmin Ahn"
           git config user.email "junmin@button.is"
+          git config commit.gpgsign false
           git add .
-          git commit -m "deploy storybook"
-          git branch -M storybook
-          git remote add origin git@github.com:thebuttonclan/pangolin.git
-          git push -u -f origin storybook
+          git commit -m "deploy storybook to github pages"
+          git push --force --quiet git@github.com:thebuttonclan/pangolin.git master:storybook
