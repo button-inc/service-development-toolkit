@@ -56,11 +56,10 @@ jobs:
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null
           chmod 0600 .github/workflows/secrets/id_rsa
           ssh-add .github/workflows/secrets/id_rsa
-
-      - name: Deploy Storybook
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: |
-          git config --global user.name "Junmin Ahn"
-          git config --global user.email "junmin@button.is"
           yarn deploy-storybook
+
+      # - name: Deploy Storybook
+      #   env:
+      #     SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+      #   run: |
+      #     yarn deploy-storybook
