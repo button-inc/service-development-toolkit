@@ -69,4 +69,6 @@ jobs:
           git config user.email "junmin@button.is"
           git add .
           git commit -m "deploy storybook"
-          git push --force --quiet https://github.com/thebuttonclan/pangolin master:storybook
+          git branch -M storybook
+          git remote add origin git@github.com:thebuttonclan/pangolin.git
+          git push -u -f origin storybook
