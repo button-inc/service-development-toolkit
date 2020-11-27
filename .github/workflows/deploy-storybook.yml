@@ -62,7 +62,6 @@ jobs:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
           yarn deploy-storybook -- --dry-run --out=.out
-          ls -al .out
           rm -rf .git
           cd .out
           git init
@@ -70,5 +69,4 @@ jobs:
           git config user.email "junmin@button.is"
           git add .
           git commit -m "deploy storybook"
-          git status
-          git push -f git@github.com:thebuttonclan/pangolin.github.io.git storybook
+          git push --force --quiet https://github.com/thebuttonclan/pangolin master:storybook
