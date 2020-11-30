@@ -46,8 +46,8 @@ jobs:
           yarn lint
       - name: Unit test
         run: |
-          yarn build
           yarn llink
+          yarn build
           yarn test:jest
   commitlint:
     runs-on: ubuntu-latest
