@@ -52,6 +52,7 @@
     "llink": "lerna link",
     "build": "lerna run build",
     "clean": "lerna clean",
+    "test:jest": "lerna run test:jest --stream",
     "storybook:base": "start-storybook -p 6006 -c .storybook/base",
     "storybook:gov": "start-storybook -p 6006 -c .storybook/gov",
     "deploy-storybook": "storybook-to-ghpages --packages packages --branch=storybook",

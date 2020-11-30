@@ -24,3 +24,7 @@ To build, run `yarn llink` followed by `yarn build-storybook:<theme>` where them
 - gov
 
 To test build locally, run `npx http-server ./storybook-static` after building.
+
+## Test
+
+To run unit tests in all packages, run `yarn test:jest`
