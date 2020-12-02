@@ -44,6 +44,11 @@ jobs:
       - name: Run linter
         run: |
           yarn lint
+      - name: Unit test
+        run: |
+          yarn llink
+          yarn build
+          yarn test:jest
   commitlint:
     runs-on: ubuntu-latest
     steps:

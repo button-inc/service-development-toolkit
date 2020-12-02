@@ -1,7 +1,7 @@
 import { axe, toHaveNoViolations } from 'jest-axe';
 import { render } from '@testing-library/react';
 import React from 'react';
-import Button from '../Button';
+import Button from '../src/Button';
 import 'regenerator-runtime/runtime';
 
 expect.extend(toHaveNoViolations);
