@@ -8,12 +8,8 @@ module.exports = api => {
     case 'docs':
     case 'test':
       return {
-          presets: [
-            '@babel/react',
-            '@babel/preset-typescript',
-            ['@babel/preset-env', {targets: {node: 'current'}}],
-          ]
-      }
+        presets: ['@babel/react', '@babel/preset-typescript', ['@babel/preset-env', { targets: { node: 'current' } }]],
+      };
     case 'umd-dev':
       dev = true;
       modules = false;
@@ -38,7 +34,7 @@ module.exports = api => {
         },
       ],
       '@babel/preset-typescript',
-      ['@babel/preset-env', {targets: {node: 'current'}}],
+      ['@babel/preset-env', { targets: { node: 'current' } }],
     ],
     plugins: [env === 'test' && 'istanbul'].filter(Boolean),
   };

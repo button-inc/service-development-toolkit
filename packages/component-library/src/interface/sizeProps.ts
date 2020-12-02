@@ -6,4 +6,4 @@ export interface SizeProps {
   large?: boolean;
   big?: boolean;
   huge?: boolean;
-};
+}
