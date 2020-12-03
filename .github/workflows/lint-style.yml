@@ -41,9 +41,6 @@ jobs:
           asdf reshim
           chmod +x .bin/format.sh
           pre-commit run -a -v
-      - name: Run linter
-        run: |
-          yarn lint
       - name: Unit test
         run: |
           yarn llink
