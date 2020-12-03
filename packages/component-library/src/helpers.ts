@@ -8,10 +8,10 @@ const propClasses = {
   size: ['mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge'],
 };
 
-export default function getCssFromDisplayProps(props, defaultStyles, themeStyles, combinedStyles) {
+export default function getCssFromDisplayProps(props, themeStyles, combinedStyles) {
   let css = '';
   Object.keys(props).forEach(prop => {
-    //If the theme creator did not define the prop, apply default
+    // If the theme creator did not define the prop, apply default
     if (!hasKey(themeStyles, prop)) {
       const propClass = Object.keys(propClasses).find(key => propClasses[key].includes(prop));
       const defaultClassProp = themeStyles['defaultProps'] && propClass && themeStyles['defaultProps'][propClass];
@@ -22,18 +22,18 @@ export default function getCssFromDisplayProps(props, defaultStyles, themeStyles
   });
   return css;
 }
-//See https://www.typescriptlang.org/docs/handbook/generics.html#generic-constraints for Props extends object
+// See https://www.typescriptlang.org/docs/handbook/generics.html#generic-constraints for Props extends object
 export function applyThemeFactory<S, Props extends object>(defaultStyles, baseInput) {
   const applyTheme = (userStyles: S) => {
     const stylesToApply = { ...defaultStyles, ...userStyles };
 
     const defaultCheckbox = styled(baseInput)`
-      ${stylesToApply}
+      ${stylesToApply.shared}
     `;
 
     return styled(defaultCheckbox)<Props>`
       ${(props: Props) => {
-        return getCssFromDisplayProps(props, defaultStyles, userStyles, stylesToApply);
+        return getCssFromDisplayProps(props, userStyles, stylesToApply);
       }}
     `;
   };
