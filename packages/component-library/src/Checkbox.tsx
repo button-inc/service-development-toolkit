@@ -12,18 +12,19 @@ interface CheckboxProps extends SizeProps {
 }
 
 interface Styles extends SizeStyles {
+  defaultProps?: object;
   shared?: string;
 }
 
 const defaultStyles: Styles = {
   shared: ``,
-  mini: ``,
-  tiny: ``,
-  small: ``,
-  medium: ``,
-  large: ``,
-  big: ``,
-  huge: ``,
+  mini: `transform: scale(0.25);`,
+  tiny: `transform: scale(0.5);`,
+  small: `transform: scale(0.75);`,
+  medium: `transform: scale(1);`,
+  large: `transform: scale(1.25);`,
+  big: `transform: scale(1.5);`,
+  huge: `transform: scale(2);`,
 };
 
 const BaseCheckbox = props => {
@@ -32,10 +33,9 @@ const BaseCheckbox = props => {
   if (!id) {
     id = randomstring.generate(10);
   }
-  const newProps = { ...props, onChange: null, onClick: null };
   return (
     <>
-      <input {...newProps} id={id} type="checkbox" />
+      <input {...props} id={id} type="checkbox" />
       <label htmlFor={id}>{label}</label>
     </>
   );

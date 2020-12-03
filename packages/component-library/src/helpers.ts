@@ -4,27 +4,36 @@ function hasKey<O>(obj: O, key: keyof any): key is keyof O {
   return key in obj;
 }
 
-export default function getCssFromDisplayProps<T, C>(props: T, styles: C) {
+const propClasses = {
+  size: ['mini', 'tiny', 'small', 'medium', 'large', 'big', 'huge'],
+};
+
+export default function getCssFromDisplayProps(props, defaultStyles, themeStyles, combinedStyles) {
   let css = '';
   Object.keys(props).forEach(prop => {
-    if (hasKey(props, prop) && props[prop] && hasKey(styles, prop)) {
-      css += styles[prop];
+    //If the theme creator did not define the prop, apply default
+    if (!hasKey(themeStyles, prop)) {
+      const propClass = Object.keys(propClasses).find(key => propClasses[key].includes(prop));
+      const defaultClassProp = themeStyles['defaultProps'] && propClass && themeStyles['defaultProps'][propClass];
+      css += combinedStyles[defaultClassProp];
+    } else if (hasKey(props, prop) && props[prop]) {
+      css += combinedStyles[prop];
     }
   });
   return css;
 }
-
-export function applyThemeFactory<S, Props>(defaultStyles, baseInput) {
-  const applyTheme = (styles: S) => {
-    const stylesToApply = { ...defaultStyles, ...styles };
+//See https://www.typescriptlang.org/docs/handbook/generics.html#generic-constraints for Props extends object
+export function applyThemeFactory<S, Props extends object>(defaultStyles, baseInput) {
+  const applyTheme = (userStyles: S) => {
+    const stylesToApply = { ...defaultStyles, ...userStyles };
 
     const defaultCheckbox = styled(baseInput)`
-      ${stylesToApply.shared}
+      ${stylesToApply}
     `;
 
-    return styled(defaultCheckbox)`
+    return styled(defaultCheckbox)<Props>`
       ${(props: Props) => {
-        return getCssFromDisplayProps<Props, S>(props, stylesToApply);
+        return getCssFromDisplayProps(props, defaultStyles, userStyles, stylesToApply);
       }}
     `;
   };

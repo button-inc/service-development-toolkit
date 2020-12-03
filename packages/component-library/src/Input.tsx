@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import getCssFromDisplayProps from './helpers';
+import { applyThemeFactory } from './helpers';
 
 type InputProps = {
   large?: boolean;
@@ -41,20 +40,7 @@ const BaseInput = props => {
   return <input {...newProps} />;
 };
 
-export const applyTheme = (styles: Styles) => {
-  const stylesToApply = { ...defaultStyles, ...styles };
-
-  const defaultInput = styled(BaseInput)`
-    ${stylesToApply.shared}
-  `;
-
-  return styled(defaultInput)<InputProps>`
-    ${(props: InputProps) => {
-      const newProps = restrictInputTypeProps(props);
-      return getCssFromDisplayProps<InputProps, Styles>(newProps, stylesToApply);
-    }}
-  `;
-};
+export const applyTheme = applyThemeFactory<Styles, InputProps>(defaultStyles, BaseInput);
 
 const Input = applyTheme(defaultStyles);
 

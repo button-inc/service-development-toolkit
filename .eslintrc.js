@@ -10,6 +10,7 @@ module.exports = {
   root: true,
   rules: {
     '@typescript-eslint/naming-convention': 0,
+    '@typescript-eslint/dot-notation': 0,
     'import/no-extraneous-dependencies': 0,
     'import/no-unresolved': 0,
     'import/prefer-default-export': 0,
