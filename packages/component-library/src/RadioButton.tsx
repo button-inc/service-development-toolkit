@@ -52,7 +52,7 @@ export const applyTheme = userStyles => {
 
   const Scontainer: any = styleElement('div', stylesToApply, userStyles, 'container');
   const Slabel: any = styleElement('label', stylesToApply, userStyles, 'label');
-  const Scheckbox: any = styleElement('input', stylesToApply, userStyles, 'input');
+  const SRadioButton: any = styleElement('input', stylesToApply, userStyles, 'input');
 
   const BaseComponent = (props: RadioButtonProps) => {
     let { id } = props;
@@ -62,7 +62,7 @@ export const applyTheme = userStyles => {
     }
     return (
       <Scontainer size={size}>
-        <Scheckbox {...props} type="radio" id={id} />
+        <SRadioButton {...props} type="radio" id={id} />
         <Slabel size={size} htmlFor={id}>
           {label}
         </Slabel>
@@ -73,6 +73,6 @@ export const applyTheme = userStyles => {
   return BaseComponent;
 };
 
-const Checkbox = applyTheme(defaultStyles);
+const RadioButton = applyTheme(defaultStyles);
 
-export default Checkbox;
+export default RadioButton;
