@@ -1,7 +1,7 @@
 import React from 'react';
 import randomstring from 'randomstring';
-import { SizeStyles } from './interface/sizeStyles'
 import styled from 'styled-components';
+import { SizeStyles } from './interface/sizeStyles';
 
 interface CheckboxProps {
   label?: string;
@@ -20,50 +20,50 @@ interface Styles extends SizeStyles {
 const defaultStyles: Styles = {
   shared: {
     label: '',
-    container: ''
+    container: '',
   },
   mini: {
     label: '',
-    container: ''
+    container: '',
   },
   tiny: {},
   small: {},
   medium: {},
   large: {
     label: '',
-    container: ''
+    container: '',
   },
   big: {},
   huge: {},
 };
 
-const styleElement = (tag: string, stylesToApply: any, userStyles: any, type:string ) => {
+const styleElement = (tag: string, stylesToApply: any, userStyles: any, type: string) => {
   const sharedStyles = stylesToApply.shared;
   return styled[tag]`
-  ${(props: any) => {
-    const sizeProp = (props.size && userStyles[props.size]) || userStyles.defaultProps?.size;
-    return (sharedStyles[type] || '') + ((stylesToApply[sizeProp] && stylesToApply[sizeProp][type]) || '');
-  }}
-`
-}
+    ${(props: any) => {
+      const sizeProp = (props.size && userStyles[props.size]) || userStyles.defaultProps?.size;
+      return (sharedStyles[type] || '') + ((stylesToApply[sizeProp] && stylesToApply[sizeProp][type]) || '');
+    }}
+  `;
+};
 
 export const applyTheme = userStyles => {
   const stylesToApply = { ...defaultStyles, ...userStyles };
 
-  const Scontainer: any = styleElement('div', stylesToApply, userStyles, 'container')
-  const Slabel: any = styleElement('label', stylesToApply, userStyles, 'label')
-  const Scheckbox: any = styleElement('input', stylesToApply, userStyles, 'input')
+  const Scontainer: any = styleElement('div', stylesToApply, userStyles, 'container');
+  const Slabel: any = styleElement('label', stylesToApply, userStyles, 'label');
+  const Scheckbox: any = styleElement('input', stylesToApply, userStyles, 'input');
 
   const BaseComponent = (props: CheckboxProps) => {
     let { id } = props;
-    const { label } = props;
+    const { label, size } = props;
     if (!id) {
       id = randomstring.generate(10);
     }
     return (
-      <Scontainer size={props.size}>
-        <Scheckbox {...props} type="checkbox" id={id}/>
-        <Slabel size={props.size} htmlFor={id}>
+      <Scontainer size={size}>
+        <Scheckbox {...props} type="checkbox" id={id} />
+        <Slabel size={size} htmlFor={id}>
           {label}
         </Slabel>
       </Scontainer>
