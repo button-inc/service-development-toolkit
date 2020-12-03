@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../helpers';
 
-export default function storyBuilder(Button, label){
+export default function storyBuilder(Button, label) {
   const metaData = {
     title: 'Button',
     component: Button,
@@ -52,5 +52,5 @@ export default function storyBuilder(Button, label){
     Secondary,
     Large,
     Small,
-  }
+  };
 }
