@@ -31,7 +31,7 @@ const defaultStyles: Styles = {
   },
 };
 
-export const applyTheme = stylesToApply => {
+export const applyTheme = (stylesToApply: Styles) => {
   const styleBuilder = getStyleBuilder(stylesToApply, ['size', 'variant', 'fullWidth', 'fullHeight']);
   const Sbutton = styleBuilder('button', 'button');
 

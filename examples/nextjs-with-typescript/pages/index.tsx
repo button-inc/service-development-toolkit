@@ -1,4 +1,4 @@
-import Button2 from 'component-library/Button';
+import Button2 from 'component-library-gov/Button';
 import Checkbox from 'component-library/Checkbox';
 import CheckboxGov from 'component-library-gov/Checkbox';
 import Input from 'component-library-gov/Input';
@@ -15,9 +15,7 @@ export default function Home() {
           <CheckboxGov size="large" style={{ margin: '20px' }} label="large" />
         </div>
         <div>
-          <Button2 large primary type="submit">
-            Click!
-          </Button2>
+          <Button2 variant="primary">Click!</Button2>
         </div>
         <div>
           <Input />
