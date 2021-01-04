@@ -13,10 +13,10 @@ const styles = {
     size: 'tiny',
   },
   tiny: {
-    select: 'font-size: 5px;',
+    select: 'font-size: 15px;',
   },
   medium: {
-    select: 'font-size: 10px;',
+    select: 'font-size: 20px;',
   },
   secondary: {
     container: `

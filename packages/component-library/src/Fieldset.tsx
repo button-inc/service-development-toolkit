@@ -1,5 +1,5 @@
 import React from 'react';
-import { styleElement } from './helpers';
+import { getStyleBuilder } from './helpers';
 import { SizeStyles } from './interface/size';
 
 interface Styles extends SizeStyles {
@@ -39,9 +39,10 @@ const defaultStyles: Styles = {
 
 export const applyTheme = userStyles => {
   const stylesToApply = { ...defaultStyles, ...userStyles };
+  const styleBuilder = getStyleBuilder(stylesToApply, ['size', 'fullHeight', 'fullWidth']);
 
-  const Sfieldset: any = styleElement('fieldset', stylesToApply, 'container', true);
-  const Slegend: any = styleElement('legend', stylesToApply, 'legend');
+  const Sfieldset: any = styleBuilder('fieldset', 'container');
+  const Slegend: any = styleBuilder('legend', 'legend');
 
   const BaseComponent = (props: FieldsetProps) => {
     const { size, title, children } = props;
