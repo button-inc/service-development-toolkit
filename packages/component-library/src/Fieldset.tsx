@@ -47,14 +47,14 @@ const styleElement = (tag: string, stylesToApply: any, userStyles: any, type: st
       if (props.size && userStyles[props.size]) {
         sizeProp = props.size;
       } else {
-        sizeProp = userStyles.defaultProps?.size
+        sizeProp = userStyles.defaultProps?.size;
       }
       css = (sharedStyles[type] || '') + ((stylesToApply[sizeProp] && stylesToApply[sizeProp][type]) || '');
       //If prop is directly set, or the defaultProp is set AND not overridden, or the
-      if (props.fullWidth || (userStyles.defaultProps?.fullWidth && props.fullWidth !== false)){
+      if (props.fullWidth || (userStyles.defaultProps?.fullWidth && props.fullWidth !== false)) {
         css += 'width: 100%;';
       }
-      if (props.fullHeight || (userStyles.defaultProps?.fullHeight && props.fullHeight !== false)){
+      if (props.fullHeight || (userStyles.defaultProps?.fullHeight && props.fullHeight !== false)) {
         css += 'height: 100%;';
       }
       return css;
@@ -69,12 +69,10 @@ export const applyTheme = userStyles => {
   const Slegend: any = styleElement('legend', stylesToApply, userStyles, 'legend');
 
   const BaseComponent = (props: FieldsetProps) => {
-    const {size} = props;
+    const { size } = props;
     return (
       <Sfieldset {...props}>
-        {props.title && (
-          <Slegend size={size}>{props.title}</Slegend>
-        )}
+        {props.title && <Slegend size={size}>{props.title}</Slegend>}
         {props.children}
       </Sfieldset>
     );

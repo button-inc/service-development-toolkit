@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <form action="">
         <div>
-          <Checkbox size='mini' label="test" />
+          <Checkbox size="mini" label="test" />
         </div>
         <div style={{ margin: '20px' }}>
           <CheckboxGov size={'large'} style={{ margin: '20px' }} label="large" />
@@ -23,7 +23,7 @@ export default function Home() {
           <Input />
         </div>
         <div>
-          <FieldsetGov title="hihihi" size='large'>
+          <FieldsetGov title="hihihi" size="large">
             <CheckboxGov size={'large'} style={{ margin: '20px' }} label="large" />
           </FieldsetGov>
         </div>

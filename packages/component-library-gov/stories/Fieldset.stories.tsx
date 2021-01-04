@@ -13,7 +13,7 @@ const Template: Story = args => (
   <>
     <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
-      <Fieldset {...args} title="Fieldset" />
+      <Fieldset {...args} title="Fieldset" size="large" />
     </HtmlOnlyWrapper>
 
     <h3>HTML + CSS</h3>
