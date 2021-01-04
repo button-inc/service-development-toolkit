@@ -40,6 +40,13 @@ export function applyThemeFactory<S, Props extends object>(defaultStyles, baseIn
   return applyTheme;
 }
 
+const staticStyles = {
+  fullWidth: `width:100%;`,
+  fullHeight: `height:100%;`,
+};
+
+const staticProps = Object.keys(staticStyles);
+
 export function getStyleBuilder(stylesToApply: any, allowedProps: string[]) {
   const sharedStyles = stylesToApply.shared || {};
   const defaultProps = stylesToApply.defaultProps || {};
@@ -50,9 +57,10 @@ export function getStyleBuilder(stylesToApply: any, allowedProps: string[]) {
         let styles = sharedStyles[type] || '';
 
         allowedProps.forEach(key => {
-          if (key === 'fullWidth' && props[key]) styles += 'width:100%;';
-          else if (key === 'fullHeight' && props[key]) styles += 'height:100%;';
-          else {
+          if (staticProps.includes(key)) {
+            if (props[key] === false) return;
+            if (props[key] === true || defaultProps[key] === true) styles += staticStyles[key];
+          } else {
             const prop = (stylesToApply[props[key]] && props[key]) || defaultProps[key];
             styles += (stylesToApply[prop] && stylesToApply[prop][type]) || '';
           }
