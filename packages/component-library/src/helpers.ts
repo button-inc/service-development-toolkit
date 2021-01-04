@@ -39,3 +39,20 @@ export function applyThemeFactory<S, Props extends object>(defaultStyles, baseIn
   };
   return applyTheme;
 }
+
+export function styleElement(tag: string, stylesToApply: any, type: string) {
+  const sharedStyles = stylesToApply.shared || {};
+
+  return styled[tag]`
+    ${(props: any) => {
+      const sizeProp = (stylesToApply[props.size] && props.size) || stylesToApply.defaultProps?.size;
+      const variantProp = (stylesToApply[props.variant] && props.variant) || stylesToApply.defaultProps?.variant;
+
+      return (
+        (sharedStyles[type] || '') +
+        ((stylesToApply[sizeProp] && stylesToApply[sizeProp][type]) || '') +
+        ((stylesToApply[variantProp] && stylesToApply[variantProp][type]) || '')
+      );
+    }}
+  `;
+}
