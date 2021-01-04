@@ -4,6 +4,7 @@ const styles = {
   shared: {},
   defaultProps: {
     size: 'tiny',
+    fullHeight: true,
   },
   tiny: {
     container: `
@@ -15,7 +16,7 @@ const styles = {
   large: {
     container: `
       border: 5px solid red;
-      background-color: yelllow;
+      background-color: yellow;
     `,
     legend: 'color: orange;',
   },
