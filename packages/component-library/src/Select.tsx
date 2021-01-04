@@ -7,6 +7,7 @@ import { getStyleBuilder } from './helpers';
 interface SelectProps {
   id?: string;
   name?: string;
+  label?: string;
   variant?: string;
   size?: string;
   children?: any;
@@ -25,26 +26,35 @@ const defaultStyles: Styles = {
     size: 'medium',
   },
   shared: {
-    select: '',
     container: '',
+    label: '',
+    select: '',
   },
 };
 
 export const applyTheme = stylesToApply => {
-  const styleBuilder = getStyleBuilder(stylesToApply, ['size', 'variant']);
+  const styleBuilder = getStyleBuilder(stylesToApply, ['size', 'variant', 'fullWidth']);
   const Scontainer = styleBuilder('div', 'container');
+  const Slabel = styleBuilder('label', 'label');
   const Sselect = styleBuilder('select', 'select');
 
   const BaseComponent = (props: SelectProps) => {
-    let { id } = props;
-    const { name, variant, size, children } = props;
+    let { id, name } = props;
+    const { variant, size, label, children } = props;
     if (!id) {
       id = randomstring.generate(10);
     }
 
+    if (!name) {
+      name = `${id}-select`;
+    }
+
+    const ariaLabel = label || name;
+
     return (
       <Scontainer variant={variant} size={size}>
-        <Sselect {...props} id={id} name={name}>
+        {label && <Slabel htmlFor={id}>{label}</Slabel>}
+        <Sselect aria-label={ariaLabel} {...props} id={id} name={name}>
           {children}
         </Sselect>
       </Scontainer>
