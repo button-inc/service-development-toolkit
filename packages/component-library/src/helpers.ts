@@ -40,19 +40,26 @@ export function applyThemeFactory<S, Props extends object>(defaultStyles, baseIn
   return applyTheme;
 }
 
-export function styleElement(tag: string, stylesToApply: any, type: string) {
+export function getStyleBuilder(stylesToApply: any, allowedProps: string[]) {
   const sharedStyles = stylesToApply.shared || {};
+  const defaultProps = stylesToApply.defaultProps || {};
 
-  return styled[tag]`
-    ${(props: any) => {
-      const sizeProp = (stylesToApply[props.size] && props.size) || stylesToApply.defaultProps?.size;
-      const variantProp = (stylesToApply[props.variant] && props.variant) || stylesToApply.defaultProps?.variant;
+  return function (tag: string, type: string) {
+    return styled[tag]`
+      ${(props: any) => {
+        let styles = sharedStyles[type] || '';
 
-      return (
-        (sharedStyles[type] || '') +
-        ((stylesToApply[sizeProp] && stylesToApply[sizeProp][type]) || '') +
-        ((stylesToApply[variantProp] && stylesToApply[variantProp][type]) || '')
-      );
-    }}
-  `;
+        allowedProps.forEach(key => {
+          if (key === 'fullWidth' && props[key]) styles += 'width:100%;';
+          else if (key === 'fullHeight' && props[key]) styles += 'height:100%;';
+          else {
+            const prop = (stylesToApply[props[key]] && props[key]) || defaultProps[key];
+            styles += (stylesToApply[prop] && stylesToApply[prop][type]) || '';
+          }
+        });
+
+        return styles;
+      }}
+    `;
+  };
 }
