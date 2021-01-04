@@ -2,7 +2,7 @@ import React from 'react';
 import randomstring from 'randomstring';
 import { SizeStyles } from './interface/size';
 import { VariantStyles } from './interface/variant';
-import { styleElement } from './helpers';
+import { getStyleBuilder } from './helpers';
 
 interface SelectProps {
   id?: string;
@@ -31,8 +31,9 @@ const defaultStyles: Styles = {
 };
 
 export const applyTheme = stylesToApply => {
-  const Scontainer: any = styleElement('div', stylesToApply, 'container');
-  const Sselect: any = styleElement('select', stylesToApply, 'select');
+  const styleBuilder = getStyleBuilder(stylesToApply, ['size', 'variant']);
+  const Scontainer = styleBuilder('div', 'container');
+  const Sselect = styleBuilder('select', 'select');
 
   const BaseComponent = (props: SelectProps) => {
     let { id } = props;
