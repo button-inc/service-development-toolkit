@@ -9,18 +9,10 @@ export default function Home() {
     <>
       <form action="">
         <div>
-          {/* Base checkbox has default options */}
           <Checkbox size='mini' label="test" />
         </div>
         <div style={{ margin: '20px' }}>
-          {/* Styled checkbox falls back to tiny style from default props unless prop defined */}
-          <CheckboxGov mini style={{ margin: '20px' }} label="test" />
-          <CheckboxGov tiny style={{ margin: '20px' }} label="test" />
-          <CheckboxGov small style={{ margin: '20px' }} label="test" />
-          <CheckboxGov medium style={{ margin: '20px' }} label="test" />
           <CheckboxGov size={'large'} style={{ margin: '20px' }} label="large" />
-          <CheckboxGov big style={{ margin: '20px' }} label="test" />
-          <CheckboxGov huge style={{ margin: '20px' }} label="test" />
         </div>
         <div>
           <Button2 large primary type="submit">
