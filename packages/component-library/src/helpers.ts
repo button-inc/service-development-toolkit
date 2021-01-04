@@ -45,14 +45,24 @@ export function styleElement(tag: string, stylesToApply: any, type: string) {
 
   return styled[tag]`
     ${(props: any) => {
+      let css = '';
       const sizeProp = (stylesToApply[props.size] && props.size) || stylesToApply.defaultProps?.size;
       const variantProp = (stylesToApply[props.variant] && props.variant) || stylesToApply.defaultProps?.variant;
 
-      return (
+      css +=
         (sharedStyles[type] || '') +
         ((stylesToApply[sizeProp] && stylesToApply[sizeProp][type]) || '') +
-        ((stylesToApply[variantProp] && stylesToApply[variantProp][type]) || '')
-      );
+        ((stylesToApply[variantProp] && stylesToApply[variantProp][type]) || '');
+
+      // If prop is directly set, or the defaultProp is set AND not overridden, or the
+      if (props.fullWidth || (stylesToApply.defaultProps?.fullWidth && props.fullWidth !== false)) {
+        css += 'width: 100%;';
+      }
+      if (props.fullHeight || (stylesToApply.defaultProps?.fullHeight && props.fullHeight !== false)) {
+        css += 'height: 100%;';
+      }
+
+      return css;
     }}
   `;
 }
