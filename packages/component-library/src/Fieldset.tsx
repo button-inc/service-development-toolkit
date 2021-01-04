@@ -40,7 +40,7 @@ const defaultStyles: Styles = {
 export const applyTheme = userStyles => {
   const stylesToApply = { ...defaultStyles, ...userStyles };
 
-  const Sfieldset: any = styleElement('fieldset', stylesToApply, 'container');
+  const Sfieldset: any = styleElement('fieldset', stylesToApply, 'container', true);
   const Slegend: any = styleElement('legend', stylesToApply, 'legend');
 
   const BaseComponent = (props: FieldsetProps) => {

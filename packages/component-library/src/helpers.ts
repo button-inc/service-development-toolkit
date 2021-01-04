@@ -40,7 +40,7 @@ export function applyThemeFactory<S, Props extends object>(defaultStyles, baseIn
   return applyTheme;
 }
 
-export function styleElement(tag: string, stylesToApply: any, type: string) {
+export function styleElement(tag: string, stylesToApply: any, type: string, useProportionProps = false) {
   const sharedStyles = stylesToApply.shared || {};
 
   return styled[tag]`
@@ -54,12 +54,14 @@ export function styleElement(tag: string, stylesToApply: any, type: string) {
         ((stylesToApply[sizeProp] && stylesToApply[sizeProp][type]) || '') +
         ((stylesToApply[variantProp] && stylesToApply[variantProp][type]) || '');
 
-      // If prop is directly set, or the defaultProp is set AND not overridden, or the
-      if (props.fullWidth || (stylesToApply.defaultProps?.fullWidth && props.fullWidth !== false)) {
-        css += 'width: 100%;';
-      }
-      if (props.fullHeight || (stylesToApply.defaultProps?.fullHeight && props.fullHeight !== false)) {
-        css += 'height: 100%;';
+      if (useProportionProps) {
+        // If prop is directly set, or the defaultProp is set AND not overridden
+        if (props.fullWidth || (stylesToApply.defaultProps?.fullWidth && props.fullWidth !== false)) {
+          css += 'width: 100%;';
+        }
+        if (props.fullHeight || (stylesToApply.defaultProps?.fullHeight && props.fullHeight !== false)) {
+          css += 'height: 100%;';
+        }
       }
 
       return css;
