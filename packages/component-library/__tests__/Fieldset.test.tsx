@@ -41,7 +41,7 @@ describe('Fieldset', () => {
   });
 
   it('Should accept fullHeight and fullWidth props', async () => {
-    render(<Fieldset id="test-fieldset" fullWidth fullHeight></Fieldset>);
+    render(<Fieldset id="test-fieldset" fullWidth fullHeight />);
     const fieldset = document.querySelector('#test-fieldset');
     const style = window.getComputedStyle(fieldset);
     expect(style.height).toBe('100%');
