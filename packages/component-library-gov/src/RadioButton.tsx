@@ -9,11 +9,20 @@ const styles = {
     size: 'tiny',
   },
   tiny: {
-    container: `
-      border: 5px solid blue;
-      background-color: green;
+    input: `
+    border: 2px solid #606060;
+    height: 34px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 5px 5px 5px 7px;
+    border-radius: 4px;
     `,
-    label: 'color: purple;',
+    container: `
+      background: red;
+    `,
+    label: `
+      color: green;
+    `,
   },
   large: {
     container: `

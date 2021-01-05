@@ -1,7 +1,8 @@
 import { applyTheme } from 'component-library/Input';
 
 const styles = {
-  shared: `
+  shared: {
+    input: `
     border: 2px solid #606060;
     height: 34px;
     margin-top: 5px;
@@ -9,18 +10,29 @@ const styles = {
     padding: 5px 5px 5px 7px;
     border-radius: 4px;
     `,
-  small: `
+    container: `
+      background: red;
+    `,
+    label: `
+      color: green;
+    `,
+  },
+  small: {
+    input: `
     height: 28px;
     margin-top: 4px;
     margin-bottom: 12px;
     padding: 4px 4px 4px 6px;
     `,
-  large: `
+  },
+  large: {
+    input: `
     height: 40px;
     margin-top: 6px;
     margin-bottom: 18px;
     padding: 6px 6px 6px 8px;
     `,
+  },
 };
 
 const Input = applyTheme(styles);
