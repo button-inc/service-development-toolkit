@@ -6,7 +6,7 @@ interface Styles extends SizeStyles {
   shared?: object;
 }
 
-interface FieldsetProps {
+export interface FieldsetProps {
   disabled?: boolean;
   name?: string;
   size?: string;
@@ -37,7 +37,7 @@ const defaultStyles: Styles = {
   huge: {},
 };
 
-export const applyTheme = userStyles => {
+export const applyTheme = (userStyles: Styles) => {
   const stylesToApply = { ...defaultStyles, ...userStyles };
   const styleBuilder = getStyleBuilder(stylesToApply, ['size', 'fullHeight', 'fullWidth']);
 
@@ -57,6 +57,6 @@ export const applyTheme = userStyles => {
   return BaseComponent;
 };
 
-const Checkbox = applyTheme(defaultStyles);
+const Fieldset = applyTheme(defaultStyles);
 
-export default Checkbox;
+export default Fieldset;

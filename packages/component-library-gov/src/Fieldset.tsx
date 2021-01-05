@@ -22,6 +22,6 @@ const styles = {
   },
 };
 
-const Fieldset: any = applyTheme(styles);
+const Fieldset = applyTheme(styles);
 
 export default Fieldset;

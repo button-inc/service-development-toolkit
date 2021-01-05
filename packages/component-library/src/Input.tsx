@@ -1,46 +1,80 @@
 import React from 'react';
-import { applyThemeFactory } from './helpers';
+import randomstring from 'randomstring';
+import { getStyleBuilder } from './helpers';
+import { SizeStyles } from './interface/size';
 
-type InputProps = {
-  large?: boolean;
-  small?: boolean;
-  type?: 'email' | 'url' | 'number' | 'password' | 'tel' | 'text';
-};
-
-interface Styles {
-  shared?: string;
-  large?: string;
-  small?: string;
+interface Styles extends SizeStyles {
+  shared?: object;
+  defaultProps?: object;
 }
 
-const allowedTypes = ['email', 'number', 'password', 'tel', 'text', 'url'];
-
-function restrictInputTypeProps(props) {
-  if (allowedTypes.includes(props.type)) {
-    return props;
-  }
-  return { ...props, type: undefined };
+export interface InputProps {
+  disabled?: boolean;
+  name?: string;
+  size?: string;
+  type?: string;
+  label?: string;
+  fullHeight?: boolean;
+  fullWidth?: boolean;
+  [propName: string]: any;
 }
 
 const defaultStyles: Styles = {
-  shared: `
-  `,
-  large: `
-    line-height: 39px;
-    font-size: 1.5rem;
-  `,
-  small: `
-    line-height: 13px;
-    font-size: 0.75rem;
-  `,
+  shared: {
+    label: '',
+    container: '',
+    input: '',
+  },
+  mini: {
+    label: '',
+    container: '',
+    input: '',
+  },
+  tiny: {},
+  small: {},
+  medium: {},
+  large: {
+    label: '',
+    container: '',
+    input: '',
+  },
+  big: {},
+  huge: {},
 };
 
-const BaseInput = props => {
-  const newProps = restrictInputTypeProps(props);
-  return <input {...newProps} />;
-};
+const allowedTypes = ['email', 'number', 'password', 'tel', 'text', 'url'];
 
-export const applyTheme = applyThemeFactory<Styles, InputProps>(defaultStyles, BaseInput);
+export const applyTheme = (userStyles: Styles) => {
+  const stylesToApply = { ...defaultStyles, ...userStyles };
+  const styleBuilder = getStyleBuilder(stylesToApply, ['size', 'fullHeight', 'fullWidth']);
+
+  const Scontainer: any = styleBuilder('div', 'container');
+  const Slabel: any = styleBuilder('label', 'label');
+  const SInput: any = styleBuilder('input', 'input');
+
+  const BaseComponent = (props: InputProps) => {
+    let { id } = props;
+    const { label, size, fullHeight, fullWidth, type } = props;
+    if (!id) {
+      id = randomstring.generate(10);
+    }
+
+    const computedType = allowedTypes.includes(type || '') ? type : '';
+
+    return (
+      <Scontainer size={size} fullHeight={fullHeight} fullWidth={fullWidth}>
+        <SInput {...props} type={computedType} id={id} />
+        {label && (
+          <Slabel size={size} htmlFor={id}>
+            {label}
+          </Slabel>
+        )}
+      </Scontainer>
+    );
+  };
+
+  return BaseComponent;
+};
 
 const Input = applyTheme(defaultStyles);
 
