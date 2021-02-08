@@ -27,9 +27,10 @@ export const applyTheme = (styles, config) => {
     }
 
     const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
+    const staticProps = config.staticProps?.reduce((acc, cur) => ({ ...acc, [cur]: true }), {});
 
     return (
-      <Scontainer {...styleProps}>
+      <Scontainer {...styleProps} {...staticProps}>
         <Scheckbox {...rest} type="checkbox" id={id} />
         {label && (
           <Slabel {...styleProps} htmlFor={id}>

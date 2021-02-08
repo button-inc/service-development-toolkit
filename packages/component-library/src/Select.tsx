@@ -33,9 +33,10 @@ export const applyTheme = (styles, config) => {
     const ariaLabel = label || name;
 
     const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
+    const staticProps = config.staticProps?.reduce((acc, cur) => ({ ...acc, [cur]: true }), {});
 
     return (
-      <Scontainer {...styleProps}>
+      <Scontainer {...styleProps} {...staticProps}>
         {label && (
           <Slabel htmlFor={id} {...styleProps}>
             {label}

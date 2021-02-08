@@ -16,20 +16,26 @@ export const applyTheme = (styles, config) => {
   const Slegend: any = styleBuilder('legend', 'legend');
 
   const styleKeys = getStyleKeys(styles);
+  const staticProps = config.staticProps?.reduce((acc, cur) => ({ ...acc, [cur]: true }), {});
+
+  console.log(staticProps);
+
+  console.log(staticProps);
 
   const BaseComponent = (props: FieldsetProps) => {
-    const { title, children, name, ...rest } = props;
+    const { title, children, name, id, disabled, ...rest } = props;
 
     const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
 
     const childrenWithNames = React.Children.map(children, child => {
       return React.cloneElement(child, {
         name: child.props.name || name,
+        disabled: child.props.disabled || disabled,
       });
     });
 
     return (
-      <Sfieldset {...styleProps}>
+      <Sfieldset {...styleProps} {...staticProps} id={id}>
         {title && <Slegend {...styleProps}>{title}</Slegend>}
         {childrenWithNames}
       </Sfieldset>
