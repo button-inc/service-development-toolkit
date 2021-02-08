@@ -1,6 +1,6 @@
 import Input from 'component-library-gov/Input';
 
-export default function Select() {
+export default function InputPage() {
   return (
     <>
       <form action="">
