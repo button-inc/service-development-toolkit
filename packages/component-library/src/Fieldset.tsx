@@ -21,8 +21,7 @@ export const applyTheme = (styles, config) => {
   const BaseComponent = (props: FieldsetProps) => {
     const { title, children, name, id, disabled, ...rest } = props;
 
-    const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
-    const staticStyleProps = pickBy(rest, (_value, propName) => staticProps.includes(propName));
+    const styleProps = pickBy(rest, (_value, propName) => [...styleKeys, ...staticProps].includes(propName));
 
     const childrenWithNames = React.Children.map(children, child => {
       return React.cloneElement(child, {
@@ -32,7 +31,7 @@ export const applyTheme = (styles, config) => {
     });
 
     return (
-      <Sfieldset {...styleProps} {...staticStyleProps} id={id}>
+      <Sfieldset {...styleProps} id={id}>
         {title && <Slegend {...styleProps}>{title}</Slegend>}
         {childrenWithNames}
       </Sfieldset>

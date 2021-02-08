@@ -28,11 +28,10 @@ export const applyTheme = (styles, config) => {
       id = randomstring.generate(10);
     }
 
-    const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
-    const staticStyleProps = pickBy(rest, (_value, propName) => staticProps.includes(propName));
+    const styleProps = pickBy(rest, (_value, propName) => [...styleKeys, ...staticProps].includes(propName));
 
     return (
-      <Scontainer {...styleProps} {...staticStyleProps}>
+      <Scontainer {...styleProps}>
         <SRadioButton {...rest} type="radio" id={id} />
         {label && (
           <Slabel {...styleProps} htmlFor={id}>
