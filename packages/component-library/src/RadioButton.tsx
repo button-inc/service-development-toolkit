@@ -1,7 +1,6 @@
 import React from 'react';
 import randomstring from 'randomstring';
-import { getStyleBuilder } from './helpers';
-import { SizeStyles } from './interface/size';
+import { createStyleBuilder } from './helpers';
 
 interface RadioButtonProps {
   label?: string;
@@ -12,34 +11,8 @@ interface RadioButtonProps {
   id?: string;
 }
 
-interface Styles extends SizeStyles {
-  defaultProps?: object;
-  shared?: object;
-}
-
-const defaultStyles: Styles = {
-  shared: {
-    label: '',
-    container: '',
-  },
-  mini: {
-    label: '',
-    container: '',
-  },
-  tiny: {},
-  small: {},
-  medium: {},
-  large: {
-    label: '',
-    container: '',
-  },
-  big: {},
-  huge: {},
-};
-
-export const applyTheme = (userStyles: Styles) => {
-  const stylesToApply = { ...defaultStyles, ...userStyles };
-  const styleBuilder = getStyleBuilder(stylesToApply, ['size']);
+export const applyTheme = (styles, config) => {
+  const styleBuilder = createStyleBuilder(styles, config);
 
   const Scontainer: any = styleBuilder('div', 'container');
   const Slabel: any = styleBuilder('label', 'label');
@@ -66,6 +39,6 @@ export const applyTheme = (userStyles: Styles) => {
   return BaseComponent;
 };
 
-const RadioButton = applyTheme(defaultStyles);
+const Select = applyTheme({}, {});
 
-export default RadioButton;
+export default Select;
