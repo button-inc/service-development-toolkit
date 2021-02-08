@@ -9,7 +9,6 @@ interface Props {
   children?: any;
   defaultValue?: string;
   disabled?: boolean;
-  onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
 }
 
 export const applyTheme = (styles, config) => {
@@ -18,9 +17,12 @@ export const applyTheme = (styles, config) => {
   const Slabel = styleBuilder('label', 'label');
   const Sinput = styleBuilder('input', 'input');
 
+  const { shared = {}, ...others } = styles;
+  const styleKeys = Object.keys(others);
+
   const BaseComponent = (props: Props) => {
     let { id, name } = props;
-    const { label, children, onChange, ...rest } = props;
+    const { label, children, ...rest } = props;
     if (!id) {
       id = randomstring.generate(10);
     }
@@ -31,14 +33,16 @@ export const applyTheme = (styles, config) => {
 
     const ariaLabel = label || name;
 
+    const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
+
     return (
-      <Scontainer {...rest}>
+      <Scontainer {...styleProps}>
         {label && (
-          <Slabel htmlFor={id} {...rest}>
+          <Slabel htmlFor={id} {...styleProps}>
             {label}
           </Slabel>
         )}
-        <Sinput aria-label={ariaLabel} {...rest} type="date" id={id} name={name} onChange={onChange} />
+        <Sinput aria-label={ariaLabel} {...rest} type="date" id={id} name={name} />
       </Scontainer>
     );
   };

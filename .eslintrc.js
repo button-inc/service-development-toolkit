@@ -12,6 +12,7 @@ module.exports = {
     '@typescript-eslint/naming-convention': 0,
     '@typescript-eslint/dot-notation': 0,
     '@typescript-eslint/no-shadow': 0,
+    '@typescript-eslint/no-unused-vars': 0,
     'import/no-extraneous-dependencies': 0,
     'import/no-unresolved': 0,
     'import/prefer-default-export': 0,

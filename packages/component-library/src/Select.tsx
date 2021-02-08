@@ -17,6 +17,9 @@ export const applyTheme = (styles, config) => {
   const Slabel = styleBuilder('label', 'label');
   const Sselect = styleBuilder('select', 'input');
 
+  const { shared = {}, ...others } = styles;
+  const styleKeys = Object.keys(others);
+
   const BaseComponent = (props: SelectProps) => {
     let { id, name } = props;
     const { label, children, ...rest } = props;
@@ -30,10 +33,12 @@ export const applyTheme = (styles, config) => {
 
     const ariaLabel = label || name;
 
+    const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
+
     return (
-      <Scontainer {...rest}>
+      <Scontainer {...styleProps}>
         {label && (
-          <Slabel htmlFor={id} {...rest}>
+          <Slabel htmlFor={id} {...styleProps}>
             {label}
           </Slabel>
         )}

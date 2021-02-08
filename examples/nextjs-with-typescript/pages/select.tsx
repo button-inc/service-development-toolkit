@@ -20,7 +20,7 @@ export default function Select() {
           {generateOptions()}
         </SelectGov>
         <hr />
-        <SelectGov label="Select 3" fullWidth>
+        <SelectGov label="Select 3" fullWidth onChange={console.log}>
           {generateOptions()}
         </SelectGov>
       </form>
