@@ -20,7 +20,7 @@ export const applyTheme = (styles, config) => {
 
     const childrenWithNames = React.Children.map(children, child => {
       return React.cloneElement(child, {
-        name,
+        name: child.props.name || name,
       });
     });
 

@@ -8,6 +8,7 @@ export default function FieldsetPage() {
         <Fieldset title="Fieldset" name="option">
           <Radio label="Yes" size="tiny" />
           <Radio label="No" size="medium" />
+          <Radio label="No" size="medium" name="new name" />
         </Fieldset>
       </form>
     </>
