@@ -73,7 +73,7 @@ export function getStyleBuilder(stylesToApply: any, allowedProps: string[]) {
 }
 
 export function createStyleBuilder(styles: any, config: any) {
-  const { shared, ...others } = styles;
+  const { shared = {}, ...others } = styles;
   const defaultProps = config.defaultProps || {};
   const staticProps = config.staticProps || [];
 

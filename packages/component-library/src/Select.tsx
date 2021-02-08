@@ -46,3 +46,7 @@ export const applyTheme = (styles, config) => {
 
   return BaseComponent;
 };
+
+const Select = applyTheme({}, { staticProps: ['fullWidth'] });
+
+export default Select;

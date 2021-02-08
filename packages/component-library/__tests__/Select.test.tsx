@@ -17,7 +17,7 @@ describe('Select', () => {
 
   it('Should render its children', async () => {
     const { container } = render(
-      <Select size="tiny" name="select1" label="Select">
+      <Select name="select1" label="Select">
         <option value="option1">_Option1</option>
         <option value="option1">_Option2</option>
       </Select>
@@ -27,7 +27,7 @@ describe('Select', () => {
 
   it('Should render without a legend', async () => {
     const { container } = render(
-      <Select size="tiny" name="select1">
+      <Select name="select1">
         <option value="option1">_Option1</option>
         <option value="option1">_Option2</option>
       </Select>
