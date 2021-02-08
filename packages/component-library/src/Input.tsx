@@ -1,6 +1,6 @@
 import React from 'react';
 import randomstring from 'randomstring';
-import { createStyleBuilder } from './helpers';
+import { createStyleBuilder, getStyleKeys } from './helpers';
 
 export interface InputProps {
   disabled?: boolean;
@@ -20,6 +20,8 @@ export const applyTheme = (styles, config) => {
   const Slabel: any = styleBuilder('label', 'label');
   const SInput: any = styleBuilder('input', 'input');
 
+  const styleKeys = getStyleKeys(styles);
+
   const BaseComponent = (props: InputProps) => {
     let { id } = props;
     const { label, ...rest } = props;
@@ -27,11 +29,13 @@ export const applyTheme = (styles, config) => {
       id = randomstring.generate(10);
     }
 
+    const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
+
     return (
-      <Scontainer {...rest}>
-        <SInput {...props} id={id} {...rest} />
+      <Scontainer {...styleProps}>
+        <SInput id={id} {...rest} />
         {label && (
-          <Slabel htmlFor={id} {...rest}>
+          <Slabel htmlFor={id} {...styleProps}>
             {label}
           </Slabel>
         )}

@@ -32,6 +32,11 @@ export function getStyleBuilder(stylesToApply: any, allowedProps: string[]) {
   };
 }
 
+export const getStyleKeys = styles => {
+  const { shared = {}, ...others } = styles;
+  return Object.keys(others);
+};
+
 export function createStyleBuilder(styles: any, config: any) {
   const { shared = {}, ...others } = styles;
   const defaultProps = config.defaultProps || {};

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyleBuilder } from './helpers';
+import { createStyleBuilder, getStyleKeys } from './helpers';
 
 export interface FieldsetProps {
   disabled?: boolean;
@@ -15,8 +15,12 @@ export const applyTheme = (styles, config) => {
   const Sfieldset: any = styleBuilder('fieldset', 'container');
   const Slegend: any = styleBuilder('legend', 'legend');
 
+  const styleKeys = getStyleKeys(styles);
+
   const BaseComponent = (props: FieldsetProps) => {
     const { title, children, name, ...rest } = props;
+
+    const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
 
     const childrenWithNames = React.Children.map(children, child => {
       return React.cloneElement(child, {
@@ -25,8 +29,8 @@ export const applyTheme = (styles, config) => {
     });
 
     return (
-      <Sfieldset {...rest}>
-        {title && <Slegend {...rest}>{title}</Slegend>}
+      <Sfieldset {...styleProps}>
+        {title && <Slegend {...styleProps}>{title}</Slegend>}
         {childrenWithNames}
       </Sfieldset>
     );

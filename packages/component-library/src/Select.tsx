@@ -1,6 +1,6 @@
 import React from 'react';
 import randomstring from 'randomstring';
-import { createStyleBuilder } from './helpers';
+import { createStyleBuilder, getStyleKeys } from './helpers';
 
 interface SelectProps {
   id?: string;
@@ -17,8 +17,7 @@ export const applyTheme = (styles, config) => {
   const Slabel = styleBuilder('label', 'label');
   const Sselect = styleBuilder('select', 'input');
 
-  const { shared = {}, ...others } = styles;
-  const styleKeys = Object.keys(others);
+  const styleKeys = getStyleKeys(styles);
 
   const BaseComponent = (props: SelectProps) => {
     let { id, name } = props;
