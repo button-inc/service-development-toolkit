@@ -18,9 +18,7 @@ const Template: Story = args => (
 
     <h3>HTML + CSS</h3>
     <HtmlWithCssWrapper>
-      <Button {...args} variant={args.variant}>
-        Button
-      </Button>
+      <Button {...args}>Button</Button>
     </HtmlWithCssWrapper>
 
     <h3>HTML + CSS + JS</h3>
@@ -28,13 +26,11 @@ const Template: Story = args => (
   </>
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
-  variant: 'primary',
-};
 export const Secondary = Template.bind({});
 Secondary.args = {
   variant: 'secondary',
 };
-
-export const Default = Template.bind({});
+export const Warning = Template.bind({});
+Warning.args = {
+  variant: 'warning',
+};

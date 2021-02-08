@@ -18,11 +18,11 @@ const Template: Story = args => (
 
     <h3>HTML + CSS</h3>
     <HtmlWithCssWrapper>
-      <Checkbox {...args} size="mini" label="checkbox" />
+      <Checkbox {...args} label="checkbox" />
     </HtmlWithCssWrapper>
 
     <h3>HTML + CSS + JS</h3>
-    <Checkbox {...args} label="checkbox" size="large" />
+    <Checkbox {...args} label="checkbox" />
   </>
 );
 
