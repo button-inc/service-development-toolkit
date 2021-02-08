@@ -1,27 +1,45 @@
 import { applyTheme } from 'component-library/Fieldset';
 
 const styles = {
-  shared: {},
-  defaultProps: {
-    size: 'tiny',
-    fullHeight: true,
-  },
-  tiny: {
+  shared: {
+    input: '',
     container: `
-      border: 5px solid blue;
-      background-color: green;
-    `,
-    legend: 'color: purple;',
+            border: 1px solid black;
+            padding: 2px;
+          `,
   },
-  large: {
-    container: `
-      border: 5px solid red;
-      background-color: yellow;
-    `,
-    legend: 'color: orange;',
+  size: {
+    tiny: {
+      input: 'font-size: 15px;',
+    },
+    medium: {
+      input: 'font-size: 20px;',
+    },
+  },
+  variant: {
+    secondary: {
+      container: `
+                  border-color: blue;
+                `,
+      input: '',
+    },
+    warning: {
+      container: `
+                  border-color: red;
+                `,
+      input: '',
+    },
   },
 };
 
-const Fieldset = applyTheme(styles);
+const config = {
+  defaultProps: {
+    variant: 'warning',
+    size: 'tiny',
+  },
+  staticProps: ['fullWidth', 'fullHeight'],
+};
+
+const Fieldset = applyTheme(styles, config);
 
 export default Fieldset;
