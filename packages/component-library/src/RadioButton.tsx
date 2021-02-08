@@ -20,15 +20,15 @@ export const applyTheme = (styles, config) => {
 
   const BaseComponent = (props: RadioButtonProps) => {
     let { id } = props;
-    const { label, size } = props;
+    const { label, ...rest } = props;
     if (!id) {
       id = randomstring.generate(10);
     }
     return (
-      <Scontainer size={size}>
+      <Scontainer {...rest}>
         <SRadioButton {...props} type="radio" id={id} />
         {label && (
-          <Slabel size={size} htmlFor={id}>
+          <Slabel {...rest} htmlFor={id}>
             {label}
           </Slabel>
         )}

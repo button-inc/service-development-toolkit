@@ -2,39 +2,44 @@ import { applyTheme } from 'component-library/Input';
 
 const styles = {
   shared: {
-    input: `
-    border: 2px solid #606060;
-    height: 34px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    padding: 5px 5px 5px 7px;
-    border-radius: 4px;
-    `,
+    input: '',
     container: `
-      background: red;
-    `,
-    label: `
-      color: green;
-    `,
+            border: 1px solid black;
+            padding: 2px;
+          `,
   },
-  small: {
-    input: `
-    height: 28px;
-    margin-top: 4px;
-    margin-bottom: 12px;
-    padding: 4px 4px 4px 6px;
-    `,
+  size: {
+    tiny: {
+      input: 'font-size: 15px;',
+    },
+    medium: {
+      input: 'font-size: 20px;',
+    },
   },
-  large: {
-    input: `
-    height: 40px;
-    margin-top: 6px;
-    margin-bottom: 18px;
-    padding: 6px 6px 6px 8px;
-    `,
+  variant: {
+    secondary: {
+      container: `
+                  border-color: blue;
+                `,
+      input: '',
+    },
+    warning: {
+      container: `
+                  border-color: red;
+                `,
+      input: '',
+    },
   },
 };
 
-const Input = applyTheme(styles);
+const config = {
+  defaultProps: {
+    variant: 'warning',
+    size: 'tiny',
+  },
+  staticProps: ['fullWidth', 'fullHeight'],
+};
+
+const Input = applyTheme(styles, config);
 
 export default Input;
