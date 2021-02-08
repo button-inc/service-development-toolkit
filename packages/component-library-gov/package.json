@@ -10,7 +10,7 @@
   "scripts": {
     "build": "node ../../scripts/build.js --name=component-library-gov",
     "build-docs": "yarn --cwd www build",
-    "build-types": "yarn tsc -d --emitDeclarationOnly --outDir types",
+    "build-types": "yarn tsc -d --outDir types",
     "storybook": "start-storybook -p 6006",
     "test:jest": "yarn jest"
   },
