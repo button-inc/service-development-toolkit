@@ -31,7 +31,7 @@ export const applyTheme = (styles, config) => {
     }
 
     const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
-    const staticStyleProps = pickBy(rest, (value, propName) => staticProps.includes(propName));
+    const staticStyleProps = pickBy(rest, (_value, propName) => staticProps.includes(propName));
 
     return (
       <Scontainer {...styleProps} {...staticStyleProps}>

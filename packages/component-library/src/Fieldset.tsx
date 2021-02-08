@@ -22,7 +22,7 @@ export const applyTheme = (styles, config) => {
     const { title, children, name, id, disabled, ...rest } = props;
 
     const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
-    const staticStyleProps = pickBy(rest, (value, propName) => staticProps.includes(propName));
+    const staticStyleProps = pickBy(rest, (_value, propName) => staticProps.includes(propName));
 
     const childrenWithNames = React.Children.map(children, child => {
       return React.cloneElement(child, {
