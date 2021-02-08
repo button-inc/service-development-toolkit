@@ -5,7 +5,8 @@ const staticStyles = {
   fullHeight: `height:100%;`,
 };
 
-const staticProps = Object.keys(staticStyles);
+// Using this to pull off style related static props. If including non-style props, will need refactor
+export const staticProps = Object.keys(staticStyles);
 
 export function getStyleBuilder(stylesToApply: any, allowedProps: string[]) {
   const sharedStyles = stylesToApply.shared || {};
@@ -31,6 +32,11 @@ export function getStyleBuilder(stylesToApply: any, allowedProps: string[]) {
     `;
   };
 }
+
+export const getStyleKeys = styles => {
+  const { shared = {}, ...others } = styles;
+  return Object.keys(others);
+};
 
 export function createStyleBuilder(styles: any, config: any) {
   const { shared = {}, ...others } = styles;

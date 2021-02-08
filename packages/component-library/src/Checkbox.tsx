@@ -1,6 +1,7 @@
 import React from 'react';
 import randomstring from 'randomstring';
-import { createStyleBuilder } from './helpers';
+import pickBy from 'lodash/pickBy';
+import { createStyleBuilder, getStyleKeys, staticProps } from './helpers';
 
 interface CheckboxProps {
   label?: string;
@@ -17,17 +18,22 @@ export const applyTheme = (styles, config) => {
   const Slabel: any = styleBuilder('label', 'label');
   const Scheckbox: any = styleBuilder('input', 'input');
 
+  const styleKeys = getStyleKeys(styles);
+
   const BaseComponent = (props: CheckboxProps) => {
     let { id } = props;
     const { label, ...rest } = props;
     if (!id) {
       id = randomstring.generate(10);
     }
+
+    const styleProps = pickBy(rest, (_value, propName) => [...styleKeys, ...staticProps].includes(propName));
+
     return (
-      <Scontainer {...rest}>
+      <Scontainer {...styleProps}>
         <Scheckbox {...rest} type="checkbox" id={id} />
         {label && (
-          <Slabel {...rest} htmlFor={id}>
+          <Slabel {...styleProps} htmlFor={id}>
             {label}
           </Slabel>
         )}

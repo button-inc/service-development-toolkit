@@ -1,6 +1,6 @@
 import React from 'react';
 import randomstring from 'randomstring';
-import { createStyleBuilder } from './helpers';
+import { createStyleBuilder, getStyleKeys } from './helpers';
 
 interface Props {
   id?: string;
@@ -17,8 +17,7 @@ export const applyTheme = (styles, config) => {
   const Slabel = styleBuilder('label', 'label');
   const Sinput = styleBuilder('input', 'input');
 
-  const { shared = {}, ...others } = styles;
-  const styleKeys = Object.keys(others);
+  const styleKeys = getStyleKeys(styles);
 
   const BaseComponent = (props: Props) => {
     let { id, name } = props;
