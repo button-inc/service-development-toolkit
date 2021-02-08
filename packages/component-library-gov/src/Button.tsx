@@ -36,6 +36,6 @@ const config = {
   staticProps: ['fullWidth', 'fullHeight'],
 };
 
-const Select: any = applyTheme(styles, config);
+const Button: any = applyTheme(styles, config);
 
-export default Select;
+export default Button;

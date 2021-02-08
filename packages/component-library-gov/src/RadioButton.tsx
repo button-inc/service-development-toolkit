@@ -25,6 +25,6 @@ const config = {
   staticProps: ['fullWidth', 'fullHeight'],
 };
 
-const Select: any = applyTheme(styles, config);
+const Radio: any = applyTheme(styles, config);
 
-export default Select;
+export default Radio;

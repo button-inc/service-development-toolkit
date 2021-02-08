@@ -39,6 +39,6 @@ export const applyTheme = (styles, config) => {
   return BaseComponent;
 };
 
-const Select = applyTheme({}, {});
+const Radio = applyTheme({}, {});
 
-export default Select;
+export default Radio;
