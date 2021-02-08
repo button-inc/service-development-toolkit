@@ -11,11 +11,13 @@ module.exports = {
   rules: {
     '@typescript-eslint/naming-convention': 0,
     '@typescript-eslint/dot-notation': 0,
+    '@typescript-eslint/no-shadow': 0,
     'import/no-extraneous-dependencies': 0,
     'import/no-unresolved': 0,
     'import/prefer-default-export': 0,
     'no-console': 0,
     'no-underscore-dangle': 0,
+    'func-names': 0,
     'react/jsx-filename-extension': 0,
     'react/jsx-props-no-spreading': 0,
     'react/prop-types': 0,

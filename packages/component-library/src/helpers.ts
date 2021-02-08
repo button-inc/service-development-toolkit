@@ -71,3 +71,34 @@ export function getStyleBuilder(stylesToApply: any, allowedProps: string[]) {
     `;
   };
 }
+
+export function createStyleBuilder(styles: any, config: any) {
+  const { shared = {}, ...others } = styles;
+  const defaultProps = config.defaultProps || {};
+  const staticProps = config.staticProps || [];
+
+  const styleKeys = Object.keys(others);
+
+  return function (tag: string, type: string) {
+    return styled[tag]`
+      ${(props: any) => {
+        let styles = shared[type] || '';
+
+        staticProps.forEach(key => {
+          if (props[key] === false) return;
+          if (props[key] === true || defaultProps[key] === true) styles += staticStyles[key];
+        });
+
+        styleKeys.forEach(key => {
+          const style = others[key];
+          const values = Object.keys(style);
+          let value = props[key];
+          if (!style[value]) value = defaultProps[key] || values[0];
+          styles += (style[value] && style[value][type]) || '';
+        });
+
+        return styles;
+      }}
+    `;
+  };
+}
