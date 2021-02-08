@@ -1,6 +1,6 @@
 import Radio from 'component-library-gov/RadioButton';
 
-export default function Select() {
+export default function RadioPage() {
   return (
     <>
       <form action="">
