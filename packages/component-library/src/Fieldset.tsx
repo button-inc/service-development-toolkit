@@ -35,6 +35,6 @@ export const applyTheme = (styles, config) => {
   return BaseComponent;
 };
 
-const Fieldset = applyTheme({}, {});
+const Fieldset = applyTheme({}, { staticProps: ['fullWidth', 'fullHeight'] });
 
 export default Fieldset;
