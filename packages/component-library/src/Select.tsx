@@ -1,6 +1,7 @@
 import React from 'react';
 import randomstring from 'randomstring';
-import { createStyleBuilder, getStyleKeys } from './helpers';
+import pickBy from 'lodash/pickBy';
+import { createStyleBuilder, getStyleKeys, staticProps } from './helpers';
 
 interface SelectProps {
   id?: string;
@@ -33,10 +34,10 @@ export const applyTheme = (styles, config) => {
     const ariaLabel = label || name;
 
     const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
-    const staticProps = config.staticProps?.reduce((acc, cur) => ({ ...acc, [cur]: true }), {});
+    const staticStyleProps = pickBy(rest, (value, propName) => staticProps.includes(propName));
 
     return (
-      <Scontainer {...styleProps} {...staticProps}>
+      <Scontainer {...styleProps} {...staticStyleProps}>
         {label && (
           <Slabel htmlFor={id} {...styleProps}>
             {label}
