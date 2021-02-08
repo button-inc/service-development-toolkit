@@ -2,37 +2,46 @@ import { applyTheme } from 'component-library/Checkbox';
 
 const styles = {
   shared: {
-    label: 'font-size: 32px;',
-    container: 'background-color: red;',
-  },
-  defaultProps: {
-    size: 'tiny',
-  },
-  tiny: {
-    input: `
-    border: 2px solid #606060;
-    height: 34px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    padding: 5px 5px 5px 7px;
-    border-radius: 4px;
-    `,
+    input: '',
     container: `
-      background: red;
-    `,
-    label: `
-      color: green;
-    `,
+            border: 2px solid green;
+            padding: 2px;
+          `,
   },
-  large: {
-    container: `
-      border: 5px solid red;
-      background-color: yelllow;
-    `,
-    label: 'color: orange;',
+  size: {
+    tiny: {
+      input: 'font-size: 15px;',
+      label: 'font-size: 15px;',
+    },
+    medium: {
+      input: 'font-size: 20px;',
+      label: 'font-size: 20px;',
+    },
+  },
+  variant: {
+    secondary: {
+      container: `
+                  border-color: blue;
+                `,
+      input: '',
+    },
+    warning: {
+      container: `
+                  border-color: red;
+                `,
+      input: '',
+    },
   },
 };
 
-const Checkbox: any = applyTheme(styles);
+const config = {
+  defaultProps: {
+    variant: 'warning',
+    size: 'tiny',
+  },
+  staticProps: ['fullWidth', 'fullHeight'],
+};
+
+const Checkbox: any = applyTheme(styles, config);
 
 export default Checkbox;
