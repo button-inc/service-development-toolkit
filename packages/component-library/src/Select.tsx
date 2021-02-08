@@ -9,7 +9,6 @@ interface SelectProps {
   children?: any;
   defaultValue?: string;
   disabled?: boolean;
-  onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
 }
 
 export const applyTheme = (styles, config) => {
@@ -18,9 +17,12 @@ export const applyTheme = (styles, config) => {
   const Slabel = styleBuilder('label', 'label');
   const Sselect = styleBuilder('select', 'input');
 
+  const { shared = {}, ...others } = styles;
+  const styleKeys = Object.keys(others);
+
   const BaseComponent = (props: SelectProps) => {
     let { id, name } = props;
-    const { label, children, onChange, ...rest } = props;
+    const { label, children, ...rest } = props;
     if (!id) {
       id = randomstring.generate(10);
     }
@@ -32,13 +34,13 @@ export const applyTheme = (styles, config) => {
     const ariaLabel = label || name;
 
     return (
-      <Scontainer {...rest}>
+      <Scontainer {...styleKeys}>
         {label && (
-          <Slabel htmlFor={id} {...rest}>
+          <Slabel htmlFor={id} {...styleKeys}>
             {label}
           </Slabel>
         )}
-        <Sselect aria-label={ariaLabel} {...rest} id={id} name={name} onChange={onChange}>
+        <Sselect aria-label={ariaLabel} {...rest} id={id} name={name}>
           {children}
         </Sselect>
       </Scontainer>

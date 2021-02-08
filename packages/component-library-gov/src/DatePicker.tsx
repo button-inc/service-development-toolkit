@@ -31,6 +31,7 @@ const styles = {
     },
   },
   display: {
+    none: {},
     block: {
       input: 'display: block;',
     },
