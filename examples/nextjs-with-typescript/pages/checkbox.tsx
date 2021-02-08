@@ -1,6 +1,6 @@
 import Checkbox from 'component-library-gov/Checkbox';
 
-export default function Select() {
+export default function CheckboxPage() {
   return (
     <>
       <form action="">
