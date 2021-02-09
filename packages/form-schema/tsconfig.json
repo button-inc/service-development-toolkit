@@ -1,0 +1,10 @@
+{
+  "extends": "@4c/tsconfig/node.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
+    "noImplicitAny": false,
+    "module": "commonjs"
+  },
+  "include": ["src"]
+}
