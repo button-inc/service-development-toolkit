@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { removePageFields, matchPostBody, submitApplication, pageForward } from './helpers';
 
 // TEMP

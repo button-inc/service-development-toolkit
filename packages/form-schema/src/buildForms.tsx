@@ -1,10 +1,13 @@
 import Form from 'react-jsonschema-form';
 import React from 'react';
-import { splitSchema, createValidator } from './helpers';
+import { createValidator } from './helpers';
+import { splitSchema } from './splitSchema';
+import { ISchema } from './interfaces';
 
-export default function buildForms(schema, uiSchema, postRoute) {
+export default function buildForms(schema: ISchema, uiSchema: object, postRoute: string): Function[] {
   const order = uiSchema['ui:order'];
   const schemasArray = splitSchema(schema, order);
+  const fieldsArray = schemasArray.map(schema => Object.keys(schema.properties));
 
   return schemasArray.map((schema, i) => {
     const key = `form-${i}`;
@@ -17,7 +20,7 @@ export default function buildForms(schema, uiSchema, postRoute) {
           action={`${postRoute}/${i}`}
           schema={schema}
           uiSchema={uiSchema}
-          validate={createValidator(i)}
+          validate={createValidator(i, fieldsArray)}
           onSubmit={e => console.log('submitted')}
           {...props}
         />
