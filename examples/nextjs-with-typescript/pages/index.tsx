@@ -1,6 +1,7 @@
-import formSchema from 'form-schema';
-
-export default function Home() {
-  console.log(formSchema('hi'));
-  return <>Pangolin</>;
+export default function home(req, res) {
+  return (
+    <>
+      <h1>pangolin</h1>
+    </>
+  );
 }

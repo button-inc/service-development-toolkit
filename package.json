@@ -85,6 +85,7 @@
     ]
   },
   "dependencies": {
-    "randomstring": "^1.1.5"
+    "randomstring": "^1.1.5",
+    "react-jsonschema-form": "^1.8.1"
   }
 }
