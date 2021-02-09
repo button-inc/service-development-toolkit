@@ -26,11 +26,4 @@ const Template: Story = args => (
   </>
 );
 
-export const Tiny = Template.bind({});
-Tiny.args = {
-  size: 'tiny',
-};
-export const Large = Template.bind({});
-Large.arge = {
-  size: 'large',
-};
+export const Default = Template.bind({});
