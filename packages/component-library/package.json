@@ -17,6 +17,7 @@
   "dependencies": {
     "@babel/runtime": "^7.4.2",
     "@types/styled-components": "^5.1.4",
+    "clsx": "^1.1.1",
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
