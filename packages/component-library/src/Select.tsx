@@ -1,6 +1,7 @@
 import React from 'react';
 import randomstring from 'randomstring';
-import { createStyleBuilder, getStyleKeys } from './helpers';
+import pickBy from 'lodash/pickBy';
+import { createStyleBuilder, getStyleKeys, staticProps } from './helpers';
 
 interface SelectProps {
   id?: string;
@@ -32,7 +33,7 @@ export const applyTheme = (styles, config) => {
 
     const ariaLabel = label || name;
 
-    const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
+    const styleProps = pickBy(rest, (_value, propName) => [...styleKeys, ...staticProps].includes(propName));
 
     return (
       <Scontainer {...styleProps}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import randomstring from 'randomstring';
-import { createStyleBuilder, getStyleKeys } from './helpers';
+import pickBy from 'lodash/pickBy';
+import { createStyleBuilder, getStyleKeys, staticProps } from './helpers';
 
 export interface InputProps {
   disabled?: boolean;
@@ -29,7 +30,7 @@ export const applyTheme = (styles, config) => {
       id = randomstring.generate(10);
     }
 
-    const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
+    const styleProps = pickBy(rest, (_value, propName) => [...styleKeys, ...staticProps].includes(propName));
 
     return (
       <Scontainer {...styleProps}>

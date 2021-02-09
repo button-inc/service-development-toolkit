@@ -1,5 +1,6 @@
 import React from 'react';
-import { createStyleBuilder, getStyleKeys } from './helpers';
+import pickBy from 'lodash/pickBy';
+import { createStyleBuilder, getStyleKeys, staticProps } from './helpers';
 
 export interface FieldsetProps {
   disabled?: boolean;
@@ -18,18 +19,19 @@ export const applyTheme = (styles, config) => {
   const styleKeys = getStyleKeys(styles);
 
   const BaseComponent = (props: FieldsetProps) => {
-    const { title, children, name, ...rest } = props;
+    const { title, children, name, id, disabled, ...rest } = props;
 
-    const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
+    const styleProps = pickBy(rest, (_value, propName) => [...styleKeys, ...staticProps].includes(propName));
 
     const childrenWithNames = React.Children.map(children, child => {
       return React.cloneElement(child, {
         name: child.props.name || name,
+        disabled: child.props.disabled || disabled,
       });
     });
 
     return (
-      <Sfieldset {...styleProps}>
+      <Sfieldset {...styleProps} id={id}>
         {title && <Slegend {...styleProps}>{title}</Slegend>}
         {childrenWithNames}
       </Sfieldset>
