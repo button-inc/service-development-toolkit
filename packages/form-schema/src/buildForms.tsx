@@ -21,7 +21,7 @@ export default function buildForms(schema: ISchema, uiSchema: object, postRoute:
           schema={schema}
           uiSchema={uiSchema}
           validate={createValidator(i, fieldsArray)}
-          onSubmit={e => console.log('submitted')}
+          onSubmit={_e => console.log('submitted')}
           {...props}
         />
       );

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import onPost from './onPost';
 import buildForms from './buildForms';
 
