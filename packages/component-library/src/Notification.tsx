@@ -23,7 +23,7 @@ const InvisualCheckbox = styled.input.attrs({ type: 'checkbox' })`
   position: absolute;
   left: -100vw;
 
-  &:checked ~ .${CONTAINER_CLASS} {
+  &:checked + .${CONTAINER_CLASS} {
     display: none;
   }
 `;
@@ -81,12 +81,10 @@ export const applyTheme = (styles, config) => {
 
     return (
       <Context.Provider value={checkboxId}>
-        <div>
-          {closable && <InvisualCheckbox id={checkboxId} />}
-          <Scontainer {...styleProps} className={CONTAINER_CLASS}>
-            {children}
-          </Scontainer>
-        </div>
+        {closable && <InvisualCheckbox id={checkboxId} />}
+        <Scontainer {...styleProps} className={CONTAINER_CLASS}>
+          {children}
+        </Scontainer>
       </Context.Provider>
     );
   };
