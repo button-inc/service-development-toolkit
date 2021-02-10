@@ -1,14 +1,19 @@
 // @ts-nocheck
 import { validateFormData } from './validation';
 import { removePageFields, matchPostBody } from './cleanData';
+import { getUrlPage } from './helpers';
 
-function getUrlPage(url) {
-  const splitUrl = url.split('/');
-  const urlEnd = splitUrl[splitUrl.length - 1];
-  return Number(urlEnd);
-}
-
-export default async function onPost(getRoute, numForms, schema, schemas, fieldsArray, req, res, onEnd, onPageOver) {
+export default async function postHandler(
+  getRoute,
+  numForms,
+  schema,
+  schemas,
+  fieldsArray,
+  req,
+  res,
+  onEnd,
+  onPageOver
+) {
   const {
     body: { js },
     url,
@@ -41,6 +46,7 @@ export default async function onPost(getRoute, numForms, schema, schemas, fields
   const props = { nextPage, formData };
 
   if (js) {
+    console.log('got here');
     res.json(props);
   } else {
     res.redirect(`${getRoute}/${nextPage}`);

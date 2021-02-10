@@ -1,16 +1,16 @@
 // @ts-nocheck
-import onPost from './onPost';
+import postHandler from './postHandler';
+import getHandler from './getHandler';
 import buildForms from './buildForms';
+import { ISchema } from './interfaces';
 
-function onGet(req, onEnd, onPageOver) {}
-
-export default function builder(schema, uiSchema, getRoute, postRoute, config) {
+export default function builder(schema: ISchema, uiSchema: object, getRoute: string, postRoute: string) {
   const { Forms, schemasArray, fieldsArray } = buildForms(schema, uiSchema, getRoute, postRoute);
 
   const numForms = Forms.length;
   return {
-    onPost: onPost.bind({}, getRoute, numForms, schema, schemasArray, fieldsArray),
-    onGet,
+    postHandler: postHandler.bind({}, getRoute, numForms, schema, schemasArray, fieldsArray),
+    getHandler: getHandler.bind({}, numForms),
     Forms,
   };
 }
