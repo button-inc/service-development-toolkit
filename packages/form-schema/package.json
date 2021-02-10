@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.2",
+    "axios": "^0.21.1",
     "react-jsonschema-form": "^1.8.1",
     "ts-loader": "^8.0.16",
     "typescript": "^4.1.3"

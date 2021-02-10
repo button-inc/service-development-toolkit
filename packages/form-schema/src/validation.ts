@@ -28,3 +28,12 @@ export function createValidator(page: number, fieldsArray: string[][]) {
     return errors;
   };
 }
+
+// see https://github.com/rjsf-team/react-jsonschema-form/blob/6f3c4c78765cbae67b91bf7762094c9b7e38c7d1/packages/core/src/validate.js#L167
+export function validateFormData(formData: object, fullSchema: object, fieldsArray: string[][]) {
+  const validated = validate(formData, fullSchema, createValidator(-1, fieldsArray));
+
+  const { errors } = validated;
+
+  return errors.length === 0 ? { isValidated: true, isValid: true } : { isValidated: true, isValid: false, errors };
+}
