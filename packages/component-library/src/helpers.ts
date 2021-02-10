@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import randomstring from 'randomstring';
+import isString from 'lodash/isString';
 import pickBy from 'lodash/pickBy';
 
 const generateId = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -24,22 +24,38 @@ export function createStyleBuilder(styles: any, config: any) {
 
   const styleKeys = Object.keys(others);
 
+  const isTrue = (props: object, key: string): boolean => {
+    if (props[key] === false) return false;
+    if (props[key] === true || defaultProps[key] === true) return true;
+    return false;
+  };
+
   return function (tag: string, type: string) {
     return styled[tag]`
       ${(props: any) => {
         let styles = shared[type] || '';
 
         staticProps.forEach(key => {
-          if (props[key] === false) return;
-          if (props[key] === true || defaultProps[key] === true) styles += staticStyles[key];
+          if (isTrue(props, key)) styles += staticStyles[key];
         });
 
         styleKeys.forEach(key => {
           const style = others[key];
+          if (isString(style)) {
+            if (isTrue(props, key)) styles += style;
+            return;
+          }
+
           const values = Object.keys(style);
-          let value = props[key];
-          if (!style[value]) value = defaultProps[key] || values[0];
-          styles += (style[value] && style[value][type]) || '';
+          const first = values[0];
+
+          if (isString(style[first])) {
+            if (isTrue(props, key)) styles += style[type] || '';
+          } else {
+            let value = props[key];
+            if (!style[value]) value = defaultProps[key] || first;
+            styles += (style[value] && style[value][type]) || '';
+          }
         });
 
         return styles;

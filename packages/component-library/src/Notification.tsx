@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import cx from 'clsx';
 import each from 'lodash/each';
+import isString from 'lodash/isString';
 import styled from 'styled-components';
 import { createStyleBuilder, createBootstrap } from './helpers';
 
@@ -56,9 +57,13 @@ const mergeStyle = styles => {
   each(others, (val, key) => {
     ret[key] = {};
 
-    each(val, (val2, key2) => {
-      ret[key][key2] = concatStyle(val2);
-    });
+    if (isString(val)) {
+      ret[key] = val;
+    } else {
+      each(val, (val2, key2) => {
+        ret[key][key2] = isString(val2) ? val2 : concatStyle(val2);
+      });
+    }
   });
 
   return ret;

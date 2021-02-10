@@ -33,6 +33,16 @@ export default function Notification() {
         <NotificationGov.Header>Header 5</NotificationGov.Header>
         <NotificationGov.Content>Content 5</NotificationGov.Content>
       </NotificationGov>
+
+      <NotificationGov textShadow>
+        <NotificationGov.Header>Header 6</NotificationGov.Header>
+        <NotificationGov.Content>Content 6</NotificationGov.Content>
+      </NotificationGov>
+
+      <NotificationGov boxShadow>
+        <NotificationGov.Header>Header 7</NotificationGov.Header>
+        <NotificationGov.Content>Content 7</NotificationGov.Content>
+      </NotificationGov>
     </>
   );
 }

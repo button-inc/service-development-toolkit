@@ -50,6 +50,10 @@ const styles = {
       text-align: right;`,
     },
   },
+  boxShadow: {
+    container: `box-shadow: 10px 10px;`,
+  },
+  textShadow: 'text-shadow: 2px 2px;',
 };
 
 const config = {
