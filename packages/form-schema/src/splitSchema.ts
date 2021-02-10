@@ -43,6 +43,21 @@ export function getPropertyDependencies(dependencies: IDependencies): object[] {
   return propertyDependencies;
 }
 
+export function getNestedFieldPropertiesByName(schema: ISchema) {
+  const { properties } = schema;
+  const nestedFields: object[] = [];
+  Object.entries(properties).forEach(([ownerProperty, value]) => {
+    if (value.type === 'object') {
+      const ownedProperties: object = { [ownerProperty]: [] };
+      Object.keys(value.properties).forEach(fieldName => {
+        ownedProperties[ownerProperty].push(fieldName);
+      });
+      nestedFields.push(ownedProperties);
+    }
+  });
+  return nestedFields;
+}
+
 /* splitSchema is built to handle only dependencies of the form
 {
   propertyName: {

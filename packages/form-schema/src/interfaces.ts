@@ -13,3 +13,10 @@ export interface ISchema {
   dependencies?: IDependencies;
   properties: object;
 }
+
+export interface IFormPostResponse {
+  page: number;
+  isValidated: boolean;
+  isValid: boolean;
+  hasError: boolean;
+}

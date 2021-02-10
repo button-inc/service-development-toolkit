@@ -5,9 +5,11 @@ import buildForms from './buildForms';
 function onGet(req, onEnd, onPageOver) {}
 
 export default function builder(schema, uiSchema, getRoute, postRoute, config) {
-  const Forms = buildForms(schema, uiSchema, postRoute);
+  const { Forms, schemasArray, fieldsArray } = buildForms(schema, uiSchema, getRoute, postRoute);
+
+  const numForms = Forms.length;
   return {
-    onPost,
+    onPost: onPost.bind({}, getRoute, numForms, schema, schemasArray, fieldsArray),
     onGet,
     Forms,
   };
