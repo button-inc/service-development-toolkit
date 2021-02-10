@@ -8,4 +8,4 @@ export const widgets = {
   CheckboxWidget: Checkbox,
 };
 
-export const { onPost, onGet, Forms } = builder(schema, uiSchema, '', 'api');
+export const { postHandler, getHandler, Forms } = builder(schema, uiSchema, '', 'api');

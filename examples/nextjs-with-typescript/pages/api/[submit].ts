@@ -1,8 +1,8 @@
 import { withSession } from 'next-session';
-import { onPost } from '../../pangolin';
+import { postHandler } from '../../pangolin';
 
 function handler(req: any, res: any) {
-  onPost(
+  postHandler(
     req,
     res,
     () => {},
