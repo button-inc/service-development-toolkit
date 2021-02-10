@@ -1,7 +1,5 @@
 import React from 'react';
-import randomstring from 'randomstring';
-import pickBy from 'lodash/pickBy';
-import { createStyleBuilder, getStyleKeys, staticProps } from './helpers';
+import { createStyleBuilder, createBootstrap } from './helpers';
 
 interface RadioButtonProps {
   label?: string;
@@ -19,16 +17,10 @@ export const applyTheme = (styles, config) => {
   const Slabel: any = styleBuilder('label', 'label');
   const SRadioButton: any = styleBuilder('input', 'input');
 
-  const styleKeys = getStyleKeys(styles);
+  const bootstrap = createBootstrap(styles, 'radio');
 
   const BaseComponent = (props: RadioButtonProps) => {
-    let { id } = props;
-    const { label, ...rest } = props;
-    if (!id) {
-      id = randomstring.generate(10);
-    }
-
-    const styleProps = pickBy(rest, (_value, propName) => [...styleKeys, ...staticProps].includes(propName));
+    const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);
 
     return (
       <Scontainer {...styleProps}>

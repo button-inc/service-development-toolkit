@@ -1,6 +1,5 @@
 import React from 'react';
-import randomstring from 'randomstring';
-import { createStyleBuilder } from './helpers';
+import { createStyleBuilder, createBootstrap } from './helpers';
 
 interface Props {
   id?: string;
@@ -17,23 +16,10 @@ export const applyTheme = (styles, config) => {
   const Slabel = styleBuilder('label', 'label');
   const Sinput = styleBuilder('input', 'input');
 
-  const { shared = {}, ...others } = styles;
-  const styleKeys = Object.keys(others);
+  const bootstrap = createBootstrap(styles, 'filepicker');
 
   const BaseComponent = (props: Props) => {
-    let { id, name } = props;
-    const { label, children, ...rest } = props;
-    if (!id) {
-      id = randomstring.generate(10);
-    }
-
-    if (!name) {
-      name = `${id}-filepicker`;
-    }
-
-    const ariaLabel = label || name;
-
-    const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
+    const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);
 
     return (
       <Scontainer {...styleProps}>

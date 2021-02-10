@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import randomstring from 'randomstring';
 import cx from 'clsx';
 import each from 'lodash/each';
 import styled from 'styled-components';
-import { createStyleBuilder } from './helpers';
+import { createStyleBuilder, createBootstrap } from './helpers';
 
 interface Props {
   id?: string;
@@ -72,21 +71,11 @@ export const applyTheme = (styles, config) => {
   const styleBuilder = createStyleBuilder(mergedStyles, config);
   const Scontainer = styleBuilder('div', 'container');
 
-  const { shared = {}, ...others } = styles;
-  const styleKeys = Object.keys(others);
+  const bootstrap = createBootstrap(styles, 'notification');
 
   const BaseComponent = (props: Props) => {
-    let { id, name } = props;
-    const { label, children, closable, ...rest } = props;
-    if (!id) {
-      id = randomstring.generate(10);
-    }
-
-    if (!name) {
-      name = `${id}-notification`;
-    }
-
-    const styleProps = Object.assign({}, ...styleKeys.map(key => ({ [key]: rest[key] })));
+    const { id, name, label, ariaLabel, styleProps, children, rest } = bootstrap(props);
+    const { closable } = rest;
 
     const checkboxId = `${id}-toggle`;
 

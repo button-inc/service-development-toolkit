@@ -1,6 +1,5 @@
 import React from 'react';
-import pickBy from 'lodash/pickBy';
-import { createStyleBuilder, getStyleKeys, staticProps } from './helpers';
+import { createStyleBuilder, createBootstrap } from './helpers';
 
 export interface FieldsetProps {
   disabled?: boolean;
@@ -16,12 +15,12 @@ export const applyTheme = (styles, config) => {
   const Sfieldset: any = styleBuilder('fieldset', 'container');
   const Slegend: any = styleBuilder('legend', 'legend');
 
-  const styleKeys = getStyleKeys(styles);
+  const bootstrap = createBootstrap(styles, 'fieldset');
 
   const BaseComponent = (props: FieldsetProps) => {
-    const { title, children, name, id, disabled, ...rest } = props;
+    const { id, name, ariaLabel, styleProps, children, rest } = bootstrap(props);
 
-    const styleProps = pickBy(rest, (_value, propName) => [...styleKeys, ...staticProps].includes(propName));
+    const { title, disabled, ...others } = rest;
 
     const childrenWithNames = React.Children.map(children, child => {
       return React.cloneElement(child, {
