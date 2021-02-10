@@ -31,6 +31,15 @@ const styles = {
       content: 'border-color: red;',
     },
   },
+  display: {
+    block: {
+      container: `display: block`,
+    },
+    inlineBlock: {
+      container: `display: inline-block;
+      width: 200px;`,
+    },
+  },
   close: {
     left: {
       close: `
