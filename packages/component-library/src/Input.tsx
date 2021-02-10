@@ -1,7 +1,5 @@
 import React from 'react';
-import randomstring from 'randomstring';
-import pickBy from 'lodash/pickBy';
-import { createStyleBuilder, getStyleKeys, staticProps } from './helpers';
+import { createStyleBuilder, createBootstrap } from './helpers';
 
 export interface InputProps {
   disabled?: boolean;
@@ -21,20 +19,14 @@ export const applyTheme = (styles, config) => {
   const Slabel: any = styleBuilder('label', 'label');
   const SInput: any = styleBuilder('input', 'input');
 
-  const styleKeys = getStyleKeys(styles);
+  const bootstrap = createBootstrap(styles, 'input');
 
   const BaseComponent = (props: InputProps) => {
-    let { id } = props;
-    const { label, ...rest } = props;
-    if (!id) {
-      id = randomstring.generate(10);
-    }
-
-    const styleProps = pickBy(rest, (_value, propName) => [...styleKeys, ...staticProps].includes(propName));
+    const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);
 
     return (
       <Scontainer {...styleProps}>
-        <SInput id={id} {...rest} />
+        <SInput {...rest} id={id} name={name} />
         {label && (
           <Slabel htmlFor={id} {...styleProps}>
             {label}
