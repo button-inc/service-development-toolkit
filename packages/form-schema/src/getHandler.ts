@@ -6,6 +6,7 @@ export default function getHandler(numPages, req) {
 
   if (!validPage) return { validPage: false };
 
+  const formIndex = page - 1;
   const { session: { formData = {} } = {} } = req;
-  return { formIndex: page, formData, validPage: true };
+  return { formIndex, formData, validPage: true };
 }

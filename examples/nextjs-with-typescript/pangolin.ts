@@ -4,8 +4,11 @@ import Checkbox from 'component-library/Checkbox';
 import schema from './schemas/schema';
 import uiSchema from './schemas/uiSchema';
 
-export const widgets = {
-  CheckboxWidget: Checkbox,
+const validations = {
+  useOfGrant: {
+    validationFunction: value => value,
+    errorMessage: 'You must agree to continue!',
+  },
 };
 
-export const { postHandler, getHandler, Forms } = builder(schema, uiSchema, '', 'api');
+export const { postHandler, getHandler, Forms } = builder(schema, uiSchema, '', 'api', validations);
