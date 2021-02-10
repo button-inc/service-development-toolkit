@@ -20,3 +20,10 @@ export interface IFormPostResponse {
   isValid: boolean;
   hasError: boolean;
 }
+
+export interface IValidations {
+  [propertyName: string]: {
+    validationFunction: Function;
+    errorMessage: string;
+  };
+}

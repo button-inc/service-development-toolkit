@@ -2,17 +2,19 @@
 import { validateFormData } from './validation';
 import { removePageFields, matchPostBody } from './cleanData';
 import { getUrlPage } from './helpers';
+import { IValidations, ISchema } from './interfaces';
 
 export default async function postHandler(
-  getRoute,
-  numForms,
-  schema,
-  schemas,
-  fieldsArray,
-  req,
-  res,
-  onEnd,
-  onPageOver
+  getRoute: string,
+  numForms: number,
+  schema: ISchema,
+  schemas: ISchema[],
+  fieldsArray: string[],
+  validations: IValidations,
+  req: any,
+  res: any,
+  onEnd: Function,
+  onPageOver: Function
 ) {
   const {
     body: { js },
@@ -27,9 +29,10 @@ export default async function postHandler(
   if (!js) postData = req.body;
 
   const nextPage = getUrlPage(url) + 1;
+  const schemaIndex = nextPage - 2;
   const { formData = {} } = session;
 
-  const currentPageSchema = schemas[nextPage - 1];
+  const currentPageSchema = schemas[schemaIndex];
   const clearedFormData = removePageFields(formData, currentPageSchema);
 
   const clearedPostData = matchPostBody(postData, currentPageSchema);
@@ -38,15 +41,15 @@ export default async function postHandler(
 
   console.log(newFormData);
 
-  if (nextPage === numForms) {
-    const result = validateFormData(newData, schema, fieldsArray);
-    onEnd(result.errors, newData);
+  console.log(nextPage, numForms);
+  if (nextPage > numForms) {
+    const result = validateFormData(newFormData, schema, fieldsArray, validations);
+    onEnd(result.errors, newFormData);
   }
 
   const props = { nextPage, formData };
 
   if (js) {
-    console.log('got here');
     res.json(props);
   } else {
     res.redirect(`${getRoute}/${nextPage}`);
