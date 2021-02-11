@@ -10,7 +10,7 @@ function cleanSchemaData(postData: object, pageSchema: ISchema, formData: object
 }
 
 function defaultPageOverHandler(session: any, pageSchema: ISchema, postData: object): object {
-  const { formData = {} } = session;
+  const { formData = {} } = session || {};
   const newFormData = cleanSchemaData(postData, pageSchema, formData);
   return newFormData;
 }
@@ -34,20 +34,22 @@ export default async function postHandler(
 
   let {
     body: { postData },
-    session,
   } = req;
+
   if (!js) postData = req.body;
   const currentPage = getUrlPage(url);
+
   const nextPage = currentPage + 1;
   const schemaIndex = currentPage - 1;
   const pageSchema = schemas[schemaIndex];
   let newFormData: object = {};
 
   if (!handlePageOver) {
-    newFormData = defaultPageOverHandler(session, schema, postData);
-    session = newFormData;
-  } else if (typeof handlePageOver === 'function')
+    newFormData = defaultPageOverHandler(req.session, schema, postData);
+    req.session = newFormData;
+  } else if (typeof handlePageOver === 'function') {
     newFormData = handlePageOver(postData, schemaIndex, cleanSchemaData.bind({}, postData, pageSchema));
+  }
 
   if (nextPage > numForms) {
     const result = validateFormData(newFormData, schema, fieldsArray, validations);
