@@ -4,7 +4,8 @@
     "rootDir": "src",
     "outDir": "lib",
     "noImplicitAny": false,
-    "module": "commonjs"
+    "module": "commonjs",
+    "lib": ["DOM"]
   },
   "include": ["src"]
 }

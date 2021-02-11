@@ -1,6 +1,5 @@
 import Form from 'react-jsonschema-form';
 import React from 'react';
-import { useRouter } from 'next/router';
 import axios from 'axios';
 import { createValidator } from './validation';
 import { splitSchema } from './splitSchema';
@@ -24,16 +23,16 @@ export default function buildForms(
       const pageNumber = i + 1;
 
       return function Forms(props) {
-        const router = useRouter();
-
         const handleSubmit = async ({ formData }) => {
           const result = await axios.post(`${postRoute}/${pageNumber}`, {
             postData: formData,
             page: pageNumber,
             js: true,
           });
+          console.log(JSON.stringify(result), '-============================');
           const { nextPage, isValidated, isValid, hasError } = result.data;
-          router.push(`${getRoute}/${nextPage}`);
+          if (props.onPageOver) props.onPageOver(`${getRoute}/${nextPage}`, isValid);
+          else if (typeof window === 'object') window.location.href = `${getRoute}/${nextPage}`;
         };
 
         return (
