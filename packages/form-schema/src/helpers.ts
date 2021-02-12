@@ -4,3 +4,10 @@ export const getUrlPage = url => {
   if (urlEnd.includes('.')) [urlEnd] = urlEnd.split('.');
   return Number(urlEnd);
 };
+
+export const parseUrl = (getRoute: string, nextPage: string) => {
+  let route;
+  if (getRoute[getRoute.length - 1] === '/') route = `${getRoute}${nextPage}`;
+  else route = `${getRoute}/${nextPage}`;
+  return route;
+};

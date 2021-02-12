@@ -1,10 +1,10 @@
 import Form from 'react-jsonschema-form';
 import React from 'react';
-import { useRouter } from 'next/router';
 import axios from 'axios';
 import { createValidator } from './validation';
 import { splitSchema } from './splitSchema';
 import { ISchema, IValidations } from './interfaces';
+import { parseUrl } from './helpers';
 
 export default function buildForms(
   schema: ISchema,
@@ -24,16 +24,17 @@ export default function buildForms(
       const pageNumber = i + 1;
 
       return function Forms(props) {
-        const router = useRouter();
-
         const handleSubmit = async ({ formData }) => {
           const result = await axios.post(`${postRoute}/${pageNumber}`, {
             postData: formData,
             page: pageNumber,
             js: true,
           });
-          const { nextPage, isValidated, isValid, hasError } = result.data;
-          router.push(`${getRoute}/${nextPage}`);
+          const { nextPage, isValid } = result.data;
+          if (props.rerouteHandler) {
+            const urlToNavigate = parseUrl(getRoute, nextPage);
+            props.rerouteHandler(urlToNavigate, isValid);
+          } else if (typeof window === 'object') window.location.href = `${getRoute}/${nextPage}`;
         };
 
         return (

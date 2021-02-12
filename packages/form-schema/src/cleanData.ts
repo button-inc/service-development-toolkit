@@ -29,7 +29,6 @@ const getArrayValue = value => (Array.isArray(value) ? value : [value]);
 // Clears fields for page before saving new values
 export function removePageFields(formData: object, schema: ISchema) {
   const fields = getFieldsForSchema(schema);
-  console.log(formData, fields);
   return _.omit(formData, fields);
 }
 
