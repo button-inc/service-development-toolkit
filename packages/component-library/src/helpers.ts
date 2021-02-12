@@ -30,8 +30,10 @@ export function createStyleBuilder(styles: any, config: any) {
     return false;
   };
 
-  return function (tag: string, type: string) {
-    return styled[tag]`
+  return function (tag: any, type: string) {
+    const base = isString(tag) ? styled[tag] : styled(tag);
+
+    return base`
       ${(props: any) => {
         let styles = shared[type] || '';
 
@@ -69,7 +71,8 @@ export function createBootstrap(styles: any, type: string) {
 
   return function (props: any) {
     let { id, name } = props;
-    const { label, children, ...rest } = props;
+    const { label, children, className, ...rest } = props;
+
     if (!id) {
       id = generateId();
     }
@@ -82,6 +85,6 @@ export function createBootstrap(styles: any, type: string) {
 
     const styleProps = pickBy(rest, (_, propName) => styleKeys.includes(propName));
 
-    return { id, name, label, ariaLabel, styleProps, children, rest };
+    return { id, name, label, ariaLabel, styleProps, children, className, rest };
   };
 }
