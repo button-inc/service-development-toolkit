@@ -10,7 +10,7 @@
     "build": "tsc",
     "build-types": "yarn tsc -d --outDir types",
     "dev": "tsc -w",
-    "test": "jest --testPathPattern=__tests__"
+    "test:jest": "jest --testPathPattern=__tests__"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.2",

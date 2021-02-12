@@ -5,9 +5,9 @@ export const getUrlPage = url => {
   return Number(urlEnd);
 };
 
-export function parseUrl(getRoute: string, nextPage: string) {
+export const parseUrl = (getRoute: string, nextPage: string) => {
   let route;
   if (getRoute[getRoute.length - 1] === '/') route = `${getRoute}${nextPage}`;
   else route = `${getRoute}/${nextPage}`;
   return route;
-}
+};

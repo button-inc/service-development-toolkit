@@ -11,6 +11,7 @@ const urlPage = 3;
 const nextPage = urlPage + 1;
 
 jest.mock('../src/helpers', () => ({
+  ...jest.requireActual('../src/helpers'),
   getUrlPage: jest.fn(() => urlPage),
 }));
 
@@ -25,12 +26,12 @@ const mockRes = { json: jest.fn(_data => {}), redirect: jest.fn(_data => {}) };
 
 const dataCallback = jest.fn(() => ({ data: 'callback data' }));
 
-afterEach(() => jest.clearAllMocks());
+// afterEach(() => jest.clearAllMocks());
 
 describe('postHandler with js', () => {
   it('saves data to session if no callback provided and returns expected props', () => {
     postHandler('', 5, { properties: {} }, [{ properties: {} }], [['']], {}, mockReqJs, mockRes);
-    expect(mockRes.json).toHaveBeenCalledWith({ formData: mockReqJs.body.postData, nextPage });
+    expect(mockRes.json).toHaveBeenCalledWith({ formData: mockReqJs.body.postData, nextPage, lastPage: true });
     expect(mockRes.redirect).not.toHaveBeenCalled();
     expect(mockReqJs.session).toEqual({ formData: mockReqJs.body.postData });
   });
@@ -48,7 +49,11 @@ describe('postHandler with js', () => {
       () => {},
       dataCallback
     );
-    expect(mockRes.json).toHaveBeenCalledWith({ formData: { data: 'callback data' }, nextPage: urlPage + 1 });
+    expect(mockRes.json).toHaveBeenCalledWith({
+      formData: { data: 'callback data' },
+      nextPage: urlPage + 1,
+      lastPage: true,
+    });
   });
 });
 

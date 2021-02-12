@@ -56,10 +56,10 @@ export default async function postHandler(
   }
 
   const props = { nextPage, formData: newFormData, lastPage: nextPage <= numForms };
-
   if (js) {
     res.json(props);
   } else {
-    res.redirect(parseUrl(getRoute, String(nextPage)));
+    const redirectUrl = parseUrl(getRoute, String(nextPage));
+    res.redirect(redirectUrl);
   }
 }
