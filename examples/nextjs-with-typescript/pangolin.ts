@@ -11,4 +11,4 @@ const validations = {
   },
 };
 
-export const { postHandler, getHandler, Forms } = builder(schema, uiSchema, '', 'api', validations);
+export const { postHandler, getHandler, Forms } = builder(schema, uiSchema, '/', '/api', validations);

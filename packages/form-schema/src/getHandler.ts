@@ -9,7 +9,9 @@ export default function getHandler(numPages: number, req, handlePageLoad: Functi
 
   // onRequest: function with arguments [schemaIndex] that returns formData
   let { session: { formData = {} } = {} } = req;
+  console.log('formData from session', formData);
   if (typeof handlePageLoad === 'function') formData = handlePageLoad(formIndex);
+  console.log('formData after session', formData);
 
   return { formIndex, formData, validPage: true };
 }

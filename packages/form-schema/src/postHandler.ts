@@ -1,6 +1,6 @@
 import { validateFormData } from './validation';
 import { removePageFields, matchPostBody } from './cleanData';
-import { getUrlPage } from './helpers';
+import { getUrlPage, parseUrl } from './helpers';
 import { IValidations, ISchema } from './interfaces';
 
 function cleanSchemaData(postData: object, pageSchema: ISchema, formData: object) {
@@ -43,10 +43,9 @@ export default async function postHandler(
   const schemaIndex = currentPage - 1;
   const pageSchema = schemas[schemaIndex];
   let newFormData: object = {};
-
   if (!handlePageOver) {
     newFormData = defaultPageOverHandler(req.session, schema, postData);
-    req.session = newFormData;
+    req.session.formData = newFormData;
   } else if (typeof handlePageOver === 'function') {
     newFormData = handlePageOver(postData, schemaIndex, cleanSchemaData.bind({}, postData, pageSchema));
   }
@@ -56,11 +55,11 @@ export default async function postHandler(
     if (typeof onEnd === 'function') onEnd(result.errors, newFormData);
   }
 
-  const props = { nextPage, formData: newFormData };
+  const props = { nextPage, formData: newFormData, lastPage: nextPage <= numForms };
 
   if (js) {
     res.json(props);
   } else {
-    res.redirect(`${getRoute}/${nextPage}`);
+    res.redirect(parseUrl(getRoute, String(nextPage)));
   }
 }

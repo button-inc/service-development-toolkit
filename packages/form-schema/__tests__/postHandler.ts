@@ -32,7 +32,7 @@ describe('postHandler with js', () => {
     postHandler('', 5, { properties: {} }, [{ properties: {} }], [['']], {}, mockReqJs, mockRes);
     expect(mockRes.json).toHaveBeenCalledWith({ formData: mockReqJs.body.postData, nextPage });
     expect(mockRes.redirect).not.toHaveBeenCalled();
-    expect(mockReqJs.session).toEqual(mockReqJs.body.postData);
+    expect(mockReqJs.session).toEqual({ formData: mockReqJs.body.postData });
   });
 
   it('uses callback function instead of session if provided', () => {
@@ -56,7 +56,7 @@ describe('postHandler without js', () => {
   it('saves data to session if no callback provided and redirects correctly', () => {
     postHandler('test', 5, { properties: {} }, [{ properties: {} }], [['']], {}, mockReqNonJs, mockRes);
     expect(mockRes.redirect).toHaveBeenCalledWith(`test/${nextPage}`);
-    expect(mockReqNonJs.session).toEqual(mockReqNonJs.body);
+    expect(mockReqNonJs.session).toEqual({ formData: mockReqNonJs.body });
   });
 
   it('uses callback function instead of session if provided', () => {

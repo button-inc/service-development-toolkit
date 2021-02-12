@@ -4,6 +4,7 @@ import axios from 'axios';
 import { createValidator } from './validation';
 import { splitSchema } from './splitSchema';
 import { ISchema, IValidations } from './interfaces';
+import { parseUrl } from './helpers';
 
 export default function buildForms(
   schema: ISchema,
@@ -29,10 +30,11 @@ export default function buildForms(
             page: pageNumber,
             js: true,
           });
-          console.log(JSON.stringify(result), '-============================');
-          const { nextPage, isValidated, isValid, hasError } = result.data;
-          if (props.onPageOver) props.onPageOver(`${getRoute}/${nextPage}`, isValid);
-          else if (typeof window === 'object') window.location.href = `${getRoute}/${nextPage}`;
+          const { nextPage, isValid } = result.data;
+          if (props.rerouteHandler) {
+            const urlToNavigate = parseUrl(getRoute, nextPage);
+            props.rerouteHandler(urlToNavigate, isValid);
+          } else if (typeof window === 'object') window.location.href = `${getRoute}/${nextPage}`;
         };
 
         return (
