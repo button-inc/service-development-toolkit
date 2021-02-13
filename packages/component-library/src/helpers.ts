@@ -21,6 +21,7 @@ export function createStyleBuilder(styles: any, config: any) {
   const { shared = {}, ...others } = styles;
   const defaultProps = config.defaultProps || {};
   const staticProps = config.staticProps || [];
+  const breakProps = config.breakProps || [];
 
   const styleKeys = Object.keys(others);
 
@@ -37,11 +38,7 @@ export function createStyleBuilder(styles: any, config: any) {
       ${(props: any) => {
         let styles = shared[type] || '';
 
-        staticProps.forEach(key => {
-          if (isTrue(props, key)) styles += staticStyles[key];
-        });
-
-        styleKeys.forEach(key => {
+        const concatStyle = (props, key) => {
           const style = others[key];
           if (isString(style)) {
             if (isTrue(props, key)) styles += style;
@@ -58,6 +55,28 @@ export function createStyleBuilder(styles: any, config: any) {
             if (!style[value]) value = defaultProps[key] || first;
             styles += (style[value] && style[value][type]) || '';
           }
+        };
+
+        let breakProp;
+        const hasBreakProp = breakProps.some(br => {
+          if (Object.prototype.hasOwnProperty.call(props, br)) {
+            breakProp = br;
+            return true;
+          }
+          return false;
+        });
+
+        if (hasBreakProp) {
+          concatStyle(props, breakProp);
+          return styles;
+        }
+
+        staticProps.forEach(key => {
+          if (isTrue(props, key)) styles += staticStyles[key];
+        });
+
+        styleKeys.forEach(key => {
+          concatStyle(props, key);
         });
 
         return styles;

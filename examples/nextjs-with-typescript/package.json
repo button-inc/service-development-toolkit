@@ -11,7 +11,8 @@
     "react-dom": "^16.13.0",
     "styled-components": "^5.0.0",
     "component-library": "^0.1.0",
-    "component-library-gov": "^0.1.0"
+    "component-library-gov": "^0.1.0",
+    "component-library-button": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "12.0.12",

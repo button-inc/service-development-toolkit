@@ -1,7 +1,5 @@
 import React from 'react';
-import randomstring from 'randomstring';
-import pickBy from 'lodash/pickBy';
-import { createStyleBuilder, getStyleKeys, staticProps } from './helpers';
+import { createStyleBuilder, createBootstrap } from './helpers';
 
 interface SelectProps {
   id?: string;
@@ -18,22 +16,10 @@ export const applyTheme = (styles, config) => {
   const Slabel = styleBuilder('label', 'label');
   const Sselect = styleBuilder('select', 'input');
 
-  const styleKeys = getStyleKeys(styles);
+  const bootstrap = createBootstrap(styles, 'radio');
 
   const BaseComponent = (props: SelectProps) => {
-    let { id, name } = props;
-    const { label, children, ...rest } = props;
-    if (!id) {
-      id = randomstring.generate(10);
-    }
-
-    if (!name) {
-      name = `${id}-select`;
-    }
-
-    const ariaLabel = label || name;
-
-    const styleProps = pickBy(rest, (_value, propName) => [...styleKeys, ...staticProps].includes(propName));
+    const { id, name, label, ariaLabel, styleProps, children, rest } = bootstrap(props);
 
     return (
       <Scontainer {...styleProps}>
