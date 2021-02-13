@@ -29,20 +29,17 @@ const Template: Story = args => (
 export const Primary = Template.bind({});
 Primary.args = {
   variant: 'primary',
+  disabled: false,
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   variant: 'secondary',
+  disabled: false,
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
   variant: 'warning',
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  variant: 'primary',
-  disabled: true,
+  disabled: false,
 };

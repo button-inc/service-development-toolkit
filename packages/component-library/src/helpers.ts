@@ -59,7 +59,7 @@ export function createStyleBuilder(styles: any, config: any) {
 
         let breakProp;
         const hasBreakProp = breakProps.some(br => {
-          if (Object.prototype.hasOwnProperty.call(props, br)) {
+          if (props[br]) {
             breakProp = br;
             return true;
           }
