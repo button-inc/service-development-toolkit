@@ -1,11 +1,5 @@
 const uiSchema = {
-  'ui:order': [
-    "sectorOther",
-    "isIndigenous",
-    "otherCovidFunding",
-    "useOfGrant",
-    "newField"
-  ],
+  'ui:order': ['sectorOther', 'isIndigenous', 'otherCovidFunding', 'useOfGrant', 'newField'],
 };
 
 export default uiSchema;

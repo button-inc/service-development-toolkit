@@ -2,6 +2,7 @@ import Button from 'component-library-gov/Button';
 import Checkbox from 'component-library-gov/Checkbox';
 import RadioButton from 'component-library-gov/RadioButton';
 import Input from 'component-library-gov/Input';
+import Select from 'component-library-gov/Select';
 import React from 'react';
 
 function getValue(inputType) {
@@ -10,6 +11,8 @@ function getValue(inputType) {
       return 'value';
     case 'checkbox':
       return 'checked';
+    case 'select':
+      return 'value';
     default:
       return '';
   }
@@ -18,8 +21,10 @@ function getValue(inputType) {
 const Wrapper = (Component, inputType: string = '') => {
   const valueKey = getValue(inputType);
   return props => {
-    const { value, onChange, label, schema } = props;
+    const { value, onChange, label, schema, options } = props;
     const { name, title, inputType, pattern, minLength, maxLength } = schema;
+    const { enumOptions = [] } = options;
+
     return (
       <Component
         onChange={e => onChange(e.target[valueKey])}
@@ -31,7 +36,16 @@ const Wrapper = (Component, inputType: string = '') => {
         pattern={pattern}
         value={value || ''}
         checked={typeof value === 'undefined' ? false : value}
-      />
+      >
+        {enumOptions &&
+          enumOptions.map(({ value, label }, i) => {
+            return (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            );
+          })}
+      </Component>
     );
   };
 };
@@ -41,4 +55,5 @@ export default {
   RadioWidget: Wrapper(RadioButton),
   CheckboxWidget: Wrapper(Checkbox, 'checkbox'),
   ButtonWidget: Button,
+  SelectWidget: Wrapper(Select, 'select'),
 };

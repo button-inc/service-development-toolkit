@@ -18,7 +18,7 @@ function getDependantProperties(propertyDependencies: object[]): string[] {
 function getNestedFieldProperties(properties: object): string[] {
   const nestedFields: string[] = [];
   Object.entries(properties).forEach(([_ownerProperty, value]) => {
-    if (value.type === 'object') {
+    if (value && value.type === 'object') {
       Object.keys(value.properties).forEach(fieldName => {
         nestedFields.push(fieldName);
       });
@@ -93,7 +93,7 @@ export function splitSchema(schema: ISchema, order: string[]): ISchema[] {
     // Costs is a nested field that is basically a "mini schema" so to speak.
     // In order for the ui:field to be applied, we need { costs: properties[costs]}
     // as opposed to newSchema = properties['costs']
-    if (properties[propertyName].type === 'object') {
+    if (properties[propertyName] && properties[propertyName].type === 'object') {
       const newSchema: ISchema = {
         properties: {
           [propertyName]: properties[propertyName],
@@ -125,6 +125,6 @@ export function splitSchema(schema: ISchema, order: string[]): ISchema[] {
       schemas.push(newSchema);
     }
   });
-
+  console.log('==========', schemas);
   return schemas;
 }

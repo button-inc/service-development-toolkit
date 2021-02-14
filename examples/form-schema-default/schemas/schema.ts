@@ -34,7 +34,7 @@ const schema = {
     newField: {
       type: 'boolean',
       name: 'newField',
-      title: 'New field here'
+      title: 'New field here',
     },
   },
 };

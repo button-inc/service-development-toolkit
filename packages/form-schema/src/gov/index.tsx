@@ -11,7 +11,7 @@ export default function builder(
   baseUiSchema: object,
   getRoute: string,
   postRoute: string,
-  options: IOptions
+  options: IOptions = {}
 ) {
   let uiSchema = { ...baseUiSchema };
   if (!options.defaultLabels) {

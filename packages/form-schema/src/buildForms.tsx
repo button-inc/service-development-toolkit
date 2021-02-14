@@ -15,6 +15,7 @@ export default function buildForms(
 ): object {
   const order = uiSchema['ui:order'];
   const { validations, widgets } = options;
+  console.log(schema);
   const schemasArray = splitSchema(schema, order);
   const fieldsArray = schemasArray.map(schema => Object.keys(schema.properties));
   const lastPage = schemasArray.length;
