@@ -3,7 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import { createValidator } from './validation';
 import { splitSchema } from './splitSchema';
-import { ISchema, IValidations } from './interfaces';
+import { IOptions, ISchema, IValidations } from './interfaces';
 import { parseUrl } from './helpers';
 
 export default function buildForms(
@@ -11,11 +11,13 @@ export default function buildForms(
   uiSchema: object,
   getRoute: string,
   postRoute: string,
-  validations: IValidations
+  options: IOptions
 ): object {
   const order = uiSchema['ui:order'];
+  const { validations, widgets } = options;
   const schemasArray = splitSchema(schema, order);
   const fieldsArray = schemasArray.map(schema => Object.keys(schema.properties));
+  const lastPage = schemasArray.length;
 
   return {
     Forms: schemasArray.map((schema, i) => {
@@ -33,7 +35,7 @@ export default function buildForms(
           const { nextPage, isValid } = result.data;
           if (props.rerouteHandler) {
             const urlToNavigate = parseUrl(getRoute, nextPage);
-            props.rerouteHandler(urlToNavigate, isValid);
+            props.rerouteHandler(urlToNavigate, isValid, nextPage > lastPage);
           } else if (typeof window === 'object') window.location.href = `${getRoute}/${nextPage}`;
         };
 
@@ -47,6 +49,7 @@ export default function buildForms(
             uiSchema={uiSchema}
             validate={validation}
             onSubmit={handleSubmit}
+            widgets={widgets}
             {...props}
           />
         );

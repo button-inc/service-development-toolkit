@@ -14,8 +14,9 @@ export default function home({ formIndex, formData, validPage }) {
   const router = useRouter();
 
   const rerouteHandler = (nextPage: string, isValid: boolean, lastPage: boolean) => {
+    console.log(isValid, lastPage);
     // TODO: Hook up isValid
-    router.push(lastPage ? nextPage : '/end');
+    router.push(lastPage ? '/end' : nextPage);
   };
 
   return (
@@ -31,7 +32,6 @@ export async function getServerSideProps({ query: params, req, res }: any) {
   await applySession(req, res);
   const { formIndex, formData, validPage } = getHandler(req, handlePageLoad);
   // const { formIndex, formData, validPage } = getHandler(req);
-  console.log(formData);
 
   return {
     props: { formIndex, formData, validPage },

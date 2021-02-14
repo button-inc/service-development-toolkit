@@ -27,3 +27,9 @@ export interface IValidations {
     errorMessage: string;
   };
 }
+
+export interface IOptions {
+  defaultLabels?: boolean;
+  widgets?: object;
+  validations: IValidations;
+}

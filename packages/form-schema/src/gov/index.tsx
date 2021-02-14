@@ -1,11 +1,10 @@
 // @ts-nocheck
-import postHandler from './postHandler';
-import getHandler from './getHandler';
-import buildForms from './buildForms';
-import { ISchema, IOptions } from './interfaces';
-import { removeDefaultLabels } from './helpers';
-
-export { default as govBuilder } from './gov';
+import postHandler from '../postHandler';
+import getHandler from '../getHandler';
+import buildForms from '../buildForms';
+import { ISchema, IOptions } from '../interfaces';
+import { removeDefaultLabels } from '../helpers';
+import widgets from './widgets';
 
 export default function builder(
   schema: ISchema,
@@ -18,7 +17,8 @@ export default function builder(
   if (!options.defaultLabels) {
     uiSchema = removeDefaultLabels(schema, uiSchema);
   }
-  const { Forms, schemasArray, fieldsArray } = buildForms(schema, uiSchema, getRoute, postRoute, options);
+  const govOptions = { ...options, widgets };
+  const { Forms, schemasArray, fieldsArray } = buildForms(schema, uiSchema, getRoute, postRoute, govOptions);
   const { validations } = options;
   const numForms: number = Forms.length;
 

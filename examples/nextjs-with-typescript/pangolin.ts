@@ -1,6 +1,8 @@
 // @ts-nocheck
-import builder from 'form-schema';
-import Checkbox from 'component-library/Checkbox';
+import { govBuilder } from 'form-schema';
+import Input from 'component-library-gov/Input';
+import Checkbox from 'component-library-gov/Checkbox';
+import RadioButton from 'component-library-gov/RadioButton';
 import schema from './schemas/schema';
 import uiSchema from './schemas/uiSchema';
 
@@ -11,4 +13,9 @@ const validations = {
   },
 };
 
-export const { postHandler, getHandler, Forms } = builder(schema, uiSchema, '/', '/api', validations);
+const options = {
+  validations,
+  // defaultLabels: false
+};
+
+export const { postHandler, getHandler, Forms } = govBuilder(schema, uiSchema, '/', '/api', options);

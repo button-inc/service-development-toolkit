@@ -54,17 +54,6 @@ const uiSchema = {
   otherPrograms: {
     'ui:widget': 'TextareaWidget',
   },
-  costs: {
-    serviceProviderCosts: {
-      'ui:widget': 'Cost',
-    },
-    customerAcquisitionCosts: {
-      'ui:widget': 'Cost',
-    },
-    staffTrainingCosts: {
-      'ui:widget': 'Cost',
-    },
-  },
 
   // This prevents conditional fields from rendering at the end of the form
   'ui:order': [
@@ -104,10 +93,6 @@ const uiSchema = {
     'otherCovidFunding',
     'otherPrograms',
     'planForFunds',
-    'costs',
-    'serviceProviderCosts',
-    'customerAcquisitionCosts',
-    'staffTrainingCosts',
     'useOfGrant',
     'personalInformation',
     'taxImplications',
