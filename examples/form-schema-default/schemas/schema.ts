@@ -1,13 +1,11 @@
 // Only use on required elements if non-zero
 const REQUIRED_TEXT_MIN_LENGTH = 0;
 const TEXT_MAX_LENGTH = 1000;
-const CURRENCY_REGEX = '^([1-9]{1})[0-9]*(.[0-9]{1,2})?$';
 
 const schema = {
   title: 'Launch Online Grant',
   type: 'object',
   required: ['sectorOther'],
-  dependencies: {},
   properties: {
     sectorOther: {
       type: 'string',
@@ -20,7 +18,7 @@ const schema = {
       type: 'string',
       name: 'isIndigenous',
       title: 'Is this an Indigenous Business?',
-      enum: ['', 'Yes', 'No', 'Rather not answer'],
+      enum: ['Yes', 'No', 'Rather not answer'],
     },
     otherCovidFunding: {
       type: 'boolean',
@@ -32,6 +30,11 @@ const schema = {
       name: 'useOfGrant',
       title:
         'I understand that grant funding received through this program must be used to support the development and improvement of online shop of the business this application identifies only.',
+    },
+    newField: {
+      type: 'boolean',
+      name: 'newField',
+      title: 'New field here'
     },
   },
 };

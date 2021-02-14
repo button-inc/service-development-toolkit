@@ -1,21 +1,15 @@
 import React from 'react';
 import { applySession } from 'next-session';
 import { useRouter } from 'next/router';
-import { Forms, getHandler } from '../pangolin';
-import { formData } from '../db';
-
-function handlePageLoad(_formIndex: number) {
-  return formData.data;
-}
+import { Forms, getHandler } from 'pangolin';
+// import { formData } from '../db';
 
 // @ts-ignore
 export default function home({ formIndex, formData, validPage }) {
   const Form = Forms[formIndex];
   const router = useRouter();
 
-  const rerouteHandler = (nextPage: string, isValid: boolean, lastPage: boolean) => {
-    console.log(isValid, lastPage);
-    // TODO: Hook up isValid
+  const rerouteHandler = (nextPage: string, _isValid: boolean, lastPage: boolean) => {
     router.push(lastPage ? '/end' : nextPage);
   };
 
@@ -28,11 +22,9 @@ export default function home({ formIndex, formData, validPage }) {
   );
 }
 
-export async function getServerSideProps({ query: params, req, res }: any) {
+export async function getServerSideProps({ req, res }: any) {
   await applySession(req, res);
-  const { formIndex, formData, validPage } = getHandler(req, handlePageLoad);
-  // const { formIndex, formData, validPage } = getHandler(req);
-
+  const { formIndex, formData, validPage } = getHandler(req);
   return {
     props: { formIndex, formData, validPage },
   };
