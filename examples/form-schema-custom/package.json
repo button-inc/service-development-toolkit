@@ -1,5 +1,5 @@
 {
-  "name": "form-schema-default",
+  "name": "with-typescript",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
@@ -10,7 +10,7 @@
     "next": "latest",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "form-schema": "0.1.0"
+    "form-schema": "1.0.0"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",

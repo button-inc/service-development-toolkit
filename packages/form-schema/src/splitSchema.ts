@@ -125,6 +125,5 @@ export function splitSchema(schema: ISchema, order: string[]): ISchema[] {
       schemas.push(newSchema);
     }
   });
-  console.log('==========', schemas);
   return schemas;
 }

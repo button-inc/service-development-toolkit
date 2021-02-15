@@ -3,7 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import { createValidator } from './validation';
 import { splitSchema } from './splitSchema';
-import { IOptions, ISchema, IValidations } from './interfaces';
+import { IOptions, ISchema } from './interfaces';
 import { parseUrl } from './helpers';
 
 export default function buildForms(
@@ -15,7 +15,6 @@ export default function buildForms(
 ): object {
   const order = uiSchema['ui:order'];
   const { validations, widgets } = options;
-  console.log(schema);
   const schemasArray = splitSchema(schema, order);
   const fieldsArray = schemasArray.map(schema => Object.keys(schema.properties));
   const lastPage = schemasArray.length;

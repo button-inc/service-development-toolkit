@@ -9490,6 +9490,11 @@ form-data@~2.3.2:
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
 
+form-schema@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/form-schema/-/form-schema-1.0.0.tgz#d154506febd02ec0b4f66c83e4a5f83f5173c716"
+  integrity sha1-0VRQb+vQLsC09myD5KX4P1FzxxY=
+
 format@^0.2.0:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/format/-/format-0.2.2.tgz#d6170107e9efdc4ed30c9dc39016df942b5cb58b"
