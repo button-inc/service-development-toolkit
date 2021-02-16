@@ -18,7 +18,6 @@ export default function buildForms(
   const { validations, widgets } = options;
   const schemasArray = splitSchema(schema, order);
   const fieldsArray = schemasArray.map(schema => Object.keys(schema.properties));
-  const lastPage = schemasArray.length;
 
   return {
     Forms: schemasArray.map((schema, i) => {
@@ -29,16 +28,16 @@ export default function buildForms(
 
       return function Forms(props) {
         const handleSubmit = async ({ formData }) => {
-          const result = await axios.post(`${postRoute}/${pageNumber}`, {
+          const result = await axios.post(`${postRoute}/${pageName}`, {
             postData: formData,
             page: pageNumber,
             js: true,
           });
-          const { nextPage, isValid } = result.data;
+          const { nextPage, isValid, isLastPage } = result.data;
           if (props.rerouteHandler) {
             const urlToNavigate = parseUrl(getRoute, nextPage);
-            props.rerouteHandler(urlToNavigate, isValid, nextPage > lastPage);
-          } else if (typeof window === 'object') window.location.href = `${getRoute}/${pageName}`;
+            props.rerouteHandler(urlToNavigate, isValid, isLastPage);
+          } else if (typeof window === 'object') window.location.href = parseUrl(getRoute, nextPage);
         };
 
         return (

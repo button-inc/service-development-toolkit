@@ -22,6 +22,7 @@ export default async function postHandler(
   schemas: ISchema[],
   fieldsArray: string[][],
   validations: IValidations,
+  urlArray: string[],
   req: any,
   res: any,
   onEnd: Function | boolean = false,
@@ -37,10 +38,12 @@ export default async function postHandler(
   } = req;
 
   if (!js) postData = req.body;
-  const currentPage = getUrlPage(url);
+  const currentPageName = getUrlPage(url);
+  const currentPageNumber = Number.isInteger(currentPageName) ? currentPageName : urlArray.indexOf(currentPageName) + 1;
 
-  const nextPage = currentPage + 1;
-  const schemaIndex = currentPage - 1;
+  const nextPageNumber = currentPageNumber + 1;
+  const nextPagePostfix = urlArray[currentPageNumber] || nextPageNumber;
+  const schemaIndex = currentPageNumber - 1;
   const pageSchema = schemas[schemaIndex];
   let newFormData: object = {};
   if (!handlePageOver) {
@@ -50,16 +53,16 @@ export default async function postHandler(
     newFormData = handlePageOver(postData, schemaIndex, cleanSchemaData.bind({}, postData, pageSchema));
   }
 
-  if (nextPage > numForms) {
+  if (nextPageNumber > numForms) {
     const result = validateFormData(newFormData, schema, fieldsArray, validations);
     if (typeof onEnd === 'function') onEnd(result.errors, newFormData);
   }
 
-  const props = { nextPage, formData: newFormData, lastPage: nextPage <= numForms };
+  const props = { nextPage: nextPagePostfix, formData: newFormData, isLastPage: nextPageNumber > numForms };
   if (js) {
     res.json(props);
   } else {
-    const redirectUrl = parseUrl(getRoute, String(nextPage));
+    const redirectUrl = parseUrl(getRoute, String(nextPagePostfix));
     res.redirect(redirectUrl);
   }
 }

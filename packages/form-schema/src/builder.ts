@@ -31,8 +31,8 @@ export default function builder(
   const numForms: number = Forms.length;
 
   return {
-    postHandler: postHandler.bind({}, getRoute, numForms, schema, schemasArray, fieldsArray, validations),
-    getHandler: getHandler.bind({}, numForms),
+    postHandler: postHandler.bind({}, getRoute, numForms, schema, schemasArray, fieldsArray, validations, urlArray),
+    getHandler: getHandler.bind({}, numForms, urlArray),
     Forms,
   };
 }

@@ -11,6 +11,7 @@ const schema = {
       type: 'string',
       title: 'First Question',
       name: 'firstQuestion',
+      urlPostfix: 'first-url',
     },
     secondQuestion: {
       type: 'string',
@@ -22,11 +23,13 @@ const schema = {
       type: 'boolean',
       title: 'Third Question',
       name: 'thirdQuestion',
+      urlPostfix: 'third-url',
     },
     fourthQuestion: {
       type: 'boolean',
       name: 'fourthQuestion',
       title: 'Fourth Question',
+      urlPostfix: 'fourth-url',
     },
   },
 };
