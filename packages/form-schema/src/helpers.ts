@@ -5,7 +5,7 @@ export const getUrlPage = url => {
   const splitUrl = url.split('/');
   let urlEnd = splitUrl[splitUrl.length - 1];
   if (urlEnd.includes('.')) [urlEnd] = urlEnd.split('.');
-  return Number(urlEnd);
+  return Number(urlEnd) || urlEnd;
 };
 
 export const parseUrl = (getRoute: string, nextPage: string) => {
@@ -17,7 +17,6 @@ export const parseUrl = (getRoute: string, nextPage: string) => {
 
 export const generateUrlArray = (schema: ISchema) => {
   const propertyEntries = Object.entries(schema.properties);
-  console.log(propertyEntries);
   const urlArray: string[] = [];
   propertyEntries.forEach(([_propertyName, propertyValue]) => {
     if (propertyValue.urlPostfix) urlArray.push(propertyValue.urlPostfix);

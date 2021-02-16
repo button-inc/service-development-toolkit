@@ -3,7 +3,7 @@ import React from 'react';
 import axios from 'axios';
 import { createValidator } from './validation';
 import { splitSchema } from './splitSchema';
-import { IOptions, ISchema } from './interfaces';
+import { IOptions, ISchema, IForms } from './interfaces';
 import { parseUrl } from './helpers';
 
 export default function buildForms(
@@ -11,8 +11,9 @@ export default function buildForms(
   uiSchema: object,
   getRoute: string,
   postRoute: string,
-  options: IOptions
-): object {
+  options: IOptions,
+  urlArray: string[]
+): IForms {
   const order = uiSchema['ui:order'];
   const { validations, widgets } = options;
   const schemasArray = splitSchema(schema, order);
@@ -24,6 +25,7 @@ export default function buildForms(
       const key = `form-${i}`;
       const validation = createValidator(i, fieldsArray, validations);
       const pageNumber = i + 1;
+      const pageName = urlArray[pageNumber - 1] || pageNumber;
 
       return function Forms(props) {
         const handleSubmit = async ({ formData }) => {
@@ -36,7 +38,7 @@ export default function buildForms(
           if (props.rerouteHandler) {
             const urlToNavigate = parseUrl(getRoute, nextPage);
             props.rerouteHandler(urlToNavigate, isValid, nextPage > lastPage);
-          } else if (typeof window === 'object') window.location.href = `${getRoute}/${nextPage}`;
+          } else if (typeof window === 'object') window.location.href = `${getRoute}/${pageName}`;
         };
 
         return (
@@ -44,7 +46,7 @@ export default function buildForms(
             key={key}
             name="my-form"
             method="post"
-            action={`${postRoute}/${pageNumber}`}
+            action={`${postRoute}/${pageName}`}
             schema={schema}
             uiSchema={uiSchema}
             validate={validation}
