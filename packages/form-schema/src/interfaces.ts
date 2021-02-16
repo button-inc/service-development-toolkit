@@ -31,5 +31,11 @@ export interface IValidations {
 export interface IOptions {
   defaultLabels?: boolean;
   widgets?: object;
-  validations: IValidations;
+  validations?: IValidations;
+}
+
+export interface IForms {
+  Forms: Function[];
+  fieldsArray: string[][];
+  schemasArray: object[];
 }

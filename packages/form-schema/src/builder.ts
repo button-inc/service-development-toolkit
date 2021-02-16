@@ -3,7 +3,7 @@ import postHandler from './postHandler';
 import getHandler from './getHandler';
 import buildForms from './buildForms';
 import { ISchema, IOptions } from './interfaces';
-import { removeDefaultLabels } from './helpers';
+import { removeDefaultLabels, generateUrlArray } from './helpers';
 
 export default function builder(
   defaultWidgets: object | boolean,
@@ -18,13 +18,21 @@ export default function builder(
   if (defaultWidgets) combinedOptions = { ...combinedOptions, widgets: defaultWidgets, defaultLabels: false };
   if (combinedOptions && combinedOptions.defaultLabels === false) uiSchema = removeDefaultLabels(schema, uiSchema);
 
-  const { Forms, schemasArray, fieldsArray } = buildForms(schema, uiSchema, getRoute, postRoute, combinedOptions);
+  const urlArray = generateUrlArray(schema);
+  const { Forms, schemasArray, fieldsArray } = buildForms(
+    schema,
+    uiSchema,
+    getRoute,
+    postRoute,
+    combinedOptions,
+    urlArray
+  );
   const { validations } = combinedOptions;
   const numForms: number = Forms.length;
 
   return {
-    postHandler: postHandler.bind({}, getRoute, numForms, schema, schemasArray, fieldsArray, validations),
-    getHandler: getHandler.bind({}, numForms),
+    postHandler: postHandler.bind({}, getRoute, numForms, schema, schemasArray, fieldsArray, validations, urlArray),
+    getHandler: getHandler.bind({}, numForms, urlArray),
     Forms,
   };
 }

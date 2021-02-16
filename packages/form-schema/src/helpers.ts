@@ -1,10 +1,11 @@
 import forEach from 'lodash/forEach';
+import { ISchema } from './interfaces';
 
 export const getUrlPage = url => {
   const splitUrl = url.split('/');
   let urlEnd = splitUrl[splitUrl.length - 1];
   if (urlEnd.includes('.')) [urlEnd] = urlEnd.split('.');
-  return Number(urlEnd);
+  return Number(urlEnd) || urlEnd;
 };
 
 export const parseUrl = (getRoute: string, nextPage: string) => {
@@ -12,6 +13,16 @@ export const parseUrl = (getRoute: string, nextPage: string) => {
   if (getRoute[getRoute.length - 1] === '/') route = `${getRoute}${nextPage}`;
   else route = `${getRoute}/${nextPage}`;
   return route;
+};
+
+export const generateUrlArray = (schema: ISchema) => {
+  const propertyEntries = Object.entries(schema.properties);
+  const urlArray: string[] = [];
+  propertyEntries.forEach(([_propertyName, propertyValue]) => {
+    if (propertyValue.urlPostfix) urlArray.push(propertyValue.urlPostfix);
+    else urlArray.push('');
+  });
+  return urlArray;
 };
 
 export const removeDefaultLabels = (schema, uiSchema) => {
