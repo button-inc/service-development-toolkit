@@ -13,7 +13,7 @@ const styles = {
       color: rgba(0, 0, 0, 0.6);
       font-family: 'Roboto', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
       margin: 0;
-      padding: 0.78571429em 1.5em 0.78571429em;
+      padding: 0.78571429em 1.6em 0.78571429em;
       text-transform: none;
       text-shadow: none;
       font-weight: bold;
@@ -21,7 +21,7 @@ const styles = {
       font-style: normal;
       text-align: center;
       text-decoration: none;
-      border-radius: 0.28571429rem;
+      border-radius: 0.25rem;
       box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
       user-select: none;
       -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, background 0.1s ease, -webkit-box-shadow 0.1s ease;
@@ -47,13 +47,13 @@ const styles = {
         box-shadow: 0px 0px 0px 1px #2476ED inset !important;
 
         &:hover {
-          background-color: rgba(78,150,255,1);
-          box-shadow: 0px 0px 0px 1px rgba(78,150,255,1) inset !important;
+          background-color: #4e96ff;
+          box-shadow: 0px 0px 0px 1px #4e96ff inset !important;
           text-decoration: underline;
         }
 
         &:focus {
-          box-shadow: 0px 0px 0px 2px rgba(251,221,1,1) inset !important;
+          box-shadow: 0px 0px 0px 2px #FBDD01 inset !important;
         }
       `,
     },
@@ -64,29 +64,29 @@ const styles = {
         box-shadow: 0px 0px 0px 1px #2476ED inset !important;
 
         &:hover {
-          background-color: rgba(185,226,255,1);
+          background-color: #b9e2ff;
           text-decoration: underline;
         }
 
         &:focus {
-          box-shadow: 0px 0px 0px 2px rgba(251,221,1,1) inset !important;
+          box-shadow: 0px 0px 0px 2px #FBDD01 inset !important;
         }
       `,
     },
     warning: {
       button: `
         color: #fff;
-        background-color: rgba(245,14,14,1);
-        box-shadow: 0px 0px 0px 1px rgba(245,14,14,1) inset !important;
+        background-color: #F50E0E;
+        box-shadow: 0px 0px 0px 1px #F50E0E inset !important;
 
         &:hover {
-          background-color: rgba(245,14,14,1);
-          box-shadow: 0px 0px 0px 1px rgba(245,14,14,1) inset !important;
+          background-color: #FA7C7C;
+          box-shadow: 0px 0px 0px 1px #FA7C7C inset !important;
           text-decoration: underline;
         }
 
         &:focus {
-          box-shadow: 0px 0px 0px 2px rgba(251,221,1,1) inset !important;
+          box-shadow: 0px 0px 0px 2px #FBDD01 inset !important;
         }
       `,
     },
