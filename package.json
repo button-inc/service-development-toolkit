@@ -55,6 +55,7 @@
     "test:jest": "lerna run test:jest --stream",
     "storybook:base": "start-storybook -p 6006 -c .storybook/base",
     "storybook:gov": "start-storybook -p 6006 -c .storybook/gov",
+    "storybook:button": "start-storybook -p 6006 -c .storybook/button",
     "deploy-storybook": "storybook-to-ghpages --packages packages --branch=storybook",
     "build-storybook:base": "build-storybook -c .storybook/base",
     "build-storybook:gov": "build-storybook -c .storybook/gov"

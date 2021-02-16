@@ -26,12 +26,12 @@ export const applyTheme = (styles, config) => {
 
     return (
       <Scontainer {...styleProps}>
-        <SInput {...rest} id={id} name={name} />
         {label && (
           <Slabel htmlFor={id} {...styleProps}>
             {label}
           </Slabel>
         )}
+        <SInput {...rest} id={id} name={name} />
       </Scontainer>
     );
   };
