@@ -95,6 +95,7 @@ export function splitSchema(schema: ISchema, order: string[]): ISchema[] {
     // as opposed to newSchema = properties['costs']
     if (properties[propertyName] && properties[propertyName].type === 'object') {
       const newSchema: ISchema = {
+        title,
         properties: {
           [propertyName]: properties[propertyName],
         },

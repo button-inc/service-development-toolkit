@@ -27,13 +27,27 @@ export const generateUrlArray = (schema: ISchema) => {
 
 export const removeDefaultLabels = (schema, uiSchema) => {
   const newUiSchema = { ...uiSchema };
-  forEach(schema.properties, (_value, key) => {
-    newUiSchema[key] = {
-      ...uiSchema[key],
-      'ui:options': {
-        label: false,
-      },
-    };
+  forEach(schema.properties, (value, key) => {
+    if (value.properties) {
+      forEach(value.properties, (_nestedValue, nestedKey) => {
+        newUiSchema[key] = {
+          ...newUiSchema[key],
+          [nestedKey]: {
+            ...(newUiSchema[key] && newUiSchema[key][nestedKey]),
+            'ui:options': {
+              label: false,
+            },
+          },
+        };
+      });
+    } else {
+      newUiSchema[key] = {
+        ...newUiSchema[key],
+        'ui:options': {
+          label: false,
+        },
+      };
+    }
   });
   return newUiSchema;
 };

@@ -4,6 +4,19 @@ import { useRouter } from 'next/router';
 import { Forms, getHandler } from 'pangolin';
 import formData from 'db';
 
+// Can just pass regular rjsf templates to override fieldsets, layout, etc. and will pass through
+function ObjectFieldTemplate({ properties }: { properties: any }) {
+  return (
+    <>
+      <div>
+        {properties.map((prop: any) => (
+          <div>{prop.content}</div>
+        ))}
+      </div>
+    </>
+  );
+}
+
 const handlePageLoad = (formIndex: string) => formData[formIndex];
 
 // @ts-ignore
@@ -18,7 +31,9 @@ export default function home({ formIndex, formData, validPage }) {
   return (
     <>
       <h1>Forms</h1>
-      {validPage && <Form formData={formData} rerouteHandler={rerouteHandler} />}
+      {validPage && (
+        <Form formData={formData} rerouteHandler={rerouteHandler} ObjectFieldTemplate={ObjectFieldTemplate} />
+      )}
       {!validPage && <h1>page out of range</h1>}
     </>
   );

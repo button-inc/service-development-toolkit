@@ -4,7 +4,6 @@ const TEXT_MAX_LENGTH = 1000;
 
 const schema = {
   title: 'Launch Online Grant',
-  type: 'object',
   required: ['sectorOther'],
   properties: {
     firstQuestion: {
@@ -26,10 +25,20 @@ const schema = {
       urlPostfix: 'third-url',
     },
     fourthQuestion: {
-      type: 'boolean',
+      type: 'object',
       name: 'fourthQuestion',
       title: 'Fourth Question',
       urlPostfix: 'fourth-url',
+      properties: {
+        firstQ: {
+          type: 'string',
+          title: 'first',
+        },
+        secondQ: {
+          type: 'string',
+          title: 'second',
+        },
+      },
     },
   },
 };
