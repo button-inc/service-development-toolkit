@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import cx from 'clsx';
-import each from 'lodash/each';
-import isString from 'lodash/isString';
-import styled from 'styled-components';
+import styled, { StyledInterface } from 'styled-components';
 import { createStyleBuilder, createBootstrap } from './helpers';
 
 interface Props {
@@ -15,12 +13,20 @@ interface Props {
   closable?: boolean;
 }
 
+interface Context {
+  checkboxId: string;
+  styleProps: object;
+  Sheader: any;
+  Scontent: any;
+  Sclose: any;
+}
+
 const CONTAINER_CLASS = 'pg-notification';
 const HEADER_CLASS = 'pg-header';
 const CONTENT_CLASS = 'pg-content';
 const CLOSE_CLASS = 'pg-close';
 
-const InvisualCheckbox = styled.input.attrs({ type: 'checkbox' })`
+const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox' })`
   position: absolute;
   left: -100vw;
 
@@ -29,89 +35,71 @@ const InvisualCheckbox = styled.input.attrs({ type: 'checkbox' })`
   }
 `;
 
-const concatStyle = style => {
-  let str = style.container || '';
-
-  if (style.header)
-    str += `& .${HEADER_CLASS} {
-    ${style.header}
-  }`;
-
-  if (style.content)
-    str += `& .${CONTENT_CLASS} {
-    ${style.content}
-  }`;
-
-  if (style.close)
-    str += `& .${CLOSE_CLASS} {
-    ${style.close}
-  }`;
-
-  return { container: str };
+const initialContext: Context = {
+  checkboxId: '',
+  styleProps: {},
+  Sheader: null,
+  Scontent: null,
+  Sclose: null,
 };
 
-const mergeStyle = styles => {
-  const { shared = {}, ...others } = styles;
-  const ret = { shared: concatStyle(shared) };
-
-  each(others, (val, key) => {
-    ret[key] = {};
-
-    if (isString(val)) {
-      ret[key] = val;
-    } else {
-      each(val, (val2, key2) => {
-        ret[key][key2] = isString(val2) ? val2 : concatStyle(val2);
-      });
-    }
-  });
-
-  return ret;
-};
-
-const Context = React.createContext('');
+const NotificationContext = React.createContext(initialContext);
 
 export const applyTheme = (styles, config) => {
-  const mergedStyles = mergeStyle(styles);
-  const styleBuilder = createStyleBuilder(mergedStyles, config);
+  const styleBuilder = createStyleBuilder(styles, config);
   const Scontainer = styleBuilder('div', 'container');
+  const Sheader = styleBuilder('div', 'header');
+  const Scontent = styleBuilder('div', 'content');
+  const Sclose = styleBuilder('div', 'close');
 
   const bootstrap = createBootstrap(styles, 'notification');
 
   const BaseComponent = (props: Props) => {
-    const { id, name, label, ariaLabel, styleProps, children, rest } = bootstrap(props);
-    const { closable } = rest;
+    const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
+    const { closable, others } = rest;
 
     const checkboxId = `${id}-toggle`;
 
     return (
-      <Context.Provider value={checkboxId}>
-        {closable && <InvisualCheckbox id={checkboxId} />}
-        <Scontainer {...styleProps} className={CONTAINER_CLASS}>
+      <NotificationContext.Provider value={{ checkboxId, styleProps, Sheader, Scontent, Sclose }}>
+        {closable && <InvisibleCheckbox id={checkboxId} />}
+        <Scontainer {...others} className={cx(CONTAINER_CLASS, className)}>
           {children}
         </Scontainer>
-      </Context.Provider>
+      </NotificationContext.Provider>
     );
   };
 
   BaseComponent.Header = ({ children, className }) => {
     const classes = cx(HEADER_CLASS, className);
-    return <div className={classes}>{children}</div>;
+    const { Sheader, styleProps } = useContext(NotificationContext);
+
+    return (
+      <Sheader className={classes} {...styleProps}>
+        {children}
+      </Sheader>
+    );
   };
 
   BaseComponent.Content = ({ children, className }) => {
     const classes = cx(CONTENT_CLASS, className);
-    return <div className={classes}>{children}</div>;
+    const { Scontent, styleProps } = useContext(NotificationContext);
+
+    return (
+      <Scontent className={classes} {...styleProps}>
+        {children}
+      </Scontent>
+    );
   };
 
   BaseComponent.Close = ({ children, className }) => {
     const classes = cx(CLOSE_CLASS, className);
-    const checkboxId = useContext(Context);
+    const { Sclose, checkboxId, styleProps } = useContext(NotificationContext);
 
     return (
-      <div className={classes}>
+      <Sclose className={classes} {...styleProps}>
         <label htmlFor={checkboxId}>{children}</label>
-      </div>
+      </Sclose>
     );
   };
 

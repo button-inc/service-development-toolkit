@@ -64,6 +64,6 @@ const config = {
   staticProps: [],
 };
 
-const DatePicker: any = applyTheme(styles, config);
+const Notification: any = applyTheme(styles, config);
 
-export default DatePicker;
+export default Notification;

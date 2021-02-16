@@ -21,6 +21,7 @@ export function createStyleBuilder(styles: any, config: any) {
   const { shared = {}, ...others } = styles;
   const defaultProps = config.defaultProps || {};
   const staticProps = config.staticProps || [];
+  const breakProps = config.breakProps || [];
 
   const styleKeys = Object.keys(others);
 
@@ -30,16 +31,14 @@ export function createStyleBuilder(styles: any, config: any) {
     return false;
   };
 
-  return function (tag: string, type: string) {
-    return styled[tag]`
+  return function (tag: any, type: string) {
+    const base = isString(tag) ? styled[tag] : styled(tag);
+
+    return base`
       ${(props: any) => {
         let styles = shared[type] || '';
 
-        staticProps.forEach(key => {
-          if (isTrue(props, key)) styles += staticStyles[key];
-        });
-
-        styleKeys.forEach(key => {
+        const concatStyle = (props, key) => {
           const style = others[key];
           if (isString(style)) {
             if (isTrue(props, key)) styles += style;
@@ -56,6 +55,28 @@ export function createStyleBuilder(styles: any, config: any) {
             if (!style[value]) value = defaultProps[key] || first;
             styles += (style[value] && style[value][type]) || '';
           }
+        };
+
+        let breakProp;
+        const hasBreakProp = breakProps.some(br => {
+          if (props[br]) {
+            breakProp = br;
+            return true;
+          }
+          return false;
+        });
+
+        if (hasBreakProp) {
+          concatStyle(props, breakProp);
+          return styles;
+        }
+
+        staticProps.forEach(key => {
+          if (isTrue(props, key)) styles += staticStyles[key];
+        });
+
+        styleKeys.forEach(key => {
+          concatStyle(props, key);
         });
 
         return styles;
@@ -69,7 +90,8 @@ export function createBootstrap(styles: any, type: string) {
 
   return function (props: any) {
     let { id, name } = props;
-    const { label, children, ...rest } = props;
+    const { label, children, className, ...rest } = props;
+
     if (!id) {
       id = generateId();
     }
@@ -82,6 +104,6 @@ export function createBootstrap(styles: any, type: string) {
 
     const styleProps = pickBy(rest, (_, propName) => styleKeys.includes(propName));
 
-    return { id, name, label, ariaLabel, styleProps, children, rest };
+    return { id, name, label, ariaLabel, styleProps, children, className, rest };
   };
 }

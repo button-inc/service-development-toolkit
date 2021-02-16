@@ -1,0 +1,9 @@
+{
+  "extends": "@4c/tsconfig/workspaces.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
+    "module": "commonjs"
+  },
+  "include": ["src"]
+}
