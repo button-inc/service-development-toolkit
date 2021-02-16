@@ -26,10 +26,20 @@ const schema = {
       urlPostfix: 'third-url',
     },
     fourthQuestion: {
-      type: 'boolean',
+      type: 'object',
       name: 'fourthQuestion',
       title: 'Fourth Question',
       urlPostfix: 'fourth-url',
+      properties: {
+        firstQ: {
+          type: 'string',
+          title: 'first',
+        },
+        secondQ: {
+          type: 'string',
+          title: 'second',
+        },
+      },
     },
   },
 };
