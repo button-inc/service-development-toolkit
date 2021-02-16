@@ -26,16 +26,23 @@ const Template: Story = args => (
   </>
 );
 
-export const Standard = Template.bind({});
-Standard.args = {
-  label: 'Field Label',
-  variant: 'standard',
-  required: false,
+export const Primary = Template.bind({});
+Primary.args = {
+  variant: 'primary',
+  size: ['small', 'medium', 'large'],
+  disabled: false,
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  variant: 'secondary',
+  size: ['small', 'medium', 'large'],
+  disabled: false,
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
-  label: 'Field Label',
   variant: 'warning',
+  size: ['small', 'medium', 'large'],
   disabled: false,
 };
