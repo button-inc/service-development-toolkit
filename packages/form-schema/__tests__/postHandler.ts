@@ -26,7 +26,7 @@ const mockRes = { json: jest.fn(_data => {}), redirect: jest.fn(_data => {}) };
 
 const dataCallback = jest.fn(() => ({ data: 'callback data' }));
 
-// afterEach(() => jest.clearAllMocks());
+afterEach(() => jest.clearAllMocks());
 
 describe('postHandler with js', () => {
   it('saves data to session if no callback provided and returns expected props', () => {

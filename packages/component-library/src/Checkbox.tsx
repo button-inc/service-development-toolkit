@@ -23,7 +23,7 @@ export const applyTheme = (styles, config) => {
 
     return (
       <Scontainer {...styleProps}>
-        <Scheckbox {...rest} type="checkbox" id={id} />
+        <Scheckbox {...rest} type="checkbox" id={id} name={name} />
         {label && (
           <Slabel {...styleProps} htmlFor={id}>
             {label}

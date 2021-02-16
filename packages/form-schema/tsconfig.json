@@ -5,7 +5,11 @@
     "outDir": "lib",
     "noImplicitAny": false,
     "module": "commonjs",
-    "lib": ["DOM"]
+    "lib": ["DOM"],
+    "baseUrl": "src",
+    "paths": {
+      "gov/*": ["./gov/*"]
+    }
   },
   "include": ["src"]
 }
