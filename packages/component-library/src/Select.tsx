@@ -14,6 +14,7 @@ export const applyTheme = (styles, config) => {
   const styleBuilder = createStyleBuilder(styles, config);
   const Scontainer = styleBuilder('div', 'container');
   const Slabel = styleBuilder('label', 'label');
+  const Swapper = styleBuilder('div', 'wrapper');
   const Sselect = styleBuilder('select', 'input');
 
   const bootstrap = createBootstrap(styles, 'radio');
@@ -28,9 +29,11 @@ export const applyTheme = (styles, config) => {
             {label}
           </Slabel>
         )}
-        <Sselect aria-label={ariaLabel} {...rest} id={id} name={name}>
-          {children}
-        </Sselect>
+        <Swapper {...styleProps}>
+          <Sselect aria-label={ariaLabel} {...rest} id={id} name={name}>
+            {children}
+          </Sselect>
+        </Swapper>
       </Scontainer>
     );
   };

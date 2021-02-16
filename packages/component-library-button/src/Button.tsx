@@ -33,9 +33,19 @@ const styles = {
     `,
   },
   size: {
+    small: {
+      button: `
+        font-size: 0.8rem;
+      `,
+    },
     medium: {
       button: `
         font-size: 1rem;
+      `,
+    },
+    large: {
+      button: `
+        font-size: 1.2rem;
       `,
     },
   },
