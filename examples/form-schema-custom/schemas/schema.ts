@@ -4,7 +4,6 @@ const TEXT_MAX_LENGTH = 1000;
 
 const schema = {
   title: 'Launch Online Grant',
-  type: 'object',
   required: ['sectorOther'],
   properties: {
     firstQuestion: {
