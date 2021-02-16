@@ -4,7 +4,6 @@ import schema from 'schemas/schema';
 import uiSchema from 'schemas/uiSchema';
 
 const options = {
-  defaultLabels: false,
   validations: {
     firstQuestion: {
       errorMessage: 'Your input is invalid.',
