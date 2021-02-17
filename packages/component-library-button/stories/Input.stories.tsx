@@ -6,6 +6,14 @@ import Input from '../src/Input';
 export default {
   title: 'Input',
   component: Input,
+  argTypes: {
+    size: {
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story = args => (
@@ -29,7 +37,7 @@ export const Standard = Template.bind({});
 Standard.args = {
   label: 'Field Label',
   variant: 'standard',
-  size: ['small', 'medium', 'large'],
+  size: 'medium',
   required: false,
 };
 
@@ -37,6 +45,6 @@ export const Warning = Template.bind({});
 Warning.args = {
   label: 'Field Label',
   variant: 'warning',
-  size: ['small', 'medium', 'large'],
+  size: 'medium',
   required: false,
 };

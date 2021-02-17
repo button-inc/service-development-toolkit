@@ -6,7 +6,15 @@ import Button from '../src/Button';
 export default {
   title: 'Button',
   component: Button,
-  argTypes: { onClick: { action: 'clicked' } },
+  argTypes: {
+    onClick: { action: 'clicked' },
+    size: {
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story = args => (
@@ -29,20 +37,20 @@ const Template: Story = args => (
 export const Primary = Template.bind({});
 Primary.args = {
   variant: 'primary',
-  size: ['small', 'medium', 'large'],
+  size: 'medium',
   disabled: false,
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   variant: 'secondary',
-  size: ['small', 'medium', 'large'],
+  size: 'medium',
   disabled: false,
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
   variant: 'warning',
-  size: ['small', 'medium', 'large'],
+  size: 'medium',
   disabled: false,
 };

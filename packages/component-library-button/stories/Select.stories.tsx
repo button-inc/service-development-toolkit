@@ -6,6 +6,14 @@ import Select from '../src/Select';
 export default {
   title: 'Select',
   component: Select,
+  argTypes: {
+    size: {
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story = args => (
@@ -28,6 +36,6 @@ const Template: Story = args => (
 export const Standard = Template.bind({});
 Standard.args = {
   label: 'Field Label',
-  size: ['small', 'medium', 'large'],
+  size: 'medium',
   required: false,
 };
