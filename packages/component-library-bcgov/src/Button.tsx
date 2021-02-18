@@ -4,6 +4,7 @@ const styles = {
   shared: {
     button: `
       border-radius: 4px;
+      border-width: 0;
       padding: 0.78571429em 1.6em 0.78571429em;
       text-align: center;
       text-decoration: none;
@@ -12,6 +13,7 @@ const styles = {
       letter-spacing: 1px;
       display: inline-block;
       cursor: pointer;
+      box-shadow: 0px 0px 0px 2px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
     `,
   },
   size: {
@@ -35,7 +37,7 @@ const styles = {
     primary: {
       button: `
         background-color: #003366;
-        border: none;
+        box-shadow: 0px 0px 0px 2px #003366 inset !important;
         color: #fff;
 
         &:hover {
@@ -56,7 +58,7 @@ const styles = {
     'primary-inverse': {
       button: `
         background-color: #fff;
-        border: none;
+        box-shadow: 0px 0px 0px 2px #313132 inset !important;
         color: #313132;
 
         &:hover {
@@ -77,16 +79,16 @@ const styles = {
     'primary-disabled': {
       button: `
         background-color: #003366;
-        opacity: 0.3;
-        border: none;
+        box-shadow: 0px 0px 0px 2px #fff inset !important;
         color: #fff;
         cursor: not-allowed;
+        opacity: 0.3;
       `,
     },
     secondary: {
       button: `
         background: none;
-        border: 2px solid #003366;
+        box-shadow: 0px 0px 0px 2px #003366 inset !important;
         color: #003366;
 
         &:hover {
@@ -109,7 +111,7 @@ const styles = {
     'secondary-inverse': {
       button: `
         background: none;
-        border: 2px solid #fff;
+        box-shadow: 0px 0px 0px 2px #fff inset !important;
         color: #fff;
 
         &:hover {
@@ -138,10 +140,10 @@ const styles = {
     'secondary-disabled': {
       button: `
         background-color: #fff;
-        opacity: 0.3;
-        border: 2px solid #003366;
+        box-shadow: 0px 0px 0px 2px #003366 inset !important;
         color: #003366;
         cursor: not-allowed;
+        opacity: 0.3;
       `,
     },
   },
