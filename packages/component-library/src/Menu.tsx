@@ -81,23 +81,25 @@ export const applyTheme = (styles, config) => {
     );
   };
 
-  BaseComponent.Group = ({ children, className, collapse, expand }) => {
+  BaseComponent.Group = props => {
+    const { children, className, collapse, expand, ...rest } = props;
     const classes = cx(GROUP_CLASS, className);
     const { Sgroup, styleProps } = useContext(MenuContext);
 
     return (
-      <Sgroup className={classes} collapse={collapse || ''} expand={expand || ''} {...styleProps}>
+      <Sgroup className={classes} collapse={collapse || ''} expand={expand || ''} {...styleProps} {...rest}>
         {children}
       </Sgroup>
     );
   };
 
-  BaseComponent.Item = ({ children, className, collapse, expand }) => {
+  BaseComponent.Item = props => {
+    const { children, className, collapse, expand, ...rest } = props;
     const classes = cx(ITEM_CLASS, className);
     const { Sitem, styleProps } = useContext(MenuContext);
 
     return (
-      <Sitem className={classes} collapse={collapse || ''} expand={expand || ''} {...styleProps}>
+      <Sitem className={classes} collapse={collapse || ''} expand={expand || ''} {...styleProps} {...rest}>
         {children}
       </Sitem>
     );

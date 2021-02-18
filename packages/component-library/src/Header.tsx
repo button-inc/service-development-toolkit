@@ -68,23 +68,25 @@ export const applyTheme = (styles, config) => {
     );
   };
 
-  BaseComponent.Toggle = ({ children, className }) => {
+  BaseComponent.Toggle = props => {
+    const { children, className, ...rest } = props;
     const classes = cx(TOGGLE_CLASS, className);
     const { checkboxId, Stoggle, styleProps } = useContext(HeaderContext);
 
     return (
-      <Stoggle className={classes} {...styleProps}>
+      <Stoggle className={classes} {...styleProps} {...rest}>
         <label htmlFor={checkboxId}>{children}</label>
       </Stoggle>
     );
   };
 
-  BaseComponent.Sidebar = ({ children, className }) => {
+  BaseComponent.Sidebar = props => {
+    const { children, className, ...rest } = props;
     const classes = cx(SIDEBAR_CLASS, className);
     const { Ssidebar, styleProps } = useContext(HeaderContext);
 
     return (
-      <Ssidebar className={classes} {...styleProps}>
+      <Ssidebar className={classes} {...styleProps} {...rest}>
         {children}
       </Ssidebar>
     );
