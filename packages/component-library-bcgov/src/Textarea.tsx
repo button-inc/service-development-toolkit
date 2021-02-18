@@ -1,4 +1,4 @@
-import { applyTheme } from 'component-library/Input';
+import { applyTheme } from 'component-library/Textarea';
 
 const styles = {
   shared: {
@@ -9,10 +9,14 @@ const styles = {
     `,
     input: `
       font-family: ‘BCSans’, ‘Noto Sans’, Verdana, Arial, sans-serif;
-      display: block;
       border: 2px solid #606060;
       border-radius: 4px;
       padding: 0.5em 0.6em;
+
+      &:focus {
+        outline: 4px solid #3B99FC;
+        outline-offset: 1px;
+      }
     `,
   },
   size: {
@@ -41,6 +45,12 @@ const styles = {
       `,
     },
   },
+  resize: {
+    none: { input: 'resize: none;' },
+    both: { input: 'resize: both;' },
+    horizontal: { input: 'resize: horizontal;' },
+    vertical: { input: 'resize: vertical;' },
+  },
   required: {
     label: `
       &:after {
@@ -54,11 +64,12 @@ const styles = {
 
 const config = {
   defaultProps: {
-    size: 'medium',
+    size: 'small',
+    resize: 'none',
   },
   staticProps: ['fullWidth'],
 };
 
-const Input = applyTheme(styles, config);
+const Textarea = applyTheme(styles, config);
 
-export default Input;
+export default Textarea;

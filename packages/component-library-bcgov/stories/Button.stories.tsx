@@ -21,6 +21,7 @@ const Template: Story = args => (
   <div
     style={{
       backgroundColor: args.variant.endsWith('-inverse') ? '#003366' : '#fff',
+      padding: '15px',
     }}
   >
     <h3>HTML Only</h3>
