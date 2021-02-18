@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import isString from 'lodash/isString';
 import pickBy from 'lodash/pickBy';
+import mapValues from 'lodash/mapValues';
+import forEach from 'lodash/forEach';
 
 const generateId = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
@@ -17,13 +19,14 @@ export const getStyleKeys = styles => {
   return Object.keys(others);
 };
 
-export function createStyleBuilder(styles: any, config: any) {
+export function createStyleBuilder(styles: any, config: any, childStyles: any = {}) {
   const { shared = {}, ...others } = styles;
   const defaultProps = config.defaultProps || {};
   const staticProps = config.staticProps || [];
   const breakProps = config.breakProps || [];
 
   const styleKeys = Object.keys(others);
+  const childStyleKeys = mapValues(childStyles, style => Object.keys(style));
 
   const isTrue = (props: object, key: string): boolean => {
     if (props[key] === false) return false;
@@ -57,6 +60,17 @@ export function createStyleBuilder(styles: any, config: any) {
           }
         };
 
+        const concatChildStyle = (props, key) => {
+          const style = childStyles[type][key] || '';
+          if (isString(style)) {
+            if (isTrue(props, key)) styles += style;
+            return;
+          }
+
+          const value = props[key];
+          styles += style[value] || '';
+        };
+
         let breakProp;
         const hasBreakProp = breakProps.some(br => {
           if (props[br]) {
@@ -71,12 +85,16 @@ export function createStyleBuilder(styles: any, config: any) {
           return styles;
         }
 
-        staticProps.forEach(key => {
+        forEach(staticProps, key => {
           if (isTrue(props, key)) styles += staticStyles[key];
         });
 
-        styleKeys.forEach(key => {
+        forEach(styleKeys, key => {
           concatStyle(props, key);
+        });
+
+        forEach(childStyleKeys[type], key => {
+          concatChildStyle(props, key);
         });
 
         return styles;

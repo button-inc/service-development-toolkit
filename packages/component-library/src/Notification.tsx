@@ -18,6 +18,7 @@ interface Context {
   styleProps: object;
   Sheader: any;
   Scontent: any;
+  Sgroup: any;
   Sclose: any;
 }
 
@@ -40,17 +41,19 @@ const initialContext: Context = {
   styleProps: {},
   Sheader: null,
   Scontent: null,
+  Sgroup: null,
   Sclose: null,
 };
 
 const NotificationContext = React.createContext(initialContext);
 
-export const applyTheme = (styles, config) => {
-  const styleBuilder = createStyleBuilder(styles, config);
+export const applyTheme = (styles, config, childStyles = {}) => {
+  const styleBuilder = createStyleBuilder(styles, config, childStyles);
   const Scontainer = styleBuilder('div', 'container');
   const Sheader = styleBuilder('div', 'header');
   const Scontent = styleBuilder('div', 'content');
-  const Sclose = styleBuilder('div', 'close');
+  const Sgroup = styleBuilder('div', 'group');
+  const Sclose = styleBuilder('label', 'close');
 
   const bootstrap = createBootstrap(styles, 'notification');
 
@@ -61,44 +64,59 @@ export const applyTheme = (styles, config) => {
     const checkboxId = `${id}-toggle`;
 
     return (
-      <NotificationContext.Provider value={{ checkboxId, styleProps, Sheader, Scontent, Sclose }}>
+      <NotificationContext.Provider value={{ checkboxId, styleProps, Sheader, Scontent, Sgroup, Sclose }}>
         {closable && <InvisibleCheckbox id={checkboxId} />}
-        <Scontainer {...others} className={cx(CONTAINER_CLASS, className)}>
+        <Scontainer {...styleProps} {...others} className={cx(CONTAINER_CLASS, className)}>
           {children}
         </Scontainer>
       </NotificationContext.Provider>
     );
   };
 
-  BaseComponent.Header = ({ children, className }) => {
+  BaseComponent.Header = props => {
+    const { children, className, ...rest } = props;
     const classes = cx(HEADER_CLASS, className);
     const { Sheader, styleProps } = useContext(NotificationContext);
 
     return (
-      <Sheader className={classes} {...styleProps}>
+      <Sheader className={classes} {...styleProps} {...rest}>
         {children}
       </Sheader>
     );
   };
 
-  BaseComponent.Content = ({ children, className }) => {
+  BaseComponent.Content = props => {
+    const { children, className, ...rest } = props;
     const classes = cx(CONTENT_CLASS, className);
     const { Scontent, styleProps } = useContext(NotificationContext);
 
     return (
-      <Scontent className={classes} {...styleProps}>
+      <Scontent className={classes} {...styleProps} {...rest}>
         {children}
       </Scontent>
     );
   };
 
-  BaseComponent.Close = ({ children, className }) => {
+  BaseComponent.Group = props => {
+    const { children, className, ...rest } = props;
+    const classes = cx(CONTENT_CLASS, className);
+    const { Sgroup, styleProps } = useContext(NotificationContext);
+
+    return (
+      <Sgroup className={classes} {...styleProps} {...rest}>
+        {children}
+      </Sgroup>
+    );
+  };
+
+  BaseComponent.Close = props => {
+    const { children, className, ...rest } = props;
     const classes = cx(CLOSE_CLASS, className);
     const { Sclose, checkboxId, styleProps } = useContext(NotificationContext);
 
     return (
-      <Sclose className={classes} {...styleProps}>
-        <label htmlFor={checkboxId}>{children}</label>
+      <Sclose className={classes} htmlFor={checkboxId} {...styleProps} {...rest}>
+        {children}
       </Sclose>
     );
   };
@@ -106,6 +124,6 @@ export const applyTheme = (styles, config) => {
   return BaseComponent;
 };
 
-const Notification = applyTheme({}, {});
+const Notification = applyTheme({}, {}, {});
 
 export default Notification;
