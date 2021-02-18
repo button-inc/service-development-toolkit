@@ -1,7 +1,7 @@
-import Checkbox from 'component-library-gov/Checkbox';
-import RadioButton from 'component-library-gov/RadioButton';
-import Input from 'component-library-gov/Input';
-import Select from 'component-library-gov/Select';
+import Checkbox from 'component-library-bcgov/Checkbox';
+import RadioButton from 'component-library-bcgov/RadioButton';
+import Input from 'component-library-bcgov/Input';
+import Select from 'component-library-bcgov/Select';
 import Wrapper from '../widgetWrapper';
 
 export default {

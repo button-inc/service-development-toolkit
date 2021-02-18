@@ -1,5 +1,5 @@
-import HeaderGov from 'component-library-gov/Header';
-import MenuGov from 'component-library-gov/Menu';
+import HeaderGov from 'component-library-bcgov/Header';
+import MenuGov from 'component-library-bcgov/Menu';
 
 export default function Notification() {
   return (

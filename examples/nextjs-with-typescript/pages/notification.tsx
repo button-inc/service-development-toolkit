@@ -1,4 +1,4 @@
-import NotificationGov from 'component-library-gov/Notification';
+import NotificationGov from 'component-library-bcgov/Notification';
 
 export default function Notification() {
   return (

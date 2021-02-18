@@ -1,4 +1,4 @@
-import Input from 'component-library-gov/Input';
+import Input from 'component-library-bcgov/Input';
 
 export default function InputPage() {
   return (

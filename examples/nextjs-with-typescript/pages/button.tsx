@@ -1,4 +1,4 @@
-import Button from 'component-library-gov/Button';
+import Button from 'component-library-bcgov/Button';
 
 export default function ButtonPage() {
   return (

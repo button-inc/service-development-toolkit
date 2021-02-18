@@ -1,4 +1,4 @@
-import SelectGov from 'component-library-gov/Select';
+import SelectGov from 'component-library-bcgov/Select';
 
 const generateOptions = () => (
   <>

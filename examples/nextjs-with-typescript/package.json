@@ -12,7 +12,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "component-library": "^0.1.0",
     "component-library-button": "^0.1.0",
-    "component-library-gov": "^0.1.0",
+    "component-library-bcgov": "^0.1.0",
     "next": "latest",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
