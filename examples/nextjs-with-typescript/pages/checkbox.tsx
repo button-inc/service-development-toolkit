@@ -1,4 +1,4 @@
-import Checkbox from 'component-library-gov/Checkbox';
+import Checkbox from 'component-library-bcgov/Checkbox';
 
 export default function CheckboxPage() {
   return (

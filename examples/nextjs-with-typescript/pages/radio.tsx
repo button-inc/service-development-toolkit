@@ -1,4 +1,4 @@
-import Radio from 'component-library-gov/RadioButton';
+import Radio from 'component-library-bcgov/RadioButton';
 
 export default function RadioPage() {
   return (

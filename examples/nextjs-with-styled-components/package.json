@@ -12,7 +12,7 @@
     "react-is": "^16.8.0",
     "styled-components": "^5.0.0",
     "component-library": "^0.1.0",
-    "component-library-gov": "^0.1.0"
+    "component-library-bcgov": "^0.1.0"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.8.0"

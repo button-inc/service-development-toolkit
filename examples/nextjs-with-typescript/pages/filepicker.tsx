@@ -1,4 +1,4 @@
-import FilePickerGov from 'component-library-gov/FilePicker';
+import FilePickerGov from 'component-library-bcgov/FilePicker';
 
 export default function FilePicker() {
   return (
