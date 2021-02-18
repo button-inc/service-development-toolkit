@@ -53,28 +53,28 @@ Secondary.args = {
 };
 
 export const PrimaryInverse = Template.bind({});
-Primary.args = {
+PrimaryInverse.args = {
   variant: 'primary-inverse',
   size: 'medium',
   disabled: false,
 };
 
 export const SecondaryInverse = Template.bind({});
-Secondary.args = {
+SecondaryInverse.args = {
   variant: 'secondary-inverse',
   size: 'medium',
   disabled: false,
 };
 
 export const PrimaryDisabled = Template.bind({});
-Primary.args = {
+PrimaryDisabled.args = {
   variant: 'primary-disabled',
   size: 'medium',
   disabled: true,
 };
 
 export const SecondaryDisabled = Template.bind({});
-Secondary.args = {
+SecondaryDisabled.args = {
   variant: 'secondary-disabled',
   size: 'medium',
   disabled: true,
