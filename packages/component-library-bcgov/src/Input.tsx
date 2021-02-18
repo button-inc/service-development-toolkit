@@ -2,42 +2,61 @@ import { applyTheme } from 'component-library/Input';
 
 const styles = {
   shared: {
-    input: '',
-    container: `
-            border: 1px solid black;
-            padding: 2px;
-          `,
+    label: `
+      font-family: ‘BCSans’, ‘Noto Sans’, Verdana, Arial, sans-serif;
+      display: block;
+      margin-bottom: 5px;
+    `,
+    input: `
+      font-family: ‘BCSans’, ‘Noto Sans’, Verdana, Arial, sans-serif;
+      display: block;
+      border: 2px solid #606060;
+      border-radius: 4px;
+      padding: 0.45em 0.55em;
+    `,
   },
   size: {
-    tiny: {
-      input: 'font-size: 15px;',
+    small: {
+      label: `
+        font-size: 0.7rem;
+      `,
+      input: `
+        font-size: 0.8rem;
+      `,
     },
     medium: {
-      input: 'font-size: 20px;',
+      label: `
+        font-size: 0.8rem;
+      `,
+      input: `
+        font-size: 1rem;
+      `,
+    },
+    large: {
+      label: `
+        font-size: 0.9rem;
+      `,
+      input: `
+        font-size: 1.2rem;
+      `,
     },
   },
-  variant: {
-    secondary: {
-      container: `
-                  border-color: blue;
-                `,
-      input: '',
-    },
-    warning: {
-      container: `
-                  border-color: red;
-                `,
-      input: '',
-    },
+  required: {
+    label: `
+      &:after {
+        margin: -0.2em 0em 0em 0.2em;
+        content: '*';
+        color: #DB2828;
+      }
+    `,
   },
 };
 
 const config = {
   defaultProps: {
-    variant: 'warning',
-    size: 'tiny',
+    size: 'medium',
   },
-  staticProps: ['fullWidth', 'fullHeight'],
+  staticProps: ['fullWidth'],
 };
 
 const Input = applyTheme(styles, config);
