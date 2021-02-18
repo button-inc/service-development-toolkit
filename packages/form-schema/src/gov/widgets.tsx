@@ -2,6 +2,7 @@ import Checkbox from 'component-library-gov/Checkbox';
 import RadioButton from 'component-library-gov/RadioButton';
 import Input from 'component-library-gov/Input';
 import Select from 'component-library-gov/Select';
+import FilePicker from 'component-library-gov/FilePicker';
 import Wrapper from '../widgetWrapper';
 
 export default {
@@ -9,4 +10,5 @@ export default {
   RadioWidget: Wrapper(RadioButton),
   CheckboxWidget: Wrapper(Checkbox, 'checkbox'),
   SelectWidget: Wrapper(Select, 'select'),
+  FileWidget: Wrapper(FilePicker, 'file'),
 };

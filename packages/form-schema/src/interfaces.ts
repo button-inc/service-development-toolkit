@@ -12,6 +12,7 @@ export interface ISchema {
   required?: string[];
   dependencies?: IDependencies;
   properties: object;
+  files?: boolean;
 }
 
 export interface IFormPostResponse {

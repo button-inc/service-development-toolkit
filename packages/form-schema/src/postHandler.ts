@@ -37,6 +37,8 @@ export default async function postHandler(
     body: { postData },
   } = req;
 
+  console.log(postData, js, 'pppppppppppppppp');
+
   if (!js) postData = req.body;
   const currentPageName = getUrlPage(url);
   const currentPageNumber = Number.isInteger(currentPageName) ? currentPageName : urlArray.indexOf(currentPageName) + 1;

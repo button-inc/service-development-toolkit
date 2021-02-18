@@ -30,9 +30,14 @@ export default function home({ formIndex, formData, validPage }) {
 
   return (
     <>
-      <h1>Forms</h1>
+      <h1>Form</h1>
       {validPage && (
-        <Form formData={formData} rerouteHandler={rerouteHandler} ObjectFieldTemplate={ObjectFieldTemplate} />
+        <Form
+          formData={formData}
+          rerouteHandler={rerouteHandler}
+          ObjectFieldTemplate={ObjectFieldTemplate}
+          enctype="multipart/form-data"
+        />
       )}
       {!validPage && <h1>page out of range</h1>}
     </>
@@ -41,7 +46,8 @@ export default function home({ formIndex, formData, validPage }) {
 
 export async function getServerSideProps({ req, res }: any) {
   await applySession(req, res);
-  const { formIndex, formData = {}, validPage } = getHandler(req, handlePageLoad);
+  const { formIndex, formData = {}, validPage } = getHandler(req);
+  // const { formIndex, formData = {}, validPage } = getHandler(req, handlePageLoad);
   return {
     props: { formIndex, formData, validPage },
   };

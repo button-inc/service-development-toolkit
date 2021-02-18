@@ -13,29 +13,29 @@ const handlePageOver = (postData: object, schemaIndex: number, cleanSchemaData: 
 };
 
 function handler(req: any, res: any) {
-  // if (req.method == 'POST'){
-  //   var busboy = new Busboy({ headers: req.headers });
-  //     busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
-  //       var saveTo = './test.pdf';
-  //       console.log('Uploading: ' + saveTo);
-  //       file.pipe(fs.createWriteStream(saveTo));
-  //     });
-  //     busboy.on('finish', function() {
-  //       console.log('Upload complete');
-  //       res.writeHead(200, { 'Connection': 'close' });
-  //       res.end("That's all folks!");
-  //     });
-  //     return req.pipe(busboy);
-
-  // }
+  if (req.method === 'POST') {
+    const busboy = new Busboy({ headers: req.headers });
+    busboy.on('file', function (fieldname, file, filename, encoding, mimetype) {
+      const saveTo = './test.pdf';
+      console.log(`Uploading: ${saveTo}`);
+      file.pipe(fs.createWriteStream(saveTo));
+    });
+    busboy.on('finish', function () {
+      console.log('Upload complete');
+      res.writeHead(200, { Connection: 'close' });
+      res.end("That's all folks!");
+    });
+    return req.pipe(busboy);
+  }
   postHandler(req, res);
   // postHandler(req, res, () => console.log('finished form'), handlePageOver);
+  return 1;
 }
 
 export default withSession(handler);
 
 export const config = {
   api: {
-    bodyParser: true,
+    bodyParser: false,
   },
 };

@@ -102,7 +102,15 @@ export function splitSchema(schema: ISchema, order: string[]): ISchema[] {
       };
       schemas.push(newSchema);
     } else {
-      const newSchema: INewSchema = { title, type, properties: {}, required: [], dependencies: {} };
+      // @ts-ignore
+      const newSchema: INewSchema = {
+        title,
+        type,
+        properties: {},
+        required: [],
+        dependencies: {},
+        files: properties[propertyName].files,
+      };
 
       // copy property
       newSchema.properties[propertyName] = properties[propertyName];
