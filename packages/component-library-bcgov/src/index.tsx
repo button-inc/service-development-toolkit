@@ -8,5 +8,5 @@ export { default as Header } from './Header';
 export { default as Input } from './Input';
 export { default as Menu } from './Menu';
 export { default as RadioButton } from './RadioButton';
-export { default as Select } from './Select';
+export { default as Dropdown } from './Dropdown';
 export { default as Textarea } from './Textarea';

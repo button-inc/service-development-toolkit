@@ -8,7 +8,7 @@ const styles = {
       padding: 0.78571429em 1.6em 0.78571429em;
       text-align: center;
       text-decoration: none;
-      Font-family: ‘BCSans’, ‘Noto Sans’, Verdana, Arial, sans-serif;
+      Font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
       font-weight: 700;
       letter-spacing: 1px;
       display: inline-block;
