@@ -26,13 +26,12 @@ export default async function fileHandler(
   if (req.method === 'POST') {
     let js = false;
     let fileName = '';
-    const { createStream } = options;
+    const { handleReadStream } = options;
     const busboy = new Busboy({ headers: req.headers });
-    busboy.on('file', function (_fieldname, file, filename, _encoding, _mimetype) {
-      if (createStream) {
-        fileName = filename;
-        const stream = createStream(filename);
-        file.pipe(stream);
+    busboy.on('file', function (_fieldname, file: ReadableStream, filename: string, _encoding, _mimetype) {
+      fileName = filename;
+      if (handleReadStream) {
+        handleReadStream(filename, file);
       }
     });
     busboy.on('field', function (fieldname, value) {

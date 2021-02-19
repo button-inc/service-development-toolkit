@@ -13,7 +13,7 @@ export default function builder(
   baseUiSchema: object,
   getRoute: string,
   postRoute: string,
-  options: IOptions
+  options?: IOptions
 ) {
   let uiSchema = { ...baseUiSchema };
   let combinedOptions = { ...options };
@@ -32,10 +32,10 @@ export default function builder(
   const { validations } = combinedOptions;
   const numForms: number = Forms.length;
 
-  const { createStream, onFileLoad } = options;
+  const { handleReadStream, onFileLoad } = options;
 
   const fileOptions: IFileOptions = {
-    createStream,
+    handleReadStream,
     onFileLoad,
   };
 

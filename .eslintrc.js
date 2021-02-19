@@ -25,6 +25,7 @@ module.exports = {
     'react/prop-types': 0,
     'react/react-in-jsx-scope': 0,
     'react/require-default-props': 0,
+    'import/no-mutable-exports': 0,
   },
   overrides: [],
 };
