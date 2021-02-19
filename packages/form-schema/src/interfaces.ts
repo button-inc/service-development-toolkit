@@ -7,7 +7,7 @@ export interface IDependency {
 }
 
 export interface IFileOptions {
-  createStream?: Function;
+  handleReadStream?: Function;
   onFileLoad?: Function;
 }
 

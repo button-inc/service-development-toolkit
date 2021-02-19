@@ -1,13 +1,13 @@
 {
-  "name": "with-typescript",
+  "name": "form-schema-azure-upload",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
-    "build": "next build",
     "start": "next start",
     "type-check": "tsc"
   },
   "dependencies": {
+    "@azure/storage-blob": "^12.4.1",
     "next": "latest",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

@@ -32,10 +32,10 @@ export default function builder(
   const { validations } = combinedOptions;
   const numForms: number = Forms.length;
 
-  const { createStream, onFileLoad } = options;
+  const { handleReadStream, onFileLoad } = options;
 
   const fileOptions: IFileOptions = {
-    createStream,
+    handleReadStream,
     onFileLoad,
   };
 
