@@ -5,7 +5,7 @@ export default function home() {
   return (
     <>
       <h1>Example</h1>
-      <Link href="/first-url">Begin Form</Link>
+      <Link href="/1">Begin Form</Link>
     </>
   );
 }
