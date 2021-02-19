@@ -7,8 +7,3 @@ function handler(req: any, res: any) {
 
 export default withSession(handler);
 
-export const config = {
-  api: {
-    bodyParser: true,
-  },
-};

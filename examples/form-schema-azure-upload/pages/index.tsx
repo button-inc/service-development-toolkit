@@ -1,3 +1,3 @@
-const AboutPage = () => <p>Landing</p>;
+const LandingPage = () => <p>Landing</p>;
 
-export default AboutPage;
+export default LandingPage;

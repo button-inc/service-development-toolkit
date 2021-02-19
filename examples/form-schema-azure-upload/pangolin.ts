@@ -5,12 +5,6 @@ import { ReadStream } from 'fs';
 import { uploadOptions, getBlobName, blobServiceClient } from 'azure-storage';
 
 const options = {
-  validations: {
-    firstQuestion: {
-      errorMessage: 'Your input is invalid.',
-      validationFunction: (value: string) => value === 'success',
-    },
-  },
   handleReadStream: async (filename: string, fileStream: ReadStream) => {
     const blobName = getBlobName(filename);
     const containerClient = blobServiceClient.getContainerClient('testcontainer');
