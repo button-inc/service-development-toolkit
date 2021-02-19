@@ -9,7 +9,13 @@ const handlePageOver = (_postData: object, schemaIndex: number, cleanSchemaData:
 };
 
 function handler(req: any, res: any) {
-  postHandler(req, res, () => console.log('finished form'), handlePageOver);
+  postHandler(req, res, (errors: []) => console.log(errors));
 }
 
 export default withSession(handler);
+
+export const config = {
+  api: {
+    bodyParser: true,
+  },
+};

@@ -1,5 +1,8 @@
 const uiSchema = {
-  'ui:order': ['firstQuestion', 'secondQuestion', 'thirdQuestion', 'fourthQuestion'],
+  'ui:order': ['firstQuestion', 'file', 'secondQuestion', 'thirdQuestion', 'fourthQuestion'],
+  file: {
+    'ui:widget': 'FileWidget',
+  },
 };
 
 export default uiSchema;

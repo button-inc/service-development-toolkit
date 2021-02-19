@@ -1,9 +1,11 @@
 // @ts-nocheck
 import postHandler from './postHandler';
+import fileMiddleware from './fileMiddleware';
 import getHandler from './getHandler';
 import buildForms from './buildForms';
-import { ISchema, IOptions } from './interfaces';
-import { removeDefaultLabels, generateUrlArray } from './helpers';
+import { ISchema, IOptions, IFileOptions } from './interfaces';
+import { generateUrlArray } from './Utils/urlUtils';
+import { removeDefaultLabels } from './Utils/schemaUtils';
 
 export default function builder(
   defaultWidgets: object | boolean,
@@ -30,8 +32,16 @@ export default function builder(
   const { validations } = combinedOptions;
   const numForms: number = Forms.length;
 
+  const { createStream, onFileLoad } = options;
+
+  const fileOptions: IFileOptions = {
+    createStream,
+    onFileLoad,
+  };
+
   return {
     postHandler: postHandler.bind({}, getRoute, numForms, schema, schemasArray, fieldsArray, validations, urlArray),
+    fileMiddleware: fileMiddleware.bind({}, getRoute, numForms, urlArray, fileOptions),
     getHandler: getHandler.bind({}, numForms, urlArray),
     Forms,
   };
