@@ -3,12 +3,12 @@ import { applyTheme } from 'component-library/Input';
 const styles = {
   shared: {
     label: `
-      font-family: ‘BCSans’, ‘Noto Sans’, Verdana, Arial, sans-serif;
+      font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
       display: block;
       margin-bottom: 5px;
     `,
     input: `
-      font-family: ‘BCSans’, ‘Noto Sans’, Verdana, Arial, sans-serif;
+      font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
       display: block;
       border: 2px solid #606060;
       border-radius: 4px;

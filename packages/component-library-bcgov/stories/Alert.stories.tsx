@@ -48,12 +48,12 @@ const Component = props => (
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus. In lectus magna, efficitur
         nec mi eu, placerat lacinia sem.
       </Alert.Content>
+      {props.closable && (
+        <Alert.Group align="right">
+          <Alert.Close>Close</Alert.Close>
+        </Alert.Group>
+      )}
     </Alert>
-    {props.closable && (
-      <Alert.Group align="right">
-        <Alert.Close>Close</Alert.Close>
-      </Alert.Group>
-    )}
   </>
 );
 
