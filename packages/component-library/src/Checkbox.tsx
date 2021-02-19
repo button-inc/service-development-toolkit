@@ -15,6 +15,7 @@ export const applyTheme = (styles, config) => {
   const Scontainer: any = styleBuilder('div', 'container');
   const Slabel: any = styleBuilder('label', 'label');
   const Scheckbox: any = styleBuilder('input', 'input');
+  const Checkmark: any = styleBuilder('span', 'checkmark');
 
   const bootstrap = createBootstrap(styles, 'checkbox');
 
@@ -23,12 +24,11 @@ export const applyTheme = (styles, config) => {
 
     return (
       <Scontainer {...styleProps}>
-        <Scheckbox {...rest} type="checkbox" id={id} name={name} />
-        {label && (
-          <Slabel {...styleProps} htmlFor={id}>
-            {label}
-          </Slabel>
-        )}
+        <Slabel {...styleProps} htmlFor={id}>
+          <Scheckbox {...rest} type="checkbox" id={id} name={name} />
+          <Checkmark {...styleProps} className="checkmark" />
+          {label}
+        </Slabel>
       </Scontainer>
     );
   };

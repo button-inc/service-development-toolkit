@@ -6,24 +6,36 @@ import Checkbox from '../src/Checkbox';
 export default {
   title: 'Checkbox',
   component: Checkbox,
-  argTypes: { onClick: { action: 'clicked' } },
+  argTypes: {
+    onClick: { action: 'clicked' },
+    size: {
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story = args => (
   <>
     <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
-      <Checkbox {...args} label="checkbox" />
+      <Checkbox {...args} />
     </HtmlOnlyWrapper>
 
     <h3>HTML + CSS</h3>
     <HtmlWithCssWrapper>
-      <Checkbox {...args} label="checkbox" />
+      <Checkbox {...args} />
     </HtmlWithCssWrapper>
 
     <h3>HTML + CSS + JS</h3>
-    <Checkbox {...args} label="checkbox" />
+    <Checkbox {...args} />
   </>
 );
 
 export const Default = Template.bind({});
+Default.args = {
+  label: 'Lorem ipsum dolor sit amet',
+  size: 'medium',
+};
