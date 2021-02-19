@@ -6,4 +6,3 @@ function handler(req: any, res: any) {
 }
 
 export default withSession(handler);
-
