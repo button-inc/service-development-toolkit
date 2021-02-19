@@ -38,6 +38,8 @@ export interface IOptions {
   defaultLabels?: boolean;
   widgets?: object;
   validations?: IValidations;
+  createStream?: Function;
+  onFileLoad?: Function;
 }
 
 export interface IForms {

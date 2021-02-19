@@ -19,9 +19,9 @@ export default async function fileHandler(
   getRoute: string,
   numForms: number,
   urlArray: string[],
+  options: IFileOptions,
   req: any,
-  res: any,
-  options: IFileOptions
+  res: any
 ) {
   if (req.method === 'POST') {
     let js = false;
