@@ -1,23 +1,24 @@
 import postHandler from '../src/postHandler';
 import { validateFormData } from '../src/Utils/validationUtils';
 import { removePageFields, matchPostBody } from '../src/Utils/cleanDataUtils';
-import { getUrlPage } from '../src/Utils/urlUtils';
+import { getPageInfo, getUrlPage } from '../src/Utils/urlUtils';
 
 const urlArray = ['', '', '', '', ''];
 
-jest.mock('../src/validation', () => ({
+jest.mock('../src/Utils/validationUtils', () => ({
   validateFormData: jest.fn(() => ({ isValidated: true, isValid: true })),
 }));
 
 const urlPage = 5;
-const nextPage = urlPage + 1;
+const nextPage = 6;
 
-jest.mock('../src/helpers', () => ({
-  ...jest.requireActual('../src/helpers'),
-  getUrlPage: jest.fn(() => urlPage),
+jest.mock('../src/Utils/urlUtils', () => ({
+  ...jest.requireActual('../src/Utils/urlUtils'),
+  getPageInfo: jest.fn(() => ({ nextPageNumber: nextPage, nextPagePostfix: nextPage, schemaIndex: 4 })),
+  getUrlPage: jest.fn(() => {}),
 }));
 
-jest.mock('../src/cleanData', () => ({
+jest.mock('../src/Utils/cleanDataUtils', () => ({
   removePageFields: jest.fn(givenData => givenData),
   matchPostBody: jest.fn(givenData => givenData),
 }));
