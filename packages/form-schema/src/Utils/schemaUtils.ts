@@ -28,6 +28,31 @@ function getNestedFieldProperties(properties: object): string[] {
   return nestedFields;
 }
 
+export const addWidgetsForFiles = (schema: ISchema, uiSchema) => {
+  const { properties } = schema;
+  const newUiSchema = { ...uiSchema };
+  forEach(properties, (value, propertyName) => {
+    if (value.type === 'object') {
+      const innerProperties = value.properties;
+      forEach(innerProperties, (innerValue, innerPropertyName) => {
+        if (innerValue.hasFiles) {
+          newUiSchema[innerPropertyName] = {
+            ...newUiSchema[innerPropertyName],
+            'ui:widget': 'FileWidget',
+          };
+        }
+      });
+    }
+    if (value.hasFiles) {
+      newUiSchema[propertyName] = {
+        ...newUiSchema[propertyName],
+        'ui:widget': 'FileWidget',
+      };
+    }
+  });
+  return newUiSchema;
+};
+
 export function getPropertyDependencies(dependencies: IDependencies): object[] {
   const propertyDependencies: object[] = [];
   if (isObject(dependencies)) {
