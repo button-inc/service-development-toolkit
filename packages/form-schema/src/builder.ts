@@ -5,13 +5,7 @@ import getHandler from './getHandler';
 import buildForms from './buildForms';
 import { ISchema, IOptions, IFileOptions } from './interfaces';
 import { generateUrlArray } from './Utils/urlUtils';
-import { removeDefaultLabels, addWidgetsForFiles } from './Utils/schemaUtils';
-
-const getUiSchemaFromOptions = (schema, uiSchema, options) => {
-  let newUiSchema = addWidgetsForFiles(schema, uiSchema);
-  if (options && options.defaultLabels === false) newUiSchema = removeDefaultLabels(schema, newUiSchema);
-  return newUiSchema;
-};
+import { getUiSchemaFromOptions } from './Utils/schemaUtils';
 
 export default function builder(
   defaultWidgets: object | boolean,

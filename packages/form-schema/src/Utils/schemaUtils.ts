@@ -189,3 +189,9 @@ export const removeDefaultLabels = (schema, uiSchema) => {
   });
   return newUiSchema;
 };
+
+export const getUiSchemaFromOptions = (schema: ISchema, uiSchema, options) => {
+  let newUiSchema = addWidgetsForFiles(schema, uiSchema);
+  if (options && options.defaultLabels === false) newUiSchema = removeDefaultLabels(schema, newUiSchema);
+  return newUiSchema;
+};
