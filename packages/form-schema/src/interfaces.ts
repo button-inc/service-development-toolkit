@@ -6,13 +6,18 @@ export interface IDependency {
   oneOf: ISchema[];
 }
 
+export interface IFileOptions {
+  createStream?: Function;
+  onFileLoad?: Function;
+}
+
 export interface ISchema {
   title?: string;
   type?: string;
   required?: string[];
   dependencies?: IDependencies;
   properties: object;
-  files?: boolean;
+  hasFiles?: boolean;
 }
 
 export interface IFormPostResponse {

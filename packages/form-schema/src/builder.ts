@@ -1,9 +1,11 @@
 // @ts-nocheck
 import postHandler from './postHandler';
+import fileHandler from './fileHandler';
 import getHandler from './getHandler';
 import buildForms from './buildForms';
 import { ISchema, IOptions } from './interfaces';
-import { removeDefaultLabels, generateUrlArray } from './helpers';
+import { generateUrlArray } from './Utils/urlUtils';
+import { removeDefaultLabels } from './Utils/schemaUtils';
 
 export default function builder(
   defaultWidgets: object | boolean,
@@ -32,6 +34,7 @@ export default function builder(
 
   return {
     postHandler: postHandler.bind({}, getRoute, numForms, schema, schemasArray, fieldsArray, validations, urlArray),
+    fileHandler: fileHandler.bind({}, getRoute, numForms, urlArray),
     getHandler: getHandler.bind({}, numForms, urlArray),
     Forms,
   };

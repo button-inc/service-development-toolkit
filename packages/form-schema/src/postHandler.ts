@@ -1,6 +1,6 @@
-import { validateFormData } from './validation';
-import { removePageFields, matchPostBody } from './cleanData';
-import { getUrlPage, parseUrl } from './helpers';
+import { validateFormData } from './Utils/validationUtils';
+import { removePageFields, matchPostBody } from './Utils/cleanDataUtils';
+import { getPageInfo, parseUrl } from './Utils/urlUtils';
 import { IValidations, ISchema } from './interfaces';
 
 function cleanSchemaData(postData: object, pageSchema: ISchema, formData: object) {
@@ -37,17 +37,11 @@ export default async function postHandler(
     body: { postData },
   } = req;
 
-  console.log(postData, js, 'pppppppppppppppp');
-
   if (!js) postData = req.body;
-  const currentPageName = getUrlPage(url);
-  const currentPageNumber = Number.isInteger(currentPageName) ? currentPageName : urlArray.indexOf(currentPageName) + 1;
-
-  const nextPageNumber = currentPageNumber + 1;
-  const nextPagePostfix = urlArray[currentPageNumber] || nextPageNumber;
-  const schemaIndex = currentPageNumber - 1;
+  const { nextPageNumber, nextPagePostfix, schemaIndex } = getPageInfo(url, urlArray);
   const pageSchema = schemas[schemaIndex];
   let newFormData: object = {};
+
   if (!handlePageOver) {
     newFormData = defaultPageOverHandler(req.session, schema, postData);
     req.session.formData = newFormData;

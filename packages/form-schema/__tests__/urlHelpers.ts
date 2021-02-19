@@ -1,4 +1,4 @@
-import { getUrlPage } from '../src/helpers';
+import { getUrlPage } from '../src/Utils/urlUtils';
 
 describe('getUrlPage', () => {
   it('grabs the correct url for the page', () => {

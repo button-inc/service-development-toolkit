@@ -1,4 +1,5 @@
-import { IDependencies, ISchema } from './interfaces';
+import forEach from 'lodash/forEach';
+import { IDependencies, ISchema } from '../interfaces';
 
 interface INewSchema extends ISchema {
   required: string[];
@@ -109,7 +110,7 @@ export function splitSchema(schema: ISchema, order: string[]): ISchema[] {
         properties: {},
         required: [],
         dependencies: {},
-        files: properties[propertyName].files,
+        hasFiles: properties[propertyName].hasFiles,
       };
 
       // copy property
@@ -136,3 +137,30 @@ export function splitSchema(schema: ISchema, order: string[]): ISchema[] {
   });
   return schemas;
 }
+
+export const removeDefaultLabels = (schema, uiSchema) => {
+  const newUiSchema = { ...uiSchema };
+  forEach(schema.properties, (value, key) => {
+    if (value.properties) {
+      forEach(value.properties, (_nestedValue, nestedKey) => {
+        newUiSchema[key] = {
+          ...newUiSchema[key],
+          [nestedKey]: {
+            ...(newUiSchema[key] && newUiSchema[key][nestedKey]),
+            'ui:options': {
+              label: false,
+            },
+          },
+        };
+      });
+    } else {
+      newUiSchema[key] = {
+        ...newUiSchema[key],
+        'ui:options': {
+          label: false,
+        },
+      };
+    }
+  });
+  return newUiSchema;
+};

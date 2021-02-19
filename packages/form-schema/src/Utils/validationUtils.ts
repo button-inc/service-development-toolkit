@@ -1,6 +1,6 @@
 import validate from 'react-jsonschema-form/lib/validate';
 import forEach from 'lodash/forEach';
-import { IValidations } from './interfaces';
+import { IValidations } from '../interfaces';
 
 export function createValidator(page: number, fieldsArray: string[][], validations?: IValidations) {
   const fields = fieldsArray[page];

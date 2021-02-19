@@ -4,7 +4,6 @@ const TEXT_MAX_LENGTH = 1000;
 
 const schema = {
   title: 'Launch Online Grant',
-  required: ['sectorOther'],
   properties: {
     firstQuestion: {
       type: 'string',
@@ -14,7 +13,7 @@ const schema = {
     file: {
       type: 'string',
       title: 'Files',
-      files: true,
+      hasFiles: true,
       name: 'firstQuestion',
     },
     secondQuestion: {

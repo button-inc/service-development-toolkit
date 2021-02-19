@@ -1,24 +1,20 @@
 import Form from 'react-jsonschema-form';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { createValidator } from './validation';
-import { splitSchema } from './splitSchema';
+import { createValidator } from './Utils/validationUtils';
+import { splitSchema } from './Utils/schemaUtils';
 import { IOptions, ISchema, IForms } from './interfaces';
-import { parseUrl } from './helpers';
-
-const getEncoding = type => {
-  if (type === 'file') return 'multipart/form-data';
-  return 'application/x-www-form-urlencoded';
-};
+import { parseUrl } from './Utils/urlUtils';
 
 const getContentType = files => {
   if (files) return 'multipart/form-data';
   return 'application/json';
 };
 
-const getFormData = stuff => {
+const getFormData = files => {
   const data = new FormData();
-  data.append('file', stuff.file[0]);
+  data.append('file', files.file[0]);
+  data.append('js', 'true');
   return data;
 };
 
@@ -41,51 +37,48 @@ export default function buildForms(
       const validation = createValidator(i, fieldsArray, validations);
       const pageNumber = i + 1;
       const pageName = urlArray[pageNumber - 1] || pageNumber;
-      const { files } = schema;
+      const { hasFiles } = schema;
 
       return function FormPage(props) {
-        const [stuff, setStuff] = useState();
+        const [files, setFiles] = useState();
 
         const handleSubmit = async ({ formData }) => {
-          let data = { postData: formData, page: pageNumber, js: true };
-          // @ts-ignore
-          if (files) data = getFormData(stuff);
-          console.log(data);
+          let data: object = { postData: formData, page: pageNumber, js: true };
+          if (hasFiles) data = getFormData(files);
           const result = await axios({
             method: 'post',
-            url: `${postRoute}/${pageName}${files ? '/file' : ''}`,
-            // data: { postData: data, page: pageNumber, js: true },
+            url: `${postRoute}/${pageName}${hasFiles ? '/file' : ''}`,
             data,
-            headers: { 'Content-Type': getContentType(files) },
-            // headers: { 'Content-Type': 'multipart/form-data' },
+            headers: { 'Content-Type': getContentType(hasFiles) },
           });
+
           const { nextPage, isValid, isLastPage } = result.data;
-          console.log(nextPage, isValid, isLastPage);
           if (props.rerouteHandler) {
             const urlToNavigate = parseUrl(getRoute, nextPage);
             props.rerouteHandler(urlToNavigate, isValid, isLastPage);
           } else if (typeof window === 'object') window.location.href = parseUrl(getRoute, nextPage);
         };
-        const additionalProps: any = {};
-        if (files) {
-          additionalProps.onChange = e => {
-            console.log('hey hey hey', e.formData);
-            setStuff(e.formData);
+        const fileProps: any = {};
+        if (hasFiles) {
+          fileProps.onChange = e => {
+            setFiles(e.formData);
           };
-          additionalProps.noValidate = true;
+          fileProps.noValidate = true;
+          fileProps.action = `${postRoute}/${pageName}/file`;
+          fileProps.enctype = 'multipart/form-data';
         }
         return (
           <Form
             key={key}
             name="my-form"
             method="post"
-            action={`${postRoute}/${pageName}${files ? '/file' : ''}`}
+            action={`${postRoute}/${pageName}`}
             schema={schema}
             uiSchema={uiSchema}
             // validate={validation}
             onSubmit={handleSubmit}
             widgets={widgets}
-            {...additionalProps}
+            {...fileProps}
             {...props}
           />
         );

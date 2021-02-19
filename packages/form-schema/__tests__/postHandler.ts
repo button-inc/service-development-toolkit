@@ -1,7 +1,7 @@
 import postHandler from '../src/postHandler';
-import { validateFormData } from '../src/validation';
-import { removePageFields, matchPostBody } from '../src/cleanData';
-import { getUrlPage } from '../src/helpers';
+import { validateFormData } from '../src/Utils/validationUtils';
+import { removePageFields, matchPostBody } from '../src/Utils/cleanDataUtils';
+import { getUrlPage } from '../src/Utils/urlUtils';
 
 const urlArray = ['', '', '', '', ''];
 

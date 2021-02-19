@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import { getNestedFieldPropertiesByName } from './splitSchema';
-import { ISchema } from './interfaces';
+import { getNestedFieldPropertiesByName } from './schemaUtils';
+import { ISchema } from '../interfaces';
 
 function getFieldsForSchema(schema: ISchema) {
   try {

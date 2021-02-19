@@ -17,10 +17,15 @@ function ObjectFieldTemplate({ properties }: { properties: any }) {
   );
 }
 
-const handlePageLoad = (formIndex: string) => formData[formIndex];
-
-// @ts-ignore
-export default function home({ formIndex, formData, validPage }) {
+export default function home({
+  formIndex,
+  formData,
+  validPage,
+}: {
+  formIndex: number;
+  formData: object;
+  validPage: boolean;
+}) {
   const Form = Forms[formIndex];
   const router = useRouter();
 
@@ -32,12 +37,7 @@ export default function home({ formIndex, formData, validPage }) {
     <>
       <h1>Form</h1>
       {validPage && (
-        <Form
-          formData={formData}
-          rerouteHandler={rerouteHandler}
-          ObjectFieldTemplate={ObjectFieldTemplate}
-          enctype="multipart/form-data"
-        />
+        <Form formData={formData} rerouteHandler={rerouteHandler} ObjectFieldTemplate={ObjectFieldTemplate} />
       )}
       {!validPage && <h1>page out of range</h1>}
     </>

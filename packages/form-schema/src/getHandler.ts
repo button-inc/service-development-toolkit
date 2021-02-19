@@ -1,4 +1,4 @@
-import { getUrlPage } from './helpers';
+import { getUrlPage } from './Utils/urlUtils';
 
 function validatePage(page, urlArray, numPages) {
   if (urlArray.indexOf(page) !== -1) {
