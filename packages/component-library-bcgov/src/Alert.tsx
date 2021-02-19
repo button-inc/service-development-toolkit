@@ -1,4 +1,7 @@
+import React from 'react';
+import styled from 'styled-components';
 import { applyTheme } from 'component-library/Notification';
+import { CheckCircle, InfoCircle, ExclamationTriangle, ExclamationCircle } from './fontawesome';
 
 const styles = {
   shared: {
@@ -205,6 +208,50 @@ const childStyles = {
   },
 };
 
-const Alert: any = applyTheme(styles, config, childStyles);
+export const BaseAlert: any = applyTheme(styles, config, childStyles);
 
-export default Alert;
+const getIconPath = (variant: string) => {
+  switch (variant) {
+    case 'success':
+      return CheckCircle;
+    case 'info':
+      return InfoCircle;
+    case 'warning':
+      return ExclamationTriangle;
+    default:
+      return ExclamationCircle;
+  }
+};
+
+const SVG = styled.svg.attrs({
+  ariaHidden: 'true',
+  focusable: 'false',
+  role: 'img',
+  xmlns: 'http://www.w3.org/2000/svg',
+  viewBox: '0 0 512 512',
+})`
+  display: inline-block;
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+`;
+
+export default function Component(props: any) {
+  return (
+    <BaseAlert {...props}>
+      <BaseAlert.Group>
+        <SVG>
+          <path fill="currentColor" d={getIconPath(props.variant)} />
+        </SVG>
+      </BaseAlert.Group>
+      <BaseAlert.Content>{props.content ? props.content : props.children}</BaseAlert.Content>
+      {props.closable && (
+        <BaseAlert.Group align="right">
+          <BaseAlert.Close>close</BaseAlert.Close>
+        </BaseAlert.Group>
+      )}
+    </BaseAlert>
+  );
+}
