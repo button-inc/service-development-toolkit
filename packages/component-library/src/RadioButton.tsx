@@ -15,7 +15,8 @@ export const applyTheme = (styles, config) => {
 
   const Scontainer: any = styleBuilder('div', 'container');
   const Slabel: any = styleBuilder('label', 'label');
-  const SRadioButton: any = styleBuilder('input', 'input');
+  const SradioButton: any = styleBuilder('input', 'input');
+  const Sdot: any = styleBuilder('span', 'dot');
 
   const bootstrap = createBootstrap(styles, 'radio');
 
@@ -24,12 +25,11 @@ export const applyTheme = (styles, config) => {
 
     return (
       <Scontainer {...styleProps}>
-        <SRadioButton {...rest} type="radio" id={id} />
-        {label && (
-          <Slabel {...styleProps} htmlFor={id}>
-            {label}
-          </Slabel>
-        )}
+        <Slabel {...styleProps} htmlFor={id}>
+          <SradioButton {...rest} type="radio" id={id} name={name} />
+          <Sdot {...styleProps} className="dot" />
+          {label}
+        </Slabel>
       </Scontainer>
     );
   };
