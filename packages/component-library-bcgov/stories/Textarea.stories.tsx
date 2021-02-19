@@ -1,16 +1,22 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
-import Input from '../src/Input';
+import Textarea from '../src/Textarea';
 
 export default {
-  title: 'Input',
-  component: Input,
+  title: 'Textarea',
+  component: Textarea,
   argTypes: {
     size: {
       control: {
         type: 'select',
         options: ['small', 'medium', 'large'],
+      },
+    },
+    resize: {
+      control: {
+        type: 'select',
+        options: ['none', 'both', 'horizontal', 'vertical'],
       },
     },
   },
@@ -20,31 +26,24 @@ const Template: Story = args => (
   <>
     <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
-      <Input {...args}>Input</Input>
+      <Textarea {...args}>Textarea</Textarea>
     </HtmlOnlyWrapper>
 
     <h3>HTML + CSS</h3>
     <HtmlWithCssWrapper>
-      <Input {...args}>Input</Input>
+      <Textarea {...args}>Textarea</Textarea>
     </HtmlWithCssWrapper>
 
     <h3>HTML + CSS + JS</h3>
-    <Input {...args}>Input</Input>
+    <Textarea {...args}>Textarea</Textarea>
   </>
 );
 
 export const Standard = Template.bind({});
 Standard.args = {
-  label: 'Field Label',
-  variant: 'standard',
+  label: 'First Name',
   size: 'medium',
+  resize: 'none',
   required: false,
-};
-
-export const Warning = Template.bind({});
-Warning.args = {
-  label: 'Field Label',
-  variant: 'warning',
-  size: 'medium',
-  required: false,
+  fullWidth: false,
 };

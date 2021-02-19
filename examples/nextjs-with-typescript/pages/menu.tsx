@@ -1,4 +1,4 @@
-import MenuGov from 'component-library-gov/Menu';
+import MenuGov from 'component-library-bcgov/Menu';
 
 export default function Menu() {
   return (

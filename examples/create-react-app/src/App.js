@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Button from 'component-library-gov/lib/Button';
+import Button from 'component-library-bcgov/lib/Button';
 import Button2 from 'component-library/lib/Button';
 
 function App() {

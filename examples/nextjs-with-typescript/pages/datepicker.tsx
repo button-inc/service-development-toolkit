@@ -1,4 +1,4 @@
-import DatePickerGov from 'component-library-gov/DatePicker';
+import DatePickerGov from 'component-library-bcgov/DatePicker';
 
 export default function DatePicker() {
   return (

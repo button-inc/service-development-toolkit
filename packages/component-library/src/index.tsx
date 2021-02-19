@@ -9,3 +9,4 @@ export { default as Menu } from './Menu';
 export { default as Notification } from './Notification';
 export { default as RadioButton } from './RadioButton';
 export { default as Select } from './Select';
+export { default as Textarea } from './Textarea';

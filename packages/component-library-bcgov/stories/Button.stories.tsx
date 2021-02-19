@@ -18,7 +18,12 @@ export default {
 } as Meta;
 
 const Template: Story = args => (
-  <>
+  <div
+    style={{
+      backgroundColor: args.variant.endsWith('-inverse') ? '#003366' : '#fff',
+      padding: '15px',
+    }}
+  >
     <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
       <Button {...args}>Button</Button>
@@ -31,7 +36,7 @@ const Template: Story = args => (
 
     <h3>HTML + CSS + JS</h3>
     <Button {...args}>Button</Button>
-  </>
+  </div>
 );
 
 export const Primary = Template.bind({});
@@ -48,9 +53,30 @@ Secondary.args = {
   disabled: false,
 };
 
-export const Warning = Template.bind({});
-Warning.args = {
-  variant: 'warning',
+export const PrimaryInverse = Template.bind({});
+PrimaryInverse.args = {
+  variant: 'primary-inverse',
   size: 'medium',
   disabled: false,
+};
+
+export const SecondaryInverse = Template.bind({});
+SecondaryInverse.args = {
+  variant: 'secondary-inverse',
+  size: 'medium',
+  disabled: false,
+};
+
+export const PrimaryDisabled = Template.bind({});
+PrimaryDisabled.args = {
+  variant: 'primary-disabled',
+  size: 'medium',
+  disabled: true,
+};
+
+export const SecondaryDisabled = Template.bind({});
+SecondaryDisabled.args = {
+  variant: 'secondary-disabled',
+  size: 'medium',
+  disabled: true,
 };

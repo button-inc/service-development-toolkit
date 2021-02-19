@@ -1,5 +1,5 @@
 {
-  "name": "component-library-gov",
+  "name": "component-library-bcgov",
   "version": "0.1.0",
   "description": "Library for theme-able, accessible, progressively-enhancing react components",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "types": "lib/esm/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "build": "node ../../scripts/build.js --name=component-library-gov",
+    "build": "node ../../scripts/build.js --name=component-library-bcgov",
     "build-docs": "yarn --cwd www build",
     "build-types": "yarn tsc -d --outDir types",
     "storybook": "start-storybook -p 6006",

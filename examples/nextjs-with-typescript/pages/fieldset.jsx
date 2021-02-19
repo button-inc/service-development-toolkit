@@ -1,5 +1,5 @@
-import Radio from 'component-library-gov/RadioButton';
-import Fieldset from 'component-library-gov/Fieldset';
+import Radio from 'component-library-bcgov/RadioButton';
+import Fieldset from 'component-library-bcgov/Fieldset';
 
 export default function FieldsetPage() {
   return (
