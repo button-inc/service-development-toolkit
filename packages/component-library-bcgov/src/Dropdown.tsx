@@ -1,5 +1,20 @@
 import { applyTheme } from 'component-library/Select';
 
+// see https://fontawesome.com/icons/chevron-down?style=solid
+const faChevronDown = `
+PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZ
+hcyIgZGF0YS1pY29uPSJjaGV2cm9uLWRvd24iIHJvbGU9ImltZyIgeG1sbnM9Imh0dHA6Ly93d3
+cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNDQ4IDUxMiIgY2xhc3M9InN2Zy1pbmxpb
+mUtLWZhIGZhLWNoZXZyb24tZG93biBmYS13LTE0Ij48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3Ii
+IGQ9Ik0yMDcuMDI5IDM4MS40NzZMMTIuNjg2IDE4Ny4xMzJjLTkuMzczLTkuMzczLTkuMzczLTI
+0LjU2OSAwLTMzLjk0MWwyMi42NjctMjIuNjY3YzkuMzU3LTkuMzU3IDI0LjUyMi05LjM3NSAzMy
+45MDEtLjA0TDIyNCAyODQuNTA1bDE1NC43NDUtMTU0LjAyMWM5LjM3OS05LjMzNSAyNC41NDQtO
+S4zMTcgMzMuOTAxLjA0bDIyLjY2NyAyMi42NjdjOS4zNzMgOS4zNzMgOS4zNzMgMjQuNTY5IDAg
+MzMuOTQxTDI0MC45NzEgMzgxLjQ3NmMtOS4zNzMgOS4zNzItMjQuNTY5IDkuMzcyLTMzLjk0MiA
+weiIgY2xhc3M9IiI+PC9wYXRoPjwvc3ZnPg==`;
+
+const toSvgUrl = (data: string) => `url("data:image/svg+xml;base64,${data}")`;
+
 const styles = {
   shared: {
     container: `
@@ -21,14 +36,16 @@ const styles = {
       padding: 0.3rem 0;
 
       &:after {
-        content: '\\25BC';
+        content: ' ';
+        background-image: ${toSvgUrl(faChevronDown)};
+        background-size: contain;
+        background-repeat: no-repeat;
         position: absolute;
         top: 0;
         right: 0;
-        width: 50px;
+        width: 35px;
         height: 100%;
         text-align: center;
-        padding: 0.3rem 0;
         cursor: pointer;
         pointer-events: none;
         -webkit-transition: .25s all ease;
