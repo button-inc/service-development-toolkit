@@ -28,6 +28,31 @@ function getNestedFieldProperties(properties: object): string[] {
   return nestedFields;
 }
 
+export const addWidgetsForFiles = (schema: ISchema, uiSchema) => {
+  const { properties } = schema;
+  const newUiSchema = { ...uiSchema };
+  forEach(properties, (value, propertyName) => {
+    if (value.type === 'object') {
+      const innerProperties = value.properties;
+      forEach(innerProperties, (innerValue, innerPropertyName) => {
+        if (innerValue.hasFiles) {
+          newUiSchema[innerPropertyName] = {
+            ...newUiSchema[innerPropertyName],
+            'ui:widget': 'FileWidget',
+          };
+        }
+      });
+    }
+    if (value.hasFiles) {
+      newUiSchema[propertyName] = {
+        ...newUiSchema[propertyName],
+        'ui:widget': 'FileWidget',
+      };
+    }
+  });
+  return newUiSchema;
+};
+
 export function getPropertyDependencies(dependencies: IDependencies): object[] {
   const propertyDependencies: object[] = [];
   if (isObject(dependencies)) {
@@ -162,5 +187,11 @@ export const removeDefaultLabels = (schema, uiSchema) => {
       };
     }
   });
+  return newUiSchema;
+};
+
+export const getUiSchemaFromOptions = (schema: ISchema, uiSchema, options) => {
+  let newUiSchema = addWidgetsForFiles(schema, uiSchema);
+  if (options && options.defaultLabels === false) newUiSchema = removeDefaultLabels(schema, newUiSchema);
   return newUiSchema;
 };

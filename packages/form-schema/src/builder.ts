@@ -5,7 +5,7 @@ import getHandler from './getHandler';
 import buildForms from './buildForms';
 import { ISchema, IOptions, IFileOptions } from './interfaces';
 import { generateUrlArray } from './Utils/urlUtils';
-import { removeDefaultLabels } from './Utils/schemaUtils';
+import { getUiSchemaFromOptions } from './Utils/schemaUtils';
 
 export default function builder(
   defaultWidgets: object | boolean,
@@ -18,7 +18,7 @@ export default function builder(
   let uiSchema = { ...baseUiSchema };
   let combinedOptions = { ...options };
   if (defaultWidgets) combinedOptions = { ...combinedOptions, widgets: defaultWidgets, defaultLabels: false };
-  if (combinedOptions && combinedOptions.defaultLabels === false) uiSchema = removeDefaultLabels(schema, uiSchema);
+  uiSchema = getUiSchemaFromOptions(schema, uiSchema, combinedOptions);
 
   const urlArray = generateUrlArray(schema);
   const { Forms, schemasArray, fieldsArray } = buildForms(
