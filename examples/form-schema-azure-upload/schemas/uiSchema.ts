@@ -1,8 +1,3 @@
-const uiSchema = {
-  'ui:order': ['file', 'secondQuestion'],
-  file: {
-    'ui:widget': 'FileWidget',
-  },
-};
+const uiSchema = {};
 
 export default uiSchema;

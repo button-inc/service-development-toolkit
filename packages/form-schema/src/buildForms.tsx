@@ -26,9 +26,8 @@ export default function buildForms(
   options: IOptions,
   urlArray: string[]
 ): IForms {
-  const order = uiSchema['ui:order'];
   const { validations, widgets } = options;
-  const schemasArray = splitSchema(schema, order);
+  const schemasArray = splitSchema(schema, uiSchema);
   const fieldsArray = schemasArray.map(schema => Object.keys(schema.properties));
 
   return {
@@ -75,7 +74,7 @@ export default function buildForms(
             action={`${postRoute}/${pageName}`}
             schema={schema}
             uiSchema={uiSchema}
-            // validate={validation}
+            validate={validation}
             onSubmit={handleSubmit}
             widgets={widgets}
             {...fileProps}

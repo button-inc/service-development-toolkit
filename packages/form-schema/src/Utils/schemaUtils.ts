@@ -84,6 +84,21 @@ export function getNestedFieldPropertiesByName(schema: ISchema) {
   return nestedFields;
 }
 
+// Note: this works for non-integer keys
+export const getSchemaOrder = (schema: ISchema, uiSchema) => {
+  if (uiSchema['ui:order']) return uiSchema['ui:order'];
+  const order: string[] = [];
+  forEach(schema.properties, (value, key) => {
+    order.push(key);
+    if (value.type === 'object') {
+      forEach(value.properties, (_nestedValue, nestedKey) => {
+        order.push(nestedKey);
+      });
+    }
+  });
+  return order;
+};
+
 /* splitSchema is built to handle only dependencies of the form
 {
   propertyName: {
@@ -101,12 +116,13 @@ export function getNestedFieldPropertiesByName(schema: ISchema) {
 i.e, properties that only toggle a single requirement.
 This is the format that easily supports non-js environments.
 For more complex dependencies this should not be used. */
-export function splitSchema(schema: ISchema, order: string[]): ISchema[] {
+export function splitSchema(schema: ISchema, uiSchema): ISchema[] {
   const schemas: ISchema[] = [];
   const { properties, dependencies, required, title, type } = schema;
   const propertyDependencies = dependencies ? getPropertyDependencies(dependencies) : [];
   const dependantProperties = getDependantProperties(propertyDependencies);
   const nestedFieldProperties = getNestedFieldProperties(properties);
+  const order = getSchemaOrder(schema, uiSchema);
   order.forEach(propertyName => {
     // Dependant properties will be included in the schema of property they depend on
     // and can be skipped

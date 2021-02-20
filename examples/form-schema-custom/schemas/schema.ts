@@ -1,9 +1,5 @@
-// Only use on required elements if non-zero
-const REQUIRED_TEXT_MIN_LENGTH = 0;
-const TEXT_MAX_LENGTH = 1000;
-
 const schema = {
-  title: 'Launch Online Grant',
+  title: 'Custom Example',
   properties: {
     firstQuestion: {
       type: 'string',
