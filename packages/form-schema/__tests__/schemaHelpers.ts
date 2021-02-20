@@ -1,12 +1,16 @@
-import { addWidgetsForFiles } from '../src/Utils/schemaUtils';
+import { addWidgetsForFiles, getSchemaOrder } from '../src/Utils/schemaUtils';
 
 const uiSchema = {
-  'ui:order': [],
+  'ui:hints': [],
   firstQuestion: {
     'ui:options': {
       label: false,
     },
   },
+};
+
+const orderedUiSchema = {
+  'ui:order': ['one', 'two'],
 };
 
 const testSchema = {
@@ -38,6 +42,9 @@ const testSchema = {
         },
       },
     },
+    fifthQuestion: {
+      type: 'string',
+    },
   },
 };
 
@@ -51,7 +58,25 @@ describe('addWidgetsForFiles', () => {
     expect(uiSchemaWithWidgets.nestedQuestion['ui:widget']).toBe('FileWidget');
   });
   it('does not affect previous properties', () => {
-    expect(uiSchemaWithWidgets['ui:order']).toEqual([]);
+    expect(uiSchemaWithWidgets['ui:hints']).toEqual([]);
     expect(uiSchemaWithWidgets.firstQuestion['ui:options']).toEqual({ label: false });
+  });
+});
+
+describe('getSchemaOrder', () => {
+  it('returns the order from uiSchema if defined', () => {
+    const order = getSchemaOrder(testSchema, orderedUiSchema);
+    expect(order).toEqual(['one', 'two']);
+  });
+  it('returns the insertion order otherwise', () => {
+    const order = getSchemaOrder(testSchema, uiSchema);
+    expect(order).toEqual([
+      'firstQuestion',
+      'secondQuestion',
+      'thirdQuestion',
+      'fourthQuestion',
+      'nestedQuestion',
+      'fifthQuestion',
+    ]);
   });
 });

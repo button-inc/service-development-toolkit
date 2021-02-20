@@ -10,7 +10,10 @@ const options = {
       validationFunction: (value: string) => value === 'success',
     },
   },
-  createStream: (filename: string) => fs.createWriteStream(filename),
+  handleReadStream: (filename: string, readStream: any) => {
+    const writeStream = fs.createWriteStream(filename);
+    readStream.pipe(writeStream);
+  },
   onFileLoad: (filename: string) => {
     console.log(`${filename} has been uploaded`);
   },
