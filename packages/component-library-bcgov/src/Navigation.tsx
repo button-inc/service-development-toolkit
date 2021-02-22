@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import isFunction from 'lodash/isFunction';
 import { applyTheme } from 'component-library/Header';
 import { BaseHeader } from './Header';
-import { Bars, faSVG } from './fontawesome';
+import { Bars, FaSVG } from './fontawesome';
 import bcgovLogoSVG from './svg/bcgov_logo';
 
 const styles = {
@@ -93,9 +93,9 @@ export default function Component(props: any) {
           style={{ marginLeft: 'auto', fontSize: '2rem', marginBottom: 'auto', marginTop: 'auto' }}
         >
           <BaseNavigation.Toggle>
-            <faSVG>
+            <FaSVG>
               <path fill="currentColor" d={Bars} />
-            </faSVG>
+            </FaSVG>
           </BaseNavigation.Toggle>
         </BaseHeader.Item>
       </BaseHeader>

@@ -27,7 +27,7 @@ export const Bars =
 export const toSvgUrl = (d: string, color: string = 'currentColor') =>
   `url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='check' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' class='svg-inline--fa fa-check fa-w-16'%3E%3Cpath fill='${color}' d='${d}' class=''%3E%3C/path%3E%3C/svg%3E")`;
 
-export const faSVG = styled.svg.attrs({
+export const FaSVG = styled.svg.attrs({
   ariaHidden: 'true',
   focusable: 'false',
   role: 'img',
@@ -51,5 +51,5 @@ export default {
   ChevronDown,
   Bars,
   toSvgUrl,
-  faSVG,
+  FaSVG,
 };

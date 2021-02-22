@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { applyTheme } from 'component-library/Notification';
-import { CheckCircle, InfoCircle, ExclamationTriangle, ExclamationCircle, faSVG } from './fontawesome';
+import { CheckCircle, InfoCircle, ExclamationTriangle, ExclamationCircle, FaSVG } from './fontawesome';
 
 const styles = {
   shared: {
@@ -227,9 +227,9 @@ export default function Component(props: any) {
   return (
     <BaseAlert {...props}>
       <BaseAlert.Group>
-        <faSVG>
+        <FaSVG>
           <path fill="currentColor" d={getIconPath(props.variant)} />
-        </faSVG>
+        </FaSVG>
       </BaseAlert.Group>
       <BaseAlert.Content>{props.content ? props.content : props.children}</BaseAlert.Content>
       {props.closable && (
