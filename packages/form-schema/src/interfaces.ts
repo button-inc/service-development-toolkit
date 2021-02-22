@@ -36,10 +36,15 @@ export interface IValidations {
 
 export interface IOptions {
   defaultLabels?: boolean;
-  widgets?: object;
+  widgets?: object | boolean;
   validations?: IValidations;
-  createStream?: Function;
+  handleReadStream?: Function;
   onFileLoad?: Function;
+  onPost?: Function;
+  onFormEnd?: Function;
+  useSession?: Boolean;
+  getRoute: string;
+  postRoute: string;
 }
 
 export interface IForms {

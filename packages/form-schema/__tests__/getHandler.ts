@@ -37,10 +37,4 @@ describe('getHandler', () => {
     const result = getHandler(10, defaultUrlArray, mockReq);
     expect(result).toEqual(expectedResult);
   });
-
-  it('Calls callback with formIndex argument, and uses returned data', () => {
-    const result = getHandler(10, defaultUrlArray, mockReq, mockCallback);
-    const expected = { ...expectedResult, formData: { formIndex: expectedIndex } };
-    expect(result).toEqual(expected);
-  });
 });
