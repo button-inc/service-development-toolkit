@@ -6,6 +6,7 @@ export { default as Fieldset } from './Fieldset';
 export { default as FilePicker } from './FilePicker';
 export { default as Header } from './Header';
 export { default as Input } from './Input';
+export { default as Link } from './Link';
 export { default as Navigation } from './Navigation';
 export { default as RadioButton } from './RadioButton';
 export { default as Dropdown } from './Dropdown';
