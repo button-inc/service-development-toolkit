@@ -10,13 +10,15 @@ function validatePage(page, urlArray, numPages) {
   return false;
 }
 
-export default function getHandler(numPages: number, urlArray: string[], req) {
+export default function getHandler(numPages: number, urlArray: string[], useSession: boolean, req) {
   const page = getUrlPage(req.url);
   const validPage = validatePage(page, urlArray, numPages);
 
   if (!validPage) return { formIndex: 0, formData: {}, validPage: false };
   const formIndex = Number.isInteger(page) ? page - 1 : urlArray.indexOf(page);
-  const { session: { formData = {} } = {} } = req;
+
+  let formData = {};
+  if (useSession) formData = req.session.formData || {};
 
   return { formIndex, formData, validPage: true };
 }

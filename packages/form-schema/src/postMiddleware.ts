@@ -25,6 +25,7 @@ export default async function postHandler(
   urlArray: string[],
   onEnd: Function | boolean = false,
   onPost: Function | boolean = false,
+  useSession: boolean,
   req: any,
   res: any
 ) {
@@ -42,7 +43,7 @@ export default async function postHandler(
   const pageSchema = schemas[schemaIndex];
   let newFormData: object = {};
 
-  if (!onPost) {
+  if (useSession) {
     newFormData = defaultPageOverHandler(req.session, schema, postData);
     req.session.formData = newFormData;
   } else if (typeof onPost === 'function') {

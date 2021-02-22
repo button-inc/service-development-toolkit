@@ -16,7 +16,7 @@ export default function builder(
   let combinedOptions = { ...options };
   if (defaultWidgets) combinedOptions = { ...combinedOptions, widgets: defaultWidgets, defaultLabels: false };
   uiSchema = getUiSchemaFromOptions(schema, uiSchema, combinedOptions);
-  const { handleReadStream, onFileLoad, onPost, onFormEnd, getRoute, postRoute } = combinedOptions;
+  const { handleReadStream, onFileLoad, onPost, onFormEnd, getRoute, postRoute, useSession } = combinedOptions;
 
   const urlArray = generateUrlArray(schema);
   const { Forms, schemasArray, fieldsArray } = buildForms(
@@ -46,10 +46,11 @@ export default function builder(
       validations,
       urlArray,
       onFormEnd,
-      onPost
+      onPost,
+      useSession
     ),
     fileMiddleware: fileMiddleware.bind({}, getRoute, numForms, urlArray, fileOptions),
-    getHandler: getHandler.bind({}, numForms, urlArray),
+    getHandler: getHandler.bind({}, numForms, urlArray, useSession),
     Forms,
   };
 }
