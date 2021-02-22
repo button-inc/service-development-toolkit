@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { applyTheme } from 'component-library/Notification';
-import { CheckCircle, InfoCircle, ExclamationTriangle, ExclamationCircle } from './fontawesome';
+import { CheckCircle, InfoCircle, ExclamationTriangle, ExclamationCircle, FaSVG } from './fontawesome';
 
 const styles = {
   shared: {
@@ -223,28 +223,13 @@ const getIconPath = (variant: string) => {
   }
 };
 
-const SVG = styled.svg.attrs({
-  ariaHidden: 'true',
-  focusable: 'false',
-  role: 'img',
-  xmlns: 'http://www.w3.org/2000/svg',
-  viewBox: '0 0 512 512',
-})`
-  display: inline-block;
-  font-size: inherit;
-  width: 1em;
-  height: 1em;
-  overflow: visible;
-  vertical-align: -0.125em;
-`;
-
 export default function Component(props: any) {
   return (
     <BaseAlert {...props}>
       <BaseAlert.Group>
-        <SVG>
+        <FaSVG>
           <path fill="currentColor" d={getIconPath(props.variant)} />
-        </SVG>
+        </FaSVG>
       </BaseAlert.Group>
       <BaseAlert.Content>{props.content ? props.content : props.children}</BaseAlert.Content>
       {props.closable && (

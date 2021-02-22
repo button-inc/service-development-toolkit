@@ -36,7 +36,7 @@ const initialContext: Context = {
 const collapseFn = props =>
   props.collapse
     ? `@media (max-width: ${props.collapse}px) {
-      display: none;
+      display: none !important;
     }`
     : '';
 
@@ -44,7 +44,7 @@ const expandFn = props =>
   props.expand
     ? `
     @media (min-width: ${props.expand}px) {
-        display: none;
+        display: none !important;
       }`
     : '';
 
@@ -63,7 +63,7 @@ const MenuContext = React.createContext(initialContext);
 
 export const applyTheme = (styles, config) => {
   const styleBuilder = createStyleBuilder(styles, config);
-  const Scontainer = styleBuilder('div', 'container');
+  const Scontainer = styleBuilder(BreakingGroup, 'container');
   const Sgroup = styleBuilder(BreakingGroup, 'group');
   const Sitem = styleBuilder(BreakingItem, 'item');
 
@@ -71,10 +71,16 @@ export const applyTheme = (styles, config) => {
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
+    const { collapse, expand, ...others } = rest;
 
     return (
       <MenuContext.Provider value={{ styleProps, Sgroup, Sitem }}>
-        <Scontainer {...rest} className={cx(CONTAINER_CLASS, className)}>
+        <Scontainer
+          collapse={collapse || ''}
+          expand={expand || ''}
+          {...others}
+          className={cx(CONTAINER_CLASS, className)}
+        >
           {children}
         </Scontainer>
       </MenuContext.Provider>
