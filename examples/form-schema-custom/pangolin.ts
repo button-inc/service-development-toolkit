@@ -29,6 +29,7 @@ const options = {
     console.log('completed a form');
     if (errors) console.error(errors);
   },
+  useSession: false,
 };
 
 export const { postMiddleware, getHandler, fileMiddleware, Forms } = govBuilder(schema, uiSchema, options);

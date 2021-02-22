@@ -32,7 +32,7 @@ const dataCallback = jest.fn(() => ({ data: 'callback data' }));
 afterEach(() => jest.clearAllMocks());
 
 describe('postMiddleware with js', () => {
-  it('saves data to session if no callback provided and returns expected props', () => {
+  it('saves data to session if useSession is true and returns expected props', () => {
     postMiddleware(
       '',
       5,
@@ -43,6 +43,7 @@ describe('postMiddleware with js', () => {
       urlArray,
       undefined,
       undefined,
+      true,
       mockReqJs,
       mockRes
     );
@@ -51,7 +52,7 @@ describe('postMiddleware with js', () => {
     expect(mockReqJs.session).toEqual({ formData: mockReqJs.body.postData });
   });
 
-  it('uses callback function instead of session if provided', () => {
+  it('uses callback function instead of session if useSession is false', () => {
     postMiddleware(
       '',
       5,
@@ -62,6 +63,7 @@ describe('postMiddleware with js', () => {
       urlArray,
       () => {},
       dataCallback,
+      false,
       mockReqJs,
       mockRes
     );
@@ -74,7 +76,7 @@ describe('postMiddleware with js', () => {
 });
 
 describe('postMiddleware without js', () => {
-  it('saves data to session if no callback provided and redirects correctly', () => {
+  it('saves data to session if useSession is true and redirects correctly', () => {
     postMiddleware(
       'test',
       5,
@@ -85,6 +87,7 @@ describe('postMiddleware without js', () => {
       urlArray,
       undefined,
       undefined,
+      true,
       mockReqNonJs,
       mockRes
     );
@@ -92,7 +95,7 @@ describe('postMiddleware without js', () => {
     expect(mockReqNonJs.session).toEqual({ formData: mockReqNonJs.body });
   });
 
-  it('uses callback function instead of session if provided', () => {
+  it('uses callback function instead of session if useSession is false', () => {
     postMiddleware(
       '',
       5,
@@ -103,6 +106,7 @@ describe('postMiddleware without js', () => {
       urlArray,
       () => {},
       dataCallback,
+      false,
       mockReqNonJs,
       mockRes
     );
