@@ -16,9 +16,11 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.2",
+    "@types/lodash": "^4.14.168",
     "@types/styled-components": "^5.1.4",
-    "styled-components": "^5.2.1",
-    "component-library": "^0.1.0"
+    "component-library": "^0.1.0",
+    "lodash": "^4.17.21",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@4c/tsconfig": "^0.3.1",

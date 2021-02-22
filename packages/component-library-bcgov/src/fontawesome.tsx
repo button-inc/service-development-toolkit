@@ -1,5 +1,8 @@
 // these are extracted from Fontawesome Free Icons' SVG
 // see https://github.com/FortAwesome/Font-Awesome#license
+
+import styled from 'styled-components';
+
 export const CheckCircle =
   'M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z';
 
@@ -18,8 +21,26 @@ export const Check =
 export const ChevronDown =
   'M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z';
 
+export const Bars =
+  'M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z';
+
 export const toSvgUrl = (d: string, color: string = 'currentColor') =>
   `url("data:image/svg+xml,%3Csvg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='check' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' class='svg-inline--fa fa-check fa-w-16'%3E%3Cpath fill='${color}' d='${d}' class=''%3E%3C/path%3E%3C/svg%3E")`;
+
+export const faSVG = styled.svg.attrs({
+  ariaHidden: 'true',
+  focusable: 'false',
+  role: 'img',
+  xmlns: 'http://www.w3.org/2000/svg',
+  viewBox: '0 0 512 512',
+})`
+  display: inline-block;
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+`;
 
 export default {
   CheckCircle,
@@ -28,5 +49,7 @@ export default {
   ExclamationCircle,
   Check,
   ChevronDown,
+  Bars,
   toSvgUrl,
+  faSVG,
 };

@@ -48,7 +48,7 @@ const HeaderContext = React.createContext(initialContext);
 export const applyTheme = (styles, config) => {
   const styleBuilder = createStyleBuilder(styles, config);
   const Scontainer = styleBuilder('div', 'container');
-  const Stoggle = styleBuilder('div', 'toggle');
+  const Stoggle = styleBuilder('label', 'toggle');
   const Ssidebar = styleBuilder(HiddenSidebar, 'sidebar');
 
   const bootstrap = createBootstrap(styles, 'header');
@@ -74,8 +74,8 @@ export const applyTheme = (styles, config) => {
     const { checkboxId, Stoggle, styleProps } = useContext(HeaderContext);
 
     return (
-      <Stoggle className={classes} {...styleProps} {...rest}>
-        <label htmlFor={checkboxId}>{children}</label>
+      <Stoggle className={classes} htmlFor={checkboxId} {...styleProps} {...rest}>
+        {children}
       </Stoggle>
     );
   };
