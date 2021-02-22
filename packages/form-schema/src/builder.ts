@@ -1,5 +1,4 @@
-// @ts-nocheck
-import postHandler from './postHandler';
+import postMiddleware from './postMiddleware';
 import fileMiddleware from './fileMiddleware';
 import getHandler from './getHandler';
 import buildForms from './buildForms';
@@ -11,14 +10,13 @@ export default function builder(
   defaultWidgets: object | boolean,
   schema: ISchema,
   baseUiSchema: object,
-  getRoute: string,
-  postRoute: string,
-  options?: IOptions
+  options: IOptions
 ) {
   let uiSchema = { ...baseUiSchema };
   let combinedOptions = { ...options };
   if (defaultWidgets) combinedOptions = { ...combinedOptions, widgets: defaultWidgets, defaultLabels: false };
   uiSchema = getUiSchemaFromOptions(schema, uiSchema, combinedOptions);
+  const { handleReadStream, onFileLoad, onPost, onFormEnd, getRoute, postRoute } = combinedOptions;
 
   const urlArray = generateUrlArray(schema);
   const { Forms, schemasArray, fieldsArray } = buildForms(
@@ -32,15 +30,24 @@ export default function builder(
   const { validations } = combinedOptions;
   const numForms: number = Forms.length;
 
-  const { handleReadStream, onFileLoad } = options;
-
   const fileOptions: IFileOptions = {
     handleReadStream,
     onFileLoad,
   };
 
   return {
-    postHandler: postHandler.bind({}, getRoute, numForms, schema, schemasArray, fieldsArray, validations, urlArray),
+    postMiddleware: postMiddleware.bind(
+      {},
+      getRoute,
+      numForms,
+      schema,
+      schemasArray,
+      fieldsArray,
+      validations,
+      urlArray,
+      onFormEnd,
+      onPost
+    ),
     fileMiddleware: fileMiddleware.bind({}, getRoute, numForms, urlArray, fileOptions),
     getHandler: getHandler.bind({}, numForms, urlArray),
     Forms,

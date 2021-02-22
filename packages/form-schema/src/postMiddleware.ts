@@ -23,10 +23,10 @@ export default async function postHandler(
   fieldsArray: string[][],
   validations: IValidations,
   urlArray: string[],
-  req: any,
-  res: any,
   onEnd: Function | boolean = false,
-  handlePageOver: Function | boolean = false
+  onPost: Function | boolean = false,
+  req: any,
+  res: any
 ) {
   const {
     body: { js },
@@ -42,11 +42,11 @@ export default async function postHandler(
   const pageSchema = schemas[schemaIndex];
   let newFormData: object = {};
 
-  if (!handlePageOver) {
+  if (!onPost) {
     newFormData = defaultPageOverHandler(req.session, schema, postData);
     req.session.formData = newFormData;
-  } else if (typeof handlePageOver === 'function') {
-    newFormData = handlePageOver(postData, schemaIndex, cleanSchemaData.bind({}, postData, pageSchema));
+  } else if (typeof onPost === 'function') {
+    newFormData = onPost(postData, schemaIndex, cleanSchemaData.bind({}, postData, pageSchema));
   }
 
   if (nextPageNumber > numForms) {
