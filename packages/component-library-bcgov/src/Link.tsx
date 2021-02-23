@@ -15,7 +15,6 @@ type Props = {
 };
 
 const StyledAnchor = styled.a`
-  font-family: 'BC Sans', 'Noto Sans', Arial, 'sans serif';
   font-size: ${(props: Props) => sizes[props.size || 'small']};
   color: #1a5a96;
 
@@ -26,12 +25,12 @@ const StyledAnchor = styled.a`
 `;
 
 export default function Component(props: any) {
-  const { content, icon, children, ...rest } = props;
+  const { content, external, children, ...rest } = props;
 
   return (
-    <StyledAnchor {...rest}>
+    <StyledAnchor target={external ? '_blank' : '_self'} {...rest}>
       {content || children}
-      {icon && (
+      {external && (
         <>
           &nbsp;
           <FaSVG>

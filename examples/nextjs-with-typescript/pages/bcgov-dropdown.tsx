@@ -1,4 +1,5 @@
 import Dropdown from 'component-library-bcgov/Dropdown';
+import BCSans from '../components/BCSans';
 
 const generateOptions = () => (
   <>
@@ -13,21 +14,20 @@ const generateOptions = () => (
 export default function DropdownPage() {
   return (
     <>
-      <form action="">
-        <Dropdown label="Field Label" size="small">
-          {generateOptions()}
-        </Dropdown>
-        <br />
-        <Dropdown label="Field Label">{generateOptions()}</Dropdown>
-        <br />
-        <Dropdown label="Field Label" size="large">
-          {generateOptions()}
-        </Dropdown>
-        <br />
-        <Dropdown label="Field Label" required onChange={console.log}>
-          {generateOptions()}
-        </Dropdown>
-      </form>
+      <BCSans />
+      <Dropdown label="Field Label" size="small">
+        {generateOptions()}
+      </Dropdown>
+      <br />
+      <Dropdown label="Field Label">{generateOptions()}</Dropdown>
+      <br />
+      <Dropdown label="Field Label" size="large">
+        {generateOptions()}
+      </Dropdown>
+      <br />
+      <Dropdown label="Field Label" required onChange={console.log}>
+        {generateOptions()}
+      </Dropdown>
     </>
   );
 }

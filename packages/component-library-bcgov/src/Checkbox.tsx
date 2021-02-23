@@ -6,7 +6,6 @@ const checkSVG = toSvgUrl(Check, 'white');
 const styles = {
   shared: {
     label: `
-      font-family: 'BC Sans', 'Noto Sans', Arial, 'sans serif';
       display: block;
       position: relative;
       -webkit-user-select: none;
