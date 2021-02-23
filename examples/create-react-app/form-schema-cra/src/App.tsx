@@ -1,10 +1,5 @@
 import Form from './Form';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -15,7 +10,7 @@ function App() {
             <Form />
           </Route>
         </Switch>
-    </Router>
+      </Router>
     </div>
   );
 }

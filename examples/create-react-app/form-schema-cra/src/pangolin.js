@@ -9,4 +9,4 @@ const options = {
 };
 
 const { postMiddleware, getHandler, fileMiddleware, Forms } = govBuilder(schema, uiSchema, options);
-module.exports = { postMiddleware, getHandler, fileMiddleware, Forms }
+module.exports = { postMiddleware, getHandler, fileMiddleware, Forms };
