@@ -1,9 +1,9 @@
 import { applyTheme } from 'component-library/RadioButton';
 
 const sizes = {
-  small: 1,
-  medium: 1.2,
-  large: 1.4,
+  small: 0.8,
+  medium: 1,
+  large: 1.2,
   smallPaddingLeft: 0,
   mediumPaddingLeft: 0,
   largePaddingLeft: 0,
@@ -73,6 +73,7 @@ const styles = {
       label: `
         font-size: ${sizes.small}rem;
         height: ${sizes.small}rem;
+        line-height: ${sizes.small}rem;
         padding-left: ${sizes.smallPaddingLeft}rem;
       `,
       dot: `
@@ -88,7 +89,8 @@ const styles = {
     medium: {
       label: `
         font-size: ${sizes.medium}rem;
-        height: ${sizes.small}rem;
+        height: ${sizes.medium}rem;
+        line-height: ${sizes.medium}rem;
         padding-left: ${sizes.mediumPaddingLeft}rem;
       `,
       dot: `
@@ -105,6 +107,7 @@ const styles = {
       label: `
         font-size: ${sizes.large}rem;
         height: ${sizes.large}rem;
+        line-height: ${sizes.large}rem;
         padding-left: ${sizes.largePaddingLeft}rem;
       `,
       dot: `

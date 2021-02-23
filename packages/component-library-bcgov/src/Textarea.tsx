@@ -10,7 +10,7 @@ const styles = {
     input: `
       font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
       border: 2px solid #606060;
-      border-radius: 4px;
+      border-radius: 0;
       padding: 0.5em 0.6em;
 
       &:focus {
@@ -22,7 +22,7 @@ const styles = {
   size: {
     small: {
       label: `
-        font-size: 0.7rem;
+        font-size: 0.8rem;
       `,
       input: `
         font-size: 0.8rem;
@@ -30,7 +30,7 @@ const styles = {
     },
     medium: {
       label: `
-        font-size: 0.8rem;
+        font-size: 1rem;
       `,
       input: `
         font-size: 1rem;
@@ -38,7 +38,7 @@ const styles = {
     },
     large: {
       label: `
-        font-size: 0.9rem;
+        font-size: 1.2rem;
       `,
       input: `
         font-size: 1.2rem;
@@ -60,12 +60,18 @@ const styles = {
       }
     `,
   },
+  rounded: {
+    input: `
+      border-radius: 0.25em;
+    `,
+  },
 };
 
 const config = {
   defaultProps: {
-    size: 'small',
+    size: 'medium',
     resize: 'none',
+    rounded: true,
   },
   staticProps: ['fullWidth'],
 };

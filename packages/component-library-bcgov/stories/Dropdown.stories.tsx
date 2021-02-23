@@ -47,5 +47,6 @@ export const Standard = Template.bind({});
 Standard.args = {
   label: 'Field Label',
   size: 'medium',
+  rounded: true,
   required: false,
 };

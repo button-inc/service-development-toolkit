@@ -38,5 +38,6 @@ Standard.args = {
   label: 'First Name',
   size: 'medium',
   required: false,
+  rounded: true,
   fullWidth: false,
 };

@@ -45,5 +45,6 @@ Standard.args = {
   size: 'medium',
   resize: 'none',
   required: false,
+  rounded: true,
   fullWidth: false,
 };
