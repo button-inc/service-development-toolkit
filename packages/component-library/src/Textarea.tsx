@@ -5,16 +5,19 @@ export interface InputProps {
   id?: string;
   name?: string;
   label?: string;
-  defaultValue?: string;
+  value?: string;
   disabled?: boolean;
+  className?: string;
+  style?: object;
+  [key: string]: any;
 }
 
 export const applyTheme = (styles, config) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
-  const Scontainer: any = styleBuilder('div', 'container');
-  const Slabel: any = styleBuilder('label', 'label');
-  const Stextarea: any = styleBuilder('textarea', 'input');
+  const Scontainer = styleBuilder('div', 'container');
+  const Slabel = styleBuilder('label', 'label');
+  const Stextarea = styleBuilder('textarea', 'input');
 
   const bootstrap = createBootstrap(styles, 'textarea');
 
@@ -28,7 +31,7 @@ export const applyTheme = (styles, config) => {
             {label}
           </Slabel>
         )}
-        <Stextarea {...rest} id={id} name={name} />
+        <Stextarea aria-label={ariaLabel} {...rest} id={id} name={name} />
       </Scontainer>
     );
   };

@@ -5,11 +5,10 @@ import { createStyleBuilder, createBootstrap } from './helpers';
 
 interface Props {
   id?: string;
-  name?: string;
-  label?: string;
-  children?: any;
-  defaultValue?: string;
-  disabled?: boolean;
+  children?: React.ReactNode;
+  className?: string;
+  style?: object;
+  [key: string]: any;
 }
 
 interface Context {
@@ -19,9 +18,9 @@ interface Context {
   Ssidebar: any;
 }
 
-const CONTAINER_CLASS = 'pg-header';
-const TOGGLE_CLASS = 'pg-header-toggle';
-const SIDEBAR_CLASS = 'pg-header-sidebar';
+const CONTAINER_CLASS = 'pg-navigation';
+const TOGGLE_CLASS = 'pg-navigation-toggle';
+const SIDEBAR_CLASS = 'pg-navigation-sidebar';
 
 const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox' })`
   position: absolute;
@@ -43,7 +42,7 @@ const initialContext: Context = {
   Ssidebar: null,
 };
 
-const HeaderContext = React.createContext(initialContext);
+const NavigationContext = React.createContext(initialContext);
 
 export const applyTheme = (styles, config) => {
   const styleBuilder = createStyleBuilder(styles, config);
@@ -51,7 +50,7 @@ export const applyTheme = (styles, config) => {
   const Stoggle = styleBuilder('label', 'toggle');
   const Ssidebar = styleBuilder(HiddenSidebar, 'sidebar');
 
-  const bootstrap = createBootstrap(styles, 'header');
+  const bootstrap = createBootstrap(styles, 'navigation');
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
@@ -59,19 +58,19 @@ export const applyTheme = (styles, config) => {
     const checkboxId = `${id}-toggle`;
 
     return (
-      <HeaderContext.Provider value={{ checkboxId, styleProps, Stoggle, Ssidebar }}>
+      <NavigationContext.Provider value={{ checkboxId, styleProps, Stoggle, Ssidebar }}>
         <InvisibleCheckbox id={checkboxId} />
         <Scontainer {...rest} className={cx(CONTAINER_CLASS, className)}>
           {children}
         </Scontainer>
-      </HeaderContext.Provider>
+      </NavigationContext.Provider>
     );
   };
 
   BaseComponent.Toggle = props => {
     const { children, className, ...rest } = props;
     const classes = cx(TOGGLE_CLASS, className);
-    const { checkboxId, Stoggle, styleProps } = useContext(HeaderContext);
+    const { checkboxId, Stoggle, styleProps } = useContext(NavigationContext);
 
     return (
       <Stoggle className={classes} htmlFor={checkboxId} {...styleProps} {...rest}>
@@ -83,7 +82,7 @@ export const applyTheme = (styles, config) => {
   BaseComponent.Sidebar = props => {
     const { children, className, ...rest } = props;
     const classes = cx(SIDEBAR_CLASS, className);
-    const { Ssidebar, styleProps } = useContext(HeaderContext);
+    const { Ssidebar, styleProps } = useContext(NavigationContext);
 
     return (
       <Ssidebar className={classes} {...styleProps} {...rest}>
@@ -95,6 +94,6 @@ export const applyTheme = (styles, config) => {
   return BaseComponent;
 };
 
-const Header = applyTheme({}, {});
+const Navigation = applyTheme({}, {});
 
-export default Header;
+export default Navigation;

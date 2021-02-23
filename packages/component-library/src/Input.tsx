@@ -2,22 +2,23 @@ import React from 'react';
 import { createStyleBuilder, createBootstrap } from './helpers';
 
 export interface InputProps {
-  disabled?: boolean;
+  id?: string;
   name?: string;
-  size?: string;
   label?: string;
-  fullHeight?: boolean;
-  fullWidth?: boolean;
   type?: 'email' | 'number' | 'password' | 'tel' | 'text' | 'url';
-  [propName: string]: any;
+  value?: string;
+  disabled?: boolean;
+  className?: string;
+  style?: object;
+  [key: string]: any;
 }
 
 export const applyTheme = (styles, config) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
-  const Scontainer: any = styleBuilder('div', 'container');
-  const Slabel: any = styleBuilder('label', 'label');
-  const SInput: any = styleBuilder('input', 'input');
+  const Scontainer = styleBuilder('div', 'container');
+  const Slabel = styleBuilder('label', 'label');
+  const SInput = styleBuilder('input', 'input');
 
   const bootstrap = createBootstrap(styles, 'input');
 
@@ -31,7 +32,7 @@ export const applyTheme = (styles, config) => {
             {label}
           </Slabel>
         )}
-        <SInput {...rest} id={id} name={name} />
+        <SInput aria-label={ariaLabel} {...rest} id={id} name={name} />
       </Scontainer>
     );
   };

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import isFunction from 'lodash/isFunction';
-import { applyTheme } from 'component-library/Header';
+import { applyTheme } from 'component-library/Navigation';
 import { BaseHeader } from './Header';
 import { Bars, FaSVG } from './fontawesome';
 import bcgovLogoSVG from './svg/bcgov_logo';

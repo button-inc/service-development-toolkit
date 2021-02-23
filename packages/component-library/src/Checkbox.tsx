@@ -1,31 +1,34 @@
 import React from 'react';
 import { createStyleBuilder, createBootstrap } from './helpers';
 
-interface CheckboxProps {
+interface Props {
+  id?: string;
+  name?: string;
   label?: string;
   value?: string;
+  className?: string;
+  style?: object;
   disabled?: boolean;
-  name?: string;
-  id?: string;
+  [key: string]: any;
 }
 
 export const applyTheme = (styles, config) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
-  const Scontainer: any = styleBuilder('div', 'container');
-  const Slabel: any = styleBuilder('label', 'label');
-  const Scheckbox: any = styleBuilder('input', 'input');
-  const Scheckmark: any = styleBuilder('span', 'checkmark');
+  const Scontainer = styleBuilder('div', 'container');
+  const Slabel = styleBuilder('label', 'label');
+  const Scheckbox = styleBuilder('input', 'input');
+  const Scheckmark = styleBuilder('span', 'checkmark');
 
   const bootstrap = createBootstrap(styles, 'checkbox');
 
-  const BaseComponent = (props: CheckboxProps) => {
+  const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);
 
     return (
       <Scontainer {...styleProps}>
         <Slabel {...styleProps} htmlFor={id}>
-          <Scheckbox {...rest} type="checkbox" id={id} name={name} />
+          <Scheckbox aria-label={ariaLabel} {...rest} type="checkbox" id={id} name={name} />
           <Scheckmark {...styleProps} className="checkmark" />
           {label}
         </Slabel>

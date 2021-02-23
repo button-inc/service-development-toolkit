@@ -5,9 +5,12 @@ interface SelectProps {
   id?: string;
   name?: string;
   label?: string;
-  children?: any;
-  defaultValue?: string;
+  value?: string;
   disabled?: boolean;
+  children?: React.ReactNode;
+  className?: string;
+  style?: object;
+  [key: string]: any;
 }
 
 export const applyTheme = (styles, config) => {

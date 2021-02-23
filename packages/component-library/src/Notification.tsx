@@ -5,12 +5,11 @@ import { createStyleBuilder, createBootstrap } from './helpers';
 
 interface Props {
   id?: string;
-  name?: string;
-  label?: string;
-  children?: any;
-  defaultValue?: string;
-  disabled?: boolean;
+  children?: React.ReactNode;
   closable?: boolean;
+  className?: string;
+  style?: object;
+  [key: string]: any;
 }
 
 interface Context {
