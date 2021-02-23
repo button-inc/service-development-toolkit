@@ -2,18 +2,18 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 import { render } from '@testing-library/react';
 import React from 'react';
 import Menu from '../src/Menu';
-import Header from '../src/Header';
+import Navigation from '../src/Navigation';
 import 'regenerator-runtime/runtime';
 
 expect.extend(toHaveNoViolations);
 
-describe('Header', () => {
+describe('Navigation', () => {
   it('Should have no accessibility violations', async () => {
     const { container } = render(
-      <Header>
+      <Navigation>
         <Menu>
           <Menu.Item expand="500">
-            <Header.Toggle>Menu</Header.Toggle>
+            <Navigation.Toggle>Menu</Navigation.Toggle>
           </Menu.Item>
           <Menu.Group>
             <span>group1</span>
@@ -21,16 +21,16 @@ describe('Header', () => {
             <span>group3</span>
           </Menu.Group>
         </Menu>
-        <Header.Sidebar>
+        <Navigation.Sidebar>
           <ul>
             <li>item 1</li>
             <li>item 2</li>
             <li>item 3</li>
             <li>item 4</li>
-            <Header.Toggle>close</Header.Toggle>
+            <Navigation.Toggle>close</Navigation.Toggle>
           </ul>
-        </Header.Sidebar>
-      </Header>
+        </Navigation.Sidebar>
+      </Navigation>
     );
     const results = await axe(container);
 

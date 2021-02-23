@@ -2,7 +2,10 @@ import React from 'react';
 import { createStyleBuilder } from './helpers';
 
 interface Props {
-  children?: any;
+  children?: React.ReactNode;
+  className?: string;
+  style?: object;
+  [key: string]: any;
 }
 
 export const applyTheme = (styles, config) => {

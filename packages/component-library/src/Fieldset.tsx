@@ -2,18 +2,20 @@ import React from 'react';
 import { createStyleBuilder, createBootstrap } from './helpers';
 
 export interface FieldsetProps {
-  disabled?: boolean;
+  id?: string;
   name?: string;
   title?: string;
-  children?: any;
-  [propName: string]: any;
+  disabled?: boolean;
+  className?: string;
+  style?: object;
+  [key: string]: any;
 }
 
 export const applyTheme = (styles, config) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
-  const Sfieldset: any = styleBuilder('fieldset', 'container');
-  const Slegend: any = styleBuilder('legend', 'legend');
+  const Sfieldset = styleBuilder('fieldset', 'container');
+  const Slegend = styleBuilder('legend', 'legend');
 
   const bootstrap = createBootstrap(styles, 'fieldset');
 
