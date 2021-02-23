@@ -1,11 +1,11 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
-import Navigation from '../src/Navigation';
+import Footer from '../src/Footer';
 
 export default {
-  title: 'Navigation',
-  component: Navigation,
+  title: 'Footer',
+  component: Footer,
 } as Meta;
 
 const Menu = () => (
@@ -33,15 +33,10 @@ const Menu = () => (
 
 const Template: Story = args => (
   <>
-    <Navigation {...args}>
+    <Footer {...args}>
       <Menu />
-    </Navigation>
-    <div style={{ border: '1px solid black', height: '100vw' }}>Content Body</div>
+    </Footer>
   </>
 );
 
 export const Default = Template.bind({});
-Default.args = {
-  title: 'Hello British Columbia',
-  onBannerClick: console.log,
-};
