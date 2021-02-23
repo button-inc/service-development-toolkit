@@ -6,16 +6,19 @@
     "start": "next start"
   },
   "dependencies": {
+    "@bcgov/bc-sans": "^1.0.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@types/typography": "^0.16.3",
     "component-library": "^0.1.0",
-    "component-library-button": "^0.1.0",
     "component-library-bcgov": "^0.1.0",
+    "component-library-button": "^0.1.0",
     "next": "latest",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-typography": "^0.16.19",
     "styled-components": "^5.0.0"
   },
   "devDependencies": {

@@ -25,7 +25,6 @@ const styles = {
         margin: 0;
         color: #fff;
         list-style: none;
-        margin-left: -25px;
       }
 
       & ul li {
@@ -69,8 +68,8 @@ const BannerLogo = styled.a`
 `;
 
 const Title = styled.h1`
-  font-family: 'BC Sans', 'Noto Sans', Arial, 'sans serif';
   font-weight: normal;
+  margin-top: 10px;
 `;
 
 const MOBILE_BREAK_POINT = '900';

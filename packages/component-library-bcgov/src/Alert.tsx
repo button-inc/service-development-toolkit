@@ -6,7 +6,6 @@ import { CheckCircle, InfoCircle, ExclamationTriangle, ExclamationCircle, FaSVG 
 const styles = {
   shared: {
     container: `
-      font-family: 'BC Sans', 'Noto Sans', Arial, 'sans serif';
       line-height: 1.5em;
       border: 1px solid transparent;
       border-radius: 4px;

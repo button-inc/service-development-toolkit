@@ -26,7 +26,6 @@ sizes.largeInner = sizes.large * innerRatio;
 const styles = {
   shared: {
     label: `
-      font-family: 'BC Sans', 'Noto Sans', Arial, 'sans serif';
       display: block;
       position: relative;
       cursor: pointer;

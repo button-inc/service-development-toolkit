@@ -27,5 +27,5 @@ Default.args = {
   href: '#',
   size: 'medium',
   content: 'Access your application',
-  icon: true,
+  external: true,
 };
