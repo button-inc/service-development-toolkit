@@ -53,10 +53,8 @@
     "build": "lerna run build",
     "clean": "lerna clean",
     "test:jest": "lerna run test:jest --stream",
-    "storybook:base": "start-storybook -p 6006 -c packages/component-library/.storybook",
     "storybook:bcgov": "start-storybook -p 6006 -c packages/component-library-bcgov/.storybook",
     "storybook:button": "start-storybook -p 6006 -c packages/component-library-button/.storybook",
-    "build-storybook:base": "build-storybook -c packages/component-library/.storybook",
     "build-storybook:bcgov": "build-storybook -c packages/component-library-bcgov/.storybook",
     "build-storybook:button": "build-storybook -c packages/component-library-button/.storybook",
     "deploy-storybook": "storybook-to-ghpages --packages packages --branch=storybook"

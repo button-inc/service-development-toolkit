@@ -1,12 +1,11 @@
 import forEach from 'lodash/forEach';
+import isPlainObject from 'lodash/isPlainObject';
 import { IDependencies, ISchema } from '../interfaces';
 
 interface INewSchema extends ISchema {
   required: string[];
   dependencies: IDependencies;
 }
-
-const isObject = obj => obj === Object(obj);
 
 function getDependantProperties(propertyDependencies: object[]): string[] {
   const dependantProperties: string[] = [];
@@ -31,7 +30,7 @@ function getNestedFieldProperties(properties: object): string[] {
 export const addWidgetsForFiles = (schema: ISchema, uiSchema) => {
   const { properties } = schema;
   const newUiSchema = { ...uiSchema };
-  forEach(properties, (value, propertyName) => {
+  forEach(properties, (value: any, propertyName) => {
     if (value.type === 'object') {
       const innerProperties = value.properties;
       forEach(innerProperties, (innerValue, innerPropertyName) => {
@@ -55,7 +54,7 @@ export const addWidgetsForFiles = (schema: ISchema, uiSchema) => {
 
 export function getPropertyDependencies(dependencies: IDependencies): object[] {
   const propertyDependencies: object[] = [];
-  if (isObject(dependencies)) {
+  if (isPlainObject(dependencies)) {
     Object.entries(dependencies).forEach(([ownerProperty, value]) => {
       if (value.oneOf) {
         value.oneOf.forEach(scenario => {
@@ -88,7 +87,7 @@ export function getNestedFieldPropertiesByName(schema: ISchema) {
 export const getSchemaOrder = (schema: ISchema, uiSchema) => {
   if (uiSchema['ui:order']) return uiSchema['ui:order'];
   const order: string[] = [];
-  forEach(schema.properties, (value, key) => {
+  forEach(schema.properties, (value: any, key) => {
     order.push(key);
     if (value.type === 'object') {
       forEach(value.properties, (_nestedValue, nestedKey) => {
