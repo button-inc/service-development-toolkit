@@ -1,4 +1,5 @@
 import Select from 'component-library-button/Select';
+import ButtonTypography from '../components/ButtonTypography';
 
 const generateOptions = () => (
   <>
@@ -13,6 +14,7 @@ const generateOptions = () => (
 export default function SelectPage() {
   return (
     <>
+      <ButtonTypography />
       <form action="">
         <Select label="Field Label" size="small">
           {generateOptions()}

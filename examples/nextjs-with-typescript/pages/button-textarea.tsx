@@ -1,8 +1,10 @@
 import Textarea from 'component-library-button/Textarea';
+import ButtonTypography from '../components/ButtonTypography';
 
 export default function TextareaPage() {
   return (
     <>
+      <ButtonTypography />
       <Textarea label="Small Required" size="small" required />
       <br />
       <Textarea label="Medium Required" required />
