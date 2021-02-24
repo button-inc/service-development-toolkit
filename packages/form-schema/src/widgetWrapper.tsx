@@ -8,6 +8,8 @@ function getValue(inputType) {
       return 'checked';
     case 'select':
       return 'value';
+    case 'radio':
+      return 'value';
     case 'file':
       return 'files';
     default:
@@ -36,6 +38,22 @@ const Wrapper = (Component, inputType: string = '') => {
     };
     if (inputType === 'file') {
       delete formProps.value;
+    }
+
+    if (inputType === 'radio') {
+      return (
+        <div>
+          {enumOptions.map(option => (
+            <Component
+              key={option.value}
+              {...formProps}
+              label={option.label}
+              value={option.value}
+              checked={option.value === value}
+            />
+          ))}
+        </div>
+      );
     }
     return (
       <Component {...formProps}>
