@@ -29,7 +29,7 @@ class Home extends React.Component {
     this.onUpdate(prevProps);
   }
 
-  onUpdate(prevProps: any){
+  onUpdate(prevProps: any) {
     if (prevProps.location.pathname !== this.props.location.pathname) {
       this.getInfo();
       this.setState({ redirect: '' });
