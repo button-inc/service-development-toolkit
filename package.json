@@ -47,7 +47,7 @@
   },
   "scripts": {
     "format": "git ls-files '*.js' '*.jsx' '*.ts' '*.tsx' | xargs prettier --write",
-    "lint": "git ls-files '*.js' '*.jsx' '*.ts' '*.tsx' | xargs yarn eslint --quiet",
+    "lint": "git ls-files '*.js' '*.jsx' '*.ts' '*.tsx' | xargs yarn eslint",
     "bootstrap": "lerna bootstrap",
     "llink": "lerna link",
     "build": "lerna run build",

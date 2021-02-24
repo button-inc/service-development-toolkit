@@ -18,12 +18,15 @@ function ObjectFieldTemplate({ properties }: { properties: any }) {
 }
 
 class Home extends React.Component {
-  state = {
-    validPage: true,
-    formData: {},
-    formIndex: 0,
-    redirect: '',
-  };
+  constructor() {
+    this.state = {
+      validPage: true,
+      formData: {},
+      formIndex: 0,
+      redirect: '',
+    };
+    this.rerouteHandler = this.rerouteHandler.bind(this);
+  }
 
   componentDidUpdate(prevProps) {
     this.onUpdate(prevProps);
@@ -55,7 +58,7 @@ class Home extends React.Component {
           <Form
             formData={this.state.formData}
             ObjectFieldTemplate={ObjectFieldTemplate}
-            rerouteHandler={this.rerouteHandler.bind(this)}
+            rerouteHandler={this.rerouteHandler}
           />
         )}
         {!this.state.validPage && <h1>page out of range</h1>}
