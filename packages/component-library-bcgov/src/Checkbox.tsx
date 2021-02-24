@@ -52,6 +52,7 @@ const styles = {
       label: `
         font-size: 0.8rem;
         height: 0.8rem;
+        line-height: 0.8rem;
         padding-left: 1.2rem;
       `,
       checkmark: `
@@ -63,6 +64,7 @@ const styles = {
       label: `
         font-size: 1rem;
         height: 1rem;
+        line-height: 1rem;
         padding-left: 1.5rem;
       `,
       checkmark: `
@@ -74,6 +76,7 @@ const styles = {
       label: `
         font-size: 1.2rem;
         height: 1.2rem;
+        line-height: 1.2rem;
         padding-left: 1.7rem;
       `,
       checkmark: `

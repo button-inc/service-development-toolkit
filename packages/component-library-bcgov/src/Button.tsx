@@ -5,7 +5,7 @@ const styles = {
     button: `
       border-radius: 4px;
       border-width: 0;
-      padding: 0.78571429em 1.6em 0.78571429em;
+      padding: 0.66em 1.77em;
       text-align: center;
       text-decoration: none;
       Font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
