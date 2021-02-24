@@ -8,12 +8,13 @@ import Button from 'component-library-bcgov/Button';
 import Callout from 'component-library-bcgov/Callout';
 import Dropdown from 'component-library-bcgov/Dropdown';
 import Textarea from 'component-library-bcgov/Textarea';
+import Link from 'component-library-bcgov/Link';
 import BCSans from '../components/BCSans';
 
 const Menu = () => (
   <ul>
     <li>
-      <a href=".">Link 2</a>
+      <a href=".">Link 1</a>
     </li>
     <li>
       <a href=".">Link 2</a>
@@ -73,6 +74,9 @@ export default function NavigationPage() {
         <br />
         <Callout>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus.</Callout>
         <br />
+        <p>
+          This is an internal example of a link to <Link href="#link1" content="access your application" />.
+        </p>
         <Button variant="primary">Submit</Button>
         &nbsp;
         <Button variant="secondary">Cancel</Button>

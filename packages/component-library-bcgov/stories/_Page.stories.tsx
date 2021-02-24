@@ -12,6 +12,7 @@ import Button from '../src/Button';
 import Callout from '../src/Callout';
 import Dropdown from '../src/Dropdown';
 import Textarea from '../src/Textarea';
+import Link from '../src/Link';
 import typography from '../src/BCSans';
 
 export default {
@@ -21,7 +22,7 @@ export default {
 const Menu = () => (
   <ul>
     <li>
-      <a href=".">Link 2</a>
+      <a href=".">Link 1</a>
     </li>
     <li>
       <a href=".">Link 2</a>
@@ -80,6 +81,9 @@ const Template: Story = args => (
       <br />
       <Callout>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus.</Callout>
       <br />
+      <p>
+        This is an internal example of a link to <Link href="#link1" content="access your application" />.
+      </p>
       <Button variant="primary">Submit</Button>
       &nbsp;
       <Button variant="secondary">Cancel</Button>
