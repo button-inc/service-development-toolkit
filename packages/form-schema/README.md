@@ -23,7 +23,7 @@ This library is built on top of [react json schema form](https://github.com/rjsf
 
 - **Progressive enhancement**: When used with a SSR platform, the forms will be functional for users who haven't loaded the javascript or css, and progressively enhance when they are added.
 - **User Experience**: This package focuses on making it easy to create single question-per-page forms, to create a smooth user experience.
-- **Accessibility**: This package is designed to plug in with pangolin component-libraries easily which have a focus on accessible components.
+- **Accessibility**: This package is designed to plug in easily with pangolin component-libraries, which have a focus on accessible components.
 
 Note that while this package makes it easier to meet these three goals, it is not limited to them. For example, it can be used with a client-side rendering framework like create react app if you are interested only in accessibility and single-page form questions.
 
@@ -129,7 +129,7 @@ _Note: If not providing this prop, redirection will be handled via `window.locat
 To save data as the user progresses through pages, a dynamic post route needs to be setup. This post route requires [body parsing](https://www.npmjs.com/package/body-parser) middleware to be enabled, which is enabled by default in `express` (4.16+) and `nextjs`. In the dynamic route, simply pass the middleware in. E.g:
 
 ```javascript
-app.post('/postRoute/:num', postMiddleware());
+app.post('/postRoute/:num', postMiddleware);
 ```
 
 If the `useSession` option is set as true, you should setup [session](https://www.npmjs.com/package/express-session) middleware for this route, and it will parse and save the data for you. If not using sessions, see the [custom data handling](#custom-data-handling) section which allows you to save the data how you want in between forms. Lastly, when a form is completed a final [onFormEnd](#onformend) function will fire, allowing you to see if it validated correctly on the backend, and save the data. This is configured in the `options` argument of the `builder` function.
@@ -141,7 +141,7 @@ For handling file uploads, the data needs to be parsed differently. To support t
 _postRoute/:num/file.js_
 
 ```javascript
-app.post('/postRoute/:num', fileMiddleware());
+app.post('/postRoute/:num', fileMiddleware);
 ```
 
 Inside this route, the body-parser middleware needs to be disabled to allow file parsing. To handle the file stream, the `options` configuration passes into builder takes two functions, [handleReadStream](#handlereadstream) and [onFileLoad](#onfileload). These can be used to pipe the stream onward, and notify when the upload is complete.

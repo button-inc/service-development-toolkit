@@ -1,8 +1,14 @@
-// @ts-nocheck
 import React, { useEffect, useState } from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
+import { Redirect, withRouter, RouteComponentProps } from 'react-router-dom';
 import axios from 'axios';
 import { Forms, getHandler } from './pangolin';
+
+interface IState {
+  formIndex: number,
+  formData: object,
+  validPage: boolean,
+  redirect: string
+}
 
 // Can just pass regular rjsf templates to override fieldsets, layout, etc. and will pass through
 function ObjectFieldTemplate({ properties }: { properties: any }) {
@@ -17,8 +23,9 @@ function ObjectFieldTemplate({ properties }: { properties: any }) {
   );
 }
 
-class Home extends React.Component {
-  constructor() {
+class Home extends React.Component<RouteComponentProps, IState> {
+  constructor(props) {
+    super(props);
     this.state = {
       validPage: true,
       formData: {},
