@@ -1,2 +1,2 @@
 !.storybook
-./examples/create-react-app/*
+examples/create-react-app
