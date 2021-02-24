@@ -4,10 +4,10 @@ import axios from 'axios';
 import { Forms, getHandler } from './pangolin';
 
 interface IState {
-  formIndex: number,
-  formData: object,
-  validPage: boolean,
-  redirect: string
+  formIndex: number;
+  formData: object;
+  validPage: boolean;
+  redirect: string;
 }
 
 // Can just pass regular rjsf templates to override fieldsets, layout, etc. and will pass through
