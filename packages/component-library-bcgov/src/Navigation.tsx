@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import isFunction from 'lodash/isFunction';
-import { applyTheme } from 'component-library/Header';
+import { applyTheme } from 'component-library/Navigation';
 import { BaseHeader } from './Header';
 import { Bars, FaSVG } from './fontawesome';
 import bcgovLogoSVG from './svg/bcgov_logo';
@@ -72,11 +72,17 @@ const Title = styled.h1`
   margin-top: 10px;
 `;
 
-const MOBILE_BREAK_POINT = '900';
-const context = { mobileBreakPoint: MOBILE_BREAK_POINT };
+const DEFAULT_MOBILE_BREAK_POINT = '900';
 
 export default function Component(props: any) {
-  const { title = '', onBannerClick = () => null, children, mobileMenu } = props;
+  const {
+    title = '',
+    onBannerClick = () => null,
+    children,
+    mobileMenu,
+    mobileBreakPoint = DEFAULT_MOBILE_BREAK_POINT,
+  } = props;
+  const context = { mobileBreakPoint };
 
   return (
     <BaseNavigation>
@@ -84,11 +90,11 @@ export default function Component(props: any) {
         <BaseHeader.Group className="banner">
           <BannerLogo onClick={onBannerClick}>{bcgovLogoSVG}</BannerLogo>
         </BaseHeader.Group>
-        <BaseHeader.Item collapse={MOBILE_BREAK_POINT}>
+        <BaseHeader.Item collapse={mobileBreakPoint}>
           <Title>{isFunction(title) ? title(context) : title}</Title>
         </BaseHeader.Item>
         <BaseHeader.Item
-          expand={MOBILE_BREAK_POINT}
+          expand={mobileBreakPoint}
           style={{ marginLeft: 'auto', fontSize: '2rem', marginBottom: 'auto', marginTop: 'auto' }}
         >
           <BaseNavigation.Toggle>
@@ -99,7 +105,7 @@ export default function Component(props: any) {
         </BaseHeader.Item>
       </BaseHeader>
 
-      <BaseHeader header="sub" collapse={MOBILE_BREAK_POINT}>
+      <BaseHeader header="sub" collapse={mobileBreakPoint}>
         {children}
       </BaseHeader>
       <BaseNavigation.Sidebar>{mobileMenu ? mobileMenu() : children}</BaseNavigation.Sidebar>

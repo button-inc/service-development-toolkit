@@ -1,16 +1,30 @@
 import React from 'react';
-import { createStyleBuilder } from './helpers';
+import { createStyleBuilder, createBootstrap } from './helpers';
 
-type ButtonProps = {
+type Props = {
+  id?: string;
   disabled?: boolean;
-  [propName: string]: any;
+  className?: string;
+  style?: object;
+  [key: string]: any;
 };
 
 export const applyTheme = (styles, config) => {
   const styleBuilder = createStyleBuilder(styles, config);
   const Sbutton = styleBuilder('button', 'button');
 
-  const BaseComponent = (props: ButtonProps) => <Sbutton {...props} />;
+  const bootstrap = createBootstrap(styles, 'button');
+
+  const BaseComponent = (props: Props) => {
+    const { id, name, label, ariaLabel, styleProps, children, rest } = bootstrap(props);
+
+    return (
+      <Sbutton aria-label={ariaLabel} {...rest} id={id} name={name}>
+        {children}
+      </Sbutton>
+    );
+  };
+
   return BaseComponent;
 };
 

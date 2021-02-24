@@ -2,21 +2,23 @@ import React from 'react';
 import { createStyleBuilder, createBootstrap } from './helpers';
 
 interface RadioButtonProps {
+  id?: string;
+  name?: string;
   label?: string;
   value?: string;
   disabled?: boolean;
-  name?: string;
-  size?: string;
-  id?: string;
+  className?: string;
+  style?: object;
+  [key: string]: any;
 }
 
 export const applyTheme = (styles, config) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
-  const Scontainer: any = styleBuilder('div', 'container');
-  const Slabel: any = styleBuilder('label', 'label');
-  const SradioButton: any = styleBuilder('input', 'input');
-  const Sdot: any = styleBuilder('span', 'dot');
+  const Scontainer = styleBuilder('div', 'container');
+  const Slabel = styleBuilder('label', 'label');
+  const SradioButton = styleBuilder('input', 'input');
+  const Sdot = styleBuilder('span', 'dot');
 
   const bootstrap = createBootstrap(styles, 'radio');
 
@@ -26,7 +28,7 @@ export const applyTheme = (styles, config) => {
     return (
       <Scontainer {...styleProps}>
         <Slabel {...styleProps} htmlFor={id}>
-          <SradioButton {...rest} type="radio" id={id} name={name} />
+          <SradioButton aria-label={ariaLabel} {...rest} type="radio" id={id} name={name} />
           <Sdot {...styleProps} className="dot" />
           {label}
         </Slabel>

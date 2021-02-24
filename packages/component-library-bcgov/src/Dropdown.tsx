@@ -29,9 +29,8 @@ const styles = {
         background-size: contain;
         background-repeat: no-repeat;
         position: absolute;
-        top: 0;
-        right: 0;
-        width: 35px;
+        right: 0.2em;
+        width: 1.2em;
         height: 100%;
         text-align: center;
         cursor: pointer;
@@ -73,7 +72,7 @@ const styles = {
   size: {
     small: {
       label: `
-        font-size: 0.7rem;
+        font-size: 0.8rem;
       `,
       wrapper: `
         font-size: 0.8rem;
@@ -84,7 +83,7 @@ const styles = {
     },
     medium: {
       label: `
-        font-size: 0.8rem;
+        font-size: 1rem;
       `,
       wrapper: `
         font-size: 1rem;
@@ -95,7 +94,7 @@ const styles = {
     },
     large: {
       label: `
-        font-size: 0.9rem;
+        font-size: 1.2rem;
       `,
       wrapper: `
         font-size: 1.2rem;
@@ -114,11 +113,17 @@ const styles = {
       }
     `,
   },
+  rounded: {
+    wrapper: `
+      border-radius: 0.25em;
+    `,
+  },
 };
 
 const config = {
   defaultProps: {
     size: 'medium',
+    rounded: true,
   },
   staticProps: ['fullWidth'],
 };
