@@ -5,6 +5,8 @@ import { ReadStream } from 'fs';
 import { uploadOptions, getBlobName, blobServiceClient } from 'azure-storage';
 
 const options = {
+  getRoute: '/',
+  postRoute: '/api',
   handleReadStream: async (filename: string, fileStream: ReadStream) => {
     const blobName = getBlobName(filename);
     const containerClient = blobServiceClient.getContainerClient('testcontainer');
@@ -22,4 +24,4 @@ const options = {
   },
 };
 
-export const { postHandler, getHandler, fileMiddleware, Forms } = govBuilder(schema, uiSchema, '/', '/api', options);
+export const { postMiddleware, getHandler, fileMiddleware, Forms } = govBuilder(schema, uiSchema, options);
