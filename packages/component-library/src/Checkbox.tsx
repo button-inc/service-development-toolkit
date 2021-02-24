@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 interface Props {
   id?: string;
@@ -12,7 +12,7 @@ interface Props {
   [key: string]: any;
 }
 
-export const applyTheme = (styles, config) => {
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
   const Scontainer = styleBuilder('div', 'container');

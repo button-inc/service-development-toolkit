@@ -1,4 +1,4 @@
-import { applyTheme } from 'component-library/Select';
+import { applyTheme, StyleConfig } from 'component-library/Select';
 import { ChevronDown, toSvgUrl } from './fontawesome';
 
 const chevronDownSVG = toSvgUrl(ChevronDown);
@@ -120,12 +120,13 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     size: 'medium',
     rounded: true,
   },
   staticProps: ['fullWidth'],
+  includeWrapper: true,
 };
 
 const Dropdown: any = applyTheme(styles, config);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyleBuilder } from './helpers';
+import { createStyleBuilder, StyleConfig as BaseStyleConfig } from './helpers';
 
 interface Props {
   children?: React.ReactNode;
@@ -8,7 +8,7 @@ interface Props {
   [key: string]: any;
 }
 
-export const applyTheme = (styles, config) => {
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
   const Scontainer = styleBuilder('footer', 'container');
   const Sfooter = styleBuilder('div', 'footer');

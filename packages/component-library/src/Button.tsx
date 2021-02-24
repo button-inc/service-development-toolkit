@@ -1,15 +1,15 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-type Props = {
+interface Props {
   id?: string;
   disabled?: boolean;
   className?: string;
   style?: object;
   [key: string]: any;
-};
+}
 
-export const applyTheme = (styles, config) => {
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
   const Sbutton = styleBuilder('button', 'button');
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface FieldsetProps {
   id?: string;
@@ -11,7 +11,7 @@ export interface FieldsetProps {
   [key: string]: any;
 }
 
-export const applyTheme = (styles, config) => {
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
   const Sfieldset = styleBuilder('fieldset', 'container');

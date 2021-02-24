@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface InputProps {
   id?: string;
@@ -13,17 +13,27 @@ export interface InputProps {
   [key: string]: any;
 }
 
-export const applyTheme = (styles, config) => {
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+  includeWrapper?: boolean;
+}
+
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
   const Scontainer = styleBuilder('div', 'container');
   const Slabel = styleBuilder('label', 'label');
-  const SInput = styleBuilder('input', 'input');
+  const Swapper = config.includeWrapper ? styleBuilder('div', 'wrapper') : null;
+  const Sinput = styleBuilder('input', 'input');
 
   const bootstrap = createBootstrap(styles, 'input');
 
   const BaseComponent = (props: InputProps) => {
     const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);
+
+    const input = <Sinput aria-label={ariaLabel} {...rest} id={id} name={name} />;
 
     return (
       <Scontainer {...styleProps}>
@@ -32,7 +42,7 @@ export const applyTheme = (styles, config) => {
             {label}
           </Slabel>
         )}
-        <SInput aria-label={ariaLabel} {...rest} id={id} name={name} />
+        {Swapper ? <Swapper {...styleProps}>{input}</Swapper> : input}
       </Scontainer>
     );
   };
