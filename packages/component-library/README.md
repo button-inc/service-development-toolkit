@@ -7,15 +7,15 @@
     - [Theme Builder](#building-a-theme)
   - [Components](#components)
 
-## Overview
+# Overview
 
 This package is a library of react components focused on accessibility and progressive enhancement. When used with a server-side-rendered react application, these components remain functional for users who may not have javascript or css available.
 
-## Usage
+# Usage
 
 The components in this library are designed to have custom themes applied on top of them easily. This creates two use cases, either [building a theme](#building-a-theme) to apply custom styles to the components, and [end users](#end-users) plugging components into their application.
 
-### Building a Theme
+## Building a Theme
 
 As a theme builder, you can add custom styles to the components through an `applyTheme` function. For any component in the library, this function can be imported as a named import, e.g:
 
@@ -155,7 +155,7 @@ const config = {
 };
 ```
 
-### End user
+## End user
 
 For end users, components can be individually imported:
 
@@ -166,7 +166,7 @@ import Button from 'component-library-bcgov/Button';
 The component can then be custom styled depending on the theme used.
 
 
-## Components
+# Components
 
 <table>
 
