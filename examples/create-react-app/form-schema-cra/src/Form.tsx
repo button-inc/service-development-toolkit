@@ -1,8 +1,8 @@
 // @ts-nocheck
-import { Forms, getHandler } from './pangolin';
 import React, { useEffect, useState } from 'react';
 import { Redirect, withRouter } from 'react-router-dom';
 import axios from 'axios';
+import { Forms, getHandler } from './pangolin';
 
 // Can just pass regular rjsf templates to override fieldsets, layout, etc. and will pass through
 function ObjectFieldTemplate({ properties }: { properties: any }) {
@@ -25,16 +25,20 @@ class Home extends React.Component {
     redirect: '',
   };
 
-  async getInfo() {
-    const res = await axios.get(`${this.props.location.pathname}`);
-    this.setState(res.data);
+  componentDidUpdate(prevProps) {
+    this.onUpdate(prevProps);
   }
 
-  componentDidUpdate(prevProps: any) {
+  onUpdate(prevProps: any){
     if (prevProps.location.pathname !== this.props.location.pathname) {
       this.getInfo();
       this.setState({ redirect: '' });
     }
+  }
+
+  async getInfo() {
+    const res = await axios.get(`${this.props.location.pathname}`);
+    this.setState(res.data);
   }
 
   rerouteHandler(nextPage: string, _isValid: boolean, lastPage: boolean) {
@@ -45,7 +49,7 @@ class Home extends React.Component {
     const Form = Forms[this.state.formIndex];
     return (
       <>
-        {this.state.redirect && <Redirect to={this.state.redirect} push={true} />}
+        {this.state.redirect && <Redirect to={this.state.redirect} push />}
         <h1>Form</h1>
         {this.state.validPage && (
           <Form
