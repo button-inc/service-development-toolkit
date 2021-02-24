@@ -19,7 +19,14 @@ export const getStyleKeys = styles => {
   return Object.keys(others);
 };
 
-export function createStyleBuilder(styles: any, config: any, childStyles: any = {}) {
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+  [key: string]: any;
+}
+
+export function createStyleBuilder(styles: any, config: StyleConfig, childStyles: any = {}) {
   const { shared = {}, ...others } = styles;
   const defaultProps = config.defaultProps || {};
   const staticProps = config.staticProps || [];

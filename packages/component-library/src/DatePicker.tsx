@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 interface Props {
   id?: string;
@@ -12,16 +12,27 @@ interface Props {
   [key: string]: any;
 }
 
-export const applyTheme = (styles, config) => {
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+  includeWrapper?: boolean;
+}
+
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
+
   const Scontainer = styleBuilder('div', 'container');
   const Slabel = styleBuilder('label', 'label');
+  const Swapper = config.includeWrapper ? styleBuilder('div', 'wrapper') : null;
   const Sinput = styleBuilder('input', 'input');
 
   const bootstrap = createBootstrap(styles, 'datepicker');
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);
+
+    const input = <Sinput aria-label={ariaLabel} {...rest} type="date" id={id} name={name} />;
 
     return (
       <Scontainer {...styleProps}>
@@ -30,7 +41,7 @@ export const applyTheme = (styles, config) => {
             {label}
           </Slabel>
         )}
-        <Sinput aria-label={ariaLabel} {...rest} type="date" id={id} name={name} />
+        {Swapper ? <Swapper {...styleProps}>{input}</Swapper> : input}
       </Scontainer>
     );
   };

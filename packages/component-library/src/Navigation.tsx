@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import cx from 'clsx';
 import styled from 'styled-components';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 interface Props {
   id?: string;
@@ -44,7 +44,7 @@ const initialContext: Context = {
 
 const NavigationContext = React.createContext(initialContext);
 
-export const applyTheme = (styles, config) => {
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
   const Scontainer = styleBuilder('div', 'container');
   const Stoggle = styleBuilder('label', 'toggle');
