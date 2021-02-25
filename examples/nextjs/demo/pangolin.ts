@@ -27,7 +27,7 @@ const options = {
     if (errors) console.error(errors);
     else {
       formData[id] = finishedFormData;
-      id++;
+      id += 1;
     }
   },
   useSession: true,

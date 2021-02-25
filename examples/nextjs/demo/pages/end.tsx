@@ -39,7 +39,7 @@ function End({ formsData }: any) {
               <td>{id}</td>
               <td>
                 {Object.entries(data).map(([name, value]) => {
-                  return <Data name={name} value={value}></Data>;
+                  return <Data name={name} value={value} />;
                 })}
               </td>
             </tr>

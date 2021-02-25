@@ -10,7 +10,7 @@ const schema = {
       type: 'string',
       name: 'secondQuestion',
       title: 'Input with custom validation and url',
-      urlPostfix: 'with-url'
+      urlPostfix: 'with-url',
     },
     thirdQuestion: {
       type: 'string',
