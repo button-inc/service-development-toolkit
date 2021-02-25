@@ -19,7 +19,7 @@ export const applyTheme = (styles, config) => {
     const { id, name, label, ariaLabel, styleProps, children, rest } = bootstrap(props);
 
     return (
-      <Sbutton aria-label={ariaLabel} {...rest} id={id} name={name}>
+      <Sbutton aria-label={ariaLabel} {...rest} id={id}>
         {children}
       </Sbutton>
     );
