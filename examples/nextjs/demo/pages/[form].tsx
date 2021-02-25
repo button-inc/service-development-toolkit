@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 import { Forms, getHandler } from 'pangolin';
 import Button from 'component-library-bcgov/Button';
 
-// import formData from 'db';
-
 // Can just pass regular rjsf templates to override fieldsets, layout, etc. and will pass through
 function ObjectFieldTemplate({ properties, title }: any) {
   return (
@@ -24,17 +22,25 @@ export default function home({
   formIndex,
   formData,
   validPage,
+  prevPageUrl,
 }: {
   formIndex: number;
   formData: object;
   validPage: boolean;
+  prevPageUrl: string | -1;
 }) {
   const Form = Forms[formIndex];
   const router = useRouter();
+  const prevUrl = prevPageUrl === -1 ? '/' : prevPageUrl;
 
   const rerouteHandler = (nextPage: string, _isValid: boolean, lastPage: boolean) => {
     router.push(lastPage ? '/end' : nextPage);
   };
+
+  function previousPage(e: any) {
+    e.preventDefault();
+    router.back();
+  }
 
   return (
     <>
@@ -47,9 +53,11 @@ export default function home({
           showErrorList={false}
         >
           <div className="buttons">
-            <Button type="button" onClick={() => router.back()} variant="secondary">
-              Previous
-            </Button>
+            <a href={prevUrl} onClick={previousPage}>
+              <Button type="button" variant="secondary">
+                Previous
+              </Button>
+            </a>
             <Button style={{ marginLeft: '20px' }}>Continue</Button>
           </div>
         </Form>
@@ -69,8 +77,8 @@ export default function home({
 
 export async function getServerSideProps({ req, res }: any) {
   await applySession(req, res);
-  const { formIndex, formData, validPage } = getHandler(req);
+  const { formIndex, formData, prevPageUrl, validPage } = getHandler(req);
   return {
-    props: { formIndex, formData, validPage },
+    props: { formIndex, formData, prevPageUrl, validPage },
   };
 }

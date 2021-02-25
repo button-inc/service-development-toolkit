@@ -10,6 +10,21 @@ export const getUrlPage = url => {
   return Number(urlEnd) || urlEnd;
 };
 
+const getPageIndex = (page: string, urlArray: string[]): number => {
+  let trimmedPage = page;
+  if (trimmedPage[0] === '/') trimmedPage = trimmedPage.slice(1);
+  const pageIndex = urlArray.indexOf(trimmedPage);
+  if (pageIndex !== -1) return pageIndex;
+  return Number(trimmedPage) - 1;
+};
+
+export const getPrevPageUrl = (page: string, urlArray: string[]) => {
+  const prevPageIndex = getPageIndex(page, urlArray) - 1;
+  if (prevPageIndex === -1) return -1;
+  if (urlArray[prevPageIndex]) return `/${urlArray[prevPageIndex]}`;
+  return `/${String(prevPageIndex + 1)}`;
+};
+
 export const parseUrl = (getRoute: string, nextPage: string) => {
   let route;
   if (getRoute[getRoute.length - 1] === '/') route = `${getRoute}${nextPage}`;
