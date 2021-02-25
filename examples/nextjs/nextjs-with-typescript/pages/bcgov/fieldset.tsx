@@ -3,7 +3,7 @@ import Fieldset from 'component-library-bcgov/Fieldset';
 import Input from 'component-library-bcgov/Input';
 import BCGovTypography from '../../components/BCGovTypography';
 
-export default function FilePickerPage() {
+export default function FieldsetPage() {
   return (
     <>
       <BCGovTypography />

@@ -69,6 +69,9 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   return BaseComponent;
 };
 
-const Fieldset = applyTheme({}, { staticProps: ['fullWidth', 'fullHeight'] });
+const Fieldset = applyTheme(
+  {},
+  { staticProps: ['fullWidth', 'fullHeight'], forwardProps: ['size', 'variant', 'disabled', 'required'] }
+);
 
 export default Fieldset;
