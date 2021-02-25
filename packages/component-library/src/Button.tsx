@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-interface Props {
+export interface Props {
   id?: string;
   disabled?: boolean;
   className?: string;

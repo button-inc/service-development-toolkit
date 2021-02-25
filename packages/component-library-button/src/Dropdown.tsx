@@ -94,6 +94,6 @@ const config: StyleConfig = {
   includeWrapper: true,
 };
 
-const Dropdown: any = applyTheme(styles, config);
+const Dropdown = applyTheme(styles, config);
 
 export default Dropdown;

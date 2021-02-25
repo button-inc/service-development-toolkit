@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-interface RadioButtonProps {
+export interface Props {
   id?: string;
   name?: string;
   label?: string;
@@ -28,7 +28,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
 
   const bootstrap = createBootstrap(styles, 'radio');
 
-  const BaseComponent = (props: RadioButtonProps) => {
+  const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);
 
     return (

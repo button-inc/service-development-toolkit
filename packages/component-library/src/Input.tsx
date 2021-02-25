@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-export interface InputProps {
+export interface Props {
   id?: string;
   name?: string;
   label?: string;
@@ -30,7 +30,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
 
   const bootstrap = createBootstrap(styles, 'input');
 
-  const BaseComponent = (props: InputProps) => {
+  const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);
 
     const input = <Sinput aria-label={ariaLabel} {...rest} id={id} name={name} />;

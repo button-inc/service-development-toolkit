@@ -74,7 +74,7 @@ const config: StyleConfig = {
   staticProps: [],
 };
 
-export const BaseHeader: any = applyTheme(styles, config);
+export const BaseHeader = applyTheme(styles, config);
 
 const BannerLogo = styled.a`
   height: 90%;

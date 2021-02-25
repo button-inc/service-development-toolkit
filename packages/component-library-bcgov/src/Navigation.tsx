@@ -61,7 +61,7 @@ const config: StyleConfig = {
   staticProps: [],
 };
 
-export const BaseNavigation: any = applyTheme(styles, config);
+export const BaseNavigation = applyTheme(styles, config);
 
 const BannerLogo = styled.a`
   height: 90%;

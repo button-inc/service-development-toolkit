@@ -3,7 +3,7 @@ import cx from 'clsx';
 import styled, { StyledInterface } from 'styled-components';
 import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-interface Props {
+export interface Props {
   id?: string;
   children?: React.ReactNode;
   closable?: boolean;

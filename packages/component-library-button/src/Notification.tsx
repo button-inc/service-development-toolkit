@@ -203,6 +203,6 @@ const childStyles = {
   },
 };
 
-const Notification: any = applyTheme(styles, config, childStyles);
+const Notification = applyTheme(styles, config, childStyles);
 
 export default Notification;
