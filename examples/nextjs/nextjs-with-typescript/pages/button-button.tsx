@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import Button from 'component-library-button/Button';
+import ButtonTypography from '../components/ButtonTypography';
 
 export default function ButtonPage() {
   const [disabled, setDisabled] = useState(false);
 
   return (
     <>
+      <ButtonTypography />
       <Button variant="primary" disabled={disabled}>
         Primary
       </Button>

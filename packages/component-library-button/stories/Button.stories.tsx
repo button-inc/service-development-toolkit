@@ -54,3 +54,10 @@ Warning.args = {
   size: 'medium',
   disabled: false,
 };
+
+export const Dark = Template.bind({});
+Dark.args = {
+  variant: 'dark',
+  size: 'medium',
+  disabled: false,
+};
