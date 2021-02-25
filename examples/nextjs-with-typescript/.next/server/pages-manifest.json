@@ -1,7 +1,0 @@
-{
-  "/_document": "pages/_document.js",
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/button-filepicker": "pages/button-filepicker.js",
-  "/": "pages/index.js"
-}
