@@ -46,8 +46,9 @@ const config: StyleConfig = {
   staticProps: ['fullWidth'],
   wrapperExtraStyle: `
     &:hover > button {
+      color: #fff;
+      background-color: #000;
       text-decoration: underline;
-      opacity: 0.80;
     }
   `,
 };
@@ -60,7 +61,7 @@ export default function Component(props: any) {
 
   return (
     <BaseFilePicker {...rest}>
-      <Button size={size} disabled={disabled}>
+      <Button variant="dark" size={size} disabled={disabled}>
         <FaSVG>
           <path fill="currentColor" d={Upload} />
         </FaSVG>

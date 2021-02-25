@@ -71,7 +71,7 @@ const styles = {
       button: `
         color: #2476ED;
         background-color: transparent;
-        box-shadow: 0px 0px 0px 1px #2476ED inset !important;
+        box-shadow: 0px 0px 0px 2px #2476ED inset !important;
 
         &:hover {
           background-color: #b9e2ff;
@@ -92,6 +92,23 @@ const styles = {
         &:hover {
           background-color: #FA7C7C;
           box-shadow: 0px 0px 0px 1px #FA7C7C inset !important;
+          text-decoration: underline;
+        }
+
+        &:focus {
+          box-shadow: 0px 0px 0px 2px #FBDD01 inset !important;
+        }
+      `,
+    },
+    dark: {
+      button: `
+        color: #000;
+        background-color: #fff;
+        box-shadow: 0px 0px 0px 2px #000 inset !important;
+
+        &:hover {
+          color: #fff;
+          background-color: #000;
           text-decoration: underline;
         }
 
