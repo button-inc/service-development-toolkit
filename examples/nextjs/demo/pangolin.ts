@@ -3,7 +3,9 @@ import schema from 'schemas/schema';
 import uiSchema from 'schemas/uiSchema';
 import fs from 'fs';
 import path from 'path';
-// import formData from 'db';
+import formData from 'db';
+
+let id = 1;
 
 const options = {
   getRoute: '/',
@@ -11,7 +13,7 @@ const options = {
   validations: {
     secondQuestion: {
       errorMessage: 'Speak friend and enter.',
-      validationFunction: (value: string) => value.toLowerCase() === 'mellon',
+      validationFunction: (value: string) => value === 'mellon',
     },
   },
   handleReadStream: (filename: string, readStream: any) => {
@@ -21,14 +23,12 @@ const options = {
   onFileLoad: (filename: string) => {
     console.log(`${filename} has been uploaded`);
   },
-  // onPost: (_postData: object, schemaIndex: number, cleanSchemaData: Function) => {
-  //   const newData = cleanSchemaData(formData);
-  //   formData[schemaIndex] = { ...formData[schemaIndex], ...newData };
-  //   return newData;
-  // },
-  onFormEnd: (errors: [], _formData: any) => {
-    console.log('completed a form');
+  onFormEnd: (errors: [], finishedFormData: any) => {
     if (errors) console.error(errors);
+    else {
+      formData[id] = finishedFormData;
+      id++;
+    }
   },
   useSession: true,
 };
