@@ -1,4 +1,5 @@
 import React from 'react';
+import reduce from 'lodash/reduce';
 import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
@@ -15,6 +16,23 @@ export interface StyleConfig {
   defaultProps?: object;
   staticProps?: string[];
   breakProps?: string[];
+  forwardProps?: string[];
+}
+
+function recursiveCloneChildren(children, parentProps: object) {
+  return React.Children.map(children, child => {
+    if (!React.isValidElement(child)) {
+      return child;
+    }
+
+    // @ts-ignore
+    if (child.props?.children) {
+      // @ts-ignore
+      return recursiveCloneChildren(child.props.children, parentProps);
+    }
+
+    return React.cloneElement(child, { ...parentProps, ...((child.props as object) || {}) });
+  });
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
@@ -24,23 +42,26 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const Slegend = styleBuilder('legend', 'legend');
 
   const bootstrap = createBootstrap(styles, 'fieldset');
+  const forwardProps = config.forwardProps || [];
 
   const BaseComponent = (props: Props) => {
     const { id, name, ariaLabel, styleProps, children, rest } = bootstrap(props);
 
     const { title, disabled, ...others } = rest;
 
-    const childrenWithNames = React.Children.map(children, child => {
-      return React.cloneElement(child, {
-        name: child.props.name || name,
-        disabled: child.props.disabled || disabled,
-      });
-    });
+    const forwards = reduce(
+      forwardProps,
+      (ret, key) => {
+        ret[key] = props[key];
+        return ret;
+      },
+      {}
+    );
 
     return (
       <Sfieldset {...styleProps} id={id}>
         {title && <Slegend {...styleProps}>{title}</Slegend>}
-        {childrenWithNames}
+        {recursiveCloneChildren(children, forwards)}
       </Sfieldset>
     );
   };
@@ -48,6 +69,9 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   return BaseComponent;
 };
 
-const Fieldset = applyTheme({}, { staticProps: ['fullWidth', 'fullHeight'] });
+const Fieldset = applyTheme(
+  {},
+  { staticProps: ['fullWidth', 'fullHeight'], forwardProps: ['size', 'variant', 'disabled', 'required'] }
+);
 
 export default Fieldset;
