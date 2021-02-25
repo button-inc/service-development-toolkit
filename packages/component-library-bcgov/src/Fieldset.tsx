@@ -2,42 +2,41 @@ import { applyTheme, StyleConfig } from 'component-library/Fieldset';
 
 const styles = {
   shared: {
-    input: '',
     container: `
-            border: 1px solid black;
-            padding: 2px;
-          `,
+      border: none;
+    `,
+    legend: `
+      color: #38598A;
+      font-weight: 600;
+      font-size: 1.5em;
+      margin-bottom: 1em;
+    `,
   },
   size: {
-    tiny: {
-      input: 'font-size: 15px;',
+    small: {
+      container: `
+        font-size: 0.8rem;
+      `,
     },
     medium: {
-      input: 'font-size: 20px;',
-    },
-  },
-  variant: {
-    secondary: {
       container: `
-                  border-color: blue;
-                `,
-      input: '',
+        font-size: 1rem;
+      `,
     },
-    warning: {
+    large: {
       container: `
-                  border-color: red;
-                `,
-      input: '',
+        font-size: 1.2rem;
+      `,
     },
   },
 };
 
 const config: StyleConfig = {
   defaultProps: {
-    variant: 'warning',
-    size: 'tiny',
+    size: 'medium',
   },
-  staticProps: ['fullWidth', 'fullHeight'],
+  staticProps: ['fullWidth'],
+  forwardProps: ['size', 'disabled', 'required'],
 };
 
 const Fieldset = applyTheme(styles, config);
