@@ -1,5 +1,5 @@
 import Input from 'component-library-button/Input';
-import ButtonTypography from '../components/ButtonTypography';
+import ButtonTypography from '../../components/ButtonTypography';
 
 export default function InputPage() {
   return (

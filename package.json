@@ -81,7 +81,7 @@
   "workspaces": {
     "packages": [
       "packages/*",
-      "examples/*"
+      "examples/**/*"
     ]
   },
   "dependencies": {

@@ -1,5 +1,5 @@
 import Textarea from 'component-library-button/Textarea';
-import ButtonTypography from '../components/ButtonTypography';
+import ButtonTypography from '../../components/ButtonTypography';
 
 export default function TextareaPage() {
   return (

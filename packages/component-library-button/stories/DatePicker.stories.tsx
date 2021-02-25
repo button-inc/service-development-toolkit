@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper, Divider } from '../../../stories/helpers';
 import DatePicker from '../src/DatePicker';
-import BCGovTypography from './BCGovTypography';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: 'DatePicker',
@@ -19,7 +19,7 @@ export default {
 
 const Template: Story = args => (
   <>
-    <BCGovTypography />
+    <ButtonTypography />
     <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
       <DatePicker {...args}>DatePicker</DatePicker>

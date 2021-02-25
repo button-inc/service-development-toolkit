@@ -1,5 +1,5 @@
 import Link from 'component-library-bcgov/Link';
-import BCGovTypography from '../components/BCGovTypography';
+import BCGovTypography from '../../components/BCGovTypography';
 
 export default function LinkPage() {
   return (

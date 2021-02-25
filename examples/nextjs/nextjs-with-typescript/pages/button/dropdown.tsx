@@ -1,5 +1,5 @@
 import Dropdown from 'component-library-button/Dropdown';
-import ButtonTypography from '../components/ButtonTypography';
+import ButtonTypography from '../../components/ButtonTypography';
 
 const generateOptions = () => (
   <>

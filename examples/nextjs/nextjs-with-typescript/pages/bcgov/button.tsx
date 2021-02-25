@@ -1,5 +1,5 @@
 import Button from 'component-library-bcgov/Button';
-import BCGovTypography from '../components/BCGovTypography';
+import BCGovTypography from '../../components/BCGovTypography';
 
 const Buttons = ({ size }) => (
   <>

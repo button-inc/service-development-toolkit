@@ -1,10 +1,10 @@
-import Checkbox from 'component-library-button/Checkbox';
-import ButtonTypography from '../components/ButtonTypography';
+import Checkbox from 'component-library-bcgov/Checkbox';
+import BCGovTypography from '../../components/BCGovTypography';
 
 export default function CheckboxPage() {
   return (
     <div style={{ padding: '2rem' }}>
-      <ButtonTypography />
+      <BCGovTypography />
       <Checkbox size="small" label="Lorem ipsum dolor sit amet" />
       <br />
       <Checkbox label="Lorem ipsum dolor sit amet" />
