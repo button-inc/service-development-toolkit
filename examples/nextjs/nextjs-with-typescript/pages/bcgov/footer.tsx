@@ -1,5 +1,5 @@
 import Footer from 'component-library-bcgov/Footer';
-import BCGovTypography from '../components/BCGovTypography';
+import BCGovTypography from '../../components/BCGovTypography';
 
 const Menu = () => (
   <ul>

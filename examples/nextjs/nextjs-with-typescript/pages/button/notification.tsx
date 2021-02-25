@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import Notification from 'component-library-button/Notification';
 import Button from 'component-library-button/Button';
-import ButtonTypography from '../components/ButtonTypography';
+import ButtonTypography from '../../components/ButtonTypography';
 
 export default function NotificationPage() {
   return (

@@ -1,5 +1,5 @@
 import Input from 'component-library-bcgov/Input';
-import BCGovTypography from '../components/BCGovTypography';
+import BCGovTypography from '../../components/BCGovTypography';
 
 export default function InputPage() {
   return (

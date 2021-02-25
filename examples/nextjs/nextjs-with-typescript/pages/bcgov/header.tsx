@@ -1,5 +1,5 @@
 import Header from 'component-library-bcgov/Header';
-import BCGovTypography from '../components/BCGovTypography';
+import BCGovTypography from '../../components/BCGovTypography';
 
 export default function HeaderPage() {
   return (

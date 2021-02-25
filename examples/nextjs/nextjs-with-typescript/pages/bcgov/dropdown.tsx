@@ -1,5 +1,5 @@
 import Dropdown from 'component-library-bcgov/Dropdown';
-import BCGovTypography from '../components/BCGovTypography';
+import BCGovTypography from '../../components/BCGovTypography';
 
 const generateOptions = () => (
   <>

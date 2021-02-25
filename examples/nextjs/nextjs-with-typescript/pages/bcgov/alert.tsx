@@ -1,5 +1,5 @@
 import Alert from 'component-library-bcgov/Alert';
-import BCGovTypography from '../components/BCGovTypography';
+import BCGovTypography from '../../components/BCGovTypography';
 
 export default function AlertPage() {
   return (

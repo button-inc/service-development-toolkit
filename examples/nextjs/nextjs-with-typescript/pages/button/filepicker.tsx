@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FilePicker from 'component-library-button/FilePicker';
-import ButtonTypography from '../components/ButtonTypography';
+import ButtonTypography from '../../components/ButtonTypography';
 
 export default function FilePickerPage() {
   return (
