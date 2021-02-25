@@ -9,7 +9,8 @@ const schema = {
     secondQuestion: {
       type: 'string',
       name: 'secondQuestion',
-      title: 'Input with custom validation',
+      title: 'Input with custom validation and url',
+      urlPostfix: 'with-url',
     },
     thirdQuestion: {
       type: 'string',
@@ -58,13 +59,13 @@ const schema = {
     },
     ninthQuestion: {
       type: 'string',
-      format: 'date',
+      hasFiles: true,
       name: 'ninthQuestion',
-      title: 'Date Picker',
+      title: 'File Picker',
     },
     tenthQuestion: {
       type: 'string',
-      hasFiles: true,
+      format: 'date',
       name: 'tenthQuestion',
       title: 'Date Picker',
     },
