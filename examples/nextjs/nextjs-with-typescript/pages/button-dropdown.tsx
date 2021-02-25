@@ -1,4 +1,4 @@
-import Select from 'component-library-button/Select';
+import Dropdown from 'component-library-button/Dropdown';
 import ButtonTypography from '../components/ButtonTypography';
 
 const generateOptions = () => (
@@ -11,28 +11,28 @@ const generateOptions = () => (
   </>
 );
 
-export default function SelectPage() {
+export default function DropdownPage() {
   return (
     <>
       <ButtonTypography />
       <form action="">
-        <Select label="Field Label" size="small">
+        <Dropdown label="Field Label" size="small">
           {generateOptions()}
-        </Select>
+        </Dropdown>
         <br />
-        <Select label="Field Label">{generateOptions()}</Select>
+        <Dropdown label="Field Label">{generateOptions()}</Dropdown>
         <br />
-        <Select label="Field Label" size="large">
+        <Dropdown label="Field Label" size="large">
           {generateOptions()}
-        </Select>
+        </Dropdown>
         <br />
-        <Select variant="secondary" label="Field Label">
+        <Dropdown variant="secondary" label="Field Label">
           {generateOptions()}
-        </Select>
+        </Dropdown>
         <br />
-        <Select label="Field Label" fullWidth onChange={console.log}>
+        <Dropdown label="Field Label" fullWidth onChange={console.log}>
           {generateOptions()}
-        </Select>
+        </Dropdown>
       </form>
     </>
   );
