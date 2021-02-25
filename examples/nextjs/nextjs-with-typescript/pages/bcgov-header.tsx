@@ -1,10 +1,10 @@
 import Header from 'component-library-bcgov/Header';
-import BCSans from '../components/BCSans';
+import BCGovTypography from '../components/BCGovTypography';
 
 export default function HeaderPage() {
   return (
     <>
-      <BCSans />
+      <BCGovTypography />
       <Header title="Hello British Columbia" onBannerClick={console.log} />
     </>
   );

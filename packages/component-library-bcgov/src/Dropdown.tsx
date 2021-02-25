@@ -5,14 +5,9 @@ const chevronDownSVG = toSvgUrl(ChevronDown);
 
 const styles = {
   shared: {
-    container: `
-      & * {
-        font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
-      }
-    `,
     label: `
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 0.2777em;
     `,
     wrapper: `
       position: relative;
@@ -21,7 +16,7 @@ const styles = {
       overflow: hidden;
       border: 2px solid #606060;
       border-radius: 0;
-      padding: 0.3rem 0;
+      padding: 0.3em 0;
 
       &:after {
         content: ' ';
@@ -58,7 +53,6 @@ const styles = {
       background: #fff;
       background-image: none;
       display: inline-block;
-      border-radius: 0.15rem;
       flex: 1;
       padding: 0 .5em;
       color: #000;
@@ -71,35 +65,17 @@ const styles = {
   },
   size: {
     small: {
-      label: `
-        font-size: 0.8rem;
-      `,
-      wrapper: `
-        font-size: 0.8rem;
-      `,
-      input: `
+      container: `
         font-size: 0.8rem;
       `,
     },
     medium: {
-      label: `
-        font-size: 1rem;
-      `,
-      wrapper: `
-        font-size: 1rem;
-      `,
-      input: `
+      container: `
         font-size: 1rem;
       `,
     },
     large: {
-      label: `
-        font-size: 1.2rem;
-      `,
-      wrapper: `
-        font-size: 1.2rem;
-      `,
-      input: `
+      container: `
         font-size: 1.2rem;
       `,
     },

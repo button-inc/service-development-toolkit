@@ -5,9 +5,9 @@ import { ExternalLinkAlt, FaSVG } from './fontawesome';
 const sizes: {
   [key: string]: string;
 } = {
-  small: '1rem',
-  medium: '1.2rem',
-  large: '1.3rem',
+  small: '0.8rem',
+  medium: '1rem',
+  large: '1.2rem',
 };
 
 type Props = {
@@ -15,7 +15,7 @@ type Props = {
 };
 
 const StyledAnchor = styled.a`
-  font-size: ${(props: Props) => sizes[props.size || 'small']};
+  font-size: ${(props: Props) => sizes[props.size || 'medium']};
   color: #1a5a96;
 
   &:hover {

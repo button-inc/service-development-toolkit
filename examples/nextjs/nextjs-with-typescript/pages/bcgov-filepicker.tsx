@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import FilePicker from 'component-library-bcgov/FilePicker';
-import BCSans from '../components/BCSans';
+import BCGovTypography from '../components/BCGovTypography';
 
 export default function FilePickerPage() {
   return (
     <>
-      <BCSans />
+      <BCGovTypography />
       <FilePicker label="Upload a file" size="small">
         Choose File
       </FilePicker>

@@ -1,4 +1,4 @@
-import { applyTheme } from 'component-library/Checkbox';
+import { applyTheme, StyleConfig } from 'component-library/Checkbox';
 import { Check, toSvgUrl } from './fontawesome';
 
 const checkSVG = toSvgUrl(Check);
@@ -58,24 +58,24 @@ const styles = {
   },
   size: {
     small: {
-      label: `
+      container: `
         font-size: 0.8rem;
       `,
     },
     medium: {
-      label: `
+      container: `
         font-size: 1rem;
       `,
     },
     large: {
-      label: `
+      container: `
         font-size: 1.2rem;
       `,
     },
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     size: 'medium',
   },

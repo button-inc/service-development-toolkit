@@ -9,7 +9,7 @@ import Callout from 'component-library-bcgov/Callout';
 import Dropdown from 'component-library-bcgov/Dropdown';
 import Textarea from 'component-library-bcgov/Textarea';
 import Link from 'component-library-bcgov/Link';
-import BCSans from '../components/BCSans';
+import BCGovTypography from '../components/BCGovTypography';
 
 const Menu = () => (
   <ul>
@@ -37,7 +37,7 @@ const Menu = () => (
 export default function NavigationPage() {
   return (
     <>
-      <BCSans />
+      <BCGovTypography />
       <Navigation title="Hello British Columbia" onBannerClick={console.log}>
         <Menu />
       </Navigation>

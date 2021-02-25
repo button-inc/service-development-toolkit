@@ -2,6 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
 import Alert from '../src/Alert';
+import BCGovTypography from './BCGovTypography';
 
 export default {
   title: 'Alert',
@@ -18,6 +19,7 @@ export default {
 
 const Template: Story = args => (
   <>
+    <BCGovTypography />
     <Alert {...args} />
   </>
 );

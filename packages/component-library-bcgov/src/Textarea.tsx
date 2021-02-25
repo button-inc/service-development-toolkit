@@ -1,14 +1,12 @@
-import { applyTheme } from 'component-library/Textarea';
+import { applyTheme, StyleConfig } from 'component-library/Textarea';
 
 const styles = {
   shared: {
     label: `
-      font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 0.2777em;
     `,
     input: `
-      font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
       border: 2px solid #606060;
       border-radius: 0;
       padding: 0.5em 0.6em;
@@ -21,26 +19,17 @@ const styles = {
   },
   size: {
     small: {
-      label: `
-        font-size: 0.8rem;
-      `,
-      input: `
+      container: `
         font-size: 0.8rem;
       `,
     },
     medium: {
-      label: `
-        font-size: 1rem;
-      `,
-      input: `
+      container: `
         font-size: 1rem;
       `,
     },
     large: {
-      label: `
-        font-size: 1.2rem;
-      `,
-      input: `
+      container: `
         font-size: 1.2rem;
       `,
     },
@@ -67,7 +56,7 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     size: 'medium',
     resize: 'none',

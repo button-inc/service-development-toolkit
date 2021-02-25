@@ -1,7 +1,7 @@
 import { TypographyStyle } from 'react-typography';
-import typography from 'component-library-bcgov/BCSans';
+import typography from '../src/typography';
 import '@bcgov/bc-sans/css/BCSans.css';
 
-export default function BCSans() {
+export default function BCGovTypography() {
   return <TypographyStyle typography={typography} />;
 }

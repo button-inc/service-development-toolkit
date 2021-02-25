@@ -2,6 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
 import Link from '../src/Link';
+import BCGovTypography from './BCGovTypography';
 
 export default {
   title: 'Link',
@@ -18,6 +19,7 @@ export default {
 
 const Template: Story = args => (
   <>
+    <BCGovTypography />
     <Link {...args} />
   </>
 );

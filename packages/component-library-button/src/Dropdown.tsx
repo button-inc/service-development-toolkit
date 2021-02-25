@@ -1,13 +1,13 @@
-import { applyTheme } from 'component-library/Select';
+import { applyTheme, StyleConfig } from 'component-library/Select';
 
 const styles = {
   shared: {
     container: `
-      font-family: 'Roboto', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     `,
     label: `
       display: block;
       font-weight: 600;
+      margin-bottom: 0.2777em;
     `,
     wrapper: `
       position: relative;
@@ -15,8 +15,8 @@ const styles = {
       background: #fff;
       overflow: hidden;
       border: 1px solid #000;
-      border-radius: 0.15rem;
-      padding: 0.25rem 0;
+      border-radius: 0.15em;
+      padding: 0.25em 0;
 
       &:after {
         content: '\\25BC';
@@ -26,7 +26,7 @@ const styles = {
         width: 50px;
         height: 100%;
         text-align: center;
-        padding: 0.25rem 0;
+        padding: 0.25em 0;
         background: #E4E4E4;
         cursor: pointer;
         pointer-events: none;
@@ -47,7 +47,7 @@ const styles = {
       background: #fff;
       background-image: none;
       display: inline-block;
-      border-radius: 0.15rem;
+      border-radius: 0.15em;
       flex: 1;
       padding: 0 .5em;
       color: #000;
@@ -60,35 +60,17 @@ const styles = {
   },
   size: {
     small: {
-      label: `
-        font-size: 0.7rem;
-      `,
-      wrapper: `
-        font-size: 0.8rem;
-      `,
-      input: `
+      container: `
         font-size: 0.8rem;
       `,
     },
     medium: {
-      label: `
-        font-size: 0.8rem;
-      `,
-      wrapper: `
-        font-size: 1rem;
-      `,
-      input: `
+      container: `
         font-size: 1rem;
       `,
     },
     large: {
-      label: `
-        font-size: 0.9rem;
-      `,
-      wrapper: `
-        font-size: 1.2rem;
-      `,
-      input: `
+      container: `
         font-size: 1.2rem;
       `,
     },
@@ -104,13 +86,14 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     size: 'medium',
   },
   staticProps: ['fullWidth'],
+  includeWrapper: true,
 };
 
-const Select: any = applyTheme(styles, config);
+const Dropdown: any = applyTheme(styles, config);
 
-export default Select;
+export default Dropdown;

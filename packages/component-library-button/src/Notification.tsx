@@ -1,4 +1,4 @@
-import { applyTheme } from 'component-library/Notification';
+import { applyTheme, StyleConfig } from 'component-library/Notification';
 
 const styles = {
   shared: {
@@ -181,7 +181,7 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     variant: 'standard',
     size: 'medium',

@@ -1,4 +1,4 @@
-import { applyTheme } from 'component-library/Checkbox';
+import { applyTheme, StyleConfig } from 'component-library/Checkbox';
 import { Check, toSvgUrl } from './fontawesome';
 
 const checkSVG = toSvgUrl(Check, 'white');
@@ -13,6 +13,9 @@ const styles = {
       -ms-user-select: none;
       user-select: none;
       cursor: pointer;
+      height: 1em;
+      line-height: 1em;
+      padding-left: 1.5em;
     `,
     input: `
       position: absolute;
@@ -28,6 +31,8 @@ const styles = {
       position: absolute;
       top: 0;
       left: 0;
+      height: 1em;
+      width: 1em;
       outline: 2px solid #606060;
 
       &:after {
@@ -49,45 +54,24 @@ const styles = {
   },
   size: {
     small: {
-      label: `
+      container: `
         font-size: 0.8rem;
-        height: 0.8rem;
-        line-height: 0.8rem;
-        padding-left: 1.2rem;
-      `,
-      checkmark: `
-        height: 0.8rem;
-        width: 0.8rem;
       `,
     },
     medium: {
-      label: `
+      container: `
         font-size: 1rem;
-        height: 1rem;
-        line-height: 1rem;
-        padding-left: 1.5rem;
-      `,
-      checkmark: `
-        height: 1rem;
-        width: 1rem;
       `,
     },
     large: {
-      label: `
+      container: `
         font-size: 1.2rem;
-        height: 1.2rem;
-        line-height: 1.2rem;
-        padding-left: 1.7rem;
-      `,
-      checkmark: `
-        height: 1.2rem;
-        width: 1.2rem;
       `,
     },
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     size: 'medium',
   },

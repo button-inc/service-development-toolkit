@@ -1,7 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
+import { HtmlOnlyWrapper, HtmlWithCssWrapper, Divider } from '../../../stories/helpers';
 import Notification from '../src/Notification';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: 'Notification',
@@ -33,15 +34,20 @@ const Component = props => (
 
 const Template: Story = args => (
   <>
+    <ButtonTypography />
     <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
       <Component {...args} />
     </HtmlOnlyWrapper>
 
+    <Divider />
+
     <h3>HTML + CSS</h3>
     <HtmlWithCssWrapper>
       <Component {...args} />
     </HtmlWithCssWrapper>
+
+    <Divider />
 
     <h3>HTML + CSS + JS</h3>
     <Component {...args} />

@@ -1,5 +1,5 @@
 import Dropdown from 'component-library-bcgov/Dropdown';
-import BCSans from '../components/BCSans';
+import BCGovTypography from '../components/BCGovTypography';
 
 const generateOptions = () => (
   <>
@@ -14,7 +14,7 @@ const generateOptions = () => (
 export default function DropdownPage() {
   return (
     <>
-      <BCSans />
+      <BCGovTypography />
       <Dropdown label="Field Label" size="small">
         {generateOptions()}
       </Dropdown>

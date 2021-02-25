@@ -1,10 +1,10 @@
 import Textarea from 'component-library-bcgov/Textarea';
-import BCSans from '../components/BCSans';
+import BCGovTypography from '../components/BCGovTypography';
 
 export default function TextareaPage() {
   return (
     <>
-      <BCSans />
+      <BCGovTypography />
       <Textarea label="Small Required" size="small" required />
       <br />
       <Textarea label="Medium Required" required />

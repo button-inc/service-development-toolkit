@@ -1,10 +1,10 @@
 import Alert from 'component-library-bcgov/Alert';
-import BCSans from '../components/BCSans';
+import BCGovTypography from '../components/BCGovTypography';
 
 export default function AlertPage() {
   return (
     <>
-      <BCSans />
+      <BCGovTypography />
       <Alert
         size="small"
         content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus."
