@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const formData = {\n  data: {}\n};","map":{"version":3,"sources":["/mnt/c/Users/jahn/my/pangolin/examples/nextjs-with-typescript/db.ts"],"names":["formData","data"],"mappings":"AAAA,OAAO,MAAMA,QAAa,GAAG;AAAEC,EAAAA,IAAI,EAAE;AAAR,CAAtB","sourcesContent":["export const formData: any = { data: {} };\n"]},"metadata":{},"sourceType":"module"}
