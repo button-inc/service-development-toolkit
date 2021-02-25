@@ -1,7 +1,7 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-interface Props {
+export interface Props {
   id?: string;
   name?: string;
   label?: string;
@@ -12,7 +12,13 @@ interface Props {
   [key: string]: any;
 }
 
-export const applyTheme = (styles, config) => {
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+}
+
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
   const Scontainer = styleBuilder('div', 'container');

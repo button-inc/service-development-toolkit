@@ -1,14 +1,20 @@
 import React from 'react';
-import { createStyleBuilder } from './helpers';
+import { createStyleBuilder, StyleConfig as BaseStyleConfig } from './helpers';
 
-interface Props {
+export interface Props {
   children?: React.ReactNode;
   className?: string;
   style?: object;
   [key: string]: any;
 }
 
-export const applyTheme = (styles, config) => {
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+}
+
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
   const Scontainer = styleBuilder('footer', 'container');
   const Sfooter = styleBuilder('div', 'footer');

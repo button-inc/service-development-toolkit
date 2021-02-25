@@ -1,4 +1,4 @@
-import { applyTheme } from 'component-library/Textarea';
+import { applyTheme, StyleConfig } from 'component-library/Textarea';
 
 const styles = {
   shared: {
@@ -78,7 +78,7 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     variant: 'standard',
     size: 'small',

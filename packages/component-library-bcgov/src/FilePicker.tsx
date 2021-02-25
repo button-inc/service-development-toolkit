@@ -1,51 +1,72 @@
-import { applyTheme } from 'component-library/FilePicker';
+import React from 'react';
+import { applyTheme, StyleConfig } from 'component-library/FilePicker';
+import Button from './Button';
+import { Upload, FaSVG } from './fontawesome';
 
 const styles = {
   shared: {
-    input: '',
-    container: `
-            border: 1px solid black;
-            padding: 2px;
-          `,
+    label: `
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.2777em;
+    `,
   },
   size: {
-    tiny: {
-      input: 'font-size: 15px;',
+    small: {
+      label: `
+        font-size: 0.8rem;
+      `,
     },
     medium: {
-      input: 'font-size: 20px;',
+      label: `
+        font-size: 1rem;
+      `,
+    },
+    large: {
+      label: `
+        font-size: 1.2rem;
+      `,
     },
   },
-  variant: {
-    secondary: {
-      container: `
-                  border-color: blue;
-                `,
-      input: '',
-    },
-    warning: {
-      container: `
-                  border-color: red;
-                `,
-      input: '',
-    },
-  },
-  display: {
-    none: {},
-    block: {
-      input: 'display: block;',
-    },
+  required: {
+    label: `
+      &:after {
+        margin: -0.2em 0em 0em 0.2em;
+        content: '*';
+        color: #DB2828;
+      }
+    `,
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
-    variant: 'warning',
-    size: 'tiny',
+    size: 'medium',
   },
-  staticProps: [],
+  staticProps: ['fullWidth'],
+  wrapperExtraStyle: `
+    &:hover > button {
+      text-decoration: underline;
+      opacity: 0.80;
+    }
+  `,
 };
 
-const FilePicker: any = applyTheme(styles, config);
+export const BaseFilePicker = applyTheme(styles, config);
 
-export default FilePicker;
+export default function Component(props: any) {
+  const { children, ...rest } = props;
+  const { size, disabled } = rest;
+
+  return (
+    <BaseFilePicker {...rest}>
+      <Button size={size} disabled={disabled}>
+        <FaSVG>
+          <path fill="currentColor" d={Upload} />
+        </FaSVG>
+        &nbsp;
+        {children}
+      </Button>
+    </BaseFilePicker>
+  );
+}

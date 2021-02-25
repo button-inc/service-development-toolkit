@@ -1,7 +1,7 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-export interface FieldsetProps {
+export interface Props {
   id?: string;
   name?: string;
   title?: string;
@@ -11,7 +11,13 @@ export interface FieldsetProps {
   [key: string]: any;
 }
 
-export const applyTheme = (styles, config) => {
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+}
+
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
   const Sfieldset = styleBuilder('fieldset', 'container');
@@ -19,7 +25,7 @@ export const applyTheme = (styles, config) => {
 
   const bootstrap = createBootstrap(styles, 'fieldset');
 
-  const BaseComponent = (props: FieldsetProps) => {
+  const BaseComponent = (props: Props) => {
     const { id, name, ariaLabel, styleProps, children, rest } = bootstrap(props);
 
     const { title, disabled, ...others } = rest;

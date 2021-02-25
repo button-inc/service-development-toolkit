@@ -1,7 +1,7 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-interface SelectProps {
+export interface Props {
   id?: string;
   name?: string;
   label?: string;
@@ -13,17 +13,31 @@ interface SelectProps {
   [key: string]: any;
 }
 
-export const applyTheme = (styles, config) => {
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+  includeWrapper?: boolean;
+}
+
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
+
   const Scontainer = styleBuilder('div', 'container');
   const Slabel = styleBuilder('label', 'label');
-  const Swapper = styleBuilder('div', 'wrapper');
+  const Swapper = config.includeWrapper ? styleBuilder('div', 'wrapper') : null;
   const Sselect = styleBuilder('select', 'input');
 
   const bootstrap = createBootstrap(styles, 'radio');
 
-  const BaseComponent = (props: SelectProps) => {
+  const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, rest } = bootstrap(props);
+
+    const input = (
+      <Sselect aria-label={ariaLabel} {...rest} id={id} name={name}>
+        {children}
+      </Sselect>
+    );
 
     return (
       <Scontainer {...styleProps}>
@@ -32,11 +46,7 @@ export const applyTheme = (styles, config) => {
             {label}
           </Slabel>
         )}
-        <Swapper {...styleProps}>
-          <Sselect aria-label={ariaLabel} {...rest} id={id} name={name}>
-            {children}
-          </Sselect>
-        </Swapper>
+        {Swapper ? <Swapper {...styleProps}>{input}</Swapper> : input}
       </Scontainer>
     );
   };

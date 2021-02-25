@@ -1,7 +1,7 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-export interface InputProps {
+export interface Props {
   id?: string;
   name?: string;
   label?: string;
@@ -12,17 +12,27 @@ export interface InputProps {
   [key: string]: any;
 }
 
-export const applyTheme = (styles, config) => {
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+  includeWrapper?: boolean;
+}
+
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
   const Scontainer = styleBuilder('div', 'container');
   const Slabel = styleBuilder('label', 'label');
+  const Swapper = config.includeWrapper ? styleBuilder('div', 'wrapper') : null;
   const Stextarea = styleBuilder('textarea', 'input');
 
   const bootstrap = createBootstrap(styles, 'textarea');
 
-  const BaseComponent = (props: InputProps) => {
+  const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);
+
+    const input = <Stextarea aria-label={ariaLabel} {...rest} id={id} name={name} />;
 
     return (
       <Scontainer {...styleProps}>
@@ -31,7 +41,7 @@ export const applyTheme = (styles, config) => {
             {label}
           </Slabel>
         )}
-        <Stextarea aria-label={ariaLabel} {...rest} id={id} name={name} />
+        {Swapper ? <Swapper {...styleProps}>{input}</Swapper> : input}
       </Scontainer>
     );
   };

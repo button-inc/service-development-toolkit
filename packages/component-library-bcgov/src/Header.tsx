@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { applyTheme } from 'component-library/Menu';
+import { applyTheme, StyleConfig } from 'component-library/Menu';
 import bcgovLogoSVG from './svg/bcgov_logo';
 
 const styles = {
@@ -69,12 +69,12 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: { header: 'main' },
   staticProps: [],
 };
 
-export const BaseHeader: any = applyTheme(styles, config);
+export const BaseHeader = applyTheme(styles, config);
 
 const BannerLogo = styled.a`
   height: 90%;

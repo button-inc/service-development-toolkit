@@ -1,7 +1,7 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-interface RadioButtonProps {
+export interface Props {
   id?: string;
   name?: string;
   label?: string;
@@ -12,7 +12,13 @@ interface RadioButtonProps {
   [key: string]: any;
 }
 
-export const applyTheme = (styles, config) => {
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+}
+
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
   const Scontainer = styleBuilder('div', 'container');
@@ -22,7 +28,7 @@ export const applyTheme = (styles, config) => {
 
   const bootstrap = createBootstrap(styles, 'radio');
 
-  const BaseComponent = (props: RadioButtonProps) => {
+  const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);
 
     return (

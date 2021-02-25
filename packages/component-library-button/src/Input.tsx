@@ -1,10 +1,11 @@
-import { applyTheme } from 'component-library/Input';
+import { applyTheme, StyleConfig } from 'component-library/Input';
 
 const styles = {
   shared: {
     label: `
       display: block;
       font-weight: 600;
+      margin-bottom: 0.277em;
     `,
     input: `
       margin: 0em;
@@ -16,7 +17,6 @@ const styles = {
       -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
       text-align: left;
       line-height: 1.21428571em;
-      font-family: 'Roboto', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
       padding: 0.35em 0.5em;
       background: #FFFFFF;
       color: rgba(0, 0, 0, 0.87);
@@ -28,26 +28,17 @@ const styles = {
   },
   size: {
     small: {
-      label: `
-        font-size: 0.7rem;
-      `,
-      input: `
+      container: `
         font-size: 0.8rem;
       `,
     },
     medium: {
-      label: `
-        font-size: 0.8rem;
-      `,
-      input: `
+      container: `
         font-size: 1rem;
       `,
     },
     large: {
-      label: `
-        font-size: 0.9rem;
-      `,
-      input: `
+      container: `
         font-size: 1.2rem;
       `,
     },
@@ -75,7 +66,7 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     variant: 'standard',
     size: 'small',

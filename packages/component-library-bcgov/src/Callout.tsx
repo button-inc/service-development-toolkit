@@ -1,41 +1,28 @@
 import React from 'react';
-import { applyTheme } from 'component-library/Notification';
+import { applyTheme, StyleConfig } from 'component-library/Notification';
 
 const styles = {
   shared: {
     container: `
       border-left-style: solid;
+      padding: 1.4em;
+      border-left-width: 0.7em;
     `,
   },
   size: {
     small: {
       container: `
-        padding: 1.3rem;
-        border-left-width: 0.6rem;
-
-        & p {
-          font-size: 0.9rem;
-        }
+        font-size: 0.8rem;
       `,
     },
     medium: {
       container: `
-        padding: 1.4rem;
-        border-left-width: 0.7rem;
-
-        & p {
-          font-size: 1rem;
-        }
+        font-size: 1rem;
       `,
     },
     large: {
       container: `
-        padding: 1.5rem;
-        border-left-width: 0.8rem;
-
-        & p {
-          font-size: 1.1rem;
-        }
+        font-size: 1.2rem;
       `,
     },
   },
@@ -49,7 +36,7 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     variant: 'primary',
     size: 'medium',
@@ -57,7 +44,7 @@ const config = {
   staticProps: [],
 };
 
-export const BaseCallout: any = applyTheme(styles, config);
+export const BaseCallout = applyTheme(styles, config);
 
 export default function Component(props: any) {
   const { content, children, ...rest } = props;

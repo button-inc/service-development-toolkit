@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import isFunction from 'lodash/isFunction';
-import { applyTheme } from 'component-library/Navigation';
+import { applyTheme, StyleConfig } from 'component-library/Navigation';
 import { BaseHeader } from './Header';
 import { Bars, FaSVG } from './fontawesome';
 import bcgovLogoSVG from './svg/bcgov_logo';
@@ -56,12 +56,12 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {},
   staticProps: [],
 };
 
-export const BaseNavigation: any = applyTheme(styles, config);
+export const BaseNavigation = applyTheme(styles, config);
 
 const BannerLogo = styled.a`
   height: 90%;

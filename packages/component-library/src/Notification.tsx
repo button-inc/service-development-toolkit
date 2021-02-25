@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import cx from 'clsx';
 import styled, { StyledInterface } from 'styled-components';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-interface Props {
+export interface Props {
   id?: string;
   children?: React.ReactNode;
   closable?: boolean;
@@ -46,7 +46,13 @@ const initialContext: Context = {
 
 const NotificationContext = React.createContext(initialContext);
 
-export const applyTheme = (styles, config, childStyles = {}) => {
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+}
+
+export const applyTheme = (styles, config: BaseStyleConfig, childStyles = {}) => {
   const styleBuilder = createStyleBuilder(styles, config, childStyles);
   const Scontainer = styleBuilder('div', 'container');
   const Sheader = styleBuilder('div', 'header');

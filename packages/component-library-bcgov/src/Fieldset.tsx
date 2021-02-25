@@ -1,4 +1,4 @@
-import { applyTheme } from 'component-library/Fieldset';
+import { applyTheme, StyleConfig } from 'component-library/Fieldset';
 
 const styles = {
   shared: {
@@ -32,7 +32,7 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     variant: 'warning',
     size: 'tiny',

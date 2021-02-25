@@ -1,4 +1,4 @@
-import { applyTheme } from 'component-library/Button';
+import { applyTheme, StyleConfig } from 'component-library/Button';
 
 const styles = {
   shared: {
@@ -11,7 +11,6 @@ const styles = {
       vertical-align: baseline;
       background: #E0E1E2 none;
       color: rgba(0, 0, 0, 0.6);
-      font-family: 'Roboto', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
       margin: 0;
       padding: 0.78571429em 1.6em 0.78571429em;
       text-transform: none;
@@ -71,7 +70,7 @@ const styles = {
       button: `
         color: #2476ED;
         background-color: transparent;
-        box-shadow: 0px 0px 0px 1px #2476ED inset !important;
+        box-shadow: 0px 0px 0px 2px #2476ED inset !important;
 
         &:hover {
           background-color: #b9e2ff;
@@ -100,6 +99,23 @@ const styles = {
         }
       `,
     },
+    dark: {
+      button: `
+        color: #000;
+        background-color: #fff;
+        box-shadow: 0px 0px 0px 2px #000 inset !important;
+
+        &:hover {
+          color: #fff;
+          background-color: #000;
+          text-decoration: underline;
+        }
+
+        &:focus {
+          box-shadow: 0px 0px 0px 2px #FBDD01 inset !important;
+        }
+      `,
+    },
   },
   disabled: `
     font-size: 1rem;
@@ -111,7 +127,7 @@ const styles = {
   `,
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     variant: 'primary',
     size: 'medium',
@@ -120,6 +136,6 @@ const config = {
   staticProps: [],
 };
 
-const Button: any = applyTheme(styles, config);
+const Button = applyTheme(styles, config);
 
 export default Button;

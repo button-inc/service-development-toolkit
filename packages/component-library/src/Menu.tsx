@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import cx from 'clsx';
 import styled from 'styled-components';
-import { createStyleBuilder, createBootstrap } from './helpers';
+import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-interface Props {
+export interface Props {
   id?: string;
   children?: React.ReactNode;
   className?: string;
@@ -60,7 +60,13 @@ const BreakingItem = styled.span<BreakingProps>`
 
 const MenuContext = React.createContext(initialContext);
 
-export const applyTheme = (styles, config) => {
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+}
+
+export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
   const Scontainer = styleBuilder(BreakingGroup, 'container');
   const Sgroup = styleBuilder(BreakingGroup, 'group');

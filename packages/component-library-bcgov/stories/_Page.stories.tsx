@@ -1,7 +1,5 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { TypographyStyle } from 'react-typography';
-import '@bcgov/bc-sans/css/BCSans.css';
 import Navigation from '../src/Navigation';
 import Footer from '../src/Footer';
 import Alert from '../src/Alert';
@@ -13,7 +11,7 @@ import Callout from '../src/Callout';
 import Dropdown from '../src/Dropdown';
 import Textarea from '../src/Textarea';
 import Link from '../src/Link';
-import typography from '../src/BCSans';
+import BCGovTypography from './BCGovTypography';
 
 export default {
   title: '_Page',
@@ -44,7 +42,7 @@ const Menu = () => (
 
 const Template: Story = args => (
   <div style={{ border: '1px solid black' }}>
-    <TypographyStyle typography={typography} />
+    <BCGovTypography />
     <Navigation title="Hello British Columbia" onBannerClick={console.log}>
       <Menu />
     </Navigation>

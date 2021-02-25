@@ -1,7 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
+import { HtmlOnlyWrapper, HtmlWithCssWrapper, Divider } from '../../../stories/helpers';
 import Button from '../src/Button';
+import BCGovTypography from './BCGovTypography';
 
 export default {
   title: 'Button',
@@ -24,15 +25,20 @@ const Template: Story = args => (
       padding: '15px',
     }}
   >
+    <BCGovTypography />
     <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
       <Button {...args}>Button</Button>
     </HtmlOnlyWrapper>
 
+    <Divider />
+
     <h3>HTML + CSS</h3>
     <HtmlWithCssWrapper>
       <Button {...args}>Button</Button>
     </HtmlWithCssWrapper>
+
+    <Divider />
 
     <h3>HTML + CSS + JS</h3>
     <Button {...args}>Button</Button>

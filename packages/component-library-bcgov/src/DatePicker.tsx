@@ -1,51 +1,59 @@
-import { applyTheme } from 'component-library/DatePicker';
+import { applyTheme, StyleConfig } from 'component-library/DatePicker';
 
 const styles = {
   shared: {
-    input: '',
-    container: `
-            border: 1px solid black;
-            padding: 2px;
-          `,
+    label: `
+      display: block;
+      margin-bottom: 0.2777em;
+    `,
+    input: `
+      display: block;
+      border: 2px solid #606060;
+      border-radius: 0;
+      padding: 0.5em 0.6em;
+    `,
   },
   size: {
-    tiny: {
-      input: 'font-size: 15px;',
+    small: {
+      container: `
+        font-size: 0.8rem;
+      `,
     },
     medium: {
-      input: 'font-size: 20px;',
+      container: `
+        font-size: 1rem;
+      `,
+    },
+    large: {
+      container: `
+        font-size: 1.2rem;
+      `,
     },
   },
-  variant: {
-    secondary: {
-      container: `
-                  border-color: blue;
-                `,
-      input: '',
-    },
-    warning: {
-      container: `
-                  border-color: red;
-                `,
-      input: '',
-    },
+  required: {
+    label: `
+      &:after {
+        margin: -0.2em 0em 0em 0.2em;
+        content: '*';
+        color: #DB2828;
+      }
+    `,
   },
-  display: {
-    none: {},
-    block: {
-      input: 'display: block;',
-    },
+  rounded: {
+    input: `
+      border-radius: 0.25em;
+    `,
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
-    variant: 'warning',
-    size: 'tiny',
+    size: 'medium',
+    rounded: true,
   },
-  staticProps: [],
+  staticProps: ['fullWidth'],
 };
 
-const DatePicker: any = applyTheme(styles, config);
+const DatePicker = applyTheme(styles, config);
 
 export default DatePicker;
