@@ -5,7 +5,12 @@ const expectedIndex = page - 1;
 const defaultUrlArray = ['', '', '', '', ''];
 
 const mockReq = { session: { formData: { data: 'test' } }, url: `/testpath/${page}` };
-const expectedResult = { formIndex: expectedIndex, formData: mockReq.session.formData, validPage: true };
+const expectedResult = {
+  formIndex: expectedIndex,
+  formData: mockReq.session.formData,
+  validPage: true,
+  prevPageUrl: '/4',
+};
 
 const mockCallback = formIndex => ({ formIndex });
 

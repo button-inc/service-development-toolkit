@@ -10,10 +10,12 @@ export const getUrlPage = url => {
   return Number(urlEnd) || urlEnd;
 };
 
-const getPageIndex = (page: string, urlArray: string[]) => {
-  const pageIndex = urlArray.indexOf(page);
+const getPageIndex = (page: string, urlArray: string[]): number => {
+  let trimmedPage = page;
+  if (trimmedPage[0] === '/') trimmedPage = trimmedPage.slice(1);
+  const pageIndex = urlArray.indexOf(trimmedPage);
   if (pageIndex !== -1) return pageIndex;
-  return Number(page) - 1;
+  return Number(trimmedPage) - 1;
 };
 
 export const getPrevPageUrl = (page: string, urlArray: string[]) => {
