@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-export interface FieldsetProps {
+export interface Props {
   id?: string;
   name?: string;
   title?: string;
@@ -25,7 +25,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
 
   const bootstrap = createBootstrap(styles, 'fieldset');
 
-  const BaseComponent = (props: FieldsetProps) => {
+  const BaseComponent = (props: Props) => {
     const { id, name, ariaLabel, styleProps, children, rest } = bootstrap(props);
 
     const { title, disabled, ...others } = rest;

@@ -179,7 +179,7 @@ const childStyles = {
   },
 };
 
-export const BaseAlert: any = applyTheme(styles, config, childStyles);
+export const BaseAlert = applyTheme(styles, config, childStyles);
 
 const getIconPath = (variant: string) => {
   switch (variant) {

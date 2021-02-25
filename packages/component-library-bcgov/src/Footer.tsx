@@ -57,6 +57,6 @@ const config: StyleConfig = {
   staticProps: [],
 };
 
-const Footer: any = applyTheme(styles, config);
+const Footer = applyTheme(styles, config);
 
 export default Footer;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { StyledInterface } from 'styled-components';
 import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-interface Props {
+export interface Props {
   id?: string;
   name?: string;
   label?: string;

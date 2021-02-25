@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyleBuilder, StyleConfig as BaseStyleConfig } from './helpers';
 
-interface Props {
+export interface Props {
   children?: React.ReactNode;
   className?: string;
   style?: object;

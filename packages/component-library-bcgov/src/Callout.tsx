@@ -44,7 +44,7 @@ const config: StyleConfig = {
   staticProps: [],
 };
 
-export const BaseCallout: any = applyTheme(styles, config);
+export const BaseCallout = applyTheme(styles, config);
 
 export default function Component(props: any) {
   const { content, children, ...rest } = props;

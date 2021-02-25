@@ -79,6 +79,6 @@ const config: StyleConfig = {
   staticProps: [],
 };
 
-const RadioButton: any = applyTheme(styles, config);
+const RadioButton = applyTheme(styles, config);
 
 export default RadioButton;

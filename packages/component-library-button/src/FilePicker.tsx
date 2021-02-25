@@ -53,7 +53,7 @@ const config: StyleConfig = {
   `,
 };
 
-export const BaseFilePicker: any = applyTheme(styles, config);
+export const BaseFilePicker = applyTheme(styles, config);
 
 export default function Component(props: any) {
   const { children, ...rest } = props;

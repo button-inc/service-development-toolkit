@@ -74,6 +74,6 @@ const config: StyleConfig = {
   staticProps: ['fullWidth'],
 };
 
-const DatePicker: any = applyTheme(styles, config);
+const DatePicker = applyTheme(styles, config);
 
 export default DatePicker;

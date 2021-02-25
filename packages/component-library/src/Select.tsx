@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
-interface SelectProps {
+export interface Props {
   id?: string;
   name?: string;
   label?: string;
@@ -30,7 +30,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
 
   const bootstrap = createBootstrap(styles, 'radio');
 
-  const BaseComponent = (props: SelectProps) => {
+  const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, rest } = bootstrap(props);
 
     const input = (

@@ -82,6 +82,6 @@ const config: StyleConfig = {
   staticProps: [],
 };
 
-const Checkbox: any = applyTheme(styles, config);
+const Checkbox = applyTheme(styles, config);
 
 export default Checkbox;

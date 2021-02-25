@@ -157,6 +157,6 @@ const config: StyleConfig = {
   staticProps: [],
 };
 
-const Button: any = applyTheme(styles, config);
+const Button = applyTheme(styles, config);
 
 export default Button;
