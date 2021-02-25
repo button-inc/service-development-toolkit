@@ -2,25 +2,19 @@ import React, { useState } from 'react';
 
 function getValue(inputType) {
   switch (inputType) {
-    case 'input':
-      return 'value';
     case 'checkbox':
       return 'checked';
-    case 'select':
-      return 'value';
-    case 'radio':
-      return 'value';
     case 'file':
       return 'files';
     default:
-      return '';
+      return 'value';
   }
 }
 
 const Wrapper = (Component, inputType: string = '') => {
   const valueKey = getValue(inputType);
   return props => {
-    const { value, onChange, label, schema, options } = props;
+    const { value, onChange, label, schema, options, required } = props;
     const { name, title, pattern, minLength, maxLength } = schema;
     const { enumOptions = [] } = options;
     const formProps = {
@@ -30,6 +24,7 @@ const Wrapper = (Component, inputType: string = '') => {
       label,
       name,
       maxLength,
+      required,
       minLength,
       type: inputType,
       pattern,
@@ -38,6 +33,10 @@ const Wrapper = (Component, inputType: string = '') => {
     };
     if (inputType === 'file') {
       delete formProps.value;
+    }
+
+    if (inputType === 'checkbox') {
+      formProps.value = true;
     }
 
     if (inputType === 'radio') {

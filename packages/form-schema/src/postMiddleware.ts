@@ -44,7 +44,7 @@ export default async function postHandler(
   let newFormData: object = {};
 
   if (useSession) {
-    newFormData = defaultPageOverHandler(req.session, schema, postData);
+    newFormData = defaultPageOverHandler(req.session, schemas[schemaIndex], postData);
     req.session.formData = newFormData;
   } else if (typeof onPost === 'function') {
     newFormData = onPost(postData, schemaIndex, cleanSchemaData.bind({}, postData, pageSchema));

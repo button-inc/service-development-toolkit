@@ -11,9 +11,10 @@ const getContentType = files => {
   return 'application/json';
 };
 
-const getFormData = files => {
+const getFormData = (files: object) => {
   const data = new FormData();
-  data.append('file', files.file[0]);
+  const fileList = Object.values(files)[0];
+  data.append('file', fileList[0]);
   data.append('js', 'true');
   return data;
 };
@@ -39,7 +40,7 @@ export default function buildForms(
       const { hasFiles } = schema;
 
       return function FormPage(props) {
-        const [files, setFiles] = useState();
+        const [files, setFiles] = useState({});
 
         const handleSubmit = async ({ formData }) => {
           let data: object = { postData: formData, page: pageNumber, js: true };
