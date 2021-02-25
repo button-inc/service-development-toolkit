@@ -2,6 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
 import Callout from '../src/Callout';
+import BCGovTypography from './BCGovTypography';
 
 export default {
   title: 'Callout',
@@ -18,6 +19,7 @@ export default {
 
 const Template: Story = args => (
   <>
+    <BCGovTypography />
     <Callout {...args} />
   </>
 );

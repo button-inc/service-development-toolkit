@@ -1,4 +1,4 @@
-import { applyTheme } from 'component-library/Button';
+import { applyTheme, StyleConfig } from 'component-library/Button';
 
 const styles = {
   shared: {
@@ -11,7 +11,6 @@ const styles = {
       vertical-align: baseline;
       background: #E0E1E2 none;
       color: rgba(0, 0, 0, 0.6);
-      font-family: 'Roboto', 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
       margin: 0;
       padding: 0.78571429em 1.6em 0.78571429em;
       text-transform: none;
@@ -128,7 +127,7 @@ const styles = {
   `,
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     variant: 'primary',
     size: 'medium',

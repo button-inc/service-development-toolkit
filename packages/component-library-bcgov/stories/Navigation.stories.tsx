@@ -2,6 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
 import Navigation from '../src/Navigation';
+import BCGovTypography from './BCGovTypography';
 
 export default {
   title: 'Navigation',
@@ -33,6 +34,7 @@ const Menu = () => (
 
 const Template: Story = args => (
   <>
+    <BCGovTypography />
     <Navigation {...args}>
       <Menu />
     </Navigation>

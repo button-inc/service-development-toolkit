@@ -1,4 +1,4 @@
-import { applyTheme } from 'component-library/DatePicker';
+import { applyTheme, StyleConfig } from 'component-library/DatePicker';
 
 const styles = {
   shared: {
@@ -38,7 +38,7 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     variant: 'warning',
     size: 'tiny',

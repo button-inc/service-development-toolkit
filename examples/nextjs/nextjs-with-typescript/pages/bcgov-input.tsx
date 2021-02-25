@@ -1,10 +1,10 @@
 import Input from 'component-library-bcgov/Input';
-import BCSans from '../components/BCSans';
+import BCGovTypography from '../components/BCGovTypography';
 
 export default function InputPage() {
   return (
     <>
-      <BCSans />
+      <BCGovTypography />
       <Input label="First Name" size="small" required />
       <br />
       <Input label="First Name" required />

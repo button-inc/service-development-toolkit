@@ -1,10 +1,10 @@
 import RadioButton from 'component-library-bcgov/RadioButton';
-import BCSans from '../components/BCSans';
+import BCGovTypography from '../components/BCGovTypography';
 
 export default function RadioButtonPage() {
   return (
     <>
-      <BCSans />
+      <BCGovTypography />
       <RadioButton size="small" label="Lorem ipsum dolor sit amet" name="samename" />
       <br />
       <RadioButton label="Lorem ipsum dolor sit amet" name="samename" />

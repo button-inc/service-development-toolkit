@@ -1,9 +1,9 @@
 import Button from 'component-library-bcgov/Button';
-import BCSans from '../components/BCSans';
+import BCGovTypography from '../components/BCGovTypography';
 
 const Buttons = ({ size }) => (
   <>
-    <BCSans />
+    <BCGovTypography />
     <Button variant="primary" size={size}>
       Primary
     </Button>

@@ -1,5 +1,5 @@
 import Footer from 'component-library-bcgov/Footer';
-import BCSans from '../components/BCSans';
+import BCGovTypography from '../components/BCGovTypography';
 
 const Menu = () => (
   <ul>
@@ -27,7 +27,7 @@ const Menu = () => (
 export default function FooterPage() {
   return (
     <>
-      <BCSans />
+      <BCGovTypography />
       <Footer>
         <Menu />
       </Footer>

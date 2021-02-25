@@ -1,5 +1,5 @@
 import Navigation from 'component-library-bcgov/Navigation';
-import BCSans from '../components/BCSans';
+import BCGovTypography from '../components/BCGovTypography';
 
 const Menu = () => (
   <ul>
@@ -27,7 +27,7 @@ const Menu = () => (
 export default function NavigationPage() {
   return (
     <>
-      <BCSans />
+      <BCGovTypography />
       <Navigation title="Hello British Columbia" onBannerClick={console.log}>
         <Menu />
       </Navigation>

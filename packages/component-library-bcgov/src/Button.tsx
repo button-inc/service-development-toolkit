@@ -1,14 +1,13 @@
-import { applyTheme } from 'component-library/Button';
+import { applyTheme, StyleConfig } from 'component-library/Button';
 
 const styles = {
   shared: {
     button: `
-      border-radius: 4px;
+      border-radius: 0.222em;
       border-width: 0;
       padding: 0.66em 1.77em;
       text-align: center;
       text-decoration: none;
-      Font-family: 'BCSans', 'Noto Sans', Verdana, Arial, sans-serif;
       font-weight: 700;
       letter-spacing: 1px;
       display: inline-block;
@@ -149,7 +148,7 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     variant: 'primary',
     size: 'medium',

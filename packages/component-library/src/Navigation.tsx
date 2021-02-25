@@ -44,6 +44,12 @@ const initialContext: Context = {
 
 const NavigationContext = React.createContext(initialContext);
 
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+}
+
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
   const Scontainer = styleBuilder('div', 'container');

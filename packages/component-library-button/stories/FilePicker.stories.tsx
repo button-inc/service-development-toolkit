@@ -1,7 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
+import { HtmlOnlyWrapper, HtmlWithCssWrapper, Divider } from '../../../stories/helpers';
 import FilePicker from '../src/FilePicker';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: 'FilePicker',
@@ -18,15 +19,20 @@ export default {
 
 const Template: Story = args => (
   <>
+    <ButtonTypography />
     <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
       <FilePicker {...args}>Choose File</FilePicker>
     </HtmlOnlyWrapper>
 
+    <Divider />
+
     <h3>HTML + CSS</h3>
     <HtmlWithCssWrapper>
       <FilePicker {...args}>Choose File</FilePicker>
     </HtmlWithCssWrapper>
+
+    <Divider />
 
     <h3>HTML + CSS + JS</h3>
     <FilePicker {...args}>Choose File</FilePicker>

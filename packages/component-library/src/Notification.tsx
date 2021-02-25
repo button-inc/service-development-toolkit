@@ -46,6 +46,12 @@ const initialContext: Context = {
 
 const NotificationContext = React.createContext(initialContext);
 
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+}
+
 export const applyTheme = (styles, config: BaseStyleConfig, childStyles = {}) => {
   const styleBuilder = createStyleBuilder(styles, config, childStyles);
   const Scontainer = styleBuilder('div', 'container');

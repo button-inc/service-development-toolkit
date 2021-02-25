@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { applyTheme } from 'component-library/Menu';
+import { applyTheme, StyleConfig } from 'component-library/Menu';
 import bcgovLogoSVG from './svg/bcgov_logo';
 
 const styles = {
@@ -69,7 +69,7 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: { header: 'main' },
   staticProps: [],
 };

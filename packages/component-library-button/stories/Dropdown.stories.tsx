@@ -1,14 +1,13 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper, Divider } from '../../../stories/helpers';
-import Checkbox from '../src/Checkbox';
+import Dropdown from '../src/Dropdown';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Checkbox',
-  component: Checkbox,
+  title: 'Dropdown',
+  component: Dropdown,
   argTypes: {
-    onClick: { action: 'clicked' },
     size: {
       control: {
         type: 'select',
@@ -18,30 +17,41 @@ export default {
   },
 } as Meta;
 
+const Component = props => (
+  <Dropdown {...props}>
+    <option value="option1">Option 1</option>
+    <option value="option1">Option 2</option>
+    <option value="option1">Option 3</option>
+    <option value="option1">Option 4</option>
+    <option value="option1">Option 5</option>
+  </Dropdown>
+);
+
 const Template: Story = args => (
   <>
     <ButtonTypography />
     <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
-      <Checkbox {...args} />
+      <Component {...args}>Dropdown</Component>
     </HtmlOnlyWrapper>
 
     <Divider />
 
     <h3>HTML + CSS</h3>
     <HtmlWithCssWrapper>
-      <Checkbox {...args} />
+      <Component {...args}>Dropdown</Component>
     </HtmlWithCssWrapper>
 
     <Divider />
 
     <h3>HTML + CSS + JS</h3>
-    <Checkbox {...args} />
+    <Component {...args}>Dropdown</Component>
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  label: 'Lorem ipsum dolor sit amet',
+export const Standard = Template.bind({});
+Standard.args = {
+  label: 'Field Label',
   size: 'medium',
+  required: false,
 };

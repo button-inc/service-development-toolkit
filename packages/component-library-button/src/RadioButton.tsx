@@ -1,4 +1,4 @@
-import { applyTheme } from 'component-library/RadioButton';
+import { applyTheme, StyleConfig } from 'component-library/RadioButton';
 
 // The inner circles are two-thirds small than its outer circles.
 const styles = {
@@ -55,33 +55,24 @@ const styles = {
   },
   size: {
     small: {
-      label: `
-        font-size: 0.8rem;
-      `,
-      dot: `
+      container: `
         font-size: 0.8rem;
       `,
     },
     medium: {
-      label: `
-        font-size: 1rem;
-      `,
-      dot: `
+      container: `
         font-size: 1rem;
       `,
     },
     large: {
-      label: `
-        font-size: 1.2rem;
-      `,
-      dot: `
+      container: `
         font-size: 1.2rem;
       `,
     },
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     size: 'medium',
   },

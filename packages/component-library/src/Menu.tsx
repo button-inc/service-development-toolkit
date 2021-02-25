@@ -60,6 +60,12 @@ const BreakingItem = styled.span<BreakingProps>`
 
 const MenuContext = React.createContext(initialContext);
 
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+}
+
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
   const Scontainer = styleBuilder(BreakingGroup, 'container');

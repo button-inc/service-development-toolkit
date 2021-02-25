@@ -1,10 +1,10 @@
 import Link from 'component-library-bcgov/Link';
-import BCSans from '../components/BCSans';
+import BCGovTypography from '../components/BCGovTypography';
 
 export default function LinkPage() {
   return (
     <>
-      <BCSans />
+      <BCGovTypography />
       <Link href="#link1" content="Lorem ipsum dolor sit amet" size="small" external />
       <br />
       <Link href="#link1" content="Lorem ipsum dolor sit amet" size="medium" external />

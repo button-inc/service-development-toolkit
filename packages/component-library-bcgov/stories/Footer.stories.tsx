@@ -2,6 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
 import Footer from '../src/Footer';
+import BCGovTypography from './BCGovTypography';
 
 export default {
   title: 'Footer',
@@ -33,6 +34,7 @@ const Menu = () => (
 
 const Template: Story = args => (
   <>
+    <BCGovTypography />
     <Footer {...args}>
       <Menu />
     </Footer>

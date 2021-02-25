@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { applyTheme } from 'component-library/Notification';
+import { applyTheme, StyleConfig } from 'component-library/Notification';
 import { CheckCircle, InfoCircle, ExclamationTriangle, ExclamationCircle, FaSVG } from './fontawesome';
 
 const styles = {
@@ -8,8 +8,9 @@ const styles = {
     container: `
       line-height: 1.5em;
       border: 1px solid transparent;
-      border-radius: 4px;
+      border-radius: 0.2222em;
       font-weight: 700;
+      padding: 1em 0.5em;
 
       & a {
         text-decoration: underline;
@@ -19,53 +20,24 @@ const styles = {
       cursor: pointer !important;
       text-align: center;
       text-decoration: none;
-      border-radius: 0.2rem;
+      border-radius: 0.2222em;
+      padding: 0.4em 0.5em;
     `,
   },
   size: {
     small: {
       container: `
-        padding: 0.8rem 0.4rem;
-      `,
-      content: `
         font-size: 0.8rem;
-      `,
-      group: `
-        font-size: 0.8rem;
-      `,
-      close: `
-        font-size: 0.8rem;
-        padding: 0.2rem;
       `,
     },
     medium: {
       container: `
-        padding: 1rem 0.5rem;
-      `,
-      content: `
         font-size: 1rem;
-      `,
-      group: `
-        font-size: 1rem;
-      `,
-      close: `
-        font-size: 1rem;
-        padding: 0.4rem;
       `,
     },
     large: {
       container: `
-        padding: 1.2rem 0.6rem;
-      `,
-      content: `
         font-size: 1.2rem;
-      `,
-      group: `
-        font-size: 1.2rem;
-      `,
-      close: `
-        font-size: 1.2rem;
-        padding: 0.6rem;
       `,
     },
   },
@@ -185,7 +157,7 @@ const styles = {
   },
 };
 
-const config = {
+const config: StyleConfig = {
   defaultProps: {
     variant: 'info',
     size: 'medium',
@@ -198,10 +170,10 @@ const childStyles = {
   group: {
     align: {
       left: `
-      margin-right: auto;
+        margin-right: auto;
     `,
       right: `
-      margin-left: auto;
+        margin-left: auto;
     `,
     },
   },
