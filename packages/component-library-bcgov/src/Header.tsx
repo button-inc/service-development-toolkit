@@ -86,10 +86,10 @@ const Title = styled.h1`
 `;
 
 export default function Component(props: any) {
-  const { title = '', onBannerClick = () => null } = props;
+  const { title = '', onBannerClick = () => null, ...rest } = props;
 
   return (
-    <BaseHeader>
+    <BaseHeader {...rest}>
       <BaseHeader.Group className="banner">
         <BannerLogo onClick={onBannerClick}>{bcgovLogoSVG}</BannerLogo>
       </BaseHeader.Group>

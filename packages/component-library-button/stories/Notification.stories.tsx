@@ -17,7 +17,7 @@ export default {
   },
 } as Meta;
 
-const Component = props => (
+const ExampleNotification = props => (
   <Notification {...props}>
     <Notification.Group>
       <Notification.Header>Lectus Magna Efficitur</Notification.Header>
@@ -37,20 +37,20 @@ const Template: Story = args => (
     <ButtonTypography />
     <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
-      <Component {...args} />
+      <ExampleNotification {...args} />
     </HtmlOnlyWrapper>
 
     <Divider />
 
     <h3>HTML + CSS</h3>
     <HtmlWithCssWrapper>
-      <Component {...args} />
+      <ExampleNotification {...args} />
     </HtmlWithCssWrapper>
 
     <Divider />
 
     <h3>HTML + CSS + JS</h3>
-    <Component {...args} />
+    <ExampleNotification {...args} />
   </>
 );
 
