@@ -28,7 +28,19 @@ export default {
 const Template: Story = ({ size }) => (
   <div style={{ border: '1px solid black' }}>
     <ButtonTypography />
-    <Header onBannerClick={console.log} size={size} />
+    <Header onBannerClick={console.log} size={size}>
+      <ul>
+        <li>
+          <a href=".">HOME</a>
+        </li>
+        <li>
+          <a href=".">ABOUT US</a>
+        </li>
+        <li>
+          <a href=".">CONTACT</a>
+        </li>
+      </ul>
+    </Header>
     <div style={{ padding: '2rem' }}>
       <Notification flex closable size={size}>
         <Notification.Group>
