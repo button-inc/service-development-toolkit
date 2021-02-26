@@ -1,19 +1,17 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import Navigation from '../src/Navigation';
+import Header from '../src/Header';
 import Footer from '../src/Footer';
-import Alert from '../src/Alert';
+import Notification from '../src/Notification';
 import Input from '../src/Input';
 import DatePicker from '../src/DatePicker';
 import FilePicker from '../src/FilePicker';
 import Checkbox from '../src/Checkbox';
 import RadioButton from '../src/RadioButton';
 import Button from '../src/Button';
-import Callout from '../src/Callout';
 import Dropdown from '../src/Dropdown';
 import Textarea from '../src/Textarea';
-import Link from '../src/Link';
-import BCGovTypography from './BCGovTypography';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: '_Page',
@@ -27,40 +25,35 @@ export default {
   },
 } as Meta;
 
-const Menu = () => (
-  <ul>
-    <li>
-      <a href=".">Link 1</a>
-    </li>
-    <li>
-      <a href=".">Link 2</a>
-    </li>
-    <li>
-      <a href=".">Link 3</a>
-    </li>
-    <li>
-      <a href=".">Link 4</a>
-    </li>
-    <li>
-      <a href=".">Link 5</a>
-    </li>
-    <li>
-      <a href=".">Link 6</a>
-    </li>
-  </ul>
-);
-
 const Template: Story = ({ size }) => (
   <div style={{ border: '1px solid black' }}>
-    <BCGovTypography />
-    <Navigation title="Hello British Columbia" onBannerClick={console.log} size={size}>
-      <Menu />
-    </Navigation>
+    <ButtonTypography />
+    <Header onBannerClick={console.log} size={size}>
+      <ul>
+        <li>
+          <a href=".">HOME</a>
+        </li>
+        <li>
+          <a href=".">ABOUT US</a>
+        </li>
+        <li>
+          <a href=".">CONTACT</a>
+        </li>
+      </ul>
+    </Header>
     <div style={{ padding: '2rem' }}>
-      <Alert
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus."
-        size={size}
-      />
+      <Notification flex closable size={size}>
+        <Notification.Group>
+          <Notification.Header>Lectus Magna Efficitur</Notification.Header>
+          <Notification.Content>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus. In lectus magna,
+            efficitur nec mi eu, placerat lacinia sem.
+          </Notification.Content>
+        </Notification.Group>
+        <Notification.Group align="right">
+          <Notification.Close>Close</Notification.Close>
+        </Notification.Group>
+      </Notification>
       <br />
       <Input label="Name" required fullWidth size={size} />
       <br />
@@ -96,11 +89,6 @@ const Template: Story = ({ size }) => (
       <br />
       <Textarea label="Enter text..." required fullWidth size={size} />
       <br />
-      <Callout size={size}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus.</Callout>
-      <br />
-      <p>
-        This is an internal example of a link to <Link href="#link1" content="access your application" size={size} />.
-      </p>
       <Button variant="primary" size={size}>
         Submit
       </Button>
@@ -110,9 +98,7 @@ const Template: Story = ({ size }) => (
       </Button>
       <br />
     </div>
-    <Footer>
-      <Menu />
-    </Footer>
+    <Footer />
   </div>
 );
 
