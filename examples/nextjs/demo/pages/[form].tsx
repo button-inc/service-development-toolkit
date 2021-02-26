@@ -33,7 +33,7 @@ export default function home({
   const router = useRouter();
   const prevUrl = prevPageUrl === -1 ? '/' : prevPageUrl;
 
-  const rerouteHandler = (nextPage: string, _isValid: boolean, lastPage: boolean) => {
+  const rerouteHandler = (nextPage: string, lastPage: boolean) => {
     router.push(lastPage ? '/end' : nextPage);
   };
 
@@ -77,7 +77,7 @@ export default function home({
 
 export async function getServerSideProps({ req, res }: any) {
   await applySession(req, res);
-  const { formIndex, formData, prevPageUrl, validPage } = getHandler(req);
+  const { formIndex, formData, prevPageUrl = -1, validPage } = getHandler(req);
   return {
     props: { formIndex, formData, prevPageUrl, validPage },
   };

@@ -1,6 +1,6 @@
 import validate from 'react-jsonschema-form/lib/validate';
 import forEach from 'lodash/forEach';
-import { IValidations } from '../interfaces';
+import { ISharedArgs, IValidations } from '../interfaces';
 
 export function createValidator(page: number, fieldsArray: string[][], validations?: IValidations) {
   const fields = fieldsArray[page];
@@ -25,11 +25,15 @@ export function validateFormData(
   formData: object,
   fullSchema: object,
   fieldsArray: string[][],
-  validations: IValidations
+  validations?: IValidations
 ) {
   const validated = validate(formData, fullSchema, createValidator(-1, fieldsArray, validations));
-
   const { errors } = validated;
-
   return errors.length === 0 ? { isValidated: true, isValid: true } : { isValidated: true, isValid: false, errors };
+}
+
+export function handleFormEnd(sharedArgs: ISharedArgs, formData: object) {
+  const { fieldsArray, validations, onFormEnd, schema: fullSchema } = sharedArgs;
+  const result = validateFormData(formData, fullSchema, fieldsArray, validations);
+  if (typeof onFormEnd === 'function') onFormEnd(result.errors, formData);
 }

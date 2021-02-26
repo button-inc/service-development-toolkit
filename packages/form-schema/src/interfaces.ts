@@ -6,11 +6,6 @@ export interface IDependency {
   oneOf: ISchema[];
 }
 
-export interface IFileOptions {
-  handleReadStream?: Function;
-  onFileLoad?: Function;
-}
-
 export interface ISchema {
   title?: string;
   type?: string;
@@ -42,7 +37,7 @@ export interface IOptions {
   onFileLoad?: Function;
   onPost?: Function;
   onFormEnd?: Function;
-  useSession?: Boolean;
+  useSession?: boolean;
   getRoute: string;
   postRoute: string;
 }
@@ -50,5 +45,14 @@ export interface IOptions {
 export interface IForms {
   Forms: Function[];
   fieldsArray: string[][];
-  schemasArray: object[];
+  schemasArray: ISchema[];
+}
+
+export interface ISharedArgs extends IOptions {
+  numForms: number;
+  schema: ISchema;
+  uiSchema: object;
+  schemasArray: ISchema[];
+  fieldsArray: string[][];
+  urlArray: string[];
 }

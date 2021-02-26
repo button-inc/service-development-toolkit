@@ -1,12 +1,22 @@
 import Busboy from 'busboy';
-import { getPageInfo, parseUrl } from './Utils/urlUtils';
-import { IFileOptions } from './interfaces';
+import { getPageInfo, parseUrl } from './utils/urlUtils';
+import { ISharedArgs } from './interfaces';
+import { handleFormEnd } from './utils/validationUtils';
+import { getCleanedFormData } from './utils/cleanDataUtils';
 
-function handleRedirect(js: boolean, getRoute: string, numForms: number, urlArray: string[], req: any, res: any) {
+function handleRedirect(sharedArgs: ISharedArgs, js: boolean, req: any, res: any) {
   const { url } = req;
-  const { nextPageNumber, nextPagePostfix } = getPageInfo(url, urlArray);
-  const props = { nextPage: nextPagePostfix, formData: req.session.formData, isLastPage: nextPageNumber > numForms };
+  const { urlArray, schemasArray, numForms, getRoute } = sharedArgs;
+  const { nextPageNumber, nextPagePostfix, schemaIndex } = getPageInfo(url, urlArray);
+  const pageSchema = schemasArray[schemaIndex];
+  const isLastPage = nextPageNumber > numForms;
 
+  if (isLastPage) {
+    const formData = getCleanedFormData(sharedArgs, {}, pageSchema, req);
+    handleFormEnd(sharedArgs, formData);
+  }
+
+  const props = { nextPage: nextPagePostfix, isLastPage };
   if (js) {
     res.json(props);
   } else {
@@ -15,19 +25,13 @@ function handleRedirect(js: boolean, getRoute: string, numForms: number, urlArra
   }
 }
 
-export default async function fileHandler(
-  getRoute: string,
-  numForms: number,
-  urlArray: string[],
-  options: IFileOptions,
-  req: any,
-  res: any
-) {
+export default async function fileHandler(sharedArgs: ISharedArgs, req: any, res: any) {
   if (req.method === 'POST') {
     let js = false;
     let fileName = '';
-    const { handleReadStream } = options;
+    const { handleReadStream, onFileLoad } = sharedArgs;
     const busboy = new Busboy({ headers: req.headers });
+    req.pipe(busboy);
     busboy.on('file', function (_fieldname, file: ReadableStream, filename: string, _encoding, _mimetype) {
       fileName = filename;
       if (handleReadStream) {
@@ -38,9 +42,8 @@ export default async function fileHandler(
       if (fieldname === 'js' && value === 'true') js = true;
     });
     busboy.on('finish', function () {
-      if (options.onFileLoad) options.onFileLoad(fileName);
-      handleRedirect(js, getRoute, numForms, urlArray, req, res);
+      if (onFileLoad) onFileLoad(fileName);
+      handleRedirect(sharedArgs, js, req, res);
     });
-    req.pipe(busboy);
   }
 }
