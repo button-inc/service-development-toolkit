@@ -1,3 +1,4 @@
+import { ISharedArgs } from 'interfaces';
 import { getUrlPage, getPrevPageUrl } from './utils/urlUtils';
 
 function validatePage(page, urlArray, numPages) {
@@ -10,9 +11,10 @@ function validatePage(page, urlArray, numPages) {
   return false;
 }
 
-export default function getHandler(numPages: number, urlArray: string[], useSession: boolean, req) {
+export default function getHandler(sharedArgs: ISharedArgs, req) {
+  const { numForms, urlArray, useSession } = sharedArgs;
   const page = getUrlPage(req.url);
-  const validPage = validatePage(page, urlArray, numPages);
+  const validPage = validatePage(page, urlArray, numForms);
   const prevPageUrl: string | -1 = getPrevPageUrl(String(page), urlArray);
 
   if (!validPage) return { formIndex: 0, formData: {}, validPage: false };

@@ -19,17 +19,11 @@ const getFormData = (files: object) => {
   return data;
 };
 
-export default function buildForms(
-  schema: ISchema,
-  uiSchema: object,
-  getRoute: string,
-  postRoute: string,
-  options: IOptions,
-  urlArray: string[]
-): IForms {
+export default function buildForms(schema: ISchema, uiSchema: object, options: IOptions, urlArray: string[]): IForms {
   const { validations, widgets } = options;
   const schemasArray = splitSchema(schema, uiSchema);
   const fieldsArray = schemasArray.map(schema => Object.keys(schema.properties));
+  const { getRoute, postRoute } = options;
 
   return {
     Forms: schemasArray.map((schema, i) => {
@@ -52,10 +46,10 @@ export default function buildForms(
             headers: { 'Content-Type': getContentType(hasFiles) },
           });
 
-          const { nextPage, isValid, isLastPage } = result.data;
+          const { nextPage, isLastPage } = result.data;
           if (props.rerouteHandler) {
             const urlToNavigate = parseUrl(getRoute, nextPage);
-            props.rerouteHandler(urlToNavigate, isValid, isLastPage);
+            props.rerouteHandler(urlToNavigate, isLastPage);
           } else if (typeof window === 'object') window.location.href = parseUrl(getRoute, nextPage);
         };
         const fileProps: any = {};

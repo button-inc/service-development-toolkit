@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { getNestedFieldPropertiesByName } from './schemaUtils';
-import { ISchema } from '../interfaces';
+import { ISharedArgs, ISchema } from '../interfaces';
 
 function getFieldsForSchema(schema: ISchema) {
   try {
@@ -90,4 +90,28 @@ export function matchPostBody(postData: object, schema: ISchema): object {
     return _.omit(formattedData, toDelete);
   }
   return formattedData;
+}
+
+export function cleanSchemaData(postData: object, pageSchema: ISchema, formData: object) {
+  const clearedFormData = removePageFields(formData, pageSchema);
+  const clearedPostData = matchPostBody(postData, pageSchema);
+  return { ...clearedFormData, ...clearedPostData };
+}
+
+function defaultPageOverHandler(session: any, pageSchema: ISchema, postData: object): object {
+  const { formData = {} } = session || {};
+  const newFormData = cleanSchemaData(postData, pageSchema, formData);
+  return newFormData;
+}
+
+export function getCleanedFormData(sharedArgs: ISharedArgs, postData: object, pageSchema: ISchema, req) {
+  const { onPost, useSession } = sharedArgs;
+  let newFormData = {};
+  if (useSession) {
+    newFormData = defaultPageOverHandler(req.session, pageSchema, postData);
+    req.session.formData = newFormData;
+  } else if (typeof onPost === 'function') {
+    newFormData = onPost(postData, pageSchema, cleanSchemaData.bind({}, postData, pageSchema));
+  }
+  return newFormData;
 }
