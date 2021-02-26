@@ -1,24 +1,24 @@
 import postMiddleware from '../src/postMiddleware';
-import { validateFormData } from '../src/Utils/validationUtils';
-import { removePageFields, matchPostBody } from '../src/Utils/cleanDataUtils';
-import { getPageInfo, getUrlPage } from '../src/Utils/urlUtils';
+import { validateFormData } from '../src/utils/validationUtils';
+import { removePageFields, matchPostBody } from '../src/utils/cleanDataUtils';
+import { getPageInfo, getUrlPage } from '../src/utils/urlUtils';
 
 const urlArray = ['', '', '', '', ''];
 
-jest.mock('../src/Utils/validationUtils', () => ({
+jest.mock('../src/utils/validationUtils', () => ({
   validateFormData: jest.fn(() => ({ isValidated: true, isValid: true })),
 }));
 
 const urlPage = 5;
 const nextPage = 6;
 
-jest.mock('../src/Utils/urlUtils', () => ({
-  ...jest.requireActual('../src/Utils/urlUtils'),
+jest.mock('../src/utils/urlUtils', () => ({
+  ...jest.requireActual('../src/utils/urlUtils'),
   getPageInfo: jest.fn(() => ({ nextPageNumber: nextPage, nextPagePostfix: nextPage, schemaIndex: 4 })),
   getUrlPage: jest.fn(() => {}),
 }));
 
-jest.mock('../src/Utils/cleanDataUtils', () => ({
+jest.mock('../src/utils/cleanDataUtils', () => ({
   removePageFields: jest.fn(givenData => givenData),
   matchPostBody: jest.fn(givenData => givenData),
 }));

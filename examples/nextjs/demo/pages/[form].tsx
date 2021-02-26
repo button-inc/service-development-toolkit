@@ -77,7 +77,7 @@ export default function home({
 
 export async function getServerSideProps({ req, res }: any) {
   await applySession(req, res);
-  const { formIndex, formData, prevPageUrl, validPage } = getHandler(req);
+  const { formIndex, formData, prevPageUrl = -1, validPage } = getHandler(req);
   return {
     props: { formIndex, formData, prevPageUrl, validPage },
   };

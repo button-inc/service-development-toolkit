@@ -1,4 +1,4 @@
-import { generateUrlArray } from '../src/Utils/urlUtils';
+import { generateUrlArray } from '../src/utils/urlUtils';
 
 const mockSchema: any = {
   title: 'Title',

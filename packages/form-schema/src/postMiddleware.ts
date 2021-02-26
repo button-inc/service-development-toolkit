@@ -1,6 +1,6 @@
-import { validateFormData } from './Utils/validationUtils';
-import { removePageFields, matchPostBody } from './Utils/cleanDataUtils';
-import { getPageInfo, parseUrl } from './Utils/urlUtils';
+import { validateFormData } from './utils/validationUtils';
+import { removePageFields, matchPostBody } from './utils/cleanDataUtils';
+import { getPageInfo, parseUrl } from './utils/urlUtils';
 import { IValidations, ISchema } from './interfaces';
 
 function cleanSchemaData(postData: object, pageSchema: ISchema, formData: object) {

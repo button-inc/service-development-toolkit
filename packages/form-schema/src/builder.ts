@@ -3,8 +3,8 @@ import fileMiddleware from './fileMiddleware';
 import getHandler from './getHandler';
 import buildForms from './buildForms';
 import { ISchema, IOptions, IFileOptions } from './interfaces';
-import { generateUrlArray } from './Utils/urlUtils';
-import { getUiSchemaFromOptions } from './Utils/schemaUtils';
+import { generateUrlArray } from './utils/urlUtils';
+import { getUiSchemaFromOptions } from './utils/schemaUtils';
 
 export default function builder(
   defaultWidgets: object | boolean,

@@ -1,4 +1,4 @@
-import { getUrlPage, getPrevPageUrl } from './Utils/urlUtils';
+import { getUrlPage, getPrevPageUrl } from './utils/urlUtils';
 
 function validatePage(page, urlArray, numPages) {
   if (urlArray.indexOf(page) !== -1) {

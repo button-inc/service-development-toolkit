@@ -1,4 +1,4 @@
-import { addWidgetsForFiles, getSchemaOrder } from '../src/Utils/schemaUtils';
+import { addWidgetsForFiles, getSchemaOrder } from '../src/utils/schemaUtils';
 
 const uiSchema = {
   'ui:hints': [],

@@ -1,10 +1,10 @@
 import Form from 'react-jsonschema-form';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { createValidator } from './Utils/validationUtils';
-import { splitSchema } from './Utils/schemaUtils';
+import { createValidator } from './utils/validationUtils';
+import { splitSchema } from './utils/schemaUtils';
 import { IOptions, ISchema, IForms } from './interfaces';
-import { parseUrl } from './Utils/urlUtils';
+import { parseUrl } from './utils/urlUtils';
 
 const getContentType = files => {
   if (files) return 'multipart/form-data';

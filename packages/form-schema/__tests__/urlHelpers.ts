@@ -1,4 +1,4 @@
-import { getUrlPage, getPrevPageUrl } from '../src/Utils/urlUtils';
+import { getUrlPage, getPrevPageUrl } from '../src/utils/urlUtils';
 
 const urlArray = ['', 'one', '', 'two'];
 
