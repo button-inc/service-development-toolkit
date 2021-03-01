@@ -1,6 +1,8 @@
 import validate from 'react-jsonschema-form/lib/validate';
 import forEach from 'lodash/forEach';
 import { ISharedArgs, IValidations } from '../interfaces';
+import { getPageInfo, parseUrl, removeLeadingSlash } from './urlUtils';
+import { getCleanedFormData } from './cleanDataUtils';
 
 export function createValidator(page: number, fieldsArray: string[][], validations?: IValidations) {
   const fields = fieldsArray[page];
@@ -36,4 +38,29 @@ export function handleFormEnd(sharedArgs: ISharedArgs, formData: object) {
   const { fieldsArray, validations, onFormEnd, schema: fullSchema } = sharedArgs;
   const result = validateFormData(formData, fullSchema, fieldsArray, validations);
   if (typeof onFormEnd === 'function') onFormEnd(result.errors, formData);
+  return result.errors;
+}
+
+export function redirectHandler(sharedArgs: ISharedArgs, js: boolean, postData: object, req: any, res: any) {
+  const { url } = req;
+  const { urlArray, schemasArray, numForms, getRoute, validatedUrl, invalidUrl } = sharedArgs;
+  const { nextPageNumber, nextPagePostfix, schemaIndex } = getPageInfo(url, urlArray);
+  const pageSchema = schemasArray[schemaIndex];
+  const isLastPage = nextPageNumber > numForms;
+  let errors;
+  let nextPage = nextPagePostfix;
+  const formData = getCleanedFormData(sharedArgs, postData, pageSchema, req);
+  if (isLastPage) {
+    errors = handleFormEnd(sharedArgs, formData);
+    console.log(errors, 'is errs');
+    nextPage = removeLeadingSlash(errors ? invalidUrl : validatedUrl);
+  }
+
+  const props = { nextPage, errors };
+  if (js) {
+    res.json(props);
+  } else {
+    const redirectUrl = parseUrl(getRoute, String(nextPage));
+    res.redirect(redirectUrl);
+  }
 }

@@ -40,6 +40,8 @@ export interface IOptions {
   useSession?: boolean;
   getRoute: string;
   postRoute: string;
+  validatedUrl: string;
+  invalidUrl: string;
 }
 
 export interface IForms {

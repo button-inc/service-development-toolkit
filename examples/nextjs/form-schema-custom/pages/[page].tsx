@@ -29,8 +29,8 @@ export default function home({
   const Form = Forms[formIndex];
   const router = useRouter();
 
-  const rerouteHandler = (nextPage: string, _isValid: boolean, lastPage: boolean) => {
-    router.push(lastPage ? '/end' : nextPage);
+  const rerouteHandler = (nextPage: string, _isValid: boolean) => {
+    router.push(nextPage);
   };
 
   return (
