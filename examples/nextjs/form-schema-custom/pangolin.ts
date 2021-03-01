@@ -13,6 +13,8 @@ const options = {
       validationFunction: (value: string) => value === 'a',
     },
   },
+  validatedUrl: '/success',
+  invalidUrl: '/error',
   handleReadStream: (filename: string, readStream: any) => {
     const writeStream = fs.createWriteStream(filename);
     readStream.pipe(writeStream);
@@ -23,7 +25,7 @@ const options = {
   onPost: (_postData: object, schemaIndex: number, cleanSchemaData: Function) => {
     const newData = cleanSchemaData(formData);
     formData[schemaIndex] = { ...formData[schemaIndex], ...newData };
-    return newData;
+    return formData[schemaIndex];
   },
   onFormEnd: (errors: [], _formData: any) => {
     console.log('completed a form');

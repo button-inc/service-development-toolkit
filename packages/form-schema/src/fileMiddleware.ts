@@ -1,29 +1,6 @@
 import Busboy from 'busboy';
-import { getPageInfo, parseUrl } from './utils/urlUtils';
 import { ISharedArgs } from './interfaces';
-import { handleFormEnd } from './utils/validationUtils';
-import { getCleanedFormData } from './utils/cleanDataUtils';
-
-function handleRedirect(sharedArgs: ISharedArgs, js: boolean, req: any, res: any) {
-  const { url } = req;
-  const { urlArray, schemasArray, numForms, getRoute } = sharedArgs;
-  const { nextPageNumber, nextPagePostfix, schemaIndex } = getPageInfo(url, urlArray);
-  const pageSchema = schemasArray[schemaIndex];
-  const isLastPage = nextPageNumber > numForms;
-
-  if (isLastPage) {
-    const formData = getCleanedFormData(sharedArgs, {}, pageSchema, req);
-    handleFormEnd(sharedArgs, formData);
-  }
-
-  const props = { nextPage: nextPagePostfix, isLastPage };
-  if (js) {
-    res.json(props);
-  } else {
-    const redirectUrl = parseUrl(getRoute, String(nextPagePostfix));
-    res.redirect(redirectUrl);
-  }
-}
+import { redirectHandler } from './utils/validationUtils';
 
 export default async function fileHandler(sharedArgs: ISharedArgs, req: any, res: any) {
   if (req.method === 'POST') {
@@ -43,7 +20,7 @@ export default async function fileHandler(sharedArgs: ISharedArgs, req: any, res
     });
     busboy.on('finish', function () {
       if (onFileLoad) onFileLoad(fileName);
-      handleRedirect(sharedArgs, js, req, res);
+      redirectHandler(sharedArgs, js, {}, req, res);
     });
   }
 }

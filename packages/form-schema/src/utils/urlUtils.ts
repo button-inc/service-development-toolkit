@@ -25,6 +25,11 @@ export const getPrevPageUrl = (page: string, urlArray: string[]) => {
   return `/${String(prevPageIndex + 1)}`;
 };
 
+export const removeLeadingSlash = (url: string) => {
+  if (url[0] === '/') return url.slice(1);
+  return url;
+};
+
 export const parseUrl = (getRoute: string, nextPage: string) => {
   let route;
   if (getRoute[getRoute.length - 1] === '/') route = `${getRoute}${nextPage}`;
