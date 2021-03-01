@@ -36,6 +36,7 @@ const ToggleRight = styled.div`
 const config: StyleConfig = {
   defaultProps: {},
   staticProps: [],
+  toggleable: true,
 };
 
 export const BaseAccordion = applyTheme(styles, config);
