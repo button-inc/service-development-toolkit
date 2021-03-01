@@ -69,6 +69,7 @@ export interface StyleConfig {
   defaultProps?: object;
   staticProps?: string[];
   breakProps?: string[];
+  toggleable?: boolean;
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
@@ -76,7 +77,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const Scontainer = styleBuilder('div', 'container');
   const Sheader = styleBuilder('div', 'header');
   const Stoggle = styleBuilder('label', 'toggle');
-  const Scontent = styleBuilder(HiddenContent, 'content');
+  const Scontent = styleBuilder(config.toggleable ? HiddenContent : 'div', 'content');
 
   const bootstrap = createBootstrap(styles, 'card');
 
@@ -88,7 +89,9 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
 
     return (
       <CardContext.Provider value={{ checkboxId, styleProps, Stoggle, Sheader, Scontent }}>
-        <InvisibleCheckbox id={checkboxId} onChange={e => onToggle(e, e.target.checked)} checked={defaultToggled} />
+        {config.toggleable && (
+          <InvisibleCheckbox id={checkboxId} onChange={e => onToggle(e, e.target.checked)} checked={defaultToggled} />
+        )}
         <Scontainer {...others} className={cx(CONTAINER_CLASS, className)}>
           {children}
         </Scontainer>
