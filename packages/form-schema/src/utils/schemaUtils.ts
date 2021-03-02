@@ -52,7 +52,7 @@ export const addWidgetsForFiles = (schema: ISchema, uiSchema) => {
   return newUiSchema;
 };
 
-export function getPropertyDependencies(dependencies: IDependencies): object[] {
+function getPropertyDependencies(dependencies: IDependencies): object[] {
   const propertyDependencies: object[] = [];
   if (isPlainObject(dependencies)) {
     Object.entries(dependencies).forEach(([ownerProperty, value]) => {
@@ -98,27 +98,20 @@ export const getSchemaOrder = (schema: ISchema, uiSchema) => {
   return order;
 };
 
-/* splitSchema is built to handle only dependencies of the form
-{
-  propertyName: {
-    oneOf: [
-      {
-        properties: {...},
-      },
-      {
-        properties: {...}, <-- property lists match
-        required: [] <-- Only one requirement
-      },
-    ]
-  }
+function createSchemaFromObject(currentField: any, propertyName: string) {
+  const { type, ...rest } = currentField;
+  const newSchema: ISchema = {
+    title: propertyName,
+    ...rest,
+  };
+  return newSchema;
 }
-i.e, properties that only toggle a single requirement.
-This is the format that easily supports non-js environments.
-For more complex dependencies this should not be used. */
+
 export function splitSchema(schema: ISchema, uiSchema): ISchema[] {
   const schemas: ISchema[] = [];
   const { properties, dependencies, required, title, type } = schema;
   const propertyDependencies = dependencies ? getPropertyDependencies(dependencies) : [];
+  console.log(propertyDependencies);
   const dependantProperties = getDependantProperties(propertyDependencies);
   const nestedFieldProperties = getNestedFieldProperties(properties);
   const order = getSchemaOrder(schema, uiSchema);
@@ -130,23 +123,21 @@ export function splitSchema(schema: ISchema, uiSchema): ISchema[] {
     // Nested fields error on properties[propertyName] since they aren't directly in it.
     // In our case, we handle them in the next if statement
     if (nestedFieldProperties.includes(propertyName)) return;
+    const currentField = properties[propertyName];
 
     // Costs is a nested field that is basically a "mini schema" so to speak.
     // In order for the ui:field to be applied, we need { costs: properties[costs]}
     // as opposed to newSchema = properties['costs']
-    if (properties[propertyName] && properties[propertyName].type === 'object') {
+    if (currentField.type === 'object') {
+      const { type, ...currentField } = properties[propertyName];
       const newSchema: ISchema = {
-        title,
-        properties: {
-          [propertyName]: properties[propertyName],
-        },
+        title: propertyName,
+        ...currentField,
       };
       schemas.push(newSchema);
     } else {
       // @ts-ignore
       const newSchema: INewSchema = {
-        title,
-        type,
         properties: {},
         required: [],
         dependencies: {},

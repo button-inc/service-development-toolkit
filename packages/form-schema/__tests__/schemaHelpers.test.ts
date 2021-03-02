@@ -1,4 +1,6 @@
-import { addWidgetsForFiles, getSchemaOrder } from '../src/utils/schemaUtils';
+import { addWidgetsForFiles, getSchemaOrder, splitSchema } from '../src/utils/schemaUtils';
+import { simplePropertySchema, expectedSimplePropertySchemas } from './fixtures/simpleSchema';
+import { simpleDependencySchema, expectedSimpleDependencySchemas } from './fixtures/dependentSchema';
 
 const uiSchema = {
   'ui:hints': [],
@@ -78,5 +80,18 @@ describe('getSchemaOrder', () => {
       'nestedQuestion',
       'fifthQuestion',
     ]);
+  });
+});
+
+describe('splitSchema', () => {
+  it('splits single properties into expected schemas', () => {
+    const schemas = splitSchema(simplePropertySchema, {});
+    expect(schemas).toEqual(expectedSimplePropertySchemas);
+  });
+
+  it('splits nested schemas into expected result', () => {
+    const schemas = splitSchema(simpleDependencySchema, {});
+    console.log(JSON.stringify(schemas));
+    expect(schemas).toEqual(expectedSimpleDependencySchemas);
   });
 });
