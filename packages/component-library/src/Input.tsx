@@ -18,14 +18,16 @@ export interface StyleConfig {
   staticProps?: string[];
   breakProps?: string[];
   includeWrapper?: boolean;
+  as?: object;
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
-  const Scontainer = styleBuilder('div', 'container');
+  const as = config.as || {};
+  const Scontainer = styleBuilder(as.container || 'div', 'container');
   const Slabel = styleBuilder('label', 'label');
-  const Swapper = config.includeWrapper ? styleBuilder('div', 'wrapper') : null;
+  const Swapper = config.includeWrapper ? styleBuilder(as.wrapper || 'div', 'wrapper') : null;
   const Sinput = styleBuilder('input', 'input');
 
   const bootstrap = createBootstrap(styles, 'input');

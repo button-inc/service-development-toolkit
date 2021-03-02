@@ -31,9 +31,11 @@ const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox' })`
   }
 `;
 
-const HiddenSidebar = styled.div`
-  display: none;
-`;
+const createHiddenSidebar = tag => {
+  return styled[tag]`
+    display: none;
+  `;
+};
 
 const initialContext: Context = {
   checkboxId: '',
@@ -48,13 +50,16 @@ export interface StyleConfig {
   defaultProps?: object;
   staticProps?: string[];
   breakProps?: string[];
+  as?: object;
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
-  const Scontainer = styleBuilder('div', 'container');
+
+  const as = config.as || {};
+  const Scontainer = styleBuilder(as.container || 'div', 'container');
   const Stoggle = styleBuilder('label', 'toggle');
-  const Ssidebar = styleBuilder(HiddenSidebar, 'sidebar');
+  const Ssidebar = styleBuilder(createHiddenSidebar(as.sidebar || 'div'), 'sidebar');
 
   const bootstrap = createBootstrap(styles, 'navigation');
 

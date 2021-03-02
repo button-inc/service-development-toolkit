@@ -50,14 +50,17 @@ export interface StyleConfig {
   defaultProps?: object;
   staticProps?: string[];
   breakProps?: string[];
+  as?: object;
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig, childStyles = {}) => {
   const styleBuilder = createStyleBuilder(styles, config, childStyles);
-  const Scontainer = styleBuilder('div', 'container');
-  const Sheader = styleBuilder('div', 'header');
-  const Scontent = styleBuilder('div', 'content');
-  const Sgroup = styleBuilder('div', 'group');
+
+  const as = config.as || {};
+  const Scontainer = styleBuilder(as.container || 'div', 'container');
+  const Sheader = styleBuilder(as.header || 'div', 'header');
+  const Scontent = styleBuilder(as.content || 'div', 'content');
+  const Sgroup = styleBuilder(as.group || 'div', 'group');
   const Sclose = styleBuilder('label', 'close');
 
   const bootstrap = createBootstrap(styles, 'notification');

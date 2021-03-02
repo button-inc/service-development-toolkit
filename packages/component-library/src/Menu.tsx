@@ -47,16 +47,20 @@ const expandFn = props =>
       }`
     : '';
 
-const BreakingGroup = styled.div<BreakingProps>`
-  display: flex;
-  ${collapseFn}
-  ${expandFn}
-`;
+const createBreakingGroup = tag => {
+  return styled[tag]<BreakingProps>`
+    display: flex;
+    ${collapseFn}
+    ${expandFn}
+  `;
+};
 
-const BreakingItem = styled.span<BreakingProps>`
-  ${collapseFn}
-  ${expandFn}
-`;
+const createBreakingItem = tag => {
+  return styled[tag]<BreakingProps>`
+    ${collapseFn}
+    ${expandFn}
+  `;
+};
 
 const MenuContext = React.createContext(initialContext);
 
@@ -64,13 +68,16 @@ export interface StyleConfig {
   defaultProps?: object;
   staticProps?: string[];
   breakProps?: string[];
+  as?: object;
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
-  const Scontainer = styleBuilder(BreakingGroup, 'container');
-  const Sgroup = styleBuilder(BreakingGroup, 'group');
-  const Sitem = styleBuilder(BreakingItem, 'item');
+
+  const as = config.as || {};
+  const Scontainer = styleBuilder(createBreakingGroup(as.container || 'div'), 'container');
+  const Sgroup = styleBuilder(createBreakingGroup(as.group || 'div'), 'group');
+  const Sitem = styleBuilder(createBreakingItem(as.item || 'span'), 'item');
 
   const bootstrap = createBootstrap(styles, 'menu');
 

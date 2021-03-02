@@ -18,6 +18,7 @@ export interface StyleConfig {
   staticProps?: string[];
   breakProps?: string[];
   wrapperExtraStyle?: string;
+  as?: object;
 }
 
 interface InputWrapperProps {
@@ -43,7 +44,8 @@ const HiddenInput = styled.input.attrs({ type: 'file' })`
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
 
-  const Scontainer = styleBuilder('div', 'container');
+  const as = config.as || {};
+  const Scontainer = styleBuilder(as.container || 'div', 'container');
   const Slabel = styleBuilder('label', 'label');
   const Sinput = styleBuilder('input', 'input');
 
