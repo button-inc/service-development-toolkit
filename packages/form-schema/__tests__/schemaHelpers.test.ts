@@ -1,6 +1,13 @@
-import { addWidgetsForFiles, getSchemaOrder, splitSchema } from '../src/utils/schemaUtils';
+import {
+  addWidgetsForFiles,
+  getSchemaOrder,
+  splitSchema,
+  getRequiredFields,
+  createSchemaFromObject,
+} from '../src/utils/schemaUtils';
 import { simplePropertySchema, expectedSimplePropertySchemas } from './fixtures/simpleSchema';
 import { simpleDependencySchema, expectedSimpleDependencySchemas } from './fixtures/dependentSchema';
+import { objectPropertySchema, expectedObjectPropertySchema } from './fixtures/objectSchema';
 
 const uiSchema = {
   'ui:hints': [],
@@ -85,13 +92,36 @@ describe('getSchemaOrder', () => {
 
 describe('splitSchema', () => {
   it('splits single properties into expected schemas', () => {
-    const schemas = splitSchema(simplePropertySchema, {});
+    const schemas = splitSchema(simplePropertySchema);
     expect(schemas).toEqual(expectedSimplePropertySchemas);
   });
 
   it('splits nested schemas into expected result', () => {
-    const schemas = splitSchema(simpleDependencySchema, {});
-    console.log(JSON.stringify(schemas));
+    const schemas = splitSchema(simpleDependencySchema);
     expect(schemas).toEqual(expectedSimpleDependencySchemas);
+  });
+});
+
+describe('getRequiredFields', () => {
+  const allRequired = ['one', 'two', 'three'];
+  const propertyNames = ['one', 'three'];
+  it('Gets required fields for single properties', () => {
+    const requiredFields = getRequiredFields(allRequired, propertyNames);
+    expect(requiredFields).toEqual(['one', 'three']);
+  });
+});
+
+describe('createSchemaFromObject', () => {
+  it('Creates expected schema with no requirements', () => {
+    const currentField = objectPropertySchema.properties.first;
+    const schema = createSchemaFromObject(currentField, 'first', []);
+    expect(schema).toEqual(expectedObjectPropertySchema);
+  });
+
+  it('Creates expected schema with requirements', () => {
+    const currentField = objectPropertySchema.properties.first;
+    const schema = createSchemaFromObject(currentField, 'first', ['second']);
+    expectedObjectPropertySchema.required = ['second'];
+    expect(schema).toEqual(expectedObjectPropertySchema);
   });
 });

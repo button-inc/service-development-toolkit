@@ -11,19 +11,20 @@ export const simpleDependencySchema: any = {
           type: 'boolean',
         },
       },
+      dependencies: {
+        first: ['second'],
+      },
     },
     third: {
       type: 'boolean',
     },
-  },
-  dependencies: {
-    first: ['second'],
   },
 };
 
 export const expectedSimpleDependencySchemas = [
   {
     required: [],
+    title: 'page',
     properties: {
       first: {
         type: 'string',
@@ -35,7 +36,6 @@ export const expectedSimpleDependencySchemas = [
     dependencies: {
       first: ['second'],
     },
-    hasFiles: undefined,
   },
   {
     required: ['third'],
@@ -44,7 +44,5 @@ export const expectedSimpleDependencySchemas = [
         type: 'boolean',
       },
     },
-    dependencies: {},
-    hasFiles: undefined,
   },
 ];

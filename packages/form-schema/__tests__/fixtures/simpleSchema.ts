@@ -19,23 +19,17 @@ export const expectedSimplePropertySchemas = [
     properties: {
       first: simplePropertySchema.properties.first,
     },
-    dependencies: {},
-    hasFiles: undefined,
   },
   {
     required: ['second'],
     properties: {
       second: simplePropertySchema.properties.second,
     },
-    dependencies: {},
-    hasFiles: undefined,
   },
   {
     required: [],
     properties: {
       third: simplePropertySchema.properties.third,
     },
-    dependencies: {},
-    hasFiles: undefined,
   },
 ];

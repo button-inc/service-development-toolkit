@@ -1,30 +1,9 @@
 import forEach from 'lodash/forEach';
-import isPlainObject from 'lodash/isPlainObject';
 import { IDependencies, ISchema } from '../interfaces';
 
 interface INewSchema extends ISchema {
   required: string[];
-  dependencies: IDependencies;
-}
-
-function getDependantProperties(propertyDependencies: object[]): string[] {
-  const dependantProperties: string[] = [];
-  propertyDependencies.forEach(dependencyRelation => {
-    dependantProperties.push(Object.values(dependencyRelation)[0]);
-  });
-  return dependantProperties;
-}
-
-function getNestedFieldProperties(properties: object): string[] {
-  const nestedFields: string[] = [];
-  Object.entries(properties).forEach(([_ownerProperty, value]) => {
-    if (value && value.type === 'object') {
-      Object.keys(value.properties).forEach(fieldName => {
-        nestedFields.push(fieldName);
-      });
-    }
-  });
-  return nestedFields;
+  dependencies?: IDependencies;
 }
 
 export const addWidgetsForFiles = (schema: ISchema, uiSchema) => {
@@ -51,22 +30,6 @@ export const addWidgetsForFiles = (schema: ISchema, uiSchema) => {
   });
   return newUiSchema;
 };
-
-function getPropertyDependencies(dependencies: IDependencies): object[] {
-  const propertyDependencies: object[] = [];
-  if (isPlainObject(dependencies)) {
-    Object.entries(dependencies).forEach(([ownerProperty, value]) => {
-      if (value.oneOf) {
-        value.oneOf.forEach(scenario => {
-          if (scenario.required) {
-            propertyDependencies.push({ [ownerProperty]: scenario.required[0] });
-          }
-        });
-      }
-    });
-  }
-  return propertyDependencies;
-}
 
 export function getNestedFieldPropertiesByName(schema: ISchema) {
   const { properties } = schema;
@@ -98,73 +61,42 @@ export const getSchemaOrder = (schema: ISchema, uiSchema) => {
   return order;
 };
 
-function createSchemaFromObject(currentField: any, propertyName: string) {
+export function getRequiredFields(allRequired: string[], propertyNames: string[]) {
+  const schemaRequired: string[] = [];
+  forEach(allRequired, (requiredPropertyName: string) => {
+    if (propertyNames.includes(requiredPropertyName)) {
+      schemaRequired.push(requiredPropertyName);
+    }
+  });
+  return schemaRequired;
+}
+
+export function createSchemaFromObject(currentField: any, propertyName: string, allRequired?: string[]) {
   const { type, ...rest } = currentField;
+  const propertyNames = Object.keys(currentField.properties);
+  const required = getRequiredFields(allRequired || [], propertyNames);
   const newSchema: ISchema = {
     title: propertyName,
+    required,
     ...rest,
   };
   return newSchema;
 }
 
-export function splitSchema(schema: ISchema, uiSchema): ISchema[] {
+export function splitSchema(schema: ISchema): ISchema[] {
   const schemas: ISchema[] = [];
-  const { properties, dependencies, required, title, type } = schema;
-  const propertyDependencies = dependencies ? getPropertyDependencies(dependencies) : [];
-  console.log(propertyDependencies);
-  const dependantProperties = getDependantProperties(propertyDependencies);
-  const nestedFieldProperties = getNestedFieldProperties(properties);
-  const order = getSchemaOrder(schema, uiSchema);
-  order.forEach(propertyName => {
-    // Dependant properties will be included in the schema of property they depend on
-    // and can be skipped
-    if (dependantProperties.includes(propertyName)) return;
-
-    // Nested fields error on properties[propertyName] since they aren't directly in it.
-    // In our case, we handle them in the next if statement
-    if (nestedFieldProperties.includes(propertyName)) return;
-    const currentField = properties[propertyName];
-
-    // Costs is a nested field that is basically a "mini schema" so to speak.
-    // In order for the ui:field to be applied, we need { costs: properties[costs]}
-    // as opposed to newSchema = properties['costs']
+  const { properties: allProperties, dependencies, required: allRequired = [], title, type } = schema;
+  forEach(allProperties, (currentField: any, propertyName: string) => {
     if (currentField.type === 'object') {
-      const { type, ...currentField } = properties[propertyName];
-      const newSchema: ISchema = {
-        title: propertyName,
-        ...currentField,
-      };
-      schemas.push(newSchema);
-    } else {
-      // @ts-ignore
-      const newSchema: INewSchema = {
-        properties: {},
-        required: [],
-        dependencies: {},
-        hasFiles: properties[propertyName].hasFiles,
-      };
-
-      // copy property
-      newSchema.properties[propertyName] = properties[propertyName];
-
-      // Add required
-      if (required && required.includes(propertyName)) {
-        newSchema.required.push(propertyName);
-      }
-
-      // Check for dependency. Add dependant properties and dependency to current schema
-      const dependancyRelation = propertyDependencies.filter(
-        dependant => Object.keys(dependant)[0] === propertyName
-      )[0];
-      const dependancy = dependancyRelation && dependancyRelation[propertyName];
-      if (dependancy) {
-        newSchema.properties[dependancy] = properties[dependancy];
-        if (dependencies) newSchema.dependencies[propertyName] = dependencies[propertyName];
-      }
-
-      // Add to schema list
-      schemas.push(newSchema);
+      return schemas.push(createSchemaFromObject(currentField, propertyName, allRequired));
     }
+    const properties = { [propertyName]: currentField };
+    const required = getRequiredFields(allRequired, [propertyName]);
+    const newSchema: INewSchema = {
+      properties,
+      required,
+    };
+    return schemas.push(newSchema);
   });
   return schemas;
 }
