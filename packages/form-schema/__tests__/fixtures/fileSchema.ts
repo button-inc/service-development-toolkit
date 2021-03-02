@@ -1,14 +1,18 @@
-const schema = {
-  title: 'Custom Example',
+export const fileUiSchema = {
+  'ui:hints': [],
+  firstQuestion: {
+    'ui:options': {
+      label: false,
+    },
+  },
+};
+
+export const fileSchema = {
+  title: 'Launch Online Grant',
   properties: {
     firstQuestion: {
       type: 'string',
       title: 'First Question',
-      name: 'firstQuestion',
-    },
-    file: {
-      type: 'string',
-      title: 'Files',
       hasFiles: true,
       name: 'firstQuestion',
     },
@@ -21,27 +25,19 @@ const schema = {
     thirdQuestion: {
       type: 'boolean',
       title: 'Third Question',
+      hasFiles: true,
       name: 'thirdQuestion',
     },
     fourthQuestion: {
       type: 'object',
-      name: 'fourthQuestion',
-      title: 'Fourth Question',
-      dependencies: {
-        secondQ: ['firstQ'],
-      },
       properties: {
-        firstQ: {
-          type: 'string',
-          title: 'first',
-        },
-        secondQ: {
-          type: 'string',
-          title: 'second',
+        nestedQuestion: {
+          hasFiles: true,
         },
       },
     },
+    fifthQuestion: {
+      type: 'string',
+    },
   },
 };
-
-export default schema;

@@ -1,64 +1,17 @@
 import {
   addWidgetsForFiles,
-  getSchemaOrder,
   splitSchema,
   getRequiredFields,
   createSchemaFromObject,
+  getUiSchemaFromOptions,
 } from '../src/utils/schemaUtils';
 import { simplePropertySchema, expectedSimplePropertySchemas } from './fixtures/simpleSchema';
 import { simpleDependencySchema, expectedSimpleDependencySchemas } from './fixtures/dependentSchema';
 import { objectPropertySchema, expectedObjectPropertySchema } from './fixtures/objectSchema';
-
-const uiSchema = {
-  'ui:hints': [],
-  firstQuestion: {
-    'ui:options': {
-      label: false,
-    },
-  },
-};
-
-const orderedUiSchema = {
-  'ui:order': ['one', 'two'],
-};
-
-const testSchema = {
-  title: 'Launch Online Grant',
-  properties: {
-    firstQuestion: {
-      type: 'string',
-      title: 'First Question',
-      hasFiles: true,
-      name: 'firstQuestion',
-    },
-    secondQuestion: {
-      type: 'string',
-      name: 'secondQuestion',
-      title: 'Second Question',
-      enum: ['Yes', 'No', 'Rather not answer'],
-    },
-    thirdQuestion: {
-      type: 'boolean',
-      title: 'Third Question',
-      hasFiles: true,
-      name: 'thirdQuestion',
-    },
-    fourthQuestion: {
-      type: 'object',
-      properties: {
-        nestedQuestion: {
-          hasFiles: true,
-        },
-      },
-    },
-    fifthQuestion: {
-      type: 'string',
-    },
-  },
-};
+import { fileSchema, fileUiSchema } from './fixtures/fileSchema';
 
 describe('addWidgetsForFiles', () => {
-  const uiSchemaWithWidgets = addWidgetsForFiles(testSchema, uiSchema);
+  const uiSchemaWithWidgets = addWidgetsForFiles(fileSchema, fileUiSchema);
   it('adds ui:widget property to ui schema file fields', () => {
     expect(uiSchemaWithWidgets.firstQuestion['ui:widget']).toBe('FileWidget');
     expect(uiSchemaWithWidgets.thirdQuestion['ui:widget']).toBe('FileWidget');
@@ -72,31 +25,13 @@ describe('addWidgetsForFiles', () => {
   });
 });
 
-describe('getSchemaOrder', () => {
-  it('returns the order from uiSchema if defined', () => {
-    const order = getSchemaOrder(testSchema, orderedUiSchema);
-    expect(order).toEqual(['one', 'two']);
-  });
-  it('returns the insertion order otherwise', () => {
-    const order = getSchemaOrder(testSchema, uiSchema);
-    expect(order).toEqual([
-      'firstQuestion',
-      'secondQuestion',
-      'thirdQuestion',
-      'fourthQuestion',
-      'nestedQuestion',
-      'fifthQuestion',
-    ]);
-  });
-});
-
 describe('splitSchema', () => {
   it('splits single properties into expected schemas', () => {
     const schemas = splitSchema(simplePropertySchema);
     expect(schemas).toEqual(expectedSimplePropertySchemas);
   });
 
-  it('splits nested schemas into expected result', () => {
+  it('splits nested schemas into expected result with dependencies', () => {
     const schemas = splitSchema(simpleDependencySchema);
     expect(schemas).toEqual(expectedSimpleDependencySchemas);
   });
@@ -123,5 +58,41 @@ describe('createSchemaFromObject', () => {
     const schema = createSchemaFromObject(currentField, 'first', ['second']);
     expectedObjectPropertySchema.required = ['second'];
     expect(schema).toEqual(expectedObjectPropertySchema);
+  });
+});
+
+describe('getUiSchemaFromOptions', () => {
+  it('removes default labels if in options', () => {
+    const options = { defaultLabels: false };
+    const expectedUiSchema = {
+      second: {
+        'ui:options': {
+          label: false,
+        },
+      },
+      third: {
+        'ui:options': {
+          label: false,
+        },
+      },
+    };
+    const uiSchema = getUiSchemaFromOptions(objectPropertySchema, {}, options);
+    expect(uiSchema).toEqual(expectedUiSchema);
+  });
+
+  it('adds a file widget if hasFiles is true', () => {
+    const expectedUiSchema = {
+      firstQuestion: {
+        'ui:widget': 'FileWidget',
+      },
+      nestedQuestion: {
+        'ui:widget': 'FileWidget',
+      },
+      thirdQuestion: {
+        'ui:widget': 'FileWidget',
+      },
+    };
+    const uiSchema = getUiSchemaFromOptions(fileSchema, {}, {});
+    expect(uiSchema).toEqual(expectedUiSchema);
   });
 });

@@ -21,7 +21,7 @@ const getFormData = (files: object) => {
 
 export default function buildForms(schema: ISchema, uiSchema: object, options: IOptions, urlArray: string[]): IForms {
   const { validations, widgets } = options;
-  const schemasArray = splitSchema(schema, uiSchema);
+  const schemasArray = splitSchema(schema);
   const fieldsArray = schemasArray.map(schema => Object.keys(schema.properties));
   const { getRoute, postRoute } = options;
 

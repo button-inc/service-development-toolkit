@@ -46,21 +46,6 @@ export function getNestedFieldPropertiesByName(schema: ISchema) {
   return nestedFields;
 }
 
-// Note: this works for non-integer keys
-export const getSchemaOrder = (schema: ISchema, uiSchema) => {
-  if (uiSchema['ui:order']) return uiSchema['ui:order'];
-  const order: string[] = [];
-  forEach(schema.properties, (value: any, key) => {
-    order.push(key);
-    if (value.type === 'object') {
-      forEach(value.properties, (_nestedValue, nestedKey) => {
-        order.push(nestedKey);
-      });
-    }
-  });
-  return order;
-};
-
 export function getRequiredFields(allRequired: string[], propertyNames: string[]) {
   const schemaRequired: string[] = [];
   forEach(allRequired, (requiredPropertyName: string) => {
@@ -85,7 +70,7 @@ export function createSchemaFromObject(currentField: any, propertyName: string, 
 
 export function splitSchema(schema: ISchema): ISchema[] {
   const schemas: ISchema[] = [];
-  const { properties: allProperties, dependencies, required: allRequired = [], title, type } = schema;
+  const { properties: allProperties, required: allRequired = [] } = schema;
   forEach(allProperties, (currentField: any, propertyName: string) => {
     if (currentField.type === 'object') {
       return schemas.push(createSchemaFromObject(currentField, propertyName, allRequired));
@@ -106,13 +91,10 @@ export const removeDefaultLabels = (schema, uiSchema) => {
   forEach(schema.properties, (value, key) => {
     if (value.properties) {
       forEach(value.properties, (_nestedValue, nestedKey) => {
-        newUiSchema[key] = {
-          ...newUiSchema[key],
-          [nestedKey]: {
-            ...(newUiSchema[key] && newUiSchema[key][nestedKey]),
-            'ui:options': {
-              label: false,
-            },
+        newUiSchema[nestedKey] = {
+          ...newUiSchema[nestedKey],
+          'ui:options': {
+            label: false,
           },
         };
       });

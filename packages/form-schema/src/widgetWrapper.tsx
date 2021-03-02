@@ -15,20 +15,21 @@ const Wrapper = (Component, inputType: string = '') => {
   const valueKey = getValue(inputType);
   return props => {
     const { value, onChange, label, schema, options, required } = props;
-    const { name, title, pattern, minLength, maxLength } = schema;
+    const { name = label, pattern, minLength, maxLength, id } = schema;
     const { enumOptions = [] } = options;
     const formProps = {
       onChange: e => {
-        onChange(e.target[valueKey]);
+        onChange(e.target[valueKey] || undefined);
       },
       label,
       name,
       maxLength,
+      id,
       required,
       minLength,
       type: inputType,
       pattern,
-      value: value || '',
+      value: value || undefined,
       checked: typeof value === 'undefined' ? false : value,
     };
     if (inputType === 'file') {
