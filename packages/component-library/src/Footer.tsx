@@ -12,12 +12,15 @@ export interface StyleConfig {
   defaultProps?: object;
   staticProps?: string[];
   breakProps?: string[];
+  as?: object;
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
-  const Scontainer = styleBuilder('footer', 'container');
-  const Sfooter = styleBuilder('div', 'footer');
+
+  const as = config.as || {};
+  const Scontainer = styleBuilder(as.container || 'footer', 'container');
+  const Sfooter = styleBuilder(as.footer || 'div', 'footer');
 
   const BaseComponent = (props: Props) => {
     const { children, ...rest } = props;

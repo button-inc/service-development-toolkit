@@ -51,9 +51,11 @@ const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox' })`
   }
 `;
 
-const HiddenContent = styled.div`
-  display: none;
-`;
+const createHiddenContent = tag => {
+  return styled[tag]`
+    display: none;
+  `;
+};
 
 const initialContext: Context = {
   checkboxId: '',
@@ -70,14 +72,20 @@ export interface StyleConfig {
   staticProps?: string[];
   breakProps?: string[];
   toggleable?: boolean;
+  as?: object;
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(styles, config);
-  const Scontainer = styleBuilder('div', 'container');
-  const Sheader = styleBuilder('div', 'header');
+
+  const as = config.as || {};
+  const Scontainer = styleBuilder(as.container || 'div', 'container');
+  const Sheader = styleBuilder(as.header || 'div', 'header');
   const Stoggle = styleBuilder('label', 'toggle');
-  const Scontent = styleBuilder(config.toggleable ? HiddenContent : 'div', 'content');
+  const Scontent = styleBuilder(
+    config.toggleable ? createHiddenContent(as.content || 'div') : as.content || 'div',
+    'content'
+  );
 
   const bootstrap = createBootstrap(styles, 'card');
 

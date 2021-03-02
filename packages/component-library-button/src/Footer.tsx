@@ -48,6 +48,9 @@ const config: StyleConfig = {
   },
   breakProps: [],
   staticProps: [],
+  as: {
+    container: 'footer',
+  },
 };
 
 export const BaseFooter = applyTheme(styles, config);
