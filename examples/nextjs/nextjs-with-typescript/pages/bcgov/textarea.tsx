@@ -1,4 +1,4 @@
-import Textarea from 'component-library-bcgov/Textarea';
+import Textarea from 'bcgov-theme/Textarea';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function TextareaPage() {

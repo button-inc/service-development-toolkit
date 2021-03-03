@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FilePicker from 'component-library-bcgov/FilePicker';
+import FilePicker from 'bcgov-theme/FilePicker';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function FilePickerPage() {

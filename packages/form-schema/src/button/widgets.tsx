@@ -1,10 +1,10 @@
-import Checkbox from 'component-library-button/Checkbox';
-import RadioButton from 'component-library-button/RadioButton';
-import Input from 'component-library-button/Input';
-import Dropdown from 'component-library-button/Dropdown';
-import FilePicker from 'component-library-button/FilePicker';
-import Textarea from 'component-library-button/Textarea';
-import DatePicker from 'component-library-button/DatePicker';
+import Checkbox from 'button-theme/Checkbox';
+import RadioButton from 'button-theme/RadioButton';
+import Input from 'button-theme/Input';
+import Dropdown from 'button-theme/Dropdown';
+import FilePicker from 'button-theme/FilePicker';
+import Textarea from 'button-theme/Textarea';
+import DatePicker from 'button-theme/DatePicker';
 import Wrapper from '../widgetWrapper';
 
 export default {

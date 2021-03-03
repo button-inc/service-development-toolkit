@@ -1,4 +1,4 @@
-import Accordion from 'component-library-bcgov/Accordion';
+import Accordion from 'bcgov-theme/Accordion';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function AccordionPage() {

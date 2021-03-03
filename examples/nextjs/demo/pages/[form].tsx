@@ -2,7 +2,7 @@ import React from 'react';
 import { applySession } from 'next-session';
 import { useRouter } from 'next/router';
 import { Forms, getHandler } from 'pangolin';
-import Button from 'component-library-bcgov/Button';
+import Button from 'bcgov-theme/Button';
 
 // Can just pass regular rjsf templates to override fieldsets, layout, etc. and will pass through
 function ObjectFieldTemplate({ properties, title }: any) {

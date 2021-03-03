@@ -1,4 +1,4 @@
-import Callout from 'component-library-bcgov/Callout';
+import Callout from 'bcgov-theme/Callout';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function CalloutPage() {

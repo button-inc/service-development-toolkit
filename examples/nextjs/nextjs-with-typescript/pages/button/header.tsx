@@ -1,4 +1,4 @@
-import Header from 'component-library-button/Header';
+import Header from 'button-theme/Header';
 import ButtonTypography from '../../components/ButtonTypography';
 
 export default function HeaderPage() {
