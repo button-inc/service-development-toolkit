@@ -27,9 +27,10 @@ export function validateFormData(
   formData: object,
   fullSchema: object,
   fieldsArray: string[][],
-  validations?: IValidations
+  validations?: IValidations,
+  page: number = -1
 ) {
-  const validated = validate(formData, fullSchema, createValidator(-1, fieldsArray, validations));
+  const validated = validate(formData, fullSchema, createValidator(page, fieldsArray, validations));
   const { errors } = validated;
   return errors.length === 0 ? { isValidated: true, isValid: true } : { isValidated: true, isValid: false, errors };
 }
@@ -43,7 +44,17 @@ export function handleFormEnd(sharedArgs: ISharedArgs, formData: object) {
 
 export function redirectHandler(sharedArgs: ISharedArgs, js: boolean, postData: object, req: any, res: any) {
   const { url } = req;
-  const { urlArray, schemasArray, numForms, getRoute, validatedUrl, invalidUrl } = sharedArgs;
+  const {
+    urlArray,
+    schemasArray,
+    numForms,
+    getRoute,
+    validatedUrl,
+    invalidUrl,
+    validateEachPage,
+    fieldsArray,
+    validations,
+  } = sharedArgs;
   const { nextPageNumber, nextPagePostfix, schemaIndex } = getPageInfo(url, urlArray);
   const pageSchema = schemasArray[schemaIndex];
   const isLastPage = nextPageNumber > numForms;
@@ -52,10 +63,11 @@ export function redirectHandler(sharedArgs: ISharedArgs, js: boolean, postData: 
   const formData = getCleanedFormData(sharedArgs, postData, pageSchema, req);
   if (isLastPage) {
     errors = handleFormEnd(sharedArgs, formData);
-    console.log(errors, 'is errs');
     nextPage = removeLeadingSlash(errors ? invalidUrl : validatedUrl);
+  } else if (validateEachPage) {
+    const result = validateFormData(formData, pageSchema, fieldsArray, validations, schemaIndex);
+    errors = result.errors;
   }
-
   const props = { nextPage, errors };
   if (js) {
     res.json(props);

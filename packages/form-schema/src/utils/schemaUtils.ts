@@ -76,10 +76,12 @@ export function splitSchema(schema: ISchema): ISchema[] {
       return schemas.push(createSchemaFromObject(currentField, propertyName, allRequired));
     }
     const properties = { [propertyName]: currentField };
+    const { hasFiles } = currentField;
     const required = getRequiredFields(allRequired, [propertyName]);
     const newSchema: INewSchema = {
       properties,
       required,
+      hasFiles,
     };
     return schemas.push(newSchema);
   });

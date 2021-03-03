@@ -31,6 +31,9 @@ const options = {
     }
   },
   useSession: true,
+  validateEachPage: true,
+  validatedUrl: '/success',
+  invalidUrl: '/error',
 };
 
 export const { postMiddleware, getHandler, fileMiddleware, Forms } = govBuilder(schema, uiSchema, options);

@@ -46,10 +46,11 @@ export default function buildForms(schema: ISchema, uiSchema: object, options: I
             headers: { 'Content-Type': getContentType(hasFiles) },
           });
 
-          const { nextPage, isLastPage } = result.data;
+          const { nextPage, errors = [] } = result.data;
           if (props.rerouteHandler) {
             const urlToNavigate = parseUrl(getRoute, nextPage);
-            props.rerouteHandler(urlToNavigate, isLastPage);
+            const errorStrings = errors.map(err => err.stack);
+            props.rerouteHandler(urlToNavigate, errorStrings);
           } else if (typeof window === 'object') window.location.href = parseUrl(getRoute, nextPage);
         };
         const fileProps: any = {};
