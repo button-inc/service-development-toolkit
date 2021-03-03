@@ -130,6 +130,6 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   return BaseComponent;
 };
 
-const Card = applyTheme({}, {});
+const Modal = applyTheme({}, {});
 
-export default Card;
+export default Modal;

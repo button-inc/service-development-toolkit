@@ -10,8 +10,8 @@ const styles = {
       top: 0;
       left: 0;
       font-size: 1rem;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       background: rgba(220,220,220,0.8);
     `,
     modal: `
