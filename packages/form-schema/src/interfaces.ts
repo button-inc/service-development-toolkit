@@ -42,6 +42,7 @@ export interface IOptions {
   postRoute: string;
   validatedUrl: string;
   invalidUrl: string;
+  validateEachPage?: boolean;
 }
 
 export interface IForms {

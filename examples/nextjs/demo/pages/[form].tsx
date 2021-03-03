@@ -33,8 +33,11 @@ export default function home({
   const router = useRouter();
   const prevUrl = prevPageUrl === -1 ? '/' : prevPageUrl;
 
-  const rerouteHandler = (nextPage: string, lastPage: boolean) => {
-    router.push(lastPage ? '/end' : nextPage);
+  const rerouteHandler = (nextPage: string, errors: string[]) => {
+    router.push({
+      pathname: nextPage,
+      query: { errors },
+    });
   };
 
   function previousPage(e: any) {
