@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Fieldset from 'component-library-bcgov/Fieldset';
-import Input from 'component-library-bcgov/Input';
+import Fieldset from 'bcgov-theme/Fieldset';
+import Input from 'bcgov-theme/Input';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function FieldsetPage() {

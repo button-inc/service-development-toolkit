@@ -1,4 +1,4 @@
-import Checkbox from 'component-library-button/Checkbox';
+import Checkbox from 'button-theme/Checkbox';
 import ButtonTypography from '../../components/ButtonTypography';
 
 export default function CheckboxPage() {

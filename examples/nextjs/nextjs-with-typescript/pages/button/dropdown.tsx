@@ -1,4 +1,4 @@
-import Dropdown from 'component-library-button/Dropdown';
+import Dropdown from 'button-theme/Dropdown';
 import ButtonTypography from '../../components/ButtonTypography';
 
 const generateOptions = () => (

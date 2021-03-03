@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Navigation from 'component-library-bcgov/Navigation';
-import Footer from 'component-library-bcgov/Footer';
+import Navigation from 'bcgov-theme/Navigation';
+import Footer from 'bcgov-theme/Footer';
 import BCSans from '../components/BCSans';
 
 const Menu = () => (

@@ -1,14 +1,14 @@
-import Navigation from 'component-library-bcgov/Navigation';
-import Footer from 'component-library-bcgov/Footer';
-import Alert from 'component-library-bcgov/Alert';
-import Input from 'component-library-bcgov/Input';
-import Checkbox from 'component-library-bcgov/Checkbox';
-import RadioButton from 'component-library-bcgov/RadioButton';
-import Button from 'component-library-bcgov/Button';
-import Callout from 'component-library-bcgov/Callout';
-import Dropdown from 'component-library-bcgov/Dropdown';
-import Textarea from 'component-library-bcgov/Textarea';
-import Link from 'component-library-bcgov/Link';
+import Navigation from 'bcgov-theme/Navigation';
+import Footer from 'bcgov-theme/Footer';
+import Alert from 'bcgov-theme/Alert';
+import Input from 'bcgov-theme/Input';
+import Checkbox from 'bcgov-theme/Checkbox';
+import RadioButton from 'bcgov-theme/RadioButton';
+import Button from 'bcgov-theme/Button';
+import Callout from 'bcgov-theme/Callout';
+import Dropdown from 'bcgov-theme/Dropdown';
+import Textarea from 'bcgov-theme/Textarea';
+import Link from 'bcgov-theme/Link';
 import BCGovTypography from '../../components/BCGovTypography';
 
 const Menu = () => (

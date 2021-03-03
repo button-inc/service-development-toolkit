@@ -1,5 +1,5 @@
 {
-  "name": "component-library-button",
+  "name": "bcgov-theme",
   "version": "0.1.0",
   "description": "Library for theme-able, accessible, progressively-enhancing react components",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "types": "lib/esm/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "build": "node ../../scripts/build.js --name=component-library-button",
+    "build": "node ../../scripts/build.js --name=bcgov-theme",
     "build-docs": "yarn --cwd www build",
     "build-types": "yarn tsc -d --outDir types",
     "storybook": "start-storybook -p 6006",
@@ -16,10 +16,14 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.2",
+    "@bcgov/bc-sans": "^1.0.1",
+    "@types/lodash": "^4.14.168",
     "@types/styled-components": "^5.1.4",
     "component-library": "^0.1.0",
+    "lodash": "^4.17.21",
     "react-typography": "^0.16.19",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "typography": "^0.16.19"
   },
   "devDependencies": {
     "@4c/tsconfig": "^0.3.1",
@@ -27,6 +31,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-typescript": "^7.12.1",
     "@babel/register": "^7.12.1",
+    "@types/typography": "^0.16.3",
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "@typescript-eslint/parser": "^3.10.1",
     "babel-eslint": "^10.1.0",

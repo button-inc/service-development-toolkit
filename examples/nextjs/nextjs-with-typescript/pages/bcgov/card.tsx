@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Card from 'component-library-bcgov/Card';
-import Link from 'component-library-bcgov/Link';
-import Button from 'component-library-bcgov/Button';
+import Card from 'bcgov-theme/Card';
+import Link from 'bcgov-theme/Link';
+import Button from 'bcgov-theme/Button';
 import BCGovTypography from '../../components/BCGovTypography';
 
 const Container = styled.div`

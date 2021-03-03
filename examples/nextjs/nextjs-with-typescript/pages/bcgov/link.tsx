@@ -1,4 +1,4 @@
-import Link from 'component-library-bcgov/Link';
+import Link from 'bcgov-theme/Link';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function LinkPage() {

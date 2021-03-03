@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import ButtonGov from 'component-library-bcgov/Button';
+import ButtonGov from 'bcgov-theme/Button';
 import Button from 'component-library/Button';
 
 const Title = styled.h1`

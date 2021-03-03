@@ -160,7 +160,7 @@ const config = {
 For end users, components can be individually imported:
 
 ``` javascript
-import Button from 'component-library-bcgov/Button';
+import Button from 'bcgov-theme/Button';
 ```
 
 The component can then be custom styled depending on the theme used.

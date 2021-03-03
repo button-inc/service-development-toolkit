@@ -1,4 +1,4 @@
-import HeroImage from 'component-library-bcgov/HeroImage';
+import HeroImage from 'bcgov-theme/HeroImage';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function AccordionPage() {

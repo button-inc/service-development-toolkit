@@ -11,7 +11,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "component-library": "^0.1.0",
-    "component-library-bcgov": "^0.1.0",
+    "bcgov-theme": "^0.1.0",
     "form-schema": "^0.1.0",
     "react-typography": "^0.16.19"
   },

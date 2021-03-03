@@ -1,4 +1,4 @@
-import Checkbox from 'component-library-bcgov/Checkbox';
+import Checkbox from 'bcgov-theme/Checkbox';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function CheckboxPage() {

@@ -1,10 +1,10 @@
-import Checkbox from 'component-library-bcgov/Checkbox';
-import RadioButton from 'component-library-bcgov/RadioButton';
-import Input from 'component-library-bcgov/Input';
-import Dropdown from 'component-library-bcgov/Dropdown';
-import FilePicker from 'component-library-bcgov/FilePicker';
-import Textarea from 'component-library-bcgov/Textarea';
-import DatePicker from 'component-library-bcgov/DatePicker';
+import Checkbox from 'bcgov-theme/Checkbox';
+import RadioButton from 'bcgov-theme/RadioButton';
+import Input from 'bcgov-theme/Input';
+import Dropdown from 'bcgov-theme/Dropdown';
+import FilePicker from 'bcgov-theme/FilePicker';
+import Textarea from 'bcgov-theme/Textarea';
+import DatePicker from 'bcgov-theme/DatePicker';
 import Wrapper from '../widgetWrapper';
 
 export default {
