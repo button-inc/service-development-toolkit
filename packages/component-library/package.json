@@ -2,7 +2,7 @@
   "name": "@button-inc/component-library",
   "version": "1.0.0-alpha.3",
   "description": "Library for theme-able, accessible, progressively-enhancing react components",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/esm/index.d.ts",
