@@ -4,8 +4,8 @@
   "description": "Toolkit for button applications",
   "main": "index.js",
   "repository": "git@github.com:thebuttonclan/pangolin.git",
-  "author": "Button team",
-  "license": "MIT",
+  "author": "Button Inc.",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
@@ -33,11 +33,14 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "glob": "^7.1.6",
     "html-react-parser": "^1.2.4",
     "jest": "^26.6.3",
     "jest-axe": "^4.1.0",
     "lerna": "^3.22.1",
+    "next-session": "^3.4.0",
     "prettier": "^2.1.2",
+    "randomstring": "^1.1.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-html-parser": "^2.0.2",
@@ -86,10 +89,5 @@
       "packages/*",
       "examples/**/*"
     ]
-  },
-  "dependencies": {
-    "glob": "^7.1.6",
-    "next-session": "^3.4.0",
-    "randomstring": "^1.1.5"
   }
 }
