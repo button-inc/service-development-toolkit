@@ -38,15 +38,22 @@ workspacePackages.forEach(dir => {
   glob(`${dir}/package.json`, null, function (er, files) {
     files.forEach(file => {
       const pjson = parseJson(file);
+      let updated = false;
 
       ['dependencies', 'devDependencies', 'peerDependencies'].forEach(type => {
         if (!pjson[type]) return;
         if (!pjson[type][targetName]) return;
 
-        pjson[type][targetName] = targetVersion;
+        const oldVersion = pjson[type][targetName];
+        if (oldVersion !== targetVersion) {
+          pjson[type][targetName] = targetVersion;
+          updated = true;
 
-        writeJson(file, pjson);
+          console.log(green(`updated the version in ${file}.${type}`));
+        }
       });
+
+      if (updated) writeJson(file, pjson);
     });
   });
 });
