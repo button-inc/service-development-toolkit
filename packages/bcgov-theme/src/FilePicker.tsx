@@ -1,5 +1,5 @@
 import React from 'react';
-import { applyTheme, StyleConfig } from 'component-library/FilePicker';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/FilePicker';
 import Button from './Button';
 import { Upload, FaSVG } from './fontawesome';
 

@@ -1,4 +1,4 @@
-import Textarea from 'button-theme/Textarea';
+import Textarea from '@button-inc/button-theme/Textarea';
 import ButtonTypography from '../../components/ButtonTypography';
 
 export default function TextareaPage() {

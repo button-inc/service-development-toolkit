@@ -1,4 +1,4 @@
-import { applyTheme, StyleConfig } from 'component-library/Select';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/Select';
 
 const styles = {
   shared: {

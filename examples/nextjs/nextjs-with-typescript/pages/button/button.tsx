@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from 'button-theme/Button';
+import Button from '@button-inc/button-theme/Button';
 import ButtonTypography from '../../components/ButtonTypography';
 
 export default function ButtonPage() {

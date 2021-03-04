@@ -1,5 +1,5 @@
 import { TypographyStyle } from 'react-typography';
-import typography from 'button-theme/typography';
+import typography from '@button-inc/button-theme/typography';
 
 export default function ButtonTypography() {
   return (

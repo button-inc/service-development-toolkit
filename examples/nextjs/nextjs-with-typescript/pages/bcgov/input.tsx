@@ -1,4 +1,4 @@
-import Input from 'bcgov-theme/Input';
+import Input from '@button-inc/bcgov-theme/Input';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function InputPage() {

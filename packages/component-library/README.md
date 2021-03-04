@@ -20,7 +20,7 @@ The components in this library are designed to have custom themes applied on top
 As a theme builder, you can add custom styles to the components through an `applyTheme` function. For any component in the library, this function can be imported as a named import, e.g:
 
 ``` javascript
-import { applyTheme } from 'component-library/Button';
+import { applyTheme } from '@button-inc/component-library/Button';
 ```
 
 This function can be called with a [styles](#styles) object and a [config](#config) object to theme the base component:
@@ -160,7 +160,7 @@ const config = {
 For end users, components can be individually imported:
 
 ``` javascript
-import Button from 'bcgov-theme/Button';
+import Button from '@button-inc/bcgov-theme/Button';
 ```
 
 The component can then be custom styled depending on the theme used.

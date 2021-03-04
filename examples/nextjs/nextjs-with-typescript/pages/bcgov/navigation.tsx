@@ -1,4 +1,4 @@
-import Navigation from 'bcgov-theme/Navigation';
+import Navigation from '@button-inc/bcgov-theme/Navigation';
 import BCGovTypography from '../../components/BCGovTypography';
 
 const Menu = () => (

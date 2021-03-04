@@ -1,4 +1,4 @@
-import Alert from 'bcgov-theme/Alert';
+import Alert from '@button-inc/bcgov-theme/Alert';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function AlertPage() {

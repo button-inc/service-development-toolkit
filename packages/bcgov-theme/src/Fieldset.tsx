@@ -1,4 +1,4 @@
-import { applyTheme, StyleConfig } from 'component-library/Fieldset';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/Fieldset';
 
 const styles = {
   shared: {

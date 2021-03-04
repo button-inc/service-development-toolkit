@@ -1,10 +1,10 @@
-import Checkbox from 'button-theme/Checkbox';
-import RadioButton from 'button-theme/RadioButton';
-import Input from 'button-theme/Input';
-import Dropdown from 'button-theme/Dropdown';
-import FilePicker from 'button-theme/FilePicker';
-import Textarea from 'button-theme/Textarea';
-import DatePicker from 'button-theme/DatePicker';
+import Checkbox from '@button-inc/button-theme/Checkbox';
+import RadioButton from '@button-inc/button-theme/RadioButton';
+import Input from '@button-inc/button-theme/Input';
+import Dropdown from '@button-inc/button-theme/Dropdown';
+import FilePicker from '@button-inc/button-theme/FilePicker';
+import Textarea from '@button-inc/button-theme/Textarea';
+import DatePicker from '@button-inc/button-theme/DatePicker';
 import Wrapper from '../widgetWrapper';
 
 export default {

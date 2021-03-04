@@ -54,6 +54,7 @@
     "build": "lerna run build",
     "clean": "lerna clean",
     "test:jest": "lerna run test:jest --stream",
+    "pre-publish": "lerna run pre-publish",
     "version": "lerna version --exact --no-changelog --no-push --no-git-tag-version",
     "storybook:bcgov": "start-storybook -p 6006 -c packages/bcgov-theme/.storybook",
     "storybook:button": "start-storybook -p 6006 -c packages/button-theme/.storybook",

@@ -1,4 +1,4 @@
-import { applyTheme, StyleConfig } from 'component-library/DatePicker';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/DatePicker';
 
 const styles = {
   shared: {

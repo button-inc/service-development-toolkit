@@ -1,4 +1,4 @@
-import Datepicker from 'button-theme/Datepicker';
+import Datepicker from '@button-inc/button-theme/Datepicker';
 import ButtonTypography from '../../components/ButtonTypography';
 
 export default function DatepickerPage() {

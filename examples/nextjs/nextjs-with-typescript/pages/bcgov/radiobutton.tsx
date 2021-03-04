@@ -1,4 +1,4 @@
-import RadioButton from 'bcgov-theme/RadioButton';
+import RadioButton from '@button-inc/bcgov-theme/RadioButton';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function RadioButtonPage() {

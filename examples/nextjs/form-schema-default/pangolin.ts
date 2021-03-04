@@ -1,4 +1,4 @@
-import { govBuilder } from 'form-schema';
+import { govBuilder } from '@button-inc/form-schema';
 import schema from 'schemas/schema';
 import uiSchema from 'schemas/uiSchema';
 

@@ -1,4 +1,4 @@
-import Header from 'bcgov-theme/Header';
+import Header from '@button-inc/bcgov-theme/Header';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function HeaderPage() {

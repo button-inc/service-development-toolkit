@@ -1,4 +1,4 @@
-import { applyTheme, StyleConfig } from 'component-library/Button';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/Button';
 
 const styles = {
   shared: {

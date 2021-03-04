@@ -1,2 +1,2 @@
 declare module 'react-typography';
-declare module 'bcgov-theme/BCSans';
+declare module '@button-inc/bcgov-theme/BCSans';

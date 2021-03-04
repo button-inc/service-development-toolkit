@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { applyTheme, StyleConfig } from 'component-library/Menu';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/Menu';
 import bcgovLogoSVG from './svg/bcgov_logo';
 
 const styles = {

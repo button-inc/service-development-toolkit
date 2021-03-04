@@ -1,4 +1,4 @@
-import { applyTheme, StyleConfig } from 'component-library/Notification';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/Notification';
 
 const styles = {
   shared: {

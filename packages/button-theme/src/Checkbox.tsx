@@ -1,4 +1,4 @@
-import { applyTheme, StyleConfig } from 'component-library/Checkbox';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/Checkbox';
 import { Check, toSvgUrl } from './fontawesome';
 
 const checkSVG = toSvgUrl(Check);

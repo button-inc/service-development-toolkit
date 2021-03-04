@@ -1,4 +1,4 @@
-import { applyTheme, StyleConfig } from 'component-library/RadioButton';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/RadioButton';
 
 // The inner circles are two-thirds small than its outer circles.
 const styles = {

@@ -1,6 +1,6 @@
 {
-  "name": "button-theme",
-  "version": "0.1.0",
+  "name": "@button-inc/button-theme",
+  "version": "1.0.0-alpha.0",
   "description": "Library for theme-able, accessible, progressively-enhancing react components",
   "license": "MIT",
   "main": "lib/cjs/index.js",
@@ -11,13 +11,14 @@
     "build": "node ../../scripts/build.js --name=button-theme",
     "build-docs": "yarn --cwd www build",
     "build-types": "yarn tsc -d --outDir types",
+    "pre-publish": "node ../../scripts/pre-publish.js --name=button-theme",
     "storybook": "start-storybook -p 6006",
     "test:jest": "yarn jest"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.2",
     "@types/styled-components": "^5.1.4",
-    "component-library": "^0.1.0",
+    "@button-inc/component-library": "1.0.0-alpha.3",
     "react-typography": "^0.16.19",
     "styled-components": "^5.2.1"
   },
@@ -45,5 +46,14 @@
   },
   "publishConfig": {
     "directory": "lib"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thebuttonclan/pangolin.git"
+  },
+  "author": "Button Inc.",
+  "bugs": {
+    "url": "https://github.com/thebuttonclan/pangolin/issues"
+  },
+  "homepage": "https://github.com/thebuttonclan/pangolin#readme"
 }
