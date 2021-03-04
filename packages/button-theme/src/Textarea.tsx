@@ -1,4 +1,4 @@
-import { applyTheme, StyleConfig } from 'component-library/Textarea';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/Textarea';
 
 const styles = {
   shared: {

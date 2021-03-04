@@ -1,5 +1,5 @@
-import Modal from 'bcgov-theme/Modal';
-import Link from 'bcgov-theme/Link';
+import Modal from '@button-inc/bcgov-theme/Modal';
+import Link from '@button-inc/bcgov-theme/Link';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function AlertPage() {

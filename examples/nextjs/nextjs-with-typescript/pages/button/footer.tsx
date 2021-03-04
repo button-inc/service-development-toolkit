@@ -1,4 +1,4 @@
-import Footer from 'button-theme/Footer';
+import Footer from '@button-inc/button-theme/Footer';
 import ButtonTypography from '../../components/ButtonTypography';
 
 export default function FooterPage() {

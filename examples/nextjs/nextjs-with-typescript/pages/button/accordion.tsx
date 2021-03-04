@@ -1,4 +1,4 @@
-import Accordion from 'button-theme/Accordion';
+import Accordion from '@button-inc/button-theme/Accordion';
 import ButtonTypography from '../../components/ButtonTypography';
 
 export default function AccordionPage() {

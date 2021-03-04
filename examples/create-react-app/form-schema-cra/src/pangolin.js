@@ -1,4 +1,4 @@
-const { govBuilder } = require('form-schema');
+const { govBuilder } = require('@button-inc/form-schema');
 const schema = require('./schemas/schema');
 const uiSchema = require('./schemas/uiSchema');
 

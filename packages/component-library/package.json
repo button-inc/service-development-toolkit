@@ -1,6 +1,6 @@
 {
-  "name": "component-library",
-  "version": "0.1.0",
+  "name": "@button-inc/component-library",
+  "version": "1.0.0-alpha.3",
   "description": "Library for theme-able, accessible, progressively-enhancing react components",
   "license": "MIT",
   "main": "lib/cjs/index.js",
@@ -11,6 +11,7 @@
     "build": "node ../../scripts/build.js --name=component-library",
     "build-docs": "yarn --cwd www build",
     "build-types": "yarn tsc -d --outDir types",
+    "pre-publish": "node ../../scripts/pre-publish.js --name=component-library",
     "test:jest": "yarn jest"
   },
   "dependencies": {
@@ -25,9 +26,9 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-typescript": "^7.12.1",
     "@babel/register": "^7.12.1",
-    "@testing-library/jest-dom": "^5.11.9",
     "@react-bootstrap/babel-preset": "^1.2.0",
     "@react-bootstrap/eslint-config": "^1.3.2",
+    "@testing-library/jest-dom": "^5.11.9",
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "@typescript-eslint/parser": "^3.10.1",
     "babel-eslint": "^10.1.0",
@@ -46,5 +47,17 @@
   },
   "publishConfig": {
     "directory": "lib"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thebuttonclan/pangolin.git"
+  },
+  "author": "Button Inc.",
+  "bugs": {
+    "url": "https://github.com/thebuttonclan/pangolin/issues"
+  },
+  "homepage": "https://github.com/thebuttonclan/pangolin#readme"
 }

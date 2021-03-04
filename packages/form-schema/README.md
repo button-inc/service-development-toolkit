@@ -38,7 +38,7 @@ This package is setup to split a json schema into a series of pages, as well as 
 The Form components, functions and middleware to set this up will be returned from the main `builder` function (default import). E.g:
 
 ```javascript
-import builder from 'form-schema';
+import builder from '@button-inc/form-schema';
 export const { postMiddleware, getHandler, Forms } = builder(schema, uiSchema, options);
 ```
 
@@ -183,13 +183,13 @@ Builder function is the default export of the package, and can also be imported 
 For example:
 
 ```javascript
-import { govBuilder } from 'form-schema';
+import { govBuilder } from '@button-inc/form-schema';
 ```
 
 or
 
 ```javascript
-import builder from 'form-schema';
+import builder from '@button-inc/form-schema';
 ```
 
 It takes the following arguments:

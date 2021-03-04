@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import noop from 'lodash/noop';
-import { applyTheme, StyleConfig } from 'component-library/Card';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/Card';
 import { Plus, Minus, FaSVG } from './fontawesome';
 
 const styles = {

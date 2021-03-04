@@ -1,4 +1,4 @@
-import Button from 'bcgov-theme/Button';
+import Button from '@button-inc/bcgov-theme/Button';
 import BCGovTypography from '../../components/BCGovTypography';
 
 const Buttons = ({ size }) => (

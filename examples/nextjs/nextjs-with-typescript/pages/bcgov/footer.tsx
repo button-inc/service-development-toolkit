@@ -1,4 +1,4 @@
-import Footer from 'bcgov-theme/Footer';
+import Footer from '@button-inc/bcgov-theme/Footer';
 import BCGovTypography from '../../components/BCGovTypography';
 
 const Menu = () => (

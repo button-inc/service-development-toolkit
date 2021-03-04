@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FilePicker from 'button-theme/FilePicker';
+import FilePicker from '@button-inc/button-theme/FilePicker';
 import ButtonTypography from '../../components/ButtonTypography';
 
 export default function FilePickerPage() {

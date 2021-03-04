@@ -1,4 +1,4 @@
-import Callout from 'bcgov-theme/Callout';
+import Callout from '@button-inc/bcgov-theme/Callout';
 
 export default function NavigationPage() {
   return (
