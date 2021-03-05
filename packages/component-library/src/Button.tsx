@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
+import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
   id?: string;
@@ -16,10 +16,11 @@ export interface StyleConfig {
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
-  const styleBuilder = createStyleBuilder(styles, config);
+  const processedStyle = processStyle(styles);
+  const styleBuilder = createStyleBuilder(processedStyle, config);
   const Sbutton = styleBuilder('button', 'button');
 
-  const bootstrap = createBootstrap(styles, 'button');
+  const bootstrap = createBootstrap(processedStyle, 'button');
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, rest } = bootstrap(props);

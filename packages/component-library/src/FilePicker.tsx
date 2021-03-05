@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { StyledInterface } from 'styled-components';
-import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
+import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
   id?: string;
@@ -42,14 +42,15 @@ const HiddenInput = styled.input.attrs({ type: 'file' })`
 `;
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
-  const styleBuilder = createStyleBuilder(styles, config);
+  const processedStyle = processStyle(styles);
+  const styleBuilder = createStyleBuilder(processedStyle, config);
 
   const as = config.as || {};
   const Scontainer = styleBuilder(as.container || 'div', 'container');
   const Slabel = styleBuilder('label', 'label');
   const Sinput = styleBuilder('input', 'input');
 
-  const bootstrap = createBootstrap(styles, 'filepicker');
+  const bootstrap = createBootstrap(processedStyle, 'filepicker');
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, rest } = bootstrap(props);

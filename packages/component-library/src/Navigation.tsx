@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import cx from 'clsx';
 import styled from 'styled-components';
-import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
+import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
   id?: string;
@@ -54,14 +54,15 @@ export interface StyleConfig {
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
-  const styleBuilder = createStyleBuilder(styles, config);
+  const processedStyle = processStyle(styles);
+  const styleBuilder = createStyleBuilder(processedStyle, config);
 
   const as = config.as || {};
   const Scontainer = styleBuilder(as.container || 'div', 'container');
   const Stoggle = styleBuilder('label', 'toggle');
   const Ssidebar = styleBuilder(createHiddenSidebar(as.sidebar || 'div'), 'sidebar');
 
-  const bootstrap = createBootstrap(styles, 'navigation');
+  const bootstrap = createBootstrap(processedStyle, 'navigation');
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);

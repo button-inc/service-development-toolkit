@@ -24,7 +24,7 @@ const writeJson = (dir, object) => {
 const repoRoot = path.join(__dirname, '../');
 
 const packageDir = `packages/${name}`;
-const packageRoot = path.join(__dirname, '../', packageDir);
+const packageRoot = path.join(repoRoot, packageDir);
 
 const rootPackageJson = parseJson(`${repoRoot}/package.json`);
 const packageJson = parseJson(`${packageRoot}/package.json`);
@@ -35,7 +35,7 @@ const targetName = packageJson.name;
 const targetVersion = packageJson.version;
 
 workspacePackages.forEach(dir => {
-  glob(`${dir}/package.json`, null, function (er, files) {
+  glob(`${repoRoot}${dir}/package.json`, null, function (er, files) {
     files.forEach(file => {
       const pjson = parseJson(file);
       let updated = false;

@@ -1,6 +1,6 @@
 import React from 'react';
 import reduce from 'lodash/reduce';
-import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
+import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
   id?: string;
@@ -36,12 +36,13 @@ function recursiveCloneChildren(children, parentProps: object) {
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
-  const styleBuilder = createStyleBuilder(styles, config);
+  const processedStyle = processStyle(styles);
+  const styleBuilder = createStyleBuilder(processedStyle, config);
 
   const Sfieldset = styleBuilder('fieldset', 'container');
   const Slegend = styleBuilder('legend', 'legend');
 
-  const bootstrap = createBootstrap(styles, 'fieldset');
+  const bootstrap = createBootstrap(processedStyle, 'fieldset');
   const forwardProps = config.forwardProps || [];
 
   const BaseComponent = (props: Props) => {

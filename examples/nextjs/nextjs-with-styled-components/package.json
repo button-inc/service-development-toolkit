@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@button-inc/bcgov-theme": "1.0.0-alpha.0",
-    "@button-inc/component-library": "1.0.0-alpha.3",
+    "@button-inc/component-library": "1.0.0-alpha.4",
     "next": "latest",
     "react": "16.8.0",
     "react-dom": "16.8.0",

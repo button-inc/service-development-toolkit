@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyleBuilder, StyleConfig as BaseStyleConfig } from './helpers';
+import { processStyle, createStyleBuilder, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
   children?: React.ReactNode;
@@ -16,7 +16,8 @@ export interface StyleConfig {
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
-  const styleBuilder = createStyleBuilder(styles, config);
+  const processedStyle = processStyle(styles);
+  const styleBuilder = createStyleBuilder(processedStyle, config);
 
   const as = config.as || {};
   const Scontainer = styleBuilder(as.container || 'footer', 'container');
