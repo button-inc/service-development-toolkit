@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import cx from 'clsx';
 import styled, { StyledInterface } from 'styled-components';
-import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
+import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
   id?: string;
@@ -54,7 +54,9 @@ export interface StyleConfig {
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig, childStyles = {}) => {
-  const styleBuilder = createStyleBuilder(styles, config, childStyles);
+  const processedStyle = processStyle(styles);
+  const processedChildStyle = processStyle(childStyles);
+  const styleBuilder = createStyleBuilder(processedStyle, config, processedChildStyle);
 
   const as = config.as || {};
   const Scontainer = styleBuilder(as.container || 'div', 'container');
@@ -63,7 +65,7 @@ export const applyTheme = (styles, config: BaseStyleConfig, childStyles = {}) =>
   const Sgroup = styleBuilder(as.group || 'div', 'group');
   const Sclose = styleBuilder('label', 'close');
 
-  const bootstrap = createBootstrap(styles, 'notification');
+  const bootstrap = createBootstrap(processedStyle, 'notification');
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);

@@ -3,6 +3,9 @@ import isString from 'lodash/isString';
 import pickBy from 'lodash/pickBy';
 import mapValues from 'lodash/mapValues';
 import forEach from 'lodash/forEach';
+import reduce from 'lodash/reduce';
+import join from 'lodash/join';
+import isPlainObject from 'lodash/isPlainObject';
 
 const generateId = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
@@ -131,4 +134,17 @@ export function createBootstrap(styles: any, type: string) {
 
     return { id, name, label, ariaLabel, styleProps, children, className, rest };
   };
+}
+
+export function processStyle(styles: object) {
+  const processedStyle = reduce(
+    styles,
+    (ret, val, key) => {
+      ret[key] = isPlainObject(val) ? processStyle(val) : Array.isArray(val) ? join(val, '') : val;
+      return ret;
+    },
+    {}
+  );
+
+  return processedStyle;
 }

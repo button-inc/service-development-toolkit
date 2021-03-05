@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
+import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
   id?: string;
@@ -21,7 +21,8 @@ export interface StyleConfig {
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
-  const styleBuilder = createStyleBuilder(styles, config);
+  const processedStyle = processStyle(styles);
+  const styleBuilder = createStyleBuilder(processedStyle, config);
 
   const as = config.as || {};
   const Scontainer = styleBuilder(as.container || 'div', 'container');
@@ -29,7 +30,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const Swapper = config.includeWrapper ? styleBuilder(as.wrapper || 'div', 'wrapper') : null;
   const Stextarea = styleBuilder('textarea', 'input');
 
-  const bootstrap = createBootstrap(styles, 'textarea');
+  const bootstrap = createBootstrap(processedStyle, 'textarea');
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);

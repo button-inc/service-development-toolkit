@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
+import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
   id?: string;
@@ -20,7 +20,8 @@ export interface StyleConfig {
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
-  const styleBuilder = createStyleBuilder(styles, config);
+  const processedStyle = processStyle(styles);
+  const styleBuilder = createStyleBuilder(processedStyle, config);
 
   const as = config.as || {};
   const Scontainer = styleBuilder(as.container || 'div', 'container');
@@ -28,7 +29,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const SradioButton = styleBuilder('input', 'input');
   const Sdot = styleBuilder('span', 'dot');
 
-  const bootstrap = createBootstrap(styles, 'radio');
+  const bootstrap = createBootstrap(processedStyle, 'radio');
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);

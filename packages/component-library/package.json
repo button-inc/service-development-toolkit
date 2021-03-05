@@ -1,6 +1,6 @@
 {
   "name": "@button-inc/component-library",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "description": "Library for theme-able, accessible, progressively-enhancing react components",
   "license": "Apache-2.0",
   "main": "lib/cjs/index.js",
@@ -12,6 +12,7 @@
     "build-docs": "yarn --cwd www build",
     "build-types": "yarn tsc -d --outDir types",
     "pre-publish": "node ../../scripts/pre-publish.js --name=component-library",
+    "sync-version": "node ../../scripts/sync-version.js --name=component-library",
     "test:jest": "yarn jest"
   },
   "dependencies": {
