@@ -61,11 +61,15 @@ export function createStyleBuilder(styles: any, config: StyleConfig, childStyles
           const values = Object.keys(style);
           const first = values[0];
 
+          let value = props[key];
+          if (!style[value]) value = defaultProps[key] || first;
+
           if (isString(style[first])) {
             if (isTrue(props, key)) styles += style[type] || '';
+            else {
+              styles += style[value] || '';
+            }
           } else {
-            let value = props[key];
-            if (!style[value]) value = defaultProps[key] || first;
             styles += (style[value] && style[value][type]) || '';
           }
         };
