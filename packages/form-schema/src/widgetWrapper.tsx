@@ -19,7 +19,10 @@ const Wrapper = (Component, inputType: string = '') => {
     const { enumOptions = [] } = options;
     const formProps = {
       onChange: e => {
-        onChange(e.target[valueKey] || undefined);
+        let value = e.target[valueKey];
+        if (value === 'true') value = true;
+        if (value === 'false') value = false;
+        onChange(value);
       },
       label,
       name,

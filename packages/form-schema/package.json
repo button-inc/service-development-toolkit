@@ -1,6 +1,6 @@
 {
   "name": "@button-inc/form-schema",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0-alpha.1",
   "description": "Build forms from a schema",
   "license": "Apache-2.0",
   "main": "lib/index.js",
@@ -16,11 +16,11 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.2",
-    "axios": "^0.21.1",
     "@button-inc/bcgov-theme": "1.0.0-alpha.0",
-    "busboy": "^0.3.1",
     "@button-inc/button-theme": "1.0.0-alpha.0",
     "@button-inc/component-library": "1.0.0-alpha.5",
+    "axios": "^0.21.1",
+    "busboy": "^0.3.1",
     "react-jsonschema-form": "^1.8.1",
     "ts-loader": "^8.0.16",
     "typescript": "^4.1.3"
