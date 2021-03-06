@@ -20,7 +20,7 @@
     "@button-inc/bcgov-theme": "1.0.0-alpha.0",
     "busboy": "^0.3.1",
     "@button-inc/button-theme": "1.0.0-alpha.0",
-    "@button-inc/component-library": "1.0.0-alpha.5",
+    "@button-inc/component-library": "1.0.0-alpha.7",
     "react-jsonschema-form": "^1.8.1",
     "ts-loader": "^8.0.16",
     "typescript": "^4.1.3"
