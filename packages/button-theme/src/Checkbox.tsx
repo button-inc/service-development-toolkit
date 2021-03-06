@@ -3,7 +3,7 @@ import { Check, toSvgUrl } from './fontawesome';
 
 const checkSVG = toSvgUrl(Check);
 
-const styles = {
+export const styles = {
   shared: {
     label: `
       display: block;

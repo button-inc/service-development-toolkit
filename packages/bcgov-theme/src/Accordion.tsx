@@ -4,7 +4,7 @@ import noop from 'lodash/noop';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Card';
 import { Plus, Minus, FaSVG } from './fontawesome';
 
-const styles = {
+export const styles = {
   shared: {
     container: `
       font-size: 1rem;

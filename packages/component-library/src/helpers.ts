@@ -143,11 +143,34 @@ export function createBootstrap(styles: any, type: string) {
   };
 }
 
+const addSemicolon = str => (str.trim().endsWith(';') ? str : `${str};`);
+
+const removeNewline = str => str.replace(/(\r\n|\n|\r)/gm, '').trim();
+
+const isNotEmptyString = str => !!str;
+
 export function processStyle(styles: object) {
   const processedStyle = reduce(
     styles,
-    (ret, val, key) => {
-      ret[key] = isPlainObject(val) ? processStyle(val) : Array.isArray(val) ? join(val, '') : val;
+    (ret: object, val: any, key: string) => {
+      ret[key] = isPlainObject(val) ? processStyle(val) : Array.isArray(val) ? join(val.map(addSemicolon), '') : val;
+      return ret;
+    },
+    {}
+  );
+
+  return processedStyle;
+}
+
+export function convertToArrayStyle(styles: object) {
+  const processedStyle = reduce(
+    styles,
+    (ret: object, val: any, key: string) => {
+      ret[key] = isPlainObject(val)
+        ? convertToArrayStyle(val)
+        : isString(val)
+        ? val.split(';').map(removeNewline).filter(isNotEmptyString)
+        : val;
       return ret;
     },
     {}

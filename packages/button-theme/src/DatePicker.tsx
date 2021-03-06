@@ -1,6 +1,6 @@
 import { applyTheme, StyleConfig } from '@button-inc/component-library/DatePicker';
 
-const styles = {
+export const styles = {
   shared: {
     label: `
       display: block;

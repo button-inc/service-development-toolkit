@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Menu';
 import buttonLogoDataUrl from './dataurls/button_logo';
 
-const styles = {
+export const styles = {
   shared: {
     container: `
       display: flex;

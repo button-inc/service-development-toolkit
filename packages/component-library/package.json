@@ -1,6 +1,6 @@
 {
   "name": "@button-inc/component-library",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.8",
   "description": "Library for theme-able, accessible, progressively-enhancing react components",
   "license": "Apache-2.0",
   "main": "lib/cjs/index.js",
