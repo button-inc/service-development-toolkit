@@ -14,7 +14,7 @@ function getValue(inputType) {
 const Wrapper = (Component, inputType: string = '') => {
   const valueKey = getValue(inputType);
   return props => {
-    const { value, onChange, label, schema, options, required } = props;
+    const { value, onChange, label, schema, options, required, disabled } = props;
     const { name = label, pattern, minLength, maxLength, id } = schema;
     const { enumOptions = [] } = options;
     const formProps = {
@@ -29,6 +29,7 @@ const Wrapper = (Component, inputType: string = '') => {
       maxLength,
       id,
       required,
+      disabled,
       minLength,
       type: inputType,
       pattern,
