@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import isString from 'lodash/isString';
+import isBoolean from 'lodash/isBoolean';
 import pickBy from 'lodash/pickBy';
 import mapValues from 'lodash/mapValues';
 import forEach from 'lodash/forEach';
@@ -62,14 +63,16 @@ export function createStyleBuilder(styles: any, config: StyleConfig, childStyles
           const first = values[0];
 
           let value = props[key];
-          if (!style[value]) value = defaultProps[key] || first;
 
           if (isString(style[first])) {
-            if (isTrue(props, key)) styles += style[type] || '';
-            else {
+            if (isBoolean(value)) {
+              if (isTrue(props, key)) styles += style[type] || '';
+            } else {
+              if (!style[value]) value = defaultProps[key] || first;
               styles += style[value] || '';
             }
           } else {
+            if (!style[value]) value = defaultProps[key] || first;
             styles += (style[value] && style[value][type]) || '';
           }
         };
