@@ -1,6 +1,6 @@
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Notification';
 
-const styles = {
+export const styles = {
   shared: {
     container: `
       position: relative;
