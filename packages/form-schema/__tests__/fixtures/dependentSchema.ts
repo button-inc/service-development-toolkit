@@ -1,8 +1,10 @@
 export const simpleDependencySchema: any = {
   required: ['third'],
+  title: 'test',
   properties: {
     page: {
       type: 'object',
+      title: 'nested-title',
       properties: {
         first: {
           type: 'string',
@@ -24,7 +26,8 @@ export const simpleDependencySchema: any = {
 export const expectedSimpleDependencySchemas = [
   {
     required: [],
-    title: 'page',
+    title: 'nested-title',
+    type: 'object',
     properties: {
       first: {
         type: 'string',
@@ -39,6 +42,8 @@ export const expectedSimpleDependencySchemas = [
   },
   {
     required: ['third'],
+    title: 'test',
+    type: 'object',
     properties: {
       third: {
         type: 'boolean',

@@ -56,33 +56,35 @@ export function getRequiredFields(allRequired: string[], propertyNames: string[]
   return schemaRequired;
 }
 
-export function createSchemaFromObject(currentField: any, propertyName: string, allRequired?: string[]) {
+export function createSchemaFromObject(currentField: any, allRequired?: string[]) {
   const { type, ...rest } = currentField;
   const propertyNames = Object.keys(currentField.properties);
   const required = getRequiredFields(allRequired || [], propertyNames);
   const newSchema: ISchema = {
-    title: propertyName,
-    required,
     ...rest,
+    required,
+    type: 'object',
   };
   return newSchema;
 }
 
 export function splitSchema(schema: ISchema): ISchema[] {
   const schemas: ISchema[] = [];
-  const { properties: allProperties, required: allRequired = [] } = schema;
+  const { properties: allProperties, required: allRequired = [], title } = schema;
   forEach(allProperties, (currentField: any, propertyName: string) => {
     if (currentField.type === 'object') {
-      return schemas.push(createSchemaFromObject(currentField, propertyName, allRequired));
+      return schemas.push(createSchemaFromObject(currentField, allRequired));
     }
     const properties = { [propertyName]: currentField };
     const { hasFiles } = currentField;
     const required = getRequiredFields(allRequired, [propertyName]);
     const newSchema: INewSchema = {
       properties,
+      type: 'object',
       required,
-      hasFiles,
+      title,
     };
+    if (hasFiles) newSchema.hasFiles = hasFiles;
     return schemas.push(newSchema);
   });
   return schemas;
