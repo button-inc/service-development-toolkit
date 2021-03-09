@@ -1,6 +1,6 @@
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Button';
 
-const styles = {
+export const styles = {
   shared: {
     button: `
       cursor: pointer;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Notification';
 import { CheckCircle, InfoCircle, ExclamationTriangle, ExclamationCircle, FaSVG } from './fontawesome';
 
-const styles = {
+export const styles = {
   shared: {
     container: `
       line-height: 1.5em;

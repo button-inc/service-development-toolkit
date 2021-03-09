@@ -1,6 +1,6 @@
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Select';
 
-const styles = {
+export const styles = {
   shared: {
     container: `
     `,

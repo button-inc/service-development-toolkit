@@ -1,6 +1,6 @@
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Fieldset';
 
-const styles = {
+export const styles = {
   shared: {
     container: `
       border: none;

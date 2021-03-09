@@ -3,7 +3,7 @@ import { ChevronDown, toSvgUrl } from './fontawesome';
 
 const chevronDownSVG = toSvgUrl(ChevronDown);
 
-const styles = {
+export const styles = {
   shared: {
     label: `
       display: block;

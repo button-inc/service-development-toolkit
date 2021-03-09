@@ -4,7 +4,7 @@ import { applyTheme, StyleConfig } from '@button-inc/component-library/Menu';
 import Button from './Button';
 import buttonLogoDataUrl from './dataurls/button_logo';
 
-const styles = {
+export const styles = {
   shared: {
     container: `
       display: flex;

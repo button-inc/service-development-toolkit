@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import noop from 'lodash/noop';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Modal';
 
-const styles = {
+export const styles = {
   shared: {
     container: `
       position: fixed;

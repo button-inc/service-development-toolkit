@@ -6,7 +6,7 @@ import { BaseHeader } from './Header';
 import { Bars, FaSVG } from './fontawesome';
 import bcgovLogoSVG from './svg/bcgov_logo';
 
-const styles = {
+export const styles = {
   shared: {
     container: `
       width: 100%;

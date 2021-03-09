@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Footer';
 
-const styles = {
+export const styles = {
   shared: {
     container: `
       background-color: #036;

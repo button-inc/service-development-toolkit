@@ -3,7 +3,7 @@ import { applyTheme, StyleConfig } from '@button-inc/component-library/FilePicke
 import Button from './Button';
 import { Upload, FaSVG } from './fontawesome';
 
-const styles = {
+export const styles = {
   shared: {
     label: `
       display: block;
