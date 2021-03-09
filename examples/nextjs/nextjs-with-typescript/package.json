@@ -14,7 +14,7 @@
     "@types/typography": "^0.16.3",
     "@button-inc/bcgov-theme": "1.0.0-alpha.1",
     "@button-inc/button-theme": "1.0.0-alpha.1",
-    "@button-inc/component-library": "1.0.0-alpha.8",
+    "@button-inc/component-library": "1.0.0-alpha.9",
     "next": "latest",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",

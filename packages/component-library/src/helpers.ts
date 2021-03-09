@@ -5,7 +5,6 @@ import pickBy from 'lodash/pickBy';
 import mapValues from 'lodash/mapValues';
 import forEach from 'lodash/forEach';
 import reduce from 'lodash/reduce';
-import join from 'lodash/join';
 import isPlainObject from 'lodash/isPlainObject';
 
 const generateId = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -145,15 +144,11 @@ export function createBootstrap(styles: any, type: string) {
 
 const addSemicolon = str => (str.trim().endsWith(';') ? str : `${str};`);
 
-const removeNewline = str => str.replace(/(\r\n|\n|\r)/gm, '').trim();
-
-const isNotEmptyString = str => !!str;
-
 export function processStyle(styles: object) {
   const processedStyle = reduce(
     styles,
     (ret: object, val: any, key: string) => {
-      ret[key] = isPlainObject(val) ? processStyle(val) : Array.isArray(val) ? join(val.map(addSemicolon), '') : val;
+      ret[key] = isPlainObject(val) ? processStyle(val) : Array.isArray(val) ? val.join('') : val;
       return ret;
     },
     {}
@@ -162,6 +157,10 @@ export function processStyle(styles: object) {
   return processedStyle;
 }
 
+const newLine = /[\n]+/;
+const trimSpaces = str => str.trim();
+const isNotEmptyString = str => !!str;
+
 export function convertToArrayStyle(styles: object) {
   const processedStyle = reduce(
     styles,
@@ -169,7 +168,7 @@ export function convertToArrayStyle(styles: object) {
       ret[key] = isPlainObject(val)
         ? convertToArrayStyle(val)
         : isString(val)
-        ? val.split(';').map(removeNewline).filter(isNotEmptyString)
+        ? val.split(newLine).map(trimSpaces).filter(isNotEmptyString)
         : val;
       return ret;
     },
