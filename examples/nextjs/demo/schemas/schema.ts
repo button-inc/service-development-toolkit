@@ -46,6 +46,9 @@ const schema = {
           name: 'secondQ',
         },
       },
+      dependencies: {
+        firstQ: ['secondQ'],
+      },
     },
     seventhQuestion: {
       type: 'string',

@@ -20,6 +20,7 @@ const Wrapper = (Component, inputType: string = '') => {
     const formProps = {
       onChange: e => {
         let value = e.target[valueKey];
+        if (value === '') value = undefined;
         if (value === 'true') value = true;
         if (value === 'false') value = false;
         onChange(value);
