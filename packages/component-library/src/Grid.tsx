@@ -16,6 +16,10 @@ interface Context {
   Srow: any;
   Scol: any;
   cols: number;
+  gutter: number | number[] | undefined;
+  gutterUnit: string | undefined;
+  justify: string | undefined;
+  align: string | undefined;
 }
 
 interface ColProps {
@@ -26,11 +30,29 @@ const CONTAINER_CLASS = 'pg-grid-container';
 const ROW_CLASS = 'pg-grid-row';
 const COL_CLASS = 'pg-grid-col';
 
+const JUSTIFY = {
+  start: 'flex-start',
+  center: 'center',
+  end: 'flex-end',
+  'space-between': 'space-between',
+  'space-around': 'space-around',
+};
+
+const ALIGN = {
+  top: 'flex-start',
+  center: 'center',
+  bottom: 'flex-end',
+};
+
 const initialContext: Context = {
   styleProps: {},
   Srow: null,
   Scol: null,
   cols: 16,
+  gutter: 0,
+  gutterUnit: 'px',
+  justify: 'start',
+  align: 'start',
 };
 
 const GridContext = React.createContext(initialContext);
@@ -53,19 +75,29 @@ const createGridRow = tag => {
     -webkit-box-align: stretch;
     -ms-flex-align: stretch;
     align-items: stretch;
-    width: 100% !important;
-    ${props =>
-      props.collapse
-        ? `@media (max-width: ${props.collapse}px) {
-            -webkit-box-orient: vertical;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            & > * {
-              width: 100% !important;
+    ${props => `
+      margin-left: -${props.gutterHorizontal}${props.gutterUnit};
+      margin-right: -${props.gutterHorizontal}${props.gutterUnit};
+      row-gap: ${props.gutterVertical}${props.gutterUnit};
+      & > .${COL_CLASS} {
+        padding: ${props.gutterVertical}${props.gutterUnit} ${props.gutterHorizontal}${props.gutterUnit};
+      }
+      justify-content: ${JUSTIFY[props.justify]};
+      align-items: ${ALIGN[props.align]};
+      ${
+        props.collapse
+          ? `@media (max-width: ${props.collapse}px) {
+              -webkit-box-orient: vertical;
+              -ms-flex-direction: column;
+              flex-direction: column;
+              & > .${COL_CLASS} {
+                width: 100% !important;
+              }
             }
-          }
-          `
-        : ''}
+            `
+          : ''
+      }
+    `}
   `;
 };
 
@@ -81,6 +113,10 @@ export interface StyleConfig {
   breakProps?: string[];
   as?: object;
   cols?: number;
+  gutter?: number | number[];
+  gutterUnit?: string;
+  justify?: string;
+  align?: string;
 }
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {
@@ -92,7 +128,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const Srow = styleBuilder(createGridRow(as.row || 'div'), 'row');
   const Scol = styleBuilder(createGridCol(as.col || 'div'), 'col');
 
-  const cols = config.cols || 16;
+  const { cols = 16, gutter, gutterUnit, justify, align } = config;
 
   const bootstrap = createBootstrap(processedStyle, 'grid');
 
@@ -100,7 +136,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
 
     return (
-      <GridContext.Provider value={{ styleProps, Srow, Scol, cols }}>
+      <GridContext.Provider value={{ styleProps, Srow, Scol, cols, gutter, gutterUnit, justify, align }}>
         <Scontainer {...rest} className={cx(CONTAINER_CLASS, className)}>
           {children}
         </Scontainer>
@@ -109,12 +145,34 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   };
 
   BaseComponent.Row = props => {
-    const { children, className, collapse, ...rest } = props;
+    const { Srow, styleProps, gutter: gt, gutterUnit: gtu, justify: jt, align: al } = useContext(GridContext);
+    const { children, className, gutter = gt, gutterUnit = gtu, justify = jt, align = al, collapse, ...rest } = props;
     const classes = cx(ROW_CLASS, className);
-    const { Srow, styleProps } = useContext(GridContext);
+
+    let gutterHorizontal = 0;
+    let gutterVertical = 0;
+
+    if (Array.isArray(gutter)) {
+      gutterHorizontal = gutter[0] || 0;
+      gutterVertical = gutter[1] || 0;
+    } else {
+      const val = gutter || 0;
+      gutterHorizontal = val;
+      gutterVertical = val;
+    }
 
     return (
-      <Srow className={classes} {...styleProps} {...rest} collapse={collapse || ''}>
+      <Srow
+        className={classes}
+        {...styleProps}
+        {...rest}
+        collapse={collapse || ''}
+        gutterHorizontal={gutterHorizontal}
+        gutterVertical={gutterVertical}
+        gutterUnit={gutterUnit || 'px'}
+        justify={justify || 'start'}
+        align={align || 'start'}
+      >
         {children}
       </Srow>
     );
