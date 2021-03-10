@@ -2,6 +2,7 @@
 
 **Contents**
   - [Overview](#overview)
+  - [Getting Started](#getting-started)
   - [Usage](#usage)
     - [Schemas](#schemas)
     - [Rendering Forms](#rendering-forms)
@@ -26,6 +27,17 @@ This library is built on top of [react json schema form](https://github.com/rjsf
 - **Accessibility**: This package is designed to plug in easily with pangolin component-libraries, which have a focus on accessible components.
 
 Note that while this package makes it easier to meet these three goals, it is not limited to them. For example, it can be used with a client-side rendering framework like create react app if you are interested only in accessibility and single-page form questions.
+
+## Getting Started
+
+Install package:
+- `npm i @button-inc/form-schema` or `yarn add @button-inc/form-schema` depending on your package manager.
+
+Add to your app:
+- `import builder from @button-inc/form-schema`, or to use with pangolin themed components,
+`import {govBuilder} from @button-inc/form-schema`
+
+See below for specific use cases, or browse our [examples](https://github.com/thebuttonclan/pangolin/tree/develop/examples) for a working setup.
 
 ## Usage
 

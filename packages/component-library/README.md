@@ -2,6 +2,7 @@
 
 **Contents**
   - [Overview](#overview)
+  - [Getting Started](#getting-started)
   - [Usage](#usage)
     - [End User](#end-user)
     - [Theme Builder](#building-a-theme)
@@ -11,9 +12,19 @@
 
 This package is a library of react components focused on accessibility and progressive enhancement. When used with a server-side-rendered react application, these components remain functional for users who may not have javascript or css available.
 
-# Usage
+# Getting Started
 
-The components in this library are designed to have custom themes applied on top of them easily. This creates two use cases, either [building a theme](#building-a-theme) to apply custom styles to the components, and [end users](#end-users) plugging components into their application.
+Install the package:
+
+ - `npm i @button-inc/component-library` or `yarn add @button-inc/component-library`
+
+Import component(s):
+
+- `import Button from @button-inc/component-library/Button`
+
+For themed components, you can add `@button-inc/bcgov-theme` or `@button-inc/button-theme`.
+
+If you want to build your own theme, see below for instructions. There is also a [live playground](https://pangolin-toolkit.herokuapp.com/theme-builder/button) to test it out.
 
 ## Building a Theme
 
@@ -154,17 +165,6 @@ const config = {
   staticProps: ['fullHeight']
 };
 ```
-
-## End user
-
-For end users, components can be individually imported:
-
-``` javascript
-import Button from '@button-inc/bcgov-theme/Button';
-```
-
-The component can then be custom styled depending on the theme used.
-
 
 # Components
 
