@@ -1,30 +1,28 @@
-# Setup
+# Pangolin
 
-- Clone this repository
-- Run `yarn` to install package dependencies
-- Run `yarn build` to compile all packages
-- Run `yarn start` in an example app to test
+Pangolin is a toolkit to bring best practices to data intake applications built with [React](https://reactjs.org/).
 
-```sh
-yarn bootstrap
-yarn llink
-yarn build
-```
+The toolkit can be used to easily create progressively enhancing, accessible form-based applications that are themable and focused on
+minimizing resource size. It consists of a component library for themed, accessible,  progressively enhancing components, and a form-builder application
+to help create progressively enhancing forms with good UI pricnciples. See below for live demonstrations:
 
-## Storybook
+- [Component Library Storybook](https://thebuttonclan.github.io/pangolin/)
+- [Component Library Theme Builder](https://pangolin-toolkit.herokuapp.com/theme-builder/button)
+- [Form Builder](https://pangolin-toolkit.herokuapp.com/form-builder)
 
-To run locally, run `yarn llink` followed by `yarn storybook:<theme>` where theme is one of:
+## Getting Started
 
-- base
-- gov
+See the documentation below for getting setup in each tool:
 
-To build, run `yarn llink` followed by `yarn build-storybook:<theme>` where theme is one of:
+- [component-library](https://github.com/thebuttonclan/pangolin/tree/develop/packages/component-library#getting-started)
+- [form-schema](https://github.com/thebuttonclan/pangolin/tree/develop/packages/form-schema#getting-started)
 
-- base
-- gov
+## Contributing
 
-To test build locally, run `npx http-server ./storybook-static` after building.
+- To contribute, fork this repository. See the [developer guide](https://github.com/thebuttonclan/pangolin/blob/develop/docs/developer-guide.md) for getting a local instance running.
+- Create a branch off the **develop** branch, named after the issue number you are working on, e.g `feat/12`.
+- When ready to commit your changes, run `make commit` from the root directory. If you have installed pre-commit, this will check your changes are linted correctly.
+- From the root, run `yarn test:jest` to ensure tests are passing.
+- Create a pull request to the **develop** branch.
 
-## Test
-
-To run unit tests in all packages, run `yarn test:jest`
+To make it easier to accept your pull request, add tests where possible to ensure code is working as expected. Thank you for your contributions!

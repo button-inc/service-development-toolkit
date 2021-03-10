@@ -9,7 +9,7 @@
   "dependencies": {
     "@button-inc/bcgov-theme": "1.0.0-alpha.1",
     "@button-inc/component-library": "1.0.0-alpha.9",
-    "@button-inc/form-schema": "1.0.0-alpha.2",
+    "@button-inc/form-schema": "1.0.0-alpha.3",
     "next": "latest",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
