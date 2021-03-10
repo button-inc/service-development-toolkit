@@ -14,7 +14,7 @@ const getContentType = files => {
 const getFormData = (files: object) => {
   const data = new FormData();
   const fileList = Object.values(files)[0];
-  data.append('file', fileList[0]);
+  if (fileList) data.append('file', fileList[0]);
   data.append('js', 'true');
   return data;
 };

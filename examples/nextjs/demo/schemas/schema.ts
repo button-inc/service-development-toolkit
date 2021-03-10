@@ -1,5 +1,6 @@
 const schema = {
   required: ['thirdQuestion'],
+  title: 'My new form title',
   properties: {
     firstQuestion: {
       type: 'string',

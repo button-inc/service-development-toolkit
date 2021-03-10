@@ -49,13 +49,13 @@ describe('getRequiredFields', () => {
 describe('createSchemaFromObject', () => {
   it('Creates expected schema with no requirements', () => {
     const currentField = objectPropertySchema.properties.first;
-    const schema = createSchemaFromObject(currentField, 'first', []);
+    const schema = createSchemaFromObject(currentField, []);
     expect(schema).toEqual(expectedObjectPropertySchema);
   });
 
   it('Creates expected schema with requirements', () => {
     const currentField = objectPropertySchema.properties.first;
-    const schema = createSchemaFromObject(currentField, 'first', ['second']);
+    const schema = createSchemaFromObject(currentField, ['second']);
     expectedObjectPropertySchema.required = ['second'];
     expect(schema).toEqual(expectedObjectPropertySchema);
   });
