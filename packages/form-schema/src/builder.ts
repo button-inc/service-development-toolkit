@@ -8,6 +8,7 @@ import { getUiSchemaFromOptions } from './utils/schemaUtils';
 
 export default function builder(
   defaultWidgets: object | boolean,
+  Fieldset: any,
   schema: ISchema,
   baseUiSchema: object,
   options: IOptions
@@ -18,7 +19,7 @@ export default function builder(
   uiSchema = getUiSchemaFromOptions(schema, uiSchema, combinedOptions);
   const urlArray = generateUrlArray(schema);
 
-  const { Forms, schemasArray, fieldsArray } = buildForms(schema, uiSchema, combinedOptions, urlArray);
+  const { Forms, schemasArray, fieldsArray } = buildForms(schema, uiSchema, combinedOptions, urlArray, Fieldset);
   const numForms: number = Forms.length;
   const sharedArgs: ISharedArgs = {
     ...combinedOptions,

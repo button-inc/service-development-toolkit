@@ -25,7 +25,7 @@ const schema = {
     },
     fifthQuestion: {
       type: 'string',
-      title: 'Radio Group',
+      title: 'Radio Groups',
       name: 'fifthQuestion',
       enum: ['one', 'two', 'three'],
       enumNames: ['one', 'two', 'three'],
@@ -33,7 +33,7 @@ const schema = {
     sixthQuestion: {
       type: 'object',
       name: 'sixthQuestion',
-      title: 'Group Properties to Include on One Page',
+      description: 'Group Properties to Include on One Page',
       properties: {
         firstQ: {
           type: 'string',
@@ -45,6 +45,9 @@ const schema = {
           title: 'second',
           name: 'secondQ',
         },
+      },
+      dependencies: {
+        firstQ: ['secondQ'],
       },
     },
     seventhQuestion: {

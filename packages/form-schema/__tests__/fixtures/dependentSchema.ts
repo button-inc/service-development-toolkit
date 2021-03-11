@@ -4,7 +4,7 @@ export const simpleDependencySchema: any = {
   properties: {
     page: {
       type: 'object',
-      title: 'nested-title',
+      description: 'nested-title',
       properties: {
         first: {
           type: 'string',
@@ -26,8 +26,9 @@ export const simpleDependencySchema: any = {
 export const expectedSimpleDependencySchemas = [
   {
     required: [],
-    title: 'nested-title',
+    title: 'test',
     type: 'object',
+    description: 'nested-title',
     properties: {
       first: {
         type: 'string',

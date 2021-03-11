@@ -19,11 +19,30 @@ const getFormData = (files: object) => {
   return data;
 };
 
-export default function buildForms(schema: ISchema, uiSchema: object, options: IOptions, urlArray: string[]): IForms {
+export default function buildForms(
+  schema: ISchema,
+  uiSchema: object,
+  options: IOptions,
+  urlArray: string[],
+  Fieldset: any
+): IForms {
   const { validations, widgets } = options;
   const schemasArray = splitSchema(schema);
   const fieldsArray = schemasArray.map(schema => Object.keys(schema.properties));
   const { getRoute, postRoute } = options;
+  const formProps: any = {};
+  if (Fieldset) {
+    formProps.ObjectFieldTemplate = ({ properties, title, description }: any) => (
+      <>
+        <Fieldset title={title}>
+          <strong>{description}</strong>
+          {properties.map((prop: any) => (
+            <div key={prop.content}>{prop.content}</div>
+          ))}
+        </Fieldset>
+      </>
+    );
+  }
 
   return {
     Forms: schemasArray.map((schema, i) => {
@@ -74,6 +93,7 @@ export default function buildForms(schema: ISchema, uiSchema: object, options: I
             onSubmit={handleSubmit}
             widgets={widgets}
             {...fileProps}
+            {...formProps}
             {...props}
           />
         );
