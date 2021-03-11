@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper, Divider } from '../../../stories/helpers';
 import Grid from '../src/Grid';
-import BCGovTypography from './BCGovTypography';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: 'Grid',
@@ -122,7 +122,7 @@ const Component = props => (
 
 const Template: Story = args => (
   <>
-    <BCGovTypography />
+    <ButtonTypography />
     <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
       <Component {...args} />
