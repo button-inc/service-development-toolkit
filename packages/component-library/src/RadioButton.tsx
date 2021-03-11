@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'clsx';
 import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
@@ -19,6 +20,11 @@ export interface StyleConfig {
   as?: object;
 }
 
+const CONTAINER_CLASS = 'pg-radio';
+const LABEL_CLASS = 'pg-radio-label';
+const INPUT_CLASS = 'pg-radio-input';
+const DOT_CLASS = 'dot';
+
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const processedStyle = processStyle(styles);
   const styleBuilder = createStyleBuilder(processedStyle, config);
@@ -32,13 +38,22 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const bootstrap = createBootstrap(processedStyle, 'radio');
 
   const BaseComponent = (props: Props) => {
-    const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);
+    const { id, name, label, ariaLabel, styleProps, className, rest } = bootstrap(props);
+    const { style, labelStyle, inputStyle, dotStyle, ...others } = rest;
 
     return (
-      <Scontainer {...styleProps}>
-        <Slabel {...styleProps} htmlFor={id}>
-          <SradioButton aria-label={ariaLabel} {...rest} type="radio" id={id} name={name} />
-          <Sdot {...styleProps} className="dot" />
+      <Scontainer {...styleProps} style={style} className={cx(CONTAINER_CLASS, className)}>
+        <Slabel {...styleProps} htmlFor={id} style={labelStyle} className={LABEL_CLASS}>
+          <SradioButton
+            aria-label={ariaLabel}
+            {...others}
+            type="radio"
+            id={id}
+            name={name}
+            style={inputStyle}
+            className={INPUT_CLASS}
+          />
+          <Sdot {...styleProps} style={dotStyle} className={DOT_CLASS} />
           {label}
         </Slabel>
       </Scontainer>
