@@ -2,7 +2,7 @@ export const objectPropertySchema: any = {
   properties: {
     first: {
       type: 'object',
-      title: 'first',
+      description: 'first description',
       properties: {
         second: {
           type: 'boolean',
@@ -16,9 +16,9 @@ export const objectPropertySchema: any = {
 };
 
 export const expectedObjectPropertySchema = {
-  title: 'first',
   required: [],
   type: 'object',
+  description: 'first description',
   properties: {
     second: {
       type: 'boolean',
