@@ -4,20 +4,6 @@ import { useRouter } from 'next/router';
 import { Forms, getHandler } from 'pangolin';
 import Button from '@button-inc/bcgov-theme/Button';
 
-// Can just pass regular rjsf templates to override fieldsets, layout, etc. and will pass through
-function ObjectFieldTemplate({ properties, title }: any) {
-  return (
-    <>
-      <h3>{title}</h3>
-      <div>
-        {properties.map((prop: any) => (
-          <div key={prop.content}>{prop.content}</div>
-        ))}
-      </div>
-    </>
-  );
-}
-
 export default function home({
   formIndex,
   formData,
@@ -49,12 +35,7 @@ export default function home({
     <>
       <h1>Form</h1>
       {validPage && (
-        <Form
-          formData={formData}
-          rerouteHandler={rerouteHandler}
-          ObjectFieldTemplate={ObjectFieldTemplate}
-          showErrorList={false}
-        >
+        <Form formData={formData} rerouteHandler={rerouteHandler} showErrorList={false}>
           <div className="buttons">
             <a href={prevUrl} onClick={previousPage}>
               <Button type="button" variant="secondary">

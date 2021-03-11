@@ -48,6 +48,7 @@ const Wrapper = (Component, inputType: string = '') => {
     if (inputType === 'radio') {
       return (
         <div>
+          <strong>{label}</strong>
           {enumOptions.map(option => (
             <Component
               key={option.value}
