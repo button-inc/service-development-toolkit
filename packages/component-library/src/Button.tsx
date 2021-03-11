@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'clsx';
 import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
@@ -15,6 +16,8 @@ export interface StyleConfig {
   breakProps?: string[];
 }
 
+const BUTTON_CLASS = 'pg-button';
+
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const processedStyle = processStyle(styles);
   const styleBuilder = createStyleBuilder(processedStyle, config);
@@ -23,10 +26,10 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const bootstrap = createBootstrap(processedStyle, 'button');
 
   const BaseComponent = (props: Props) => {
-    const { id, name, label, ariaLabel, styleProps, children, rest } = bootstrap(props);
+    const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
 
     return (
-      <Sbutton aria-label={ariaLabel} {...rest} id={id}>
+      <Sbutton aria-label={ariaLabel} {...rest} id={id} className={cx(BUTTON_CLASS, className)}>
         {children}
       </Sbutton>
     );

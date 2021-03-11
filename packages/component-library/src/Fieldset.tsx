@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'clsx';
 import reduce from 'lodash/reduce';
 import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
@@ -18,6 +19,9 @@ export interface StyleConfig {
   breakProps?: string[];
   forwardProps?: string[];
 }
+
+const CONTAINER_CLASS = 'pg-fieldset';
+const LEGEND_CLASS = 'pg-fieldset-legend';
 
 function recursiveCloneChildren(children, parentProps: object) {
   return React.Children.map(children, child => {
@@ -46,9 +50,9 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const forwardProps = config.forwardProps || [];
 
   const BaseComponent = (props: Props) => {
-    const { id, name, ariaLabel, styleProps, children, rest } = bootstrap(props);
+    const { id, name, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
 
-    const { title, disabled, ...others } = rest;
+    const { style, legendStyle, title, disabled, ...others } = rest;
 
     const forwards = reduce(
       forwardProps,
@@ -60,8 +64,12 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     );
 
     return (
-      <Sfieldset {...styleProps} id={id}>
-        {title && <Slegend {...styleProps}>{title}</Slegend>}
+      <Sfieldset {...styleProps} id={id} style={style} className={cx(CONTAINER_CLASS, className)}>
+        {title && (
+          <Slegend {...styleProps} style={legendStyle} className={LEGEND_CLASS}>
+            {title}
+          </Slegend>
+        )}
         {recursiveCloneChildren(children, forwards)}
       </Sfieldset>
     );

@@ -1,6 +1,6 @@
 {
   "name": "@button-inc/button-theme",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.3",
   "description": "Accessible and progressively-enhancing Button component theme",
   "license": "Apache-2.0",
   "main": "lib/cjs/index.js",
@@ -19,7 +19,7 @@
   "dependencies": {
     "@babel/runtime": "^7.4.2",
     "@types/styled-components": "^5.1.4",
-    "@button-inc/component-library": "1.0.0-alpha.10",
+    "@button-inc/component-library": "1.0.0-alpha.11",
     "react-typography": "^0.16.19",
     "styled-components": "^5.2.1"
   },

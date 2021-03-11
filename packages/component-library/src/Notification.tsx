@@ -22,9 +22,9 @@ interface Context {
 }
 
 const CONTAINER_CLASS = 'pg-notification';
-const HEADER_CLASS = 'pg-header';
-const CONTENT_CLASS = 'pg-content';
-const CLOSE_CLASS = 'pg-close';
+const HEADER_CLASS = 'pg-notification-header';
+const CONTENT_CLASS = 'pg-notification-content';
+const CLOSE_CLASS = 'pg-notification-close';
 
 const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox' })`
   position: absolute;

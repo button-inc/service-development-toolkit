@@ -69,12 +69,14 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
-    const { onToggle, defaultToggled, ...others } = rest;
+    const { style, modalStyle, onToggle, defaultToggled, ...others } = rest;
 
     return (
       <ModalContext.Provider value={{ styleProps, Sheader, Scontent, Sfooter, Sclose }}>
-        <Scontainer {...others} className={cx(CONTAINER_CLASS, className)} id={id}>
-          <Smain className={MODAL_CLASS}>{children}</Smain>
+        <Scontainer {...others} className={cx(CONTAINER_CLASS, className)} id={id} style={style}>
+          <Smain className={MODAL_CLASS} style={modalStyle}>
+            {children}
+          </Smain>
         </Scontainer>
       </ModalContext.Provider>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'clsx';
 import styled, { StyledInterface } from 'styled-components';
 import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
@@ -20,6 +21,11 @@ export interface StyleConfig {
   wrapperExtraStyle?: string;
   as?: object;
 }
+
+const CONTAINER_CLASS = 'pg-filepicker';
+const LABEL_CLASS = 'pg-filepicker-label';
+const INPUT_CLASS = 'pg-filepicker-input';
+const WRAPPER_CLASS = 'pg-filepicker-wrapper';
 
 interface InputWrapperProps {
   readonly wrapperExtraStyle?: string;
@@ -53,22 +59,42 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const bootstrap = createBootstrap(processedStyle, 'filepicker');
 
   const BaseComponent = (props: Props) => {
-    const { id, name, label, ariaLabel, styleProps, children, rest } = bootstrap(props);
+    const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
+    const { style, labelStyle, inputStyle, wrapperStyle, ...others } = rest;
 
     return (
-      <Scontainer {...styleProps}>
+      <Scontainer {...styleProps} style={style} className={cx(CONTAINER_CLASS, className)}>
         {label && (
-          <Slabel htmlFor={id} {...styleProps}>
+          <Slabel htmlFor={id} {...styleProps} style={labelStyle} className={LABEL_CLASS}>
             {label}
           </Slabel>
         )}
         {children ? (
-          <InputWrapper wrapperExtraStyle={config.wrapperExtraStyle || ''}>
+          <InputWrapper
+            style={wrapperStyle}
+            className={WRAPPER_CLASS}
+            wrapperExtraStyle={config.wrapperExtraStyle || ''}
+          >
             {children}
-            <HiddenInput aria-label={ariaLabel} {...rest} id={id} name={name} />
+            <HiddenInput
+              aria-label={ariaLabel}
+              {...others}
+              id={id}
+              name={name}
+              style={inputStyle}
+              className={INPUT_CLASS}
+            />
           </InputWrapper>
         ) : (
-          <Sinput aria-label={ariaLabel} {...rest} type="file" id={id} name={name} />
+          <Sinput
+            aria-label={ariaLabel}
+            {...others}
+            type="file"
+            id={id}
+            name={name}
+            style={inputStyle}
+            className={INPUT_CLASS}
+          />
         )}
       </Scontainer>
     );

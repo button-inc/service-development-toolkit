@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'clsx';
 import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
@@ -20,6 +21,11 @@ export interface StyleConfig {
   as?: object;
 }
 
+const CONTAINER_CLASS = 'pg-datepicker';
+const LABEL_CLASS = 'pg-datepicker-label';
+const INPUT_CLASS = 'pg-datepicker-input';
+const WRAPPER_CLASS = 'pg-datepicker-wrapper';
+
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const processedStyle = processStyle(styles);
   const styleBuilder = createStyleBuilder(processedStyle, config);
@@ -33,18 +39,35 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const bootstrap = createBootstrap(processedStyle, 'datepicker');
 
   const BaseComponent = (props: Props) => {
-    const { id, name, label, ariaLabel, styleProps, rest } = bootstrap(props);
+    const { id, name, label, ariaLabel, styleProps, className, rest } = bootstrap(props);
+    const { style, labelStyle, inputStyle, wrapperStyle, ...others } = rest;
 
-    const input = <Sinput aria-label={ariaLabel} {...rest} type="date" id={id} name={name} />;
+    const input = (
+      <Sinput
+        aria-label={ariaLabel}
+        {...others}
+        type="date"
+        id={id}
+        name={name}
+        style={inputStyle}
+        className={INPUT_CLASS}
+      />
+    );
 
     return (
-      <Scontainer {...styleProps}>
+      <Scontainer {...styleProps} style={style} className={cx(CONTAINER_CLASS, className)}>
         {label && (
-          <Slabel htmlFor={id} {...styleProps}>
+          <Slabel htmlFor={id} {...styleProps} style={labelStyle} className={LABEL_CLASS}>
             {label}
           </Slabel>
         )}
-        {Swapper ? <Swapper {...styleProps}>{input}</Swapper> : input}
+        {Swapper ? (
+          <Swapper {...styleProps} style={wrapperStyle} className={WRAPPER_CLASS}>
+            {input}
+          </Swapper>
+        ) : (
+          input
+        )}
       </Scontainer>
     );
   };
