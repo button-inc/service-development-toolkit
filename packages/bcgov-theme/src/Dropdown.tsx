@@ -100,6 +100,7 @@ const config: StyleConfig = {
   defaultProps: {
     size: 'medium',
     rounded: true,
+    required: false,
   },
   staticProps: ['fullWidth'],
   includeWrapper: true,

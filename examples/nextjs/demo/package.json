@@ -7,7 +7,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
-    "@button-inc/bcgov-theme": "1.0.0-alpha.3",
+    "@button-inc/bcgov-theme": "1.0.0-alpha.4",
     "@button-inc/component-library": "1.0.0-alpha.11",
     "@button-inc/form-schema": "1.0.0-alpha.4",
     "next": "latest",
