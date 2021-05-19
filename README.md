@@ -6,7 +6,7 @@ The toolkit can be used to easily create progressively enhancing, accessible for
 minimizing resource size. It consists of a component library for themed, accessible,  progressively enhancing components, and a form-builder application
 to help create progressively enhancing forms with good UI pricnciples. See below for live demonstrations:
 
-- [Component Library Storybook](https://thebuttonclan.github.io/pangolin/)
+- [Component Library Storybook](https://button-inc.github.io/service-development-toolkit/)
 - [Component Library Theme Builder](https://pangolin-toolkit.herokuapp.com/theme-builder/button)
 - [Form Builder](https://pangolin-toolkit.herokuapp.com/form-builder)
 
