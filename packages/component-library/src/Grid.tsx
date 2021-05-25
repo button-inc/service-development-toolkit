@@ -128,15 +128,17 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const Srow = styleBuilder(createGridRow(as.row || 'div'), 'row');
   const Scol = styleBuilder(createGridCol(as.col || 'div'), 'col');
 
-  const { cols = 16, gutter, gutterUnit, justify, align } = config;
-
+  const { cols: defaultCols = 16, gutter, gutterUnit, justify, align } = config;
   const bootstrap = createBootstrap(processedStyle, 'grid');
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
+    const { cols } = rest;
 
     return (
-      <GridContext.Provider value={{ styleProps, Srow, Scol, cols, gutter, gutterUnit, justify, align }}>
+      <GridContext.Provider
+        value={{ styleProps, Srow, Scol, cols: cols || defaultCols, gutter, gutterUnit, justify, align }}
+      >
         <Scontainer {...rest} className={cx(CONTAINER_CLASS, className)}>
           {children}
         </Scontainer>
