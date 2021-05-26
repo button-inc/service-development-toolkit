@@ -1,6 +1,5 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { HtmlOnlyWrapper, HtmlWithCssWrapper, Divider } from '../../../stories/helpers';
 import Button from '../src/Button';
 import BCGovTypography from './BCGovTypography';
 
@@ -16,33 +15,33 @@ export default {
       },
     },
   },
+  parameters: {
+    details: {
+      title: 'Button',
+      description: 'The base description that always shows up',
+      allEnabledDescription: 'Description to show with all fields enabled',
+      cssEnabledDescription: 'Description to show with CSS enabled',
+      htmlOnlyDescription: 'Description to show with just html enabled',
+      usageCode: `
+        import component from @button-inc/component
+        <Component x={true}/>
+        `,
+      props: [
+        {
+          name: 'size',
+          type: 'string',
+          description: 'size of the element',
+        },
+      ],
+    },
+  },
 } as Meta;
 
 const Template: Story = args => (
-  <div
-    style={{
-      backgroundColor: args.variant.endsWith('-inverse') ? '#003366' : '#fff',
-      padding: '15px',
-    }}
-  >
+  <>
     <BCGovTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <Button {...args}>Button</Button>
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <Button {...args}>Button</Button>
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
     <Button {...args}>Button</Button>
-  </div>
+  </>
 );
 
 export const Primary = Template.bind({});
