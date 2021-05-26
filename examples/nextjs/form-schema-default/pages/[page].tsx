@@ -1,7 +1,7 @@
 import React from 'react';
 import { applySession } from 'next-session';
 import { useRouter } from 'next/router';
-import { Forms, getHandler } from 'pangolin';
+import { Forms, getHandler } from 'form-schema';
 
 export default function home({ formIndex, formData, validPage }: any) {
   const Form = Forms[formIndex];

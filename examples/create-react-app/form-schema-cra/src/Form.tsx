@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect, withRouter, RouteComponentProps } from 'react-router-dom';
 import axios from 'axios';
-import { Forms, getHandler } from './pangolin';
+import { Forms, getHandler } from './form-schema';
 
 interface IState {
   formIndex: number;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { applySession } from 'next-session';
 import { useRouter } from 'next/router';
-import { Forms, getHandler } from 'pangolin';
+import { Forms, getHandler } from 'form-schema';
 
 // Can just pass regular rjsf templates to override fieldsets, layout, etc. and will pass through
 function ObjectFieldTemplate({ properties }: { properties: any }) {

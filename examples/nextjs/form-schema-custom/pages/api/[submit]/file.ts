@@ -1,5 +1,5 @@
 import { withSession } from 'next-session';
-import { fileMiddleware } from 'pangolin';
+import { fileMiddleware } from 'form-schema';
 import runMiddleware from 'utils';
 
 function handler(req: any, res: any) {

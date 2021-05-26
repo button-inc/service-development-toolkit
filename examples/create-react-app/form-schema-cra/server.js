@@ -3,7 +3,7 @@ const session = require('express-session');
 const path = require('path');
 
 const app = express();
-const { getHandler, postMiddleware } = require('./src/pangolin');
+const { getHandler, postMiddleware } = require('./src/form-schema');
 
 // Parse body into json
 app.use(express.json());

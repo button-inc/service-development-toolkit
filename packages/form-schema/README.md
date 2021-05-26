@@ -24,7 +24,7 @@ This library is built on top of [react json schema form](https://github.com/rjsf
 
 - **Progressive enhancement**: When used with a SSR platform, the forms will be functional for users who haven't loaded the javascript or css, and progressively enhance when they are added.
 - **User Experience**: This package focuses on making it easy to create single question-per-page forms, to create a smooth user experience.
-- **Accessibility**: This package is designed to plug in easily with pangolin component-libraries, which have a focus on accessible components.
+- **Accessibility**: This package is designed to plug in easily with the service-development toolkit component-libraries, which have a focus on accessible components.
 
 Note that while this package makes it easier to meet these three goals, it is not limited to them. For example, it can be used with a client-side rendering framework like create react app if you are interested only in accessibility and single-page form questions.
 
@@ -34,10 +34,10 @@ Install package:
 - `npm i @button-inc/form-schema` or `yarn add @button-inc/form-schema` depending on your package manager.
 
 Add to your app:
-- `import builder from @button-inc/form-schema`, or to use with pangolin themed components,
+- `import builder from @button-inc/form-schema`, or to use with themed components,
 `import {govBuilder} from @button-inc/form-schema`
 
-See below for specific use cases, or browse our [examples](https://github.com/thebuttonclan/pangolin/tree/develop/examples) for a working setup.
+See below for specific use cases, or browse our [examples](https://github.com/button-inc/service-development-toolkit/tree/develop/examples) for a working setup.
 
 ## Usage
 
@@ -112,7 +112,7 @@ _Note that this is if you want to use sessions to store data. To handle data in 
 
 ```javascript
 // Import the array of form components from the file you created them in.
-import { Forms } from 'pangolin';
+import { Forms } from 'form-schema';
 
 export default function Form({ formIndex, formData, validPage }) {
   const Form = Forms[formIndex];

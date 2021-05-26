@@ -54,11 +54,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thebuttonclan/pangolin.git"
+    "url": "git+https://github.com/thebuttonclan/service-development-toolkit.git"
   },
   "author": "Button Inc.",
   "bugs": {
-    "url": "https://github.com/thebuttonclan/pangolin/issues"
+    "url": "https://github.com/thebuttonclan/service-development-toolkit/issues"
   },
-  "homepage": "https://github.com/thebuttonclan/pangolin#readme"
+  "homepage": "https://github.com/thebuttonclan/service-development-toolkit#readme"
 }
