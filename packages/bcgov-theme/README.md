@@ -146,11 +146,6 @@ A button.
     <td>String</td>
     <td>The size variant to use. See <a href="#Sizes">sizes</a> for more information on types.</td>
   </tr>
-  <tr>
-    <td>Disabled</td>
-    <td>Boolean</td>
-    <td>Indicate whether or not the button component is disabled.</td>
-  </tr>
 </table>
 
 ## Callout

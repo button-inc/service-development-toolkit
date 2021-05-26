@@ -154,7 +154,7 @@ const config: StyleConfig = {
     size: 'medium',
   },
   breakProps: [],
-  staticProps: [],
+  staticProps: ['fullHeight', 'fullWidth'],
 };
 
 const Button = applyTheme(styles, config);
