@@ -38,10 +38,10 @@ export default {
 } as Meta;
 
 const Template: Story = args => (
-  <>
+  <div style={{ backgroundColor: args.variant.endsWith('-inverse') ? '#003366' : '#fff', padding: '15px' }}>
     <BCGovTypography />
     <Button {...args}>Button</Button>
-  </>
+  </div>
 );
 
 export const Primary = Template.bind({});
