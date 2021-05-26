@@ -24,7 +24,7 @@ Import component(s):
 
 For themed components, you can add `@button-inc/bcgov-theme` or `@button-inc/button-theme`.
 
-If you want to build your own theme, see below for instructions. There is also a [live playground](https://pangolin-toolkit.herokuapp.com/theme-builder/button) to test it out.
+If you want to build your own theme, see below for instructions. There is also a [live playground](https://service-development-toolkit.herokuapp.com/theme-builder/button) to test it out.
 
 ## Building a Theme
 

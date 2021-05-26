@@ -6,7 +6,7 @@ This example shows a use case for form-schema with custom data handling and cust
 
 - **schemas/schema.ts**: Exports a JSON object defining your form fields
 - **schemas/uiSchema.ts**: Exports a JSON object defining ui for your form
-- **pangolin.ts**: This file is importing the govBuilder version, which will have government style widgets hooked up by default.
+- **form-schema.ts**: This file is importing the govBuilder version, which will have government style widgets hooked up by default.
 In addition to the arguments in the default example, you can pass an `options` argument, which is an object with keys:
   - defaultLabels: bollean to indicate whether or not to include the standard rsjf labels (may want to remove if providing custom widgets)
   - widgets: array of custom widgets

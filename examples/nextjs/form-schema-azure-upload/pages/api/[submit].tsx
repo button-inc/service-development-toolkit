@@ -1,8 +1,8 @@
 import { withSession } from 'next-session';
-import { postHandler } from 'pangolin';
+import { postMiddleware } from 'form-schema';
 
 function handler(req: any, res: any) {
-  postHandler(req, res, (errors: []) => console.log(errors));
+  postMiddleware(req, res);
 }
 
 export default withSession(handler);

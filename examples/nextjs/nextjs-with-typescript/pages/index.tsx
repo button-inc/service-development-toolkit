@@ -1,7 +1,7 @@
 export default function home(req, res) {
   return (
     <>
-      <h1>pangolin</h1>
+      <h1>Form Schema</h1>
     </>
   );
 }

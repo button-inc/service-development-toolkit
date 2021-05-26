@@ -75,4 +75,4 @@ jobs:
           git config commit.gpgsign false
           git add .
           git commit -m "deploy storybook to github pages"
-          git push --force --quiet git@github.com:thebuttonclan/pangolin.git master:storybook
+          git push --force --quiet git@github.com:button-inc/service-development-toolkit.git master:storybook
