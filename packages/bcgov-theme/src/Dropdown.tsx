@@ -35,7 +35,7 @@ export const styles = {
         transition: .25s all ease;
       }
 
-      &:focus  {
+      &:focus-within  {
         outline: 4px solid #3B99FC;
         outline-offset: 1px;
       }
@@ -79,15 +79,6 @@ export const styles = {
         font-size: 1.2rem;
       `,
     },
-  },
-  required: {
-    label: `
-      &:after {
-        margin: -0.2em 0em 0em 0.2em;
-        content: '*';
-        color: #DB2828;
-      }
-    `,
   },
   rounded: {
     wrapper: `
