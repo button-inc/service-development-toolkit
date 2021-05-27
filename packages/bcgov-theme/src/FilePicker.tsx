@@ -28,15 +28,6 @@ export const styles = {
       `,
     },
   },
-  required: {
-    label: `
-      &:after {
-        margin: -0.2em 0em 0em 0.2em;
-        content: '*';
-        color: #DB2828;
-      }
-    `,
-  },
 };
 
 const config: StyleConfig = {
