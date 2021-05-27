@@ -64,7 +64,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     );
 
     return (
-      <Sfieldset {...styleProps} id={id} style={style} className={cx(CONTAINER_CLASS, className)}>
+      <Sfieldset {...styleProps} {...others} id={id} style={style} className={cx(CONTAINER_CLASS, className)}>
         {title && (
           <Slegend {...styleProps} style={legendStyle} className={LEGEND_CLASS}>
             {title}
