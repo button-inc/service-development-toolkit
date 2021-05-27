@@ -46,6 +46,7 @@ export const FaSVG = styled.svg.attrs({
   title: 'fa icon',
   xmlns: 'http://www.w3.org/2000/svg',
   viewBox: '0 0 512 512',
+  width: '15px', // Default inline style for when stylesheets don't come through. Prevents svg blowing up
 })`
   display: inline-block;
   font-size: inherit;
