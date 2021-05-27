@@ -1,4 +1,4 @@
-import Datepicker from '@button-inc/bcgov-theme/Datepicker';
+import Datepicker from '@button-inc/bcgov-theme/DatePicker';
 import BCGovTypography from '../../components/BCGovTypography';
 
 export default function DatepickerPage() {
