@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.2",
-    "@button-inc/bcgov-theme": "1.0.0-alpha.4",
+    "@button-inc/bcgov-theme": "1.0.0-alpha.5",
     "@button-inc/button-theme": "1.0.0-alpha.3",
     "@button-inc/component-library": "1.0.0-alpha.11",
     "axios": "^0.21.1",

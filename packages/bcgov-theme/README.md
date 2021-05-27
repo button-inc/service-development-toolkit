@@ -146,11 +146,6 @@ A button.
     <td>String</td>
     <td>The size variant to use. See <a href="#Sizes">sizes</a> for more information on types.</td>
   </tr>
-  <tr>
-    <td>Disabled</td>
-    <td>Boolean</td>
-    <td>Indicate whether or not the button component is disabled.</td>
-  </tr>
 </table>
 
 ## Callout
@@ -380,6 +375,8 @@ Dropdowns allow users to select one option from a list.
 
 Fieldsets are used to group logically related inputs, e.g. a group of address fields.
 
+**Note**: _The fieldset will pass the size, required, disabled and variant props on to its children_
+
 ```JSX
   <Fieldset title="Address" required>
     <Input label="Street Address" />
@@ -398,6 +395,11 @@ Fieldsets are used to group logically related inputs, e.g. a group of address fi
     <td>Size</td>
     <td>String</td>
     <td>The size variant to use. See <a href="#Sizes">sizes</a> for more information on types.</td>
+  </tr>
+  <tr>
+    <td>variant</td>
+    <td>String</td>
+    <td>The variant property will be forwarded on to any child props.</td>
   </tr>
   <tr>
     <td>Title</td>

@@ -14,23 +14,50 @@ export default {
         options: ['small', 'medium', 'large'],
       },
     },
+    variant: {
+      control: {
+        type: 'select',
+        options: [
+          'primary',
+          'secondary',
+          'primary-inverse',
+          'secondary-inverse',
+          'primary-disabled',
+          'secondary-disabled',
+        ],
+      },
+    },
   },
   parameters: {
     details: {
       title: 'Button',
-      description: 'The base description that always shows up',
-      allEnabledDescription: 'Description to show with all fields enabled',
-      cssEnabledDescription: 'Description to show with CSS enabled',
-      htmlOnlyDescription: 'Description to show with just html enabled',
+      description: 'Buttons allow users to carry out an important action on your service, such as Download or Submit.',
+      allEnabledDescription: `For fully enhanced environments, buttons an be used with custom event handlers,
+      such as onClick.`,
+      cssEnabledDescription: `For users with CSS but not javascript, avoid putting important functionality in custom
+      handlers. Buttons can still be used as a link or to submit a form.`,
+      htmlOnlyDescription: `Without css, the default browser style is applied to the button. Buttons can still be used as a link or to submit a form.`,
       usageCode: `
-        import component from @button-inc/component
-        <Component x={true}/>
+        import Button from '@button-inc/bcgov-theme/Button';
+
+        export default function Component() {
+          return (
+            <div>
+              <Button>Click Me!</Button>
+            </div>
+          )
+        }
         `,
       props: [
         {
+          name: 'variant',
+          type: 'string',
+          description: `The style variant to use. Use one of ['primary', 'primary-inverse', 'primary-disabled', 'secondary', 'secondary-inverse', 'secondary-disabled'].`,
+        },
+        {
           name: 'size',
           type: 'string',
-          description: 'size of the element',
+          description: `The size to use. Use one of ['small', 'medium', 'large'].`,
         },
       ],
     },
@@ -55,7 +82,6 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   variant: 'secondary',
   size: 'medium',
-  disabled: false,
 };
 
 export const PrimaryInverse = Template.bind({});
