@@ -1,20 +1,49 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import { HtmlOnlyWrapper, HtmlWithCssWrapper, Divider } from '../../../stories/helpers';
 import HeroImage from '../src/HeroImage';
 import BCGovTypography from './BCGovTypography';
 
 export default {
   title: 'HeroImage',
   component: HeroImage,
+  parameters: {
+    details: {
+      title: 'HeroImage',
+      description:
+        'A hero image can be used to overlay content on an image with a built-in background to maintain contrast. It will render any passed chldren on smaller background.',
+      allEnabledDescription: `For fully enhanced environments, the hero image can be used with custom event handlers,
+      such as onClick.`,
+      cssEnabledDescription: `For users with CSS but not javascript, avoid putting important functionality in custom
+      handlers.`,
+      htmlOnlyDescription: `Without css, image content will be displayed without background.`,
+      usageCode: `
+        import HeroImage from "@button-inc/bcgov-theme/HeroImage";
+
+        export default function Component() {
+          return (
+            <HeroImage url='/sample_image_parks.jpg'>
+              <h1>BC Parks.</h1>
+              <p>Welcome to BC Parks!</p>
+            </HeroImage>
+          );
+        }
+        `,
+      props: [
+        {
+          name: 'url',
+          type: 'string',
+          description: `The url of the image to use.`,
+        },
+      ],
+    },
+  },
 } as Meta;
 
 const Sample = ({ args }) => {
   return (
     <HeroImage {...args}>
-      <h2>Header Text</h2>
-      <p>This is a subtitle with some extra information</p>
-      <a href="#link1">This is a link</a>
+      <h1>BC Parks.</h1>
+      <p>Welcome to BC Parks!</p>
     </HeroImage>
   );
 };
@@ -22,21 +51,6 @@ const Sample = ({ args }) => {
 const Template: Story = args => (
   <>
     <BCGovTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <Sample args={args} />
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <Sample args={args} />
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
     <Sample args={args} />
   </>
 );
