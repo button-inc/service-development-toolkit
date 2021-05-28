@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ExternalLinkAlt, FaSVG } from './fontawesome';
 
 type Props = {
   url?: string;
@@ -24,10 +23,10 @@ const InnerContainer = styled.div`
 `;
 
 export default function Component(props: any) {
-  const { url, children } = props;
+  const { url, children, ...rest } = props;
 
   return (
-    <Container url={url}>
+    <Container {...rest} url={url}>
       <InnerContainer>{children}</InnerContainer>
     </Container>
   );
