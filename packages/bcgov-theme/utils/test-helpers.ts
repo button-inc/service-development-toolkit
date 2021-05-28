@@ -10,7 +10,7 @@ const getTextBetweenBrackets = string => {
 
 export const changeSelectorToObject = css => {
   const stylesObject: any = {};
-  stylesObject.base = removeImportant(css.split('&:')[0].trim());
+  stylesObject.base = removeImportant(css.split('&')[0].trim());
   if (css.match('&:active')) {
     stylesObject.active = removeImportant(getTextBetweenBrackets(css.split('&:active')[1]));
   }
