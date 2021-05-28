@@ -1,5 +1,5 @@
 import { axe, toHaveNoViolations } from 'jest-axe';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import Footer from '../src/Footer';
 import '@testing-library/jest-dom/extend-expect';
@@ -13,5 +13,14 @@ describe('Footer', () => {
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();
+  });
+
+  it('Should pass through end-user props', () => {
+    const handleClick = jest.fn();
+    render(<Footer id="test" style={{ background: 'red' }} onClick={handleClick} />);
+    const footer = document.getElementById('test');
+    expect(footer).toHaveStyle('background: red;');
+    fireEvent.click(footer);
+    expect(handleClick).toHaveBeenCalled();
   });
 });
