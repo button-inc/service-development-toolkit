@@ -32,12 +32,6 @@ describe('Link', () => {
     expect(link).toHaveStyle(`font-size: ${sizes['small']}`);
   });
 
-  it('Should apply style props', () => {
-    const { getByText } = render(<Link content="my-first-link" size="small" href="#link" />);
-    const link = getByText('my-first-link');
-    expect(link).toHaveStyle(`font-size: ${sizes['small']}`);
-  });
-
   it('Should set target to blank when external prop is passed', () => {
     const { getByText } = render(<Link content="my-first-link" external href="#link" />);
     const link = getByText('my-first-link');
