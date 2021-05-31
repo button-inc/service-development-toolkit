@@ -10,7 +10,7 @@ export const styles = {
         color: #fff;
         background-color: #036;
         display: flex;
-        height: 65px;
+        min-height: 65px;
         padding: 0 1.2rem 0 0;
         border-bottom: 2px solid #fcba19;
 
@@ -21,6 +21,11 @@ export const styles = {
           align-items: center;
           padding: 0.2rem;
           margin: 0 1.2rem 0 0;
+          height: 65px;
+        }
+
+        & h1 {
+          margin-bottom: 0;
         }
       `,
     },

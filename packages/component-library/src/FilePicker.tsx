@@ -44,7 +44,7 @@ const HiddenInput = styled.input.attrs({ type: 'file' })`
   left: 0;
   top: 0;
   opacity: 0;
-  font-size: 100px;
+  font-size: 0px;
 `;
 
 export const applyTheme = (styles, config: BaseStyleConfig) => {

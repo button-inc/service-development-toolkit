@@ -19,7 +19,7 @@ export default {
       title: 'Header',
       description: `Headers help people understand what the product or service is about while providing a consistent look, feel, and functionality across government sites.
       To include site links with your header, see the Navigation component.`,
-      allEnabledDescription: `For fully enhanced environments, headers an be used with custom event handlers,
+      allEnabledDescription: `For fully enhanced environments, headers can be used with custom event handlers,
       such as onClick.`,
       cssEnabledDescription: `For users with CSS but not javascript, avoid putting important functionality in custom
       handlers. Functionality in the onBannerClick function will not work.`,
