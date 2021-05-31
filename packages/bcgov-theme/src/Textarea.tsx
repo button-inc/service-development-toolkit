@@ -40,15 +40,6 @@ export const styles = {
     horizontal: { input: 'resize: horizontal;' },
     vertical: { input: 'resize: vertical;' },
   },
-  required: {
-    label: `
-      &:after {
-        margin: -0.2em 0em 0em 0.2em;
-        content: '*';
-        color: #DB2828;
-      }
-    `,
-  },
   rounded: {
     input: `
       border-radius: 0.25em;
