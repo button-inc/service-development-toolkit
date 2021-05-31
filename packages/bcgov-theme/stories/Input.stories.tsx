@@ -53,7 +53,7 @@ export default {
         {
           name: 'label',
           type: 'string',
-          description: `The label for the input. If an id is not passed, one will be created to connect the label to the datepicker.`,
+          description: `The label for the input. If an id is not passed, one will be created to connect the label to the input.`,
         },
         {
           name: 'disabled',
