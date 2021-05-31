@@ -1,6 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
-import noop from 'lodash/noop';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Modal';
 
 export const styles = {
@@ -33,6 +31,10 @@ export const styles = {
       margin-left: auto;
       color: #fff;
       font-weight: 600;
+
+      &:hover {
+        color: #fff;
+      }
     `,
   },
 };

@@ -1,8 +1,9 @@
 import { axe, toHaveNoViolations } from 'jest-axe';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
 import Modal from '../src/Modal';
 import 'regenerator-runtime/runtime';
+import '@testing-library/jest-dom/extend-expect';
 
 expect.extend(toHaveNoViolations);
 
@@ -26,6 +27,8 @@ describe('Modal', () => {
             aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
           </Modal.Content>
         </Modal>
+
+        <a href="#test">click</a>
       </>
     );
   };
@@ -35,5 +38,13 @@ describe('Modal', () => {
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();
+  });
+
+  it('Should pass through props', async () => {
+    const handleClick = jest.fn();
+    render(<Example id="test" onClick={handleClick} />);
+    const modal = document.getElementById('test');
+    fireEvent.click(modal);
+    expect(handleClick).toHaveBeenCalled();
   });
 });
