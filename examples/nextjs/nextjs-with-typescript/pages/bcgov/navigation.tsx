@@ -28,7 +28,7 @@ export default function NavigationPage() {
   return (
     <>
       <BCGovTypography />
-      <Navigation title="Hello British Columbia" onBannerClick={console.log}>
+      <Navigation title="Hello British Columbia" onBannerClick={console.log} header="sub">
         <Menu />
       </Navigation>
       <Navigation title={() => 'Hello British Columbia'} onBannerClick={console.log}>

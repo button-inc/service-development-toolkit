@@ -81,12 +81,14 @@ export default function Component(props: any) {
     children,
     mobileMenu,
     mobileBreakPoint = DEFAULT_MOBILE_BREAK_POINT,
+    header,
+    ...rest
   } = props;
   const context = { mobileBreakPoint };
 
   return (
-    <BaseNavigation>
-      <BaseHeader>
+    <BaseNavigation {...rest}>
+      <BaseHeader header={header}>
         <BaseHeader.Group className="banner">
           <BannerLogo onClick={onBannerClick}>{bcgovLogoSVG}</BannerLogo>
         </BaseHeader.Group>
