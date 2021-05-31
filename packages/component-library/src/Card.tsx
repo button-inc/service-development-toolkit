@@ -99,7 +99,11 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     return (
       <CardContext.Provider value={{ checkboxId, styleProps, Stoggle, Sheader, Scontent }}>
         {config.toggleable && (
-          <InvisibleCheckbox id={checkboxId} onChange={e => onToggle(e, e.target.checked)} checked={defaultToggled} />
+          <InvisibleCheckbox
+            id={checkboxId}
+            onChange={e => onToggle(e, e.target.checked)}
+            defaultChecked={defaultToggled}
+          />
         )}
         <Scontainer {...others} className={cx(CONTAINER_CLASS, className)}>
           {children}
