@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ExternalLinkAlt, FaSVG } from './fontawesome';
 
-const sizes: {
+export const sizes: {
   [key: string]: string;
 } = {
   small: '0.8rem',
