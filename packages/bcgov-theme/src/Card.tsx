@@ -1,8 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import noop from 'lodash/noop';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Card';
-import { Plus, Minus, FaSVG } from './fontawesome';
 
 export const styles = {
   shared: {
@@ -30,10 +27,10 @@ const config: StyleConfig = {
 export const BaseCard = applyTheme(styles, config);
 
 export default function Card(props: any) {
-  const { title, children } = props;
+  const { title, children, ...rest } = props;
 
   return (
-    <BaseCard>
+    <BaseCard {...rest}>
       <BaseCard.Header>{title}</BaseCard.Header>
       <BaseCard.Content>{children}</BaseCard.Content>
     </BaseCard>
