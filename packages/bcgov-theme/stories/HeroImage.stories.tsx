@@ -4,7 +4,7 @@ import HeroImage from '../src/HeroImage';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'HeroImage',
+  title: 'Components/HeroImage',
   component: HeroImage,
   parameters: {
     details: {

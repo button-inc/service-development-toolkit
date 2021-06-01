@@ -1,0 +1,43 @@
+<!---Badge.stories.mdx --->
+
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Typography" />
+
+# Typography
+
+The typography component is designed to be used with the [typography](https://www.npmjs.com/package/typography) npm package.
+It includes base typography styles for BCGov style fonts that you can integrate to apply to your whole app. To use this style,
+it depends on two other packages, the BCSans fonts and the react-typography component. First install these dependencies:
+
+`npm i react-typography @bcgov/bc-sans`
+
+Then create a component that can use these fonts:
+
+```jsx
+import { TypographyStyle } from 'react-typography';
+import typography from '@button-inc/bcgov-theme/typography';
+import '@bcgov/bc-sans/css/BCSans.css';
+
+export default function BCGovTypography() {
+  return <TypographyStyle typography={typography} />;
+}
+```
+
+Adding this component to the top level of another page or the whole application will apply these fonts and styles to it. For example,
+
+```jsx
+import Typography from "components/Typography";
+
+export default function Page() {
+  return (
+    <>
+      <Typography />
+      <Header />
+      <main>
+        ...
+      </main>
+    </>
+  );
+}
+```

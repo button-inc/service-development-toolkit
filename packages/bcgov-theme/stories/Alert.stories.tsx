@@ -4,7 +4,7 @@ import Alert from '../src/Alert';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Alert',
+  title: 'Components/Alert',
   component: Alert,
   argTypes: {
     size: {

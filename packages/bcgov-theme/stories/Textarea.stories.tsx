@@ -4,7 +4,7 @@ import Textarea from '../src/Textarea';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Textarea',
+  title: 'Components/Textarea',
   component: Textarea,
   argTypes: {
     size: {

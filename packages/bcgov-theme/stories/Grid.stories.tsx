@@ -4,7 +4,7 @@ import Grid from '../src/Grid';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Grid',
+  title: 'Components/Grid',
   component: Grid,
   argTypes: {
     justify: {

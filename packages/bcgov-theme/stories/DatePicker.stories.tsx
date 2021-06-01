@@ -4,7 +4,7 @@ import DatePicker from '../src/DatePicker';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'DatePicker',
+  title: 'Components/DatePicker',
   component: DatePicker,
   argTypes: {
     size: {

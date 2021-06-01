@@ -4,7 +4,7 @@ import Input from '../src/Input';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Input',
+  title: 'Components/Input',
   component: Input,
   argTypes: {
     size: {

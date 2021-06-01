@@ -4,7 +4,7 @@ import Button from '../src/Button';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
     onClick: { action: 'clicked' },

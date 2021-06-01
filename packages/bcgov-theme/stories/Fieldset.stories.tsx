@@ -5,7 +5,7 @@ import Input from '../src/Input';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Fieldset',
+  title: 'Components/Fieldset',
   component: Fieldset,
   argTypes: {
     size: {
