@@ -69,7 +69,7 @@ export const applyTheme = (styles, config: BaseStyleConfig, childStyles = {}) =>
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
-    const { closable, others } = rest;
+    const { closable, ...others } = rest;
 
     const checkboxId = `${id}-toggle`;
 

@@ -30,12 +30,12 @@ export interface StyleConfig {
 }
 
 export function createStyleBuilder(styles: any, config: StyleConfig, childStyles: any = {}) {
-  const { shared = {}, ...others } = styles;
+  const { shared = {}, ...otherStyles } = styles;
   const defaultProps = config.defaultProps || {};
   const staticProps = config.staticProps || [];
   const breakProps = config.breakProps || [];
 
-  const styleKeys = Object.keys(others);
+  const styleKeys = Object.keys(otherStyles);
   const childStyleKeys = mapValues(childStyles, style => Object.keys(style));
 
   const isTrue = (props: object, key: string): boolean => {
@@ -43,41 +43,41 @@ export function createStyleBuilder(styles: any, config: StyleConfig, childStyles
     if (props[key] === true || defaultProps[key] === true) return true;
     return false;
   };
-
-  return function (tag: any, type: string) {
-    const base = isString(tag) ? styled[tag] : styled(tag);
+  // Couldn't think of a clearer name, styledSubsectionName is the name of the child component, e.g container, wrapper, label, not necessarily an html tag
+  return function (htmlTag: any, styledSubsectionName: string) {
+    const base = isString(htmlTag) ? styled[htmlTag] : styled(htmlTag);
 
     return base`
       ${(props: any) => {
-        let styles = shared[type] || '';
+        let styles = shared[styledSubsectionName] || '';
 
-        const concatStyle = (props, key) => {
-          const style = others[key];
+        const concatStyle = (props, stylesKey) => {
+          const style = otherStyles[stylesKey];
           if (isString(style)) {
-            if (isTrue(props, key)) styles += style;
+            if (isTrue(props, stylesKey)) styles += style;
             return;
           }
 
           const values = Object.keys(style);
           const first = values[0];
 
-          let value = props[key];
+          let value = props[stylesKey] || false;
 
           if (isString(style[first])) {
             if (isBoolean(value)) {
-              if (isTrue(props, key)) styles += style[type] || '';
+              if (isTrue(props, stylesKey)) styles += style[styledSubsectionName] || '';
             } else {
-              if (!style[value]) value = defaultProps[key] || first;
+              if (!style[value]) value = defaultProps[stylesKey] || first;
               styles += style[value] || '';
             }
           } else {
-            if (!style[value]) value = defaultProps[key] || first;
-            styles += (style[value] && style[value][type]) || '';
+            if (!style[value]) value = defaultProps[stylesKey] || first;
+            styles += (style[value] && style[value][styledSubsectionName]) || '';
           }
         };
 
         const concatChildStyle = (props, key) => {
-          const style = childStyles[type][key] || '';
+          const style = childStyles[styledSubsectionName][key] || '';
           if (isString(style)) {
             if (isTrue(props, key)) styles += style;
             return;
@@ -109,7 +109,7 @@ export function createStyleBuilder(styles: any, config: StyleConfig, childStyles
           concatStyle(props, key);
         });
 
-        forEach(childStyleKeys[type], key => {
+        forEach(childStyleKeys[styledSubsectionName], key => {
           concatChildStyle(props, key);
         });
 
