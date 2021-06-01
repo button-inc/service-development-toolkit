@@ -41,6 +41,9 @@ const styles = {
       `,
     },
   },
+  flex: {
+    container: `display: flex;`,
+  },
   disabled: `
     background: grey;
   `,
@@ -111,6 +114,16 @@ describe('create style builder', () => {
     render(<Section id="test" />);
     const element = document.getElementById('test');
     expect(element).toHaveStyle('font-size: 1rem');
+  });
+
+  it('works with boolean default props', () => {
+    config.defaultProps = { flex: true };
+    const styleBuilder = createStyleBuilder(styles, config);
+    const Section = styleBuilder('section', 'container');
+
+    render(<Section id="test" />);
+    const element = document.getElementById('test');
+    expect(element).toHaveStyle('display: flex;');
   });
 });
 

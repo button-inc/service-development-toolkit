@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Notification';
 import { CheckCircle, InfoCircle, ExclamationTriangle, ExclamationCircle, FaSVG } from './fontawesome';
 
@@ -14,6 +13,10 @@ export const styles = {
 
       & a {
         text-decoration: underline;
+      }
+
+      & .pg-notification-content>svg {
+        overflow: initial;
       }
     `,
     close: `
