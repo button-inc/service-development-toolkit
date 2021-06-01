@@ -40,10 +40,10 @@ const config: StyleConfig = {
 export const BaseAccordion = applyTheme(styles, config);
 
 export default function Accordion(props: any) {
-  const { title, children, onToggle, defaultToggled } = props;
+  const { title, children, onToggle, defaultToggled, ...rest } = props;
 
   return (
-    <BaseAccordion onToggle={onToggle || noop} defaultToggled={defaultToggled}>
+    <BaseAccordion {...rest} onToggle={onToggle || noop} defaultToggled={defaultToggled}>
       <BaseAccordion.Header>
         <h2>{title}</h2>
         <ToggleRight>
