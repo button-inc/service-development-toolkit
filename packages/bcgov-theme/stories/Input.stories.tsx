@@ -28,7 +28,7 @@ export default {
       such as onClick , onChange and onBlur.`,
       cssEnabledDescription: `For users with CSS but not javascript, avoid putting important functionality in custom
       handlers. Use inputs within a form to post data.`,
-      htmlOnlyDescription: `Without css, the default browser style is applied to the button. Inputs can still be used when submitting a form.`,
+      htmlOnlyDescription: `Without css, the default browser style is applied to the input. Inputs can still be used when submitting a form.`,
       usageCode: `
         import Input from "@button-inc/bcgov-theme/Input";
 
