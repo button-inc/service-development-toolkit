@@ -4,7 +4,7 @@ import FilePicker from '../src/FilePicker';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'FilePicker',
+  title: 'Components/FilePicker',
   component: FilePicker,
   argTypes: {
     size: {

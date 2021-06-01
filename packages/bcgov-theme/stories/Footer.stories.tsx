@@ -5,7 +5,7 @@ import Footer from '../src/Footer';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Footer',
+  title: 'Components/Footer',
   component: Footer,
   parameters: {
     details: {

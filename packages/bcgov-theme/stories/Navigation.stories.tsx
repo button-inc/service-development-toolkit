@@ -4,7 +4,7 @@ import Navigation from '../src/Navigation';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Navigation',
+  title: 'Components/Navigation',
   component: Navigation,
   argTypes: {
     header: {

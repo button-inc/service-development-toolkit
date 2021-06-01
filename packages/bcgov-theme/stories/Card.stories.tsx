@@ -7,7 +7,7 @@ import Button from '../src/Button';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Card',
+  title: 'Components/Card',
   component: Card,
 } as Meta;
 

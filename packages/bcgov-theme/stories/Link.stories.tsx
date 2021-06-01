@@ -4,7 +4,7 @@ import Link from '../src/Link';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Link',
+  title: 'Components/Link',
   component: Link,
   argTypes: {
     size: {

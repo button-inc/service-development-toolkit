@@ -5,7 +5,7 @@ import Callout from '../src/Callout';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Callout',
+  title: 'Components/Callout',
   component: Callout,
   argTypes: {
     size: {

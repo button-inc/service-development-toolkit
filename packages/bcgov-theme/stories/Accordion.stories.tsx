@@ -4,7 +4,7 @@ import Accordion from '../src/Accordion';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Accordion',
+  title: 'Components/Accordion',
   component: Accordion,
   parameters: {
     details: {

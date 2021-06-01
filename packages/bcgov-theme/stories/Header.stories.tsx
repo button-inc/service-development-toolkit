@@ -4,7 +4,7 @@ import Header from '../src/Header';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Header',
+  title: 'Components/Header',
   component: Header,
   argTypes: {
     header: {

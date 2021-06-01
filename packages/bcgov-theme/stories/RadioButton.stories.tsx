@@ -4,7 +4,7 @@ import RadioButton from '../src/RadioButton';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'RadioButton',
+  title: 'Components/RadioButton',
   component: RadioButton,
   argTypes: {
     onClick: { action: 'clicked' },
