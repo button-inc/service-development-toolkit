@@ -4,7 +4,7 @@ import Checkbox from '../src/Checkbox';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: 'Checkbox',
+  title: 'Components/Checkbox',
   component: Checkbox,
   argTypes: {
     onClick: { action: 'clicked' },

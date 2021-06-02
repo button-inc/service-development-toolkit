@@ -13,7 +13,7 @@
     "build-types": "yarn tsc -d --outDir types",
     "pre-publish": "node ../../scripts/pre-publish.js --name=bcgov-theme",
     "sync-version": "node ../../scripts/sync-version.js --name=bcgov-theme",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s ./.storybook/images",
     "test:jest": "yarn jest"
   },
   "dependencies": {
