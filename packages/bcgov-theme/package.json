@@ -20,7 +20,7 @@
     "@babel/runtime": "^7.4.2",
     "@bcgov/bc-sans": "^1.0.1",
     "@button-inc/component-library": "1.0.0-alpha.12",
-    "@button-inc/storybook-progressive-enhancement-addon": "^0.0.3",
+    "@button-inc/storybook-progressive-enhancement-addon": "^0.0.7",
     "@types/lodash": "^4.14.168",
     "@types/styled-components": "^5.1.4",
     "lodash": "^4.17.21",
