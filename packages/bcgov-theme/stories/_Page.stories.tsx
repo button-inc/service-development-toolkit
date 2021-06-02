@@ -16,7 +16,7 @@ import Link from '../src/Link';
 import BCGovTypography from './BCGovTypography';
 
 export default {
-  title: '_Page',
+  title: 'Components/_Page',
   argTypes: {
     size: {
       control: {

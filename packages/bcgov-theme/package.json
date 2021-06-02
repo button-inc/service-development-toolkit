@@ -13,14 +13,14 @@
     "build-types": "yarn tsc -d --outDir types",
     "pre-publish": "node ../../scripts/pre-publish.js --name=bcgov-theme",
     "sync-version": "node ../../scripts/sync-version.js --name=bcgov-theme",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s ./.storybook/images",
     "test:jest": "yarn jest"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.2",
     "@bcgov/bc-sans": "^1.0.1",
     "@button-inc/component-library": "1.0.0-alpha.12",
-    "@button-inc/storybook-progressive-enhancement-addon": "^0.0.3",
+    "@button-inc/storybook-progressive-enhancement-addon": "^0.0.7",
     "@types/lodash": "^4.14.168",
     "@types/styled-components": "^5.1.4",
     "lodash": "^4.17.21",
