@@ -1,6 +1,6 @@
 {
   "name": "@button-inc/bcgov-theme",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.8",
   "description": "Accessible and progressively-enhancing BC Gov component theme",
   "license": "Apache-2.0",
   "main": "lib/cjs/index.js",
@@ -13,14 +13,15 @@
     "build-types": "yarn tsc -d --outDir types",
     "pre-publish": "node ../../scripts/pre-publish.js --name=bcgov-theme",
     "sync-version": "node ../../scripts/sync-version.js --name=bcgov-theme",
-    "storybook": "start-storybook -p 6006 -s ./.storybook/images",
+    "storybook": "start-storybook -p 6006 -s ./.storybook/images --no-manager-cache",
     "test:jest": "yarn jest"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.2",
     "@bcgov/bc-sans": "^1.0.1",
     "@button-inc/component-library": "1.0.0-alpha.12",
-    "@button-inc/storybook-progressive-enhancement-addon": "^0.0.7",
+    "@button-inc/storybook-progressive-enhancement-addon": "^0.0.8",
+    "@storybook/addon-links": "^6.2.9",
     "@types/lodash": "^4.14.168",
     "@types/styled-components": "^5.1.4",
     "lodash": "^4.17.21",

@@ -2,12 +2,18 @@ import React from 'react';
 
 export default (
   <svg
-    width="293px"
+    width="100%"
     height="100%"
     viewBox="0 0 825 205"
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
-    style={{ fillRule: 'evenodd', clipRule: 'evenodd', strokeLinejoin: 'round', strokeMiterlimit: 1.41421 }}
+    style={{
+      fillRule: 'evenodd',
+      clipRule: 'evenodd',
+      strokeLinejoin: 'round',
+      strokeMiterlimit: 1.41421,
+      maxWidth: '293px',
+    }}
   >
     <g transform="matrix(1,0,0,1,-62.647,-63.5055)">
       <g transform="matrix(1,0,0,1,109.59,96.7796)">

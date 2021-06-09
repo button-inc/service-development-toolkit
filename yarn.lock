@@ -1523,10 +1523,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@button-inc/storybook-progressive-enhancement-addon@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@button-inc/storybook-progressive-enhancement-addon/-/storybook-progressive-enhancement-addon-0.0.7.tgz#ed08bfcbc62b938e42dfee4f398e46e303f1c289"
-  integrity sha512-sbLAYATIWc4X5oyuVs7kTsckxtmoDy1K0yJd7GfW0eRNEzY1phHVvPlrKs48nWN8PMQgTKz0rHHjh/xfvuiRhQ==
+"@button-inc/storybook-progressive-enhancement-addon@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@button-inc/storybook-progressive-enhancement-addon/-/storybook-progressive-enhancement-addon-0.0.8.tgz#66ba7a224484dab9a286eef158c5c4abe67b0d06"
+  integrity sha512-k1w2JqLE4R7cRqCvYfwK4pWjEIfyky3NzHXYF3NZKESzNHC4uVUZeN+rJKKyI+qFyAXeUrc3VSJG2SVSlfMoGQ==
   dependencies:
     "@storybook/addon-a11y" "^6.2.9"
     bootstrap "^4.6.0"
@@ -3352,6 +3352,24 @@
     global "^4.3.2"
     prop-types "^15.7.2"
     qs "^6.6.0"
+    regenerator-runtime "^0.13.7"
+    ts-dedent "^2.0.0"
+
+"@storybook/addon-links@^6.2.9":
+  version "6.2.9"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.2.9.tgz#3399d14b0fc587bccdaa602f6294bc8b249c09f0"
+  integrity sha512-pBiL6EUZI3c9qtCqnGx3RXF46kAxGMdo4xDC2y3mM132W//DzxkzLZRe4ZhxxGwaLzTNlNrypZ6Li6WyIaPZ/w==
+  dependencies:
+    "@storybook/addons" "6.2.9"
+    "@storybook/client-logger" "6.2.9"
+    "@storybook/core-events" "6.2.9"
+    "@storybook/csf" "0.0.1"
+    "@storybook/router" "6.2.9"
+    "@types/qs" "^6.9.5"
+    core-js "^3.8.2"
+    global "^4.4.0"
+    prop-types "^15.7.2"
+    qs "^6.10.0"
     regenerator-runtime "^0.13.7"
     ts-dedent "^2.0.0"
 

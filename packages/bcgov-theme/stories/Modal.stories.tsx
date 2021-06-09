@@ -9,7 +9,7 @@ export default {
   component: Modal,
   parameters: {
     details: {
-      title: 'Date Picker',
+      title: 'Modal',
       description: `The modal displays content on an overlay requireing action. Modals can have usability issues, and other callouts should be preferred.
       To use the component, it requires an id, and a linking href to that id. See below for an example. Note that storybook reloads the iframe
       when linking to anchors within the page, causing a delay compared to the normal functionality. The modal can be given Modal.Header and Modal.Content as children to display content nicely.

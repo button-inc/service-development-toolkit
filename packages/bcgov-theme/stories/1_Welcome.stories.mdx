@@ -1,25 +1,72 @@
 <!---Badge.stories.mdx --->
 
 import { Meta } from '@storybook/addon-docs/blocks';
+import backgroundImage from './img/btn-bg.png';
+import btnLogo from './img/button-logo.png';
+import './css/intro.css';
 
-<Meta title="Getting Started/Welcome" parameters={{ fullPage: true, previewTabs: { canvas: { hidden: true }, }, }} />
+<Meta
+  title="Getting Started/Welcome"
+  parameters={{ layout: 'fullscreen', fullPage: true, previewTabs: { canvas: { hidden: true } } }}
+/>
 
-# Welcome
+<div className='intro-background' style={{
+  background: `url(${backgroundImage})`
+}}>
 
-# Welcome to the Service Development Toolkit!
+<div className="intro-content">
 
-## Here, you'll find:
+<img src={btnLogo} alt="button inc logo" className="logo" />
 
-### 1. Durable components with the public sector in mind
+<div className="spacer-small" />
 
-### 2. Guidance on using components
+<h1 className="title">Welcome to the Service Development Toolkit!</h1>
+<div className="spacer-small" />
+<h2 className="subtitle">Here, you'll find:</h2>
 
-### 3. Built-in accessibility guardrails
+<ul>
+  <strong>
+    <li>
+      1. <span className="highlight">Durable components</span> made with the public sector in mind
+    </li>
+    <li>
+      2. <span className="highlight">Guidance</span> on using components
+    </li>
+    <li>
+      3. <span className="highlight">Built-in accessibility</span> guardrails
+    </li>
+  </strong>
+</ul>
 
-## Who is it for?
+<div className="spacer-big" />
 
-The toolkit was created for all kinds of teams that create digital services in the public sector. Our goal is to make the components as easy to use as possible to serve the wider and incredibly diverse public sector community.
+<h2 className="subtitle">Who is it for?</h2>
+<p>
+  The toolkit was created for all kinds of teams that create digital services in the public sector. Our goal is to make
+  the components as easy to use as possible to serve the wider and incredibly diverse public sector community.
+</p>
 
-## Accessibility is no longer a nice-to-have.
+<div className="spacer-small" />
 
-The toolkit uses *Progressive Enhancement* to help teams create sustainable, resilient, and accessible products. This makes sure that, no matter where our users are, they can always access the services they need.
+<h2 className="subtitle">Accessibility is no longer a nice-to-have.</h2>
+
+<p>
+The toolkit uses <em>Progressive Enhancement</em> to help teams create sustainable, resilient, and accessible products. This makes sure that, no matter where our users are, they can always access the services they need.
+</p>
+
+<div className="spacer-small" />
+
+<div className="btn-group">
+
+  <a href="/?path=/docs/getting-started-using-the-kit--page" className="nav-btn primary">
+    Getting Started
+  </a>
+
+  <a href="https://github.com/button-inc/service-development-toolkit" className="nav-btn secondary">
+    Follow on GitHub
+  </a>
+
+</div>
+
+</div>
+</div>
