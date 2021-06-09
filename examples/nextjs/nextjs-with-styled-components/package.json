@@ -6,7 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@button-inc/bcgov-theme": "1.0.0-alpha.7",
+    "@button-inc/bcgov-theme": "1.0.0-alpha.8",
     "@button-inc/component-library": "1.0.0-alpha.12",
     "next": "latest",
     "react": "16.8.0",
