@@ -1,7 +1,7 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
-import Checkbox from '../src/Checkbox';
-import { HtmlOnlyWrapper } from '../../../stories/helpers';
+import { Story } from '@storybook/react/types-6-0';
+import Checkbox from '../../src/Checkbox';
+import { HtmlOnlyWrapper } from '../../../../stories/helpers';
 
 // export default {
 //   title: 'Components/Checkbox',
@@ -90,24 +90,11 @@ export const Default = Template.bind({});
 Default.args = {
   label: 'Apples',
   size: 'medium',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  label: 'Apples',
-  size: 'small',
-};
-
-export const Medium = Template.bind({});
-Medium.args = {
-  label: 'Apples',
-  size: 'medium',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  label: 'Apples',
-  size: 'large',
+  disabled: false,
+  required: false,
+  value: 'apples',
+  name: 'apples',
+  id: 'apples-checkbox',
 };
 
 export const HTML = HTMLTemplate.bind({});
