@@ -12,7 +12,7 @@ const HtmlWithCssWrapper = ({ children }) => {
 const HtmlOnlyWrapper = ({ children }) => {
   const htmlWithCssString = getHtmlWithCss(children);
   const htmlString = htmlWithCssString.replace(/class=".+?"/g, '');
-  return parse(htmlString);
+  return parse(htmlString) as JSX.Element;
 };
 
 const Divider = styled.div`

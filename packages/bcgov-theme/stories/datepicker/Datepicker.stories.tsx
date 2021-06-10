@@ -1,38 +1,38 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import Checkbox from '../../src/Checkbox';
+import Datepicker from '../../src/DatePicker';
 import { HtmlOnlyWrapper } from '../../../../stories/helpers';
 import { argTypes } from './args';
 
 export default {
-  title: 'Components/Checkbox',
-  component: Checkbox,
+  title: 'Components/DatePicker',
+  component: Datepicker,
   argTypes,
 } as Meta;
 
-const Template: Story = args => <Checkbox {...args} />;
+const Template: Story = args => <Datepicker {...args} />;
 
 const HTMLTemplate: Story = args => (
   <>
     <HtmlOnlyWrapper>
-      <Checkbox {...args} />
+      <Datepicker {...args} />
     </HtmlOnlyWrapper>
   </>
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  label: 'Apples',
+  label: 'Select a date',
   size: 'medium',
   disabled: false,
   required: false,
-  value: 'apples',
-  name: 'apples',
-  id: 'apples-checkbox',
+  value: 'date',
+  name: 'date',
+  id: 'date-picker',
 };
 
 export const HTML = HTMLTemplate.bind({});
 HTML.args = {
-  label: 'Apples',
+  label: 'Date',
   size: 'large',
 };
