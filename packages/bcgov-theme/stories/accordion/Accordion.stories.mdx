@@ -1,0 +1,28 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Accordion from '../../src/Accordion';
+import * as stories from './Accordion.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/Accordion" component={Accordion} argTypes={argTypes} />
+
+# Accordion
+
+The accordion acts as a single expandable panel for content that would take up too much screen space. Multiple panels can be stacked to
+create an accordion effect. Children passed to the accordion will render as its content.
+
+export const Template = (args) => <Accordion {...args} />
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>
