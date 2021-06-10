@@ -72,3 +72,7 @@ a.nav-btn:hover {
 .btn-group>.nav-btn {
   margin-right: 20px !important;
 }
+
+.btn-group {
+  display: flex;
+}
