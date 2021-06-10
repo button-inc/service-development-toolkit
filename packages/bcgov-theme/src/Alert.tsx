@@ -197,7 +197,7 @@ const getIconPath = (variant: string) => {
   }
 };
 
-export default function Component(props: any) {
+export default function Alert(props: any) {
   return (
     <BaseAlert {...props}>
       <BaseAlert.Group>
