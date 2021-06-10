@@ -25,17 +25,17 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
 
   const bootstrap = createBootstrap(processedStyle, 'button');
 
-  const BaseComponent = (props: Props) => {
+  const Button = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
 
     return (
-      <Sbutton aria-label={ariaLabel} {...rest} id={id} className={cx(BUTTON_CLASS, className)}>
+      <Sbutton {...rest} id={id} className={cx(BUTTON_CLASS, className)}>
         {children}
       </Sbutton>
     );
   };
 
-  return BaseComponent;
+  return Button;
 };
 
 const Button = applyTheme({}, {});

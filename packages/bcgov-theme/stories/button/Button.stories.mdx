@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Button from '../../src/Button';
+import * as stories from './Button.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/Button" component={Button} argTypes={argTypes} />
+
+# Button
+
+Buttons allow users to carry out an important action on your service, such as Download or Submit.
+
+export const Template = (args) => <Checkbox {...args} />
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>
