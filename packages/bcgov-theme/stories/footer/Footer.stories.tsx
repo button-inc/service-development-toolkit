@@ -1,8 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import Footer from '../../src/Footer';
-import Link from '../../src/Link';
-import Button from '../../src/Button';
 import { HtmlOnlyWrapper } from '../../../../stories/helpers';
 import { argTypes } from './args';
 
