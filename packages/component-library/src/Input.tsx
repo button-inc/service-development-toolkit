@@ -39,7 +39,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
 
   const bootstrap = createBootstrap(processedStyle, 'input');
 
-  const BaseComponent = (props: Props) => {
+  const Input = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, className, rest } = bootstrap(props);
     const { style, labelStyle, inputStyle, wrapperStyle, ...others } = rest;
 
@@ -65,7 +65,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     );
   };
 
-  return BaseComponent;
+  return Input;
 };
 
 const Input = applyTheme({}, {});

@@ -24,7 +24,7 @@ const StyledAnchor = styled.a`
   }
 `;
 
-export default function Component(props: any) {
+export default function Link(props: any) {
   const { content, external, children, ...rest } = props;
 
   return (

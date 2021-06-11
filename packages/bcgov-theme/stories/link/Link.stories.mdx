@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Link from '../../src/Link';
+import * as stories from './Link.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/Link" component={Link} argTypes={argTypes} />
+
+# Link
+
+Links lead people to a different page. The link component acceps string content through the "content" prop, or can be passed children.
+
+export const Template = (args) => <Link {...args} />
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>
