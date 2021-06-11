@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Input from '../../src/Input';
+import * as stories from './Input.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/Input" component={Input} argTypes={argTypes} />
+
+# Input
+
+Text inputs allow users to enter a single line of text.
+
+export const Template = (args) => <Input {...args} />
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>

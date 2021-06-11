@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Checkbox from '../../src/Checkbox';
+import * as stories from './Checkbox.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/Checkbox" component={Checkbox} argTypes={argTypes} />
+
+# Checkbox
+
+Checkboxes are a type of input that allow users to select one or more options from a list.
+
+export const Template = (args) => <Checkbox {...args} />
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>

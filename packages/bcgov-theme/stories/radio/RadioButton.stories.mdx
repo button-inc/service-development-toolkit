@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import RadioButton from '../../src/RadioButton';
+import * as stories from './RadioButton.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/RadioButton" component={RadioButton} argTypes={argTypes} />
+
+# Radio Button
+
+Radio buttons are a type of input that allow users to select only one option from a list.
+
+export const Template = (args) => <RadioButton {...args} />
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>

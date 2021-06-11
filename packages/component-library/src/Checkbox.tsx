@@ -37,7 +37,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
 
   const bootstrap = createBootstrap(processedStyle, 'checkbox');
 
-  const BaseComponent = (props: Props) => {
+  const Checkbox = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, className, rest } = bootstrap(props);
     const { style, labelStyle, inputStyle, checkmarkStyle, ...others } = rest;
 
@@ -60,7 +60,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     );
   };
 
-  return BaseComponent;
+  return Checkbox;
 };
 
 const Checkbox = applyTheme({}, {});

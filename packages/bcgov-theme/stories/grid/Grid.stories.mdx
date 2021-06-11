@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Grid from '../../src/Grid';
+import * as stories from './Grid.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/Grid" component={Grid} argTypes={argTypes} />
+
+# Grid
+
+Grids can be used to arrange content on the page. The grid element accepts a Grid.Row and Grid.Col sub components.
+
+export const Template = (args) => <Grid {...args} />
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+Without css, columns will display as divs with default browser styling. Column border colors have been left in for clarity.
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>

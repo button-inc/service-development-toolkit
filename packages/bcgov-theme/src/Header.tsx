@@ -90,7 +90,7 @@ const Title = styled.h1`
   margin-top: 10px;
 `;
 
-export default function Component(props: any) {
+export default function Header(props: any) {
   const { title = '', onBannerClick = () => null, ...rest } = props;
 
   return (

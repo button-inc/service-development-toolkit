@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Navigation from '../../src/Navigation';
+import * as stories from './Navigation.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/Navigation" component={Navigation} argTypes={argTypes} />
+
+# Navigation
+
+The navigation is similar to the header component, with an additional collapsable navigation menu. Pass an unordered list of anchors for your menu links.
+
+export const Template = (args) => <Navigation {...args} />
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>

@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Card from '../../src/Card';
+import * as stories from './Card.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/Card" component={Card} argTypes={argTypes} />
+
+# Card
+
+Cards can be used to highlight content within a styled box. Any children passed to the card will be rendered into the main body.
+
+export const Template = (args) => <Card {...args} />
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>

@@ -52,6 +52,18 @@ export const styles = {
         &:active {
           opacity: 1;
         }
+
+        &:disabled {
+          background-color: #003366;
+          box-shadow: 0px 0px 0px 2px #fff inset !important;
+          color: #fff;
+          cursor: not-allowed;
+          opacity: 0.3;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
       `,
     },
     'primary-inverse': {
@@ -73,15 +85,15 @@ export const styles = {
         &:active {
           background-color: #fff;
         }
-      `,
-    },
-    'primary-disabled': {
-      button: `
-        background-color: #003366;
-        box-shadow: 0px 0px 0px 2px #fff inset !important;
-        color: #fff;
-        cursor: not-allowed;
-        opacity: 0.3;
+
+        &:disabled {
+          opacity: 0.3;
+          cursor: not-allowed;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
       `,
     },
     secondary: {
@@ -104,6 +116,18 @@ export const styles = {
 
         &:active {
           opacity: 1;
+        }
+
+        &:disabled {
+          background-color: #fff;
+          box-shadow: 0px 0px 0px 2px #003366 inset !important;
+          color: #003366;
+          cursor: not-allowed;
+          opacity: 0.3;
+
+          &:hover {
+            text-decoration: none;
+          }
         }
       `,
     },
@@ -134,15 +158,6 @@ export const styles = {
           opacity: 0.3;
           cursor: not-allowed;
         }
-      `,
-    },
-    'secondary-disabled': {
-      button: `
-        background-color: #fff;
-        box-shadow: 0px 0px 0px 2px #003366 inset !important;
-        color: #003366;
-        cursor: not-allowed;
-        opacity: 0.3;
       `,
     },
   },

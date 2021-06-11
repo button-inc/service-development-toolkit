@@ -37,7 +37,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
 
   const bootstrap = createBootstrap(processedStyle, 'radio');
 
-  const BaseComponent = (props: Props) => {
+  const RadioButton = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, className, rest } = bootstrap(props);
     const { style, labelStyle, inputStyle, dotStyle, ...others } = rest;
 
@@ -60,7 +60,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     );
   };
 
-  return BaseComponent;
+  return RadioButton;
 };
 
 const Radio = applyTheme({}, {});

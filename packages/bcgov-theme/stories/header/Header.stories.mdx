@@ -1,0 +1,28 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Header from '../../src/Header';
+import * as stories from './Header.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/Header" component={Header} argTypes={argTypes} />
+
+# Header
+
+Headers help people understand what the product or service is about while providing a consistent look, feel, and functionality across government sites.
+To include site links with your header, see the Navigation component.
+
+export const Template = (args) => <Header {...args} />
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>

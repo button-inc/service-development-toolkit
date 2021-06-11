@@ -60,9 +60,9 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
 
   const bootstrap = createBootstrap(processedStyle, 'filepicker');
 
-  const BaseComponent = (props: Props) => {
+  const FilePicker = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
-    const { style, labelStyle, inputStyle, wrapperStyle, ...others } = rest;
+    const { style, labelStyle, inputStyle, role, wrapperStyle, ...others } = rest;
 
     return (
       <Scontainer {...styleProps} style={style} className={cx(CONTAINER_CLASS, className)}>
@@ -76,6 +76,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
             style={wrapperStyle}
             className={WRAPPER_CLASS}
             wrapperExtraStyle={config.wrapperExtraStyle || ''}
+            role={role}
           >
             {children}
             <HiddenInput
@@ -102,7 +103,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     );
   };
 
-  return BaseComponent;
+  return FilePicker;
 };
 
 const FilePicker = applyTheme({}, {});

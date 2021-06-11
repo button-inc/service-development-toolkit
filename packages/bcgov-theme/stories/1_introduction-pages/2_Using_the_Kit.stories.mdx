@@ -1,0 +1,75 @@
+<!---Badge.stories.mdx --->
+
+import { Meta } from '@storybook/addon-docs/blocks';
+import '../css/docs.css';
+
+<Meta
+  title="Getting Started/Using the Kit"
+  parameters={{ fullPage: true, previewTabs: { canvas: { hidden: true } } }}
+/>
+
+# Getting Started with the Toolkit
+
+## How to use the Components
+
+1. Install the package: `npm i @button-inc/bcgov-theme`
+2. Import the components: `import Button from @button-inc/bcgov-theme/Button`
+
+_Note: you can also import components using the syntax `import {Button} from @button-inc/bcgov-theme`, however the above method will reduce bundle size and is recommended._
+
+3. Include the component in your code: `<Button>Click!</Button>`
+
+## Progressive Enhancement
+
+While the toolkit provides an easy to use theme and is compatible with client-side-rendering frameworks like
+create-react-app, to support the progressive enhancement features a server-side-rendering framework is required to
+support sending html to the client. Getting setup in the frameworks Gatsby and Nextjs is shown below.
+
+### Nextjs
+
+The text below shows a quick way to get setup in a nextjs project. For more information on the framework, see [nextjs.org](https://nextjs.org/).
+
+1. Create a template application: from the directory you want your app to be in, run `npx create-next-app my-new-app-name`
+2. After installation completes, go to the project: `cd my-new-app-name`
+3. Install the package: `npm i @button-inc/bcgov-theme`
+4. Replace all contents of _pages/index.js_ with the following code:
+
+```js
+import Header from '@button-inc/bcgov-theme/Header';
+
+export default function Home() {
+  return (
+    <div>
+      <Header />
+    </div>
+  );
+}
+```
+
+5. Run `npm run dev` to see your site.
+
+### Gatsby
+
+1. Follow Gatsby's [tutorial](https://www.gatsbyjs.com/docs/tutorial/part-0/) to get your environment setup. Once you have completed the [run your site locally](https://www.gatsbyjs.com/docs/tutorial/part-1/#run-your-site-locally) step, continue to step 2.
+2. Install the package: `npm i @button-inc/bcgov-theme`
+3. Replace the contents of _src/pages/index.js_ with the code below:
+```js
+import * as React from "react"
+import Header from '@button-inc/bcgov-theme/Header';
+
+// markup
+const IndexPage = () => {
+  return (
+    <Header />
+  )
+}
+
+export default IndexPage
+```
+3. Run `npm run develop` to see your site.
+
+## Props
+
+Components will pass along the props they receive, including html attributes and event handlers. If the component is comprised of multiple
+elements, the props will pass to the outermost container unless otherwise specified. On top
+of the custom props listed, you can pass event handlers and html attributes to components.
