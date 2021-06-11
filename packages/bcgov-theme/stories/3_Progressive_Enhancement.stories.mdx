@@ -1,0 +1,53 @@
+<!---Badge.stories.mdx --->
+
+import { Meta } from '@storybook/addon-docs/blocks';
+import btn_html from './img/btn-html.png'
+import btn_css from './img/btn-css.png'
+import pe_controls from './img/pe-controls.png'
+import './css/pe.css';
+
+<Meta
+  title="Getting Started/Progressive Enhancement"
+  parameters={{ fullPage: true, previewTabs: { canvas: { hidden: true } } }}
+/>
+
+# Progressive Enhancement
+
+## Making sure everyone can access the services they need.
+
+---
+
+Progressive enhancement is an approach that essentially **starts with a good foundation**. This perspective shift focuses on content first - ensuring that content can be accessed by anyone, anywhere.
+
+## Progressive Enhancement in action
+
+<div className="images-container">
+  <div className="image-container">
+    <img src={btn_html} style={{width: '256px'}} alt="Button in plain html" />
+    Plain HTML
+  </div>
+  <div className="image-container">
+    <img src={btn_css} style={{width: '256px'}} alt="button with css applied" />
+    With JavaScript + CSS
+  </div>
+</div>
+
+Sometimes our users can only see the basic structure of a page. Throughout the toolkit, you can toggle between JavaScript, CSS, and HTML to see what users would see at different levels of accessibility.
+At the top of each page, the toolbar gives you the option to shift the component between states of html only, html with css included, and html with css and javascript.
+<img src={pe_controls} alt="progressive enhancement controls"/>
+
+## People can see a different version of a service when:
+
+---
+
+- They have a bad internet connection
+- They are on an older device
+- They have voluntarily blocked JavaScript
+
+## How hard is it to implement?
+
+---
+
+Turns out it's actually not that hard to incorporate! It's just a matter of using components designed with accessibility in mind.
+
+We have built progressive enhancement into our toolkit to make creating accessible services as easy as possible. Each component is built with a strong HTML 5 foundation, with CSS and JavaScript layered on top as experience enhancements for devices that can accommodate them.
