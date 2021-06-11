@@ -27,7 +27,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const Scontainer = styleBuilder(as.container || 'footer', 'container');
   const Sfooter = styleBuilder(as.footer || 'div', 'footer');
 
-  const BaseComponent = (props: Props) => {
+  const Footer = (props: Props) => {
     const { children, style, footerStyle, className, ...rest } = props;
 
     return (
@@ -39,7 +39,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     );
   };
 
-  return BaseComponent;
+  return Footer;
 };
 
 const Footer = applyTheme({}, {});
