@@ -1,16 +1,16 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import RadioButton from '../../src/RadioButton';
-import * as stories from './RadioButton.stories.tsx';
+import Textarea from '../../src/Textarea';
+import * as stories from './TextArea.stories.tsx';
 import { ArgsTable } from '@storybook/addon-docs/blocks';
 import { argTypes } from './args';
 
-<Meta title="Components/RadioButton" component={RadioButton} argTypes={argTypes} />
+<Meta title="Components/Textarea" component={Textarea} argTypes={argTypes} />
 
-# Radio Button
+# Textarea
 
-Radio buttons are a type of input that allow users to select only one option from a list.
+A textarea allows users to input multiple lines of text.
 
-export const Template = (args) => <RadioButton {...args} />
+export const Template = (args) => <Textarea {...args} />
 
 <Canvas>
   <Story story={stories.Default} name="Default" />
