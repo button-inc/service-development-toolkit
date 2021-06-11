@@ -46,7 +46,7 @@ const config: StyleConfig = {
 
 export const BaseCallout = applyTheme(styles, config);
 
-export default function Component(props: any) {
+export default function Callout(props: any) {
   const { content, children, ...rest } = props;
 
   return <BaseCallout {...rest}>{content ? <p>{content}</p> : children}</BaseCallout>;

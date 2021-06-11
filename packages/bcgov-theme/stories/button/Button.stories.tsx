@@ -10,7 +10,7 @@ export default {
   argTypes,
 } as Meta;
 
-export const Template = args => (
+export const Template: Story = args => (
   <>
     {args.variant.endsWith('-inverse') ? (
       <div style={{ backgroundColor: '#003366', padding: '15px' }}>
