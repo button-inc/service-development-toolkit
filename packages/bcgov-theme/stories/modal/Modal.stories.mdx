@@ -1,0 +1,32 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Modal from '../../src/Modal';
+import * as stories from './Modal.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/Modal" component={Modal} argTypes={argTypes} />
+
+# Modal
+
+The modal displays content on an overlay requireing action. Modals can have usability issues, and other callouts should be preferred.
+To use the component, it requires an id, and a linking href to that id. The modal is displayed
+open since linking in page in storybook can reload the iframe.
+
+export const Template = (args) => <Modal {...args} />
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+With only html the content will be rendered to the page. Ensure to place it in a location that makes sense
+in the document flow.
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>
