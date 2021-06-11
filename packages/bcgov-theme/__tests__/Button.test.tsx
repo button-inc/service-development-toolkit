@@ -10,14 +10,18 @@ expect.extend(toHaveNoViolations);
 
 describe('Button', () => {
   it('Should have no accessibility violations', async () => {
-    const { container } = render(<Button />);
+    const { container } = render(<Button>Click</Button>);
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();
   });
 
   it('Should apply styles from props', () => {
-    render(<Button id="test" variant="primary" />);
+    render(
+      <Button id="test" variant="primary">
+        Click
+      </Button>
+    );
     const button = document.getElementById('test');
     const stylesObject = changeSelectorToObject(styles.variant.primary.button);
     expect(button).toHaveStyle(stylesObject.base);
@@ -25,7 +29,11 @@ describe('Button', () => {
 
   it('Should pass through end-user props', () => {
     const handleClick = jest.fn();
-    render(<Button onClick={handleClick} id="test" />);
+    render(
+      <Button onClick={handleClick} id="test">
+        Click
+      </Button>
+    );
     const button = document.getElementById('test');
     fireEvent.click(button);
 
@@ -33,7 +41,11 @@ describe('Button', () => {
   });
 
   it('Should accept static props', () => {
-    render(<Button fullHeight fullWidth id="test" />);
+    render(
+      <Button fullHeight fullWidth id="test">
+        Click
+      </Button>
+    );
     const button = document.getElementById('test');
     expect(button).toHaveStyle('width: 100%;');
     expect(button).toHaveStyle('height: 100%;');

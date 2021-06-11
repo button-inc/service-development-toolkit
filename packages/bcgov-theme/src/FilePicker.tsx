@@ -51,7 +51,7 @@ export default function FilePicker(props: any) {
 
   return (
     <BaseFilePicker {...rest}>
-      <Button size={size} disabled={disabled} role="presentation">
+      <Button size={size} disabled={disabled}>
         <FaSVG>
           <path fill="currentColor" d={Upload} />
         </FaSVG>
