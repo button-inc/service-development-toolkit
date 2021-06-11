@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import HeroImage from '../../src/HeroImage';
+import * as stories from './HeroImage.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/HeroImage" component={HeroImage} argTypes={argTypes} />
+
+# Hero Image
+
+A hero image can be used to overlay content on an image with a built-in background to maintain contrast. It will render any passed children on smaller background.
+
+export const Template = (args) => <Card {...args} />
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>
