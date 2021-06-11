@@ -45,13 +45,13 @@ const config: StyleConfig = {
 
 export const BaseFilePicker = applyTheme(styles, config);
 
-export default function Component(props: any) {
+export default function FilePicker(props: any) {
   const { children, ...rest } = props;
   const { size, disabled } = rest;
 
   return (
     <BaseFilePicker {...rest}>
-      <Button size={size} disabled={disabled}>
+      <Button size={size} disabled={disabled} role="presentation">
         <FaSVG>
           <path fill="currentColor" d={Upload} />
         </FaSVG>

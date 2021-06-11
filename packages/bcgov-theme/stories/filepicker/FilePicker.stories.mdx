@@ -1,0 +1,30 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import FilePicker from '../../src/FilePicker';
+import * as stories from './FilePicker.stories.tsx';
+import { ArgsTable } from '@storybook/addon-docs/blocks';
+import { argTypes } from './args';
+
+<Meta title="Components/Filepicker" component={FilePicker} argTypes={argTypes} />
+
+# FilePicker
+
+The FilePicker is used to select a file.
+
+export const Template = (args) => <FilePicker {...args}>Choose File</FilePicker>
+
+<Canvas>
+  <Story story={stories.Default} name="Default" />
+</Canvas>
+
+## Arguments
+
+<ArgsTable story="Default" />
+
+## HTML only
+
+The filepicker uses an overlaying button to apply custome styles. With no CSS applied, this button will be visible,
+however a role of "presentation" is applied to identify it as presentational.
+
+<Canvas>
+  <Story story={stories.HTML} name="html" />
+</Canvas>
