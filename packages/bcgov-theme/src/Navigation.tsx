@@ -74,7 +74,7 @@ const Title = styled.h1`
 
 const DEFAULT_MOBILE_BREAK_POINT = '900';
 
-export default function Component(props: any) {
+export default function Navigation(props: any) {
   const {
     title = '',
     onBannerClick = () => null,
