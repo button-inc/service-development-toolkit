@@ -59,8 +59,8 @@ export const applyTheme = (styles, config: BaseStyleConfig, childStyles = {}) =>
   const styleBuilder = createStyleBuilder(processedStyle, config, processedChildStyle);
 
   const as = config.as || {};
-  const Scontainer = styleBuilder(as.container || 'div', 'container');
-  const Sheader = styleBuilder(as.header || 'div', 'header');
+  const Scontainer = styleBuilder(as.container || 'aside', 'container');
+  const Sheader = styleBuilder(as.header || 'header', 'header');
   const Scontent = styleBuilder(as.content || 'div', 'content');
   const Sgroup = styleBuilder(as.group || 'div', 'group');
   const Sclose = styleBuilder('label', 'close');
@@ -125,7 +125,7 @@ export const applyTheme = (styles, config: BaseStyleConfig, childStyles = {}) =>
     const { Sclose, checkboxId, styleProps } = useContext(NotificationContext);
 
     return (
-      <Sclose className={classes} htmlFor={checkboxId} {...styleProps} {...rest}>
+      <Sclose className={classes} htmlFor={checkboxId} {...styleProps} role="button" aria-label="close" {...rest}>
         {children}
       </Sclose>
     );

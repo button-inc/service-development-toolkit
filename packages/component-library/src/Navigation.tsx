@@ -58,9 +58,9 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(processedStyle, config);
 
   const as = config.as || {};
-  const Scontainer = styleBuilder(as.container || 'div', 'container');
+  const Scontainer = styleBuilder(as.container || 'nav', 'container');
   const Stoggle = styleBuilder('label', 'toggle');
-  const Ssidebar = styleBuilder(createHiddenSidebar(as.sidebar || 'div'), 'sidebar');
+  const Ssidebar = styleBuilder(createHiddenSidebar(as.sidebar || 'aside'), 'sidebar');
 
   const bootstrap = createBootstrap(processedStyle, 'navigation');
 
@@ -85,7 +85,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     const { checkboxId, Stoggle, styleProps } = useContext(NavigationContext);
 
     return (
-      <Stoggle className={classes} htmlFor={checkboxId} {...styleProps} {...rest}>
+      <Stoggle className={classes} htmlFor={checkboxId} role="button" {...styleProps} {...rest}>
         {children}
       </Stoggle>
     );
