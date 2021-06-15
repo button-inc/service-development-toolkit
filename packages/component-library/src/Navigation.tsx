@@ -72,7 +72,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     return (
       <NavigationContext.Provider value={{ checkboxId, styleProps, Stoggle, Ssidebar }}>
         <InvisibleCheckbox id={checkboxId} />
-        <Scontainer {...rest} className={cx(CONTAINER_CLASS, className)}>
+        <Scontainer aria-label="main navigation" {...rest} className={cx(CONTAINER_CLASS, className)}>
           {children}
         </Scontainer>
       </NavigationContext.Provider>
