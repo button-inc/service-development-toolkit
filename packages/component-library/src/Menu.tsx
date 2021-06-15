@@ -76,7 +76,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(processedStyle, config);
 
   const as = config.as || {};
-  const Scontainer = styleBuilder(createBreakingGroup(as.container || 'div'), 'container');
+  const Scontainer = styleBuilder(createBreakingGroup(as.container || 'nav'), 'container');
   const Sgroup = styleBuilder(createBreakingGroup(as.group || 'div'), 'group');
   const Sitem = styleBuilder(createBreakingItem(as.item || 'span'), 'item');
 

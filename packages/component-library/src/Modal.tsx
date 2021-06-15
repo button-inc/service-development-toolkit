@@ -60,9 +60,9 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const as = config.as || {};
   const Scontainer = styleBuilder(createHiddenContainer(as.container || 'div'), 'container');
   const Smain = styleBuilder(as.modal || 'div', 'modal');
-  const Sheader = styleBuilder(as.header || 'div', 'header');
+  const Sheader = styleBuilder(as.header || 'header', 'header');
   const Scontent = styleBuilder(as.content || 'div', 'content');
-  const Sfooter = styleBuilder(as.footer || 'div', 'footer');
+  const Sfooter = styleBuilder(as.footer || 'footer', 'footer');
   const Sclose = styleBuilder('a', 'close');
 
   const bootstrap = createBootstrap(processedStyle, 'modal');
@@ -124,7 +124,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     const { Sclose, styleProps } = useContext(ModalContext);
 
     return (
-      <Sclose className={classes} {...styleProps} href="#" {...rest}>
+      <Sclose className={classes} {...styleProps} href="#" role="button" aria-label="close" {...rest}>
         {children}
       </Sclose>
     );
