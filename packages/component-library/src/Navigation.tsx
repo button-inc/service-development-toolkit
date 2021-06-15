@@ -85,7 +85,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     const { checkboxId, Stoggle, styleProps } = useContext(NavigationContext);
 
     return (
-      <Stoggle className={classes} htmlFor={checkboxId} role="button" {...styleProps} {...rest}>
+      <Stoggle className={classes} htmlFor={checkboxId} {...styleProps} {...rest}>
         {children}
       </Stoggle>
     );
