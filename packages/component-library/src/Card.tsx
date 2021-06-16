@@ -26,7 +26,7 @@ const TOGGLE_CLASS = 'pg-card-toggle';
 const TOGGLE_ON_CLASS = 'pg-card-toggle-on';
 const TOGGLE_OFF_CLASS = 'pg-card-toggle-off';
 
-const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox' })`
+const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox', 'aria-label': 'toggle contents visibility' })`
   position: absolute;
   left: -100vw;
 
@@ -80,8 +80,8 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(processedStyle, config);
 
   const as = config.as || {};
-  const Scontainer = styleBuilder(as.container || 'div', 'container');
-  const Sheader = styleBuilder(as.header || 'div', 'header');
+  const Scontainer = styleBuilder(as.container || 'section', 'container');
+  const Sheader = styleBuilder(as.header || 'header', 'header');
   const Stoggle = styleBuilder('label', 'toggle');
   const Scontent = styleBuilder(
     config.toggleable ? createHiddenContent(as.content || 'div') : as.content || 'div',

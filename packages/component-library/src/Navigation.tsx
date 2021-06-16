@@ -22,7 +22,7 @@ const CONTAINER_CLASS = 'pg-navigation';
 const TOGGLE_CLASS = 'pg-navigation-toggle';
 const SIDEBAR_CLASS = 'pg-navigation-sidebar';
 
-const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox' })`
+const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox', 'aria-label': 'toggle mobile menu' })`
   position: absolute;
   left: -100vw;
 
@@ -58,9 +58,9 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const styleBuilder = createStyleBuilder(processedStyle, config);
 
   const as = config.as || {};
-  const Scontainer = styleBuilder(as.container || 'div', 'container');
+  const Scontainer = styleBuilder(as.container || 'nav', 'container');
   const Stoggle = styleBuilder('label', 'toggle');
-  const Ssidebar = styleBuilder(createHiddenSidebar(as.sidebar || 'div'), 'sidebar');
+  const Ssidebar = styleBuilder(createHiddenSidebar(as.sidebar || 'aside'), 'sidebar');
 
   const bootstrap = createBootstrap(processedStyle, 'navigation');
 
@@ -72,7 +72,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     return (
       <NavigationContext.Provider value={{ checkboxId, styleProps, Stoggle, Ssidebar }}>
         <InvisibleCheckbox id={checkboxId} />
-        <Scontainer {...rest} className={cx(CONTAINER_CLASS, className)}>
+        <Scontainer aria-label="main navigation" {...rest} className={cx(CONTAINER_CLASS, className)}>
           {children}
         </Scontainer>
       </NavigationContext.Provider>

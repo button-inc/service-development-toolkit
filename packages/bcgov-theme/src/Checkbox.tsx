@@ -16,6 +16,11 @@ export const styles = {
       height: 1em;
       line-height: 1em;
       padding-left: 1.5em;
+
+      &:focus-within {
+        outline: 4px solid #3B99FC;
+        outline-offset: 1px;
+      }
     `,
     input: `
       position: absolute;

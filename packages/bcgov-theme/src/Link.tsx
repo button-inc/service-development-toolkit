@@ -22,6 +22,11 @@ const StyledAnchor = styled.a`
     text-decoration: none;
     color: blue;
   }
+
+  &:focus {
+    outline: 4px solid #3b99fc;
+    outline-offset: 1px;
+  }
 `;
 
 export default function Link(props: any) {
