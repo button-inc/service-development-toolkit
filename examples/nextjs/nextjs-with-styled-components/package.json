@@ -6,8 +6,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@button-inc/bcgov-theme": "1.0.0-alpha.8",
-    "@button-inc/component-library": "1.0.0-alpha.12",
+    "@button-inc/bcgov-theme": "1.0.1",
+    "@button-inc/component-library": "1.0.1",
     "next": "latest",
     "react": "16.8.0",
     "react-dom": "16.8.0",
