@@ -22,7 +22,7 @@ const CONTAINER_CLASS = 'pg-navigation';
 const TOGGLE_CLASS = 'pg-navigation-toggle';
 const SIDEBAR_CLASS = 'pg-navigation-sidebar';
 
-const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox' })`
+const InvisibleCheckbox = styled.input.attrs({ type: 'checkbox', 'aria-label': 'toggle mobile menu' })`
   position: absolute;
   left: -100vw;
 

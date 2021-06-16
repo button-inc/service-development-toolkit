@@ -40,6 +40,11 @@ const config: StyleConfig = {
       text-decoration: underline;
       opacity: 0.80;
     }
+
+    &:focus-within {
+      outline: 4px solid #3B99FC;
+      outline-offset: 1px;
+    }
   `,
 };
 
@@ -51,7 +56,7 @@ export default function FilePicker(props: any) {
 
   return (
     <BaseFilePicker {...rest}>
-      <Button size={size} disabled={disabled}>
+      <Button size={size} disabled={disabled} tabIndex={-1}>
         <FaSVG>
           <path fill="currentColor" d={Upload} />
         </FaSVG>

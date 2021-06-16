@@ -11,6 +11,11 @@ export const styles = {
       border: 2px solid #606060;
       border-radius: 0;
       padding: 0.5em 0.6em;
+
+      &:focus {
+        outline: 4px solid #3B99FC;
+        outline-offset: 1px;
+      }
     `,
   },
   size: {

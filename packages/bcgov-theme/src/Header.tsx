@@ -65,6 +65,11 @@ export const styles = {
           text-decoration: underline;
         }
 
+        & ul li a:focus {
+          outline: 0.2222em solid #3B99FC;
+          outline-offset: 1px;
+        }
+
         & ul .active {
           text-decoration: underline;
           font-weight: bold;
@@ -77,6 +82,9 @@ export const styles = {
 const config: StyleConfig = {
   defaultProps: { header: 'main' },
   staticProps: [],
+  as: {
+    container: 'header',
+  },
 };
 
 export const BaseHeader = applyTheme(styles, config);
