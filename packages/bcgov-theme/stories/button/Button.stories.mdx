@@ -3,6 +3,7 @@ import Button from '../../src/Button';
 import * as stories from './Button.stories.tsx';
 import { ArgsTable } from '@storybook/addon-docs/blocks';
 import { argTypes } from './args';
+import { HtmlOnlyWrapper } from '../../../../stories/helpers';
 
 <Meta title="Components/Button" component={Button} argTypes={argTypes} />
 
@@ -19,6 +20,14 @@ export const Template = (args) => <Checkbox {...args} />
 ## Arguments
 
 <ArgsTable story="Default" />
+
+## Variants
+
+<Canvas>
+  <Story story={stories.Secondary} name="Secondary" />
+  <Story story={stories.SecondaryInverse} name="SecondaryInverse" />
+  <Story story={stories.PrimaryInverse} name="PrimaryInverse" />
+</Canvas>
 
 ## HTML only
 

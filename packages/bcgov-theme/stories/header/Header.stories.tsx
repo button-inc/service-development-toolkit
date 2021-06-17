@@ -20,14 +20,16 @@ const HTMLTemplate: Story = args => (
   </HtmlOnlyWrapper>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+const args = {
   title: 'Welcome!',
   header: 'main',
 };
 
+export const Default = Template.bind({});
+Default.args = args;
+
+export const Sub = Template.bind({});
+Sub.args = { ...args, header: 'sub' };
+
 export const HTML = HTMLTemplate.bind({});
-HTML.args = {
-  title: 'Welcome!',
-  header: 'main',
-};
+HTML.args = args;

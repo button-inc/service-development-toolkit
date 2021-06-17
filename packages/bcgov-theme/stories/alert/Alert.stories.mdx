@@ -11,7 +11,7 @@ import { argTypes } from './args';
 Alert banners notify users of important information or changes on a page. Typically, they appear at the top of a page. The alert can either be passed
 a string to display through the "content" prop, or be passed children to render its content.
 
-export const Template = (args) => <Alert {...args} />
+export const Template = args => <Alert {...args} />;
 
 <Canvas>
   <Story story={stories.Default} name="Default" />
@@ -20,6 +20,14 @@ export const Template = (args) => <Alert {...args} />
 ## Arguments
 
 <ArgsTable story="Default" />
+
+## Variants
+
+<Canvas>
+  <Story story={stories.Info} name="Info" />
+  <Story story={stories.Warning} name="Warning" />
+  <Story story={stories.Danger} name="Danger" />
+</Canvas>
 
 ## HTML only
 

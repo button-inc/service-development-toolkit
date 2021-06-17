@@ -10,7 +10,12 @@ export default {
   argTypes,
 } as Meta;
 
-const Template: Story = args => <Checkbox {...args} />;
+const Template: Story = args => (
+  <form>
+    <Checkbox {...args} style={{ marginBottom: '10px' }} />
+    <Checkbox label="Oranges" checked />
+  </form>
+);
 
 const HTMLTemplate: Story = args => (
   <>
