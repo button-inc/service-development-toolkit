@@ -1,11 +1,15 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
+import styled from 'styled-components';
 import Navigation from '../src/Navigation';
 import Footer from '../src/Footer';
 import Alert from '../src/Alert';
 import Input from '../src/Input';
 import DatePicker from '../src/DatePicker';
 import FilePicker from '../src/FilePicker';
+import Fieldset from '../src/Fieldset';
+import Accordion from '../src/Accordion';
+import Card from '../src/Card';
 import Checkbox from '../src/Checkbox';
 import RadioButton from '../src/RadioButton';
 import Button from '../src/Button';
@@ -14,6 +18,12 @@ import Dropdown from '../src/Dropdown';
 import Textarea from '../src/Textarea';
 import Link from '../src/Link';
 import BCGovTypography from './BCGovTypography';
+
+const Container = styled.div`
+  & > * {
+    margin-bottom: 20px;
+  }
+`;
 
 export default {
   title: 'Components/_Page',
@@ -51,41 +61,25 @@ const Menu = () => (
 );
 
 const Template: Story = ({ size }) => (
-  <div style={{ border: '1px solid black' }}>
+  <form style={{ border: '1px solid black' }}>
     <BCGovTypography />
     <Navigation title="Hello British Columbia" onBannerClick={console.log} size={size}>
       <Menu />
     </Navigation>
-    <div style={{ padding: '2rem' }}>
-      <Alert
-        content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus."
-        size={size}
-      />
-      <br />
+    <Container style={{ padding: '2rem' }}>
+      <Alert content="This is an alert. This box usually appears when the form is submitted." size={size} />
       <Input label="Name" required fullWidth size={size} />
-      <br />
-      <DatePicker label="Birthday" required fullWidth size={size} />
-      <br />
-      <FilePicker label="Certificate" size={size}>
-        Upload
-      </FilePicker>
-      <br />
-      <h4>Select your choices</h4>
-      <Checkbox name="checkbox" label="Option 1" size={size} />
-      <br />
-      <Checkbox name="checkbox" label="Option 2" size={size} />
-      <br />
-      <Checkbox name="checkbox" label="Option 3" size={size} />
-      <br />
-      <br />
-      <h4>Select your choice</h4>
-      <RadioButton name="radiobutton" label="Option 1" size={size} />
-      <br />
-      <RadioButton name="radiobutton" label="Option 2" size={size} />
-      <br />
-      <RadioButton name="radiobutton" label="Option 3" size={size} />
-      <br />
-      <br />
+      <h4>Favourite fruit?</h4>
+      <Checkbox name="checkbox" label="Apple" size={size} />
+      <Checkbox name="checkbox" label="Banana" size={size} />
+      <Checkbox name="checkbox" label="Avocado" size={size} />
+      <Fieldset title="Fieldset - What was your first car?">
+        <RadioButton name="radiobutton" label="Honda Civic" size={size} />
+        <br />
+        <RadioButton name="radiobutton" label="Toyota Camry" size={size} />
+        <br />
+        <RadioButton name="radiobutton" label="Tesla Model 3" size={size} />
+      </Fieldset>
       <Dropdown label="Select your choice" size={size}>
         <option value="option1">Option 1</option>
         <option value="option1">Option 2</option>
@@ -93,15 +87,30 @@ const Template: Story = ({ size }) => (
         <option value="option1">Option 4</option>
         <option value="option1">Option 5</option>
       </Dropdown>
-      <br />
-      <Textarea label="Enter text..." required fullWidth size={size} />
-      <br />
-      <Callout size={size}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus.</Callout>
-      <br />
+      <FilePicker label="Certificate" size={size}>
+        Upload
+      </FilePicker>
+      <DatePicker label="Birthday" required fullWidth size={size} />
+      <Textarea label="Please write an essay (Min. 250 characters)" required fullWidth size={size} minLength={250} />
+      <Callout size={size}>Callout components provide a presentation of content in a visually distinct manner.</Callout>
       <p>
         This is an internal example of a link to <Link href="#link1" content="access your application" size={size} />.
       </p>
-      <Button variant="primary" size={size}>
+      <div>
+        <Accordion title="What is an accordion?">This</Accordion>
+        <Accordion title="How to use an accordion?">Click the plus/minus sign</Accordion>
+      </div>
+      <Card title="Online Registration">
+        If you'd like to register online please ensure that you have the{' '}
+        <Link href="#link1" content="supporting documents" /> available
+        <br /> <br />
+        <Button>Click here to register</Button>
+        <br /> <br />
+        <Link href="#link1">
+          Already registered? Click here to <strong>login</strong>
+        </Link>
+      </Card>
+      <Button type="submit" variant="primary" size={size}>
         Submit
       </Button>
       &nbsp;
@@ -109,11 +118,11 @@ const Template: Story = ({ size }) => (
         Cancel
       </Button>
       <br />
-    </div>
+    </Container>
     <Footer>
       <Menu />
     </Footer>
-  </div>
+  </form>
 );
 
 export const Default = Template.bind({});

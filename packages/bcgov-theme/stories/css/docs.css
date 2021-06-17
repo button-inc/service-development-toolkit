@@ -2,23 +2,25 @@
   margin-left: 50px !important;
 }
 
-.sbdocs.sbdocs-h1, .sbdocs.sbdocs-h2, .sbdocs.sbdocs-h3 {
+.sbdocs.sbdocs-h1, .sbdocs.sbdocs-h2, .sbdocs.sbdocs-h3, .docs-title {
   color: #1d44a0;
   border: none;
-  font-weight: bold;
 }
 
 .sbdocs.sbdocs-h1 {
   font-size: 54px;
+  font-weight: bold;
 }
 
 .sbdocs.sbdocs-h2 {
   margin-top: 40px !important;
-  font-size: 36px;
+  font-size: 27px;
+  font-weight: normal;
 }
 
 .sbdocs-content h3 {
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: normal;
 }
 
 .sbdocs-li {
@@ -27,4 +29,9 @@
 
 #getting-started-with-the-toolkit {
   margin-top: 50px;
+}
+
+.docs-title {
+  text-transform: capitalize;
+  margin-top: 30px;
 }

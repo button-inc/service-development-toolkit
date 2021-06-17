@@ -20,18 +20,24 @@ const HTMLTemplate: Story = args => (
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+const args = {
   variant: 'success',
   size: 'medium',
   closable: false,
   content: 'You have been alerted.',
 };
 
+export const Default = Template.bind({});
+Default.args = args;
+
+export const Info = Template.bind({});
+Info.args = { ...args, variant: 'info' };
+
+export const Warning = Template.bind({});
+Warning.args = { ...args, variant: 'warning' };
+
+export const Danger = Template.bind({});
+Danger.args = { ...args, variant: 'danger' };
+
 export const HTML = HTMLTemplate.bind({});
-HTML.args = {
-  variant: 'primary',
-  size: 'medium',
-  closable: false,
-  content: 'You have been alerted.',
-};
+HTML.args = args;

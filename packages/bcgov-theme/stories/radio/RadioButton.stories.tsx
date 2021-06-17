@@ -10,7 +10,12 @@ export default {
   argTypes,
 } as Meta;
 
-const Template: Story = args => <RadioButton {...args} />;
+const Template: Story = args => (
+  <form>
+    <RadioButton {...args} />
+    <RadioButton label="Red" name="radio" style={{ paddingTop: '10px' }} />
+  </form>
+);
 
 const HTMLTemplate: Story = args => (
   <>
@@ -21,8 +26,8 @@ const HTMLTemplate: Story = args => (
 );
 
 const args = {
-  label: 'Radio',
-  size: 'small',
+  label: 'Green',
+  size: 'medium',
   disabled: false,
   required: false,
   name: 'radio',

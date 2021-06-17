@@ -1,14 +1,7 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { Story } from '@storybook/react/types-6-0';
 import Button from '../../src/Button';
 import { HtmlOnlyWrapper } from '../../../../stories/helpers';
-import { argTypes } from './args';
-
-export default {
-  title: 'Components/Button',
-  component: Button,
-  argTypes,
-} as Meta;
 
 export const Template: Story = args => (
   <>
@@ -23,15 +16,12 @@ export const Template: Story = args => (
 );
 
 const HTMLTemplate: Story = args => (
-  <>
-    <HtmlOnlyWrapper>
-      <Button {...args}>Click me!</Button>
-    </HtmlOnlyWrapper>
-  </>
+  <HtmlOnlyWrapper>
+    <Button {...args}>Click me!</Button>
+  </HtmlOnlyWrapper>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+const args = {
   variant: 'primary',
   size: 'medium',
   disabled: false,
@@ -39,9 +29,17 @@ Default.args = {
   fullHeight: false,
 };
 
+export const Default = Template.bind({});
+Default.args = args;
+
+export const Secondary = Template.bind({});
+Secondary.args = { ...args, variant: 'secondary' };
+
+export const SecondaryInverse = Template.bind({});
+SecondaryInverse.args = { ...args, variant: 'secondary-inverse' };
+
+export const PrimaryInverse = Template.bind({});
+PrimaryInverse.args = { ...args, variant: 'primary-inverse' };
+
 export const HTML = HTMLTemplate.bind({});
-HTML.args = {
-  variant: 'primary',
-  size: 'medium',
-  disabled: false,
-};
+HTML.args = args;
