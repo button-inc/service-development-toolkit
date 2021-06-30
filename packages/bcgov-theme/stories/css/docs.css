@@ -28,3 +28,15 @@
 #getting-started-with-the-toolkit {
   margin-top: 50px;
 }
+
+.sbdocs-ul>.sbdocs-li>.sbdocs-ul>.sbdocs-li {
+  padding-left: 15px;
+}
+
+.sbdocs-ul>.sbdocs-li>.sbdocs-p {
+  margin-bottom: 0;
+}
+
+.sbdocs-a:hover {
+  text-decoration: underline;
+}
