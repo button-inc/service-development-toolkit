@@ -10,6 +10,13 @@ to help create progressively enhancing forms with good UI pricnciples. See below
 - [Component Library Theme Builder](https://service-development-toolkit.herokuapp.com/theme-builder/button)
 - [Form Builder](https://service-development-toolkit.herokuapp.com/form-builder)
 
+## Acknowledgements
+
+We would like to thank the following awesome open-source projects that have been a big inspiration and help to this toolkit:
+
+- [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form): The form builder tool to support progressive enhancement in single question per page forms relies heavily on the work in this package.
+- [WFP](https://uikit.wfp.org/docs/index.html?path=/story/getting-started-intro--page): The layout of their documentation in storybook was an inspiration for our component-library docs.
+
 ## Getting Started
 
 See the documentation below for getting setup in each tool:
