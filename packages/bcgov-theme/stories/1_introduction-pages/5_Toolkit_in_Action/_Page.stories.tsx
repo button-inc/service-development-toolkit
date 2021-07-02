@@ -1,22 +1,22 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import Navigation from '../src/Navigation';
-import Footer from '../src/Footer';
-import Alert from '../src/Alert';
-import Input from '../src/Input';
-import DatePicker from '../src/DatePicker';
-import FilePicker from '../src/FilePicker';
-import Checkbox from '../src/Checkbox';
-import RadioButton from '../src/RadioButton';
-import Button from '../src/Button';
-import Callout from '../src/Callout';
-import Dropdown from '../src/Dropdown';
-import Textarea from '../src/Textarea';
-import Link from '../src/Link';
-import BCGovTypography from './BCGovTypography';
+import Navigation from '../../../src/Navigation';
+import Footer from '../../../src/Footer';
+import Alert from '../../../src/Alert';
+import Input from '../../../src/Input';
+import DatePicker from '../../../src/DatePicker';
+import FilePicker from '../../../src/FilePicker';
+import Checkbox from '../../../src/Checkbox';
+import RadioButton from '../../../src/RadioButton';
+import Button from '../../../src/Button';
+import Callout from '../../../src/Callout';
+import Dropdown from '../../../src/Dropdown';
+import Textarea from '../../../src/Textarea';
+import Link from '../../../src/Link';
+import BCGovTypography from '../../BCGovTypography';
 
 export default {
-  title: 'Components/_Page',
+  title: 'Getting Started/Toolkit in Action',
   argTypes: {
     size: {
       control: {
