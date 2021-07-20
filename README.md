@@ -1,10 +1,18 @@
+<br/>
+
+> 👋 Welcome! The toolkit's [component library](./packages/component-library) is in preview; this means the API is subject to change without notice. Keep an eye on [Announcements](./discussions/categories/announcements) or [Releases](./releases) for news on releases, or check out our [Roadmap](./projects/5) for priorities.
+>
+> If you're interested in production use of this codebase, we'd love to chat! Please reach out at [toolkit@button.is](mailto:toolkit@button.is).
+
+<br/>
+
 # Service Development Toolkit
 
 The Service Development Toolkit is a toolkit to bring best practices to data intake applications built with [React](https://reactjs.org/).
 
-The toolkit can be used to easily create progressively enhancing, accessible form-based applications that are themable and focused on
-minimizing resource size. It consists of a component library for themed, accessible,  progressively enhancing components, and a form-builder application
-to help create progressively enhancing forms with good UI pricnciples. See below for live demonstrations:
+The toolkit can be used to easily create progressively enhanced, accessible form-based applications that are themable and focused on
+minimizing resource size. It consists of a component library for themed, accessible,  progressively enhanced components, and a form-builder application
+to help create progressively enhanced forms with good UI pricnciples. See below for live demonstrations:
 
 - [Component Library Storybook](https://button-inc.github.io/service-development-toolkit/)
 - [Component Library Theme Builder](https://service-development-toolkit.herokuapp.com/theme-builder/button)
