@@ -44,14 +44,10 @@ In order to avoid potential side effects using `lerna version/publish` commands,
 
 - Clone this repository
 - Run `yarn` to install package dependencies
+- Run `yarn bootstrap` to bootstrap the packages in this lerna repo
+- Run `yarn llink` to link the packages in this lerna repo
 - Run `yarn build` to compile all packages
 - Run `yarn start` in an example app to test
-
-```sh
-yarn bootstrap
-yarn llink
-yarn build
-```
 
 ## Storybook
 
