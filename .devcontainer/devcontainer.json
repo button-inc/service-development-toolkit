@@ -11,5 +11,7 @@
 
   "settings": {},
 
+  "postCreateCommand": "yarn --dev",
+
   "extensions": ["dbaeumer.vscode-eslint"]
 }
