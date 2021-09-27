@@ -17,8 +17,14 @@ FROM mcr.microsoft.com/vscode/devcontainers/typescript-node:0-${VARIANT}
 
 RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1 --depth 1
 
+
 ENV HOME=/root
 WORKDIR ${HOME}
+
+
+RUN echo ". $HOME/.asdf/asdf.sh" >> ${HOME}/.bashrc
+SHELL ["/bin/bash", "-c"]
+RUN source ${HOME}/.bashrc
 
 RUN cd ${HOME}/.asdf && git checkout v0.8.1
 ENV BASH_ENV="${HOME}/.asdf/asdf.sh"
