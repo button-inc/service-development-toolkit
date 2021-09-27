@@ -9,7 +9,12 @@
     "context": ".."
   },
 
-  "settings": {},
+  "settings": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true,
+		"eslint.alwaysShowStatus": true,
+		"eslint.format.enable": true,
+  },
 
   "postCreateCommand": "yarn --dev | ${PRECOMMIT_ENV}/pre-commit install | yarn llink | yarn build",
 
