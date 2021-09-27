@@ -13,5 +13,5 @@
 
   "postCreateCommand": "yarn --dev | ${PRECOMMIT_ENV}/pre-commit install | yarn llink | yarn build",
 
-  "extensions": ["dbaeumer.vscode-eslint"]
+  "extensions": ["dbaeumer.vscode-eslint","esbenp.prettier-vscode"]
 }
