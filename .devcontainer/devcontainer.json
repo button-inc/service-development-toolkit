@@ -1,20 +1,15 @@
 {
-	"name": "Node.js & TypeScript",
-	"build": {
-		"dockerfile": "Dockerfile",
-		
-		"args": { 
-			"VARIANT": "12"
-		},
-		"context": ".."
-	},
+  "name": "Node.js & TypeScript",
+  "build": {
+    "dockerfile": "Dockerfile",
 
-	"settings": {},
+    "args": {
+      "VARIANT": "12"
+    },
+    "context": ".."
+  },
 
+  "settings": {},
 
-	"extensions": [
-		"dbaeumer.vscode-eslint"
-	],
-
-	
+  "extensions": ["dbaeumer.vscode-eslint"]
 }
