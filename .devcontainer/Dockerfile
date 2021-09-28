@@ -1,4 +1,4 @@
-# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.192.0/containers/typescript-node/.devcontainer/base.Dockerfile
+# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.192.0/containers/typescript-node/.devcontainer/base.Dockerfile. Includes Node.js, eslint, nvm, yarn, and the TypeScript compiler.
 
 # [Choice] Node.js version: 16, 14, 12
 ARG VARIANT="12-buster"
@@ -33,7 +33,6 @@ SHELL ["/usr/bin/env", "bash", "-c"]
 
 COPY .tool-versions ${HOME}/.tool-versions
 
-# RUN printf "nodejs 14.15.4\nyarn 1.22.10\n" > .tool-versions
 RUN cat ${HOME}/.tool-versions | cut -f 1 -d ' ' | xargs -n 1 asdf plugin-add
 
 RUN asdf plugin-update --all
