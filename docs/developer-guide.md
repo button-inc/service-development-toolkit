@@ -42,6 +42,14 @@ In order to avoid potential side effects using `lerna version/publish` commands,
 
 # Setup
 
+## Development Environment
+
+Use [Localhost](#localhost) setup if you want to install and run the development environment on your own Mac or Linux machine.
+
+For near-instant access to a working development environment without the need to install or run anything on your local machine, skip localhost setup and try using our [remote devcontainer on GitHub Codespaces](#remote-devcontainer-on-github-codespaces).
+
+### Localhost
+
 - Clone this repository
 - Run `yarn` to install package dependencies
 - Run `yarn build` to compile all packages
@@ -52,6 +60,16 @@ yarn bootstrap
 yarn llink
 yarn build
 ```
+### Remote devcontainer on GitHub Codespaces
+
+You can create and access a codespace either via the browser or by connecting directly to it in your VS Code editor. (Note: the browser experience may be laggy compared with the in-editor experience.)
+
+#### Browser
+ - [Follow these instructions](https://docs.github.com/en/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace) to create and access a new codespace from the repository homepage
+#### VS Code Editor
+
+- Add the [GitHub Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)
+- [Follow these instructions](https://docs.github.com/en/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code) to use the Remote Explorer to sign in, create a codespace and connect to it from your editor.
 
 ## Storybook
 
