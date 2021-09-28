@@ -42,3 +42,9 @@ RUN ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
 RUN asdf install
 RUN asdf reshim
+
+
+COPY requirements.txt ${HOME}/requirements.txt
+RUN pip install -r requirements.txt
+# Set path so pip-installed modules are available from CLI
+RUN echo "PATH=$PATH:/root/.asdf/installs/python/3.8.6/bin" >> ${HOME}/.bashrc
