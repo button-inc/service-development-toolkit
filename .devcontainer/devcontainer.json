@@ -11,7 +11,7 @@
 
   "settings": {},
 
-  "postCreateCommand": "yarn --dev | /root/.asdf/installs/python/3.8.6/bin/pre-commit install",
+  "postCreateCommand": "yarn --dev | ${PRECOMMIT_ENV}/pre-commit install",
 
   "extensions": ["dbaeumer.vscode-eslint"]
 }
