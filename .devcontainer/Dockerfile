@@ -34,6 +34,7 @@ RUN asdf reshim
 
 COPY requirements.txt ${HOME}/requirements.txt
 RUN pip install -r requirements.txt
+ENV VSCODE_ENV="/vscode/bin/linux-x64/7f6ab5485bbc008386c4386d08766667e155244e/bin:/root/.local/bin"
 ENV PRECOMMIT_ENV="/root/.asdf/installs/python/3.8.6/bin"
-# Set path so pip-installed modules are available from CLI
-RUN echo "PATH=$PRECOMMIT_ENV:$PATH" >> ${HOME}/.bashrc
+# Set path so pip-installed modules and codespaces commands are available from CLI
+RUN echo "PATH=$PATH:$PRECOMMIT_ENV:$VSCODE_ENV" >> ${HOME}/.bashrc
