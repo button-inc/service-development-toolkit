@@ -45,6 +45,14 @@ const Wrapper = (Component, inputType: string = '') => {
       formProps.value = true;
     }
 
+    if (inputType === 'checkboxes') {
+      return (
+        <div>
+          <Component />
+        </div>
+      );
+    }
+
     if (inputType === 'radio') {
       return (
         <div>
