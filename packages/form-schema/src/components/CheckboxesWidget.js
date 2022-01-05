@@ -1,5 +1,8 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/no-autofocus */
 import React from 'react';
-import PropTypes from 'prop-types';
+import Checkbox from '@button-inc/bcgov-theme/Checkbox';
 
 function selectValue(value, selected, all) {
   const at = all.indexOf(value);
@@ -24,8 +27,7 @@ function CheckboxesWidget(props) {
         const disabledCls = disabled || itemDisabled || readonly ? 'disabled' : '';
         const checkbox = (
           <span>
-            <input
-              type="checkbox"
+            <Checkbox
               id={`${id}_${index}`}
               checked={checked}
               disabled={disabled || itemDisabled || readonly}
@@ -54,31 +56,6 @@ function CheckboxesWidget(props) {
       })}
     </div>
   );
-}
-
-CheckboxesWidget.defaultProps = {
-  autofocus: false,
-  options: {
-    inline: false,
-  },
-};
-
-if (process.env.NODE_ENV !== 'production') {
-  CheckboxesWidget.propTypes = {
-    schema: PropTypes.object.isRequired,
-    id: PropTypes.string.isRequired,
-    options: PropTypes.shape({
-      enumOptions: PropTypes.array,
-      inline: PropTypes.bool,
-    }).isRequired,
-    value: PropTypes.any,
-    required: PropTypes.bool,
-    readonly: PropTypes.bool,
-    disabled: PropTypes.bool,
-    multiple: PropTypes.bool,
-    autofocus: PropTypes.bool,
-    onChange: PropTypes.func,
-  };
 }
 
 export default CheckboxesWidget;

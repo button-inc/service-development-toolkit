@@ -1,6 +1,6 @@
 const uiSchema = {
   fifthQuestion: {
-    'ui:widget': 'radio',
+    'ui:widget': 'checkboxes',
   },
   seventhQuestion: {
     'ui:widget': 'textarea',

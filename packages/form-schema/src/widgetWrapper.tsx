@@ -48,7 +48,7 @@ const Wrapper = (Component, inputType: string = '') => {
     if (inputType === 'checkboxes') {
       return (
         <div>
-          <Component />
+          <Component {...formProps} />
         </div>
       );
     }
