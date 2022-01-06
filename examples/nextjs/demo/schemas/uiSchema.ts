@@ -1,9 +1,12 @@
 const uiSchema = {
   fifthQuestion: {
-    'ui:widget': 'checkboxes',
+    'ui:widget': 'radio',
   },
   seventhQuestion: {
     'ui:widget': 'textarea',
+  },
+  eleventhQuestion: {
+    'ui:widget': 'checkboxes',
   },
 };
 

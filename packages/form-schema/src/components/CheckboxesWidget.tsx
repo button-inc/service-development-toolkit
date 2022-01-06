@@ -1,6 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable jsx-a11y/no-autofocus */
 import React from 'react';
 import Checkbox from '@button-inc/bcgov-theme/Checkbox';
 
@@ -18,7 +15,8 @@ function deselectValue(value, selected) {
 
 function CheckboxesWidget(props) {
   const { id, disabled, options, value, autofocus, readonly, onChange } = props;
-  const { enumOptions, enumDisabled, inline } = options;
+  const { enumOptions, enumDisabled, inline } = options || {};
+
   return (
     <div className="checkboxes" id={id}>
       {enumOptions.map((option, index) => {
@@ -26,31 +24,25 @@ function CheckboxesWidget(props) {
         const itemDisabled = enumDisabled && enumDisabled.indexOf(option.value) !== -1;
         const disabledCls = disabled || itemDisabled || readonly ? 'disabled' : '';
         const checkbox = (
-          <span>
-            <Checkbox
-              id={`${id}_${index}`}
-              checked={checked}
-              disabled={disabled || itemDisabled || readonly}
-              autoFocus={autofocus && index === 0}
-              onChange={event => {
-                const all = enumOptions.map(({ value }) => value);
-                if (event.target.checked) {
-                  onChange(selectValue(option.value, value, all));
-                } else {
-                  onChange(deselectValue(option.value, value));
-                }
-              }}
-            />
-            <span>{option.label}</span>
-          </span>
+          <Checkbox
+            id={`${id}_${index}`}
+            checked={checked}
+            disabled={disabled || itemDisabled || readonly}
+            autoFocus={autofocus && index === 0}
+            label={option.label}
+            onChange={event => {
+              const all = enumOptions.map(({ value }) => value);
+              if (event.target.checked) {
+                onChange(selectValue(option.value, value, all));
+              } else {
+                onChange(deselectValue(option.value, value));
+              }
+            }}
+          />
         );
-        return inline ? (
-          <label key={index} className={`checkbox-inline ${disabledCls}`}>
+        return (
+          <div key={id} className={`checkbox ${disabledCls}`} style={{ margin: '20px' }}>
             {checkbox}
-          </label>
-        ) : (
-          <div key={index} className={`checkbox ${disabledCls}`}>
-            <label>{checkbox}</label>
           </div>
         );
       })}

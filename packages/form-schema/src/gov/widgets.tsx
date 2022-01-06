@@ -12,7 +12,7 @@ export default {
   TextWidget: Wrapper(Input, 'input'),
   RadioWidget: Wrapper(RadioButton, 'radio'),
   CheckboxWidget: Wrapper(Checkbox, 'checkbox'),
-  CheckboxesWidget: Wrapper(Checkboxes, 'checkboxes'),
+  CheckboxesWidget: Checkboxes,
   FileWidget: Wrapper(FilePicker, 'file'),
   SelectWidget: Wrapper(Dropdown, 'select'),
   TextareaWidget: Wrapper(Textarea, 'textarea'),
