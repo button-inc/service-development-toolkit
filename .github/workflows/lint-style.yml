@@ -19,7 +19,6 @@ jobs:
         run: |
           cat .tool-versions | cut -f 1 -d ' ' | xargs -n 1 asdf plugin-add || true
           asdf plugin-update --all
-          bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
           asdf install
           asdf reshim
       - name: Get yarn cache directory path
