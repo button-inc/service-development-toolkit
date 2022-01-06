@@ -13,7 +13,8 @@
     "next": "^10.2.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-typography": "^0.16.19"
+    "react-typography": "^0.16.19",
+    "next-session": "^3.4.0"
   },
   "devDependencies": {
     "@types/node": "^12.12.21",

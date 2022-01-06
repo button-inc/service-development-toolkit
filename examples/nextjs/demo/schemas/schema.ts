@@ -73,6 +73,20 @@ const schema = {
       name: 'tenthQuestion',
       title: 'Date Picker',
     },
+    eleventhQuestion: {
+      type: 'array',
+      title: 'A multiple-choice list',
+      items: {
+        type: 'string',
+        enum: ['foo', 'bar', 'fuzz', 'qux'],
+      },
+      uniqueItems: true,
+    },
+    twelfthQuestion: {
+      type: 'string',
+      title: 'Simple Input',
+      name: 'firstQuestion',
+    },
   },
 };
 

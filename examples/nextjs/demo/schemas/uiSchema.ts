@@ -5,6 +5,9 @@ const uiSchema = {
   seventhQuestion: {
     'ui:widget': 'textarea',
   },
+  eleventhQuestion: {
+    'ui:widget': 'checkboxes',
+  },
 };
 
 export default uiSchema;
