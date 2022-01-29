@@ -35,10 +35,10 @@ export function validateFormData(
   return errors.length === 0 ? { isValidated: true, isValid: true } : { isValidated: true, isValid: false, errors };
 }
 
-export function handleFormEnd(sharedArgs: ISharedArgs, formData: object) {
+export function handleFormEnd(sharedArgs: ISharedArgs, formData: object, req: any) {
   const { fieldsArray, validations, onFormEnd, schema: fullSchema } = sharedArgs;
   const result = validateFormData(formData, fullSchema, fieldsArray, validations);
-  if (typeof onFormEnd === 'function') onFormEnd(result.errors, formData);
+  if (typeof onFormEnd === 'function') onFormEnd(result.errors, formData, req);
   return result.errors;
 }
 
@@ -62,7 +62,7 @@ export function redirectHandler(sharedArgs: ISharedArgs, js: boolean, postData: 
   let nextPage = nextPagePostfix;
   const formData = getCleanedFormData(sharedArgs, postData, pageSchema, req);
   if (isLastPage) {
-    errors = handleFormEnd(sharedArgs, formData);
+    errors = handleFormEnd(sharedArgs, formData, req);
     nextPage = removeLeadingSlash(errors ? invalidUrl : validatedUrl);
   } else if (validateEachPage) {
     const result = validateFormData(formData, pageSchema, fieldsArray, validations, schemaIndex);
