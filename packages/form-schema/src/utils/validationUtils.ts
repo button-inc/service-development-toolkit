@@ -72,7 +72,7 @@ export function redirectHandler(sharedArgs: ISharedArgs, js: boolean, postData: 
   if (js) {
     res.json(props);
   } else {
-    const redirectUrl = parseUrl(getRoute, String(nextPage));
+    const redirectUrl = parseUrl(getRoute, String(nextPage), req);
     res.redirect(redirectUrl);
   }
 }

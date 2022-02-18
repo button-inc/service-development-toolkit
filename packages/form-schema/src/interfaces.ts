@@ -38,7 +38,7 @@ export interface IOptions {
   onPost?: Function;
   onFormEnd?: Function;
   useSession?: boolean;
-  getRoute: string;
+  getRoute: string | Function;
   postRoute: string;
   validatedUrl: string;
   invalidUrl: string;

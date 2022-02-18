@@ -30,9 +30,11 @@ export const removeLeadingSlash = (url: string) => {
   return url;
 };
 
-export const parseUrl = (getRoute: string, nextPage: string) => {
+export const parseUrl = (getRoute: string | Function, nextPage: string, req?: any) => {
   let route;
-  if (getRoute[getRoute.length - 1] === '/') route = `${getRoute}${nextPage}`;
+  if (typeof getRoute === 'function') {
+    route = `${getRoute(req)}/${nextPage}`;
+  } else if (getRoute[getRoute.length - 1] === '/') route = `${getRoute}${nextPage}`;
   else route = `${getRoute}/${nextPage}`;
   return route;
 };
