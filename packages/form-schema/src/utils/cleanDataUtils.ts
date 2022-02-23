@@ -111,7 +111,7 @@ export function getCleanedFormData(sharedArgs: ISharedArgs, postData: object, pa
     newFormData = defaultPageOverHandler(req.session, pageSchema, postData);
     req.session.formData = newFormData;
   } else if (typeof onPost === 'function') {
-    newFormData = onPost(postData, pageSchema, cleanSchemaData.bind({}, postData, pageSchema));
+    newFormData = onPost(postData, pageSchema, cleanSchemaData.bind({}, postData, pageSchema, req));
   }
   return newFormData;
 }
