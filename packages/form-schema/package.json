@@ -1,6 +1,6 @@
 {
   "name": "@button-inc/form-schema",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.8",
   "description": "Build forms from a schema",
   "license": "Apache-2.0",
   "main": "lib/index.js",
