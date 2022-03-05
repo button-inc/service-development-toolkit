@@ -6,6 +6,7 @@ export interface Props {
   id?: string;
   name?: string;
   label?: string;
+  description?: string;
   value?: string;
   disabled?: boolean;
   className?: string;
@@ -22,6 +23,7 @@ export interface StyleConfig {
 
 const CONTAINER_CLASS = 'pg-radio';
 const LABEL_CLASS = 'pg-radio-label';
+const DESCRIPTION_CLASS = 'pg-radio-description';
 const INPUT_CLASS = 'pg-radio-input';
 const DOT_CLASS = 'dot';
 
@@ -32,14 +34,15 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const as = config.as || {};
   const Scontainer = styleBuilder(as.container || 'div', 'container');
   const Slabel = styleBuilder('label', 'label');
+  const Sdescription = styleBuilder('label', 'description');
   const SradioButton = styleBuilder('input', 'input');
   const Sdot = styleBuilder('span', 'dot');
 
   const bootstrap = createBootstrap(processedStyle, 'radio');
 
   const RadioButton = (props: Props) => {
-    const { id, name, label, ariaLabel, styleProps, className, rest } = bootstrap(props);
-    const { style, labelStyle, inputStyle, dotStyle, ...others } = rest;
+    const { id, name, label, description, ariaLabel, styleProps, className, rest } = bootstrap(props);
+    const { style, labelStyle, descriptionStyle, inputStyle, dotStyle, ...others } = rest;
 
     return (
       <Scontainer {...styleProps} style={style} className={cx(CONTAINER_CLASS, className)}>
@@ -56,6 +59,11 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
           <Sdot {...styleProps} style={dotStyle} className={DOT_CLASS} />
           {label}
         </Slabel>
+        {description && (
+          <Sdescription htmlFor={id} {...styleProps} style={descriptionStyle} className={DESCRIPTION_CLASS}>
+            {description}
+          </Sdescription>
+        )}
       </Scontainer>
     );
   };

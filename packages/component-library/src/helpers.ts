@@ -124,7 +124,7 @@ export function createBootstrap(styles: any, type: string) {
 
   return function (props: any) {
     let { id, name } = props;
-    const { label, children, className, ...rest } = props;
+    const { label, description, children, className, ...rest } = props;
 
     if (!id) {
       id = generateId();
@@ -138,7 +138,7 @@ export function createBootstrap(styles: any, type: string) {
 
     const styleProps = pickBy(rest, (_, propName) => styleKeys.includes(propName));
 
-    return { id, name, label, ariaLabel, styleProps, children, className, rest };
+    return { id, name, label, description, ariaLabel, styleProps, children, className, rest };
   };
 }
 

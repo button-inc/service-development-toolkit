@@ -6,6 +6,7 @@ export interface Props {
   id?: string;
   name?: string;
   label?: string;
+  description?: string;
   type?: 'email' | 'number' | 'password' | 'tel' | 'text' | 'url';
   value?: string;
   disabled?: boolean;
@@ -24,6 +25,7 @@ export interface StyleConfig {
 
 const CONTAINER_CLASS = 'pg-input';
 const LABEL_CLASS = 'pg-input-label';
+const DESCRIPTION_CLASS = 'pg-input-description';
 const INPUT_CLASS = 'pg-input-input';
 const WRAPPER_CLASS = 'pg-input-wrapper';
 
@@ -34,14 +36,15 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const as = config.as || {};
   const Scontainer = styleBuilder(as.container || 'div', 'container');
   const Slabel = styleBuilder('label', 'label');
+  const Sdescription = styleBuilder('label', 'description');
   const Swapper = config.includeWrapper ? styleBuilder(as.wrapper || 'div', 'wrapper') : null;
   const Sinput = styleBuilder('input', 'input');
 
   const bootstrap = createBootstrap(processedStyle, 'input');
 
   const Input = (props: Props) => {
-    const { id, name, label, ariaLabel, styleProps, className, rest } = bootstrap(props);
-    const { style, labelStyle, inputStyle, wrapperStyle, ...others } = rest;
+    const { id, name, label, description, ariaLabel, styleProps, className, rest } = bootstrap(props);
+    const { style, labelStyle, descriptionStyle, inputStyle, wrapperStyle, ...others } = rest;
 
     const input = (
       <Sinput aria-label={ariaLabel} {...others} id={id} name={name} style={inputStyle} className={INPUT_CLASS} />
@@ -53,6 +56,11 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
           <Slabel htmlFor={id} {...styleProps} style={labelStyle} className={LABEL_CLASS}>
             {label}
           </Slabel>
+        )}
+        {description && (
+          <Sdescription htmlFor={id} {...styleProps} style={descriptionStyle} className={DESCRIPTION_CLASS}>
+            {description}
+          </Sdescription>
         )}
         {Swapper ? (
           <Swapper {...styleProps} style={wrapperStyle} className={WRAPPER_CLASS}>
