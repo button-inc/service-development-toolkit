@@ -15,6 +15,7 @@ export const styles = {
       line-height: 1em;
       padding-left: 1.5em;
     `,
+    description: ``,
     input: `
       position: absolute;
       opacity: 0;

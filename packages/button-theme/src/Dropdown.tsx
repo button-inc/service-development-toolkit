@@ -9,6 +9,7 @@ export const styles = {
       font-weight: 600;
       margin-bottom: 0.2777em;
     `,
+    description: ``,
     wrapper: `
       position: relative;
       display: flex;

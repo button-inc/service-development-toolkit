@@ -6,6 +6,7 @@ export const styles = {
       display: block;
       font-weight: 600;
     `,
+    description: ``,
     input: `
       margin: 0em;
       -webkit-appearance: none;

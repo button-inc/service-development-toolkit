@@ -15,6 +15,12 @@ export default {
         options: ['small', 'medium', 'large'],
       },
     },
+    description: {
+      control: {
+        type: 'text'
+      },
+      description: "Optional description text that will be subordinate to the label if present."
+    },
   },
 } as Meta;
 
