@@ -6,6 +6,11 @@ export const styles = {
       display: block;
       margin-bottom: 0.2777em;
     `,
+    description: `
+      color: #606060;
+      font-size: 0.88em;
+      margin-bottom: 0.2777em;
+    `,
     input: `
       border: 2px solid #606060;
       border-radius: 0;

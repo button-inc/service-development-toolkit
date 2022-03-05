@@ -9,6 +9,11 @@ export const styles = {
       display: block;
       margin-bottom: 0.2777em;
     `,
+    description: `
+      margin-bottom: 0.2777em;
+      color: #606060;
+      font-size: 0.88em;
+    `,
     wrapper: `
       position: relative;
       display: flex;
