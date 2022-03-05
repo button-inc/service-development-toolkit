@@ -17,9 +17,9 @@ export default {
     },
     description: {
       control: {
-        type: 'text'
+        type: 'text',
       },
-      description: "Optional description text that will be subordinate to the label if present."
+      description: 'Optional description text that will be subordinate to the label if present.',
     },
   },
 } as Meta;
