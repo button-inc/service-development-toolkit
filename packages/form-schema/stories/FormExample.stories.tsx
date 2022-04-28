@@ -6,13 +6,7 @@ export default {
   title: 'FormExample',
   component: FormExample,
   argTypes: {
-    onClick: { action: 'clicked' },
-    size: {
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
-      },
-    },
+    // onClick: { action: 'clicked' },
   },
 } as Meta;
 
@@ -25,7 +19,5 @@ const Template: Story = args => (
 
 export const Primary = Template.bind({});
 Primary.args = {
-  variant: 'primary',
-  size: 'medium',
-  disabled: false,
+  // disabled: false,
 };
