@@ -11,5 +11,5 @@
       "gov/*": ["./gov/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "__tests__/stories"]
 }
