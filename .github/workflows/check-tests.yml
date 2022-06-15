@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install asdf
         uses: asdf-vm/actions/setup@v1
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: asdf-cache
         with:
           path: |
@@ -21,11 +21,22 @@ jobs:
           asdf plugin-update --all
           asdf install
           asdf reshim
-      - name: Install Modules
-        run: yarn
-      - name: Run lerna bootsrtrap
-        run : yarn bootstrap
-      - name: Run Lerna link
-        run:  yarn llink
-      - name: Run Jest Tests
-        run : yarn test:jest
+      # Taken from https://github.com/actions/cache/blob/main/examples.md#node---yarn
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v3
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install Dependencies
+      # Should prevent unnecessary installations
+        run: yarn --perfer-offline
+      - name: Run Lerna link, build, and test
+        run: |
+          yarn llink
+          yarn build
+          yarn test:jest
