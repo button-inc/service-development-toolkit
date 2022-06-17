@@ -31,20 +31,12 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - name: Install Yarn Dependencies
-        run: |
-          yarn
       - name: Rerun Pre-Commit Hooks in CI
         run: |
           pip install -r requirements.txt
           asdf reshim
           chmod +x .bin/format.sh
           pre-commit run -a -v
-      - name: Unit test
-        run: |
-          yarn llink
-          yarn build
-          yarn test:jest
   commitlint:
     runs-on: ubuntu-latest
     steps:
