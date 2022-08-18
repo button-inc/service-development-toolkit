@@ -1,21 +1,33 @@
 ---
-name: 🚀 Feature request
+name: Feature request
 about: Suggest an idea for this project
-labels: enhancement
 ---
 
-**Is your feature request related to a problem? Please describe.**
+### Description
 
-<!-- A clear and concise description of what the problem is -->
+Specify which part of the system we're working in.
 
-**Describe the solution you'd suggest**
 
-<!-- A clear and concise description of what you want to happen -->
+### User Story
+As a `user type`
 
-**Describe alternatives you've considered**
+I want `feature`
 
-<!-- A clear and concise description of any alternative solutions or features you've considered -->
+So that `benefit`
 
-**Additional context**
 
-<!-- Add any other context or screenshots about the feature request here -->
+### Acceptance Criteria
+| Given | When | Then | Pass/Fail (TBD by reviewer) |
+| :---  |:---: | ---: |---:                         |
+| `precondition/initial context/state of the system. Ex: I am on Product page` | `event/trigger. Ex: I click Buy Now` |`output/action. Ex: I am redirected to Payment page` |   |
+
+
+
+### Research + Rationale Summary
+
+Why should this feature be added/modified?
+
+### Prototype (if applicable)
+
+### Developer notes
+- [ ] `open this repo, change this file`
