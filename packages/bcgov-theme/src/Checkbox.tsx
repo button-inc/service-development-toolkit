@@ -22,6 +22,10 @@ export const styles = {
         outline-offset: 1px;
       }
     `,
+    description: `
+      color: #606060;
+      font-size: 0.88em;
+    `,
     input: `
       position: absolute;
       opacity: 0;

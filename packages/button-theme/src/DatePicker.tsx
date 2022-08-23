@@ -7,6 +7,7 @@ export const styles = {
       font-weight: 600;
       margin-bottom: 0.277em;
     `,
+    description: ``,
     input: `
       margin: 0em;
       max-width: 100%;

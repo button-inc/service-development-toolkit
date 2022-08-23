@@ -10,6 +10,7 @@ export const styles = {
       font-weight: 600;
       margin-bottom: 0.277em;
     `,
+    description: ``,
   },
   size: {
     small: {

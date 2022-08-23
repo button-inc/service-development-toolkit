@@ -6,6 +6,7 @@ export interface Props {
   id?: string;
   name?: string;
   label?: string;
+  description?: string;
   value?: string;
   disabled?: boolean;
   className?: string;
@@ -23,6 +24,7 @@ export interface StyleConfig {
 
 const CONTAINER_CLASS = 'pg-textarea';
 const LABEL_CLASS = 'pg-textarea-label';
+const DESCRIPTION_CLASS = 'pg-textarea-description';
 const INPUT_CLASS = 'pg-textarea-input';
 const WRAPPER_CLASS = 'pg-textarea-wrapper';
 
@@ -33,14 +35,15 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const as = config.as || {};
   const Scontainer = styleBuilder(as.container || 'div', 'container');
   const Slabel = styleBuilder('label', 'label');
+  const Sdescription = styleBuilder('label', 'description');
   const Swapper = config.includeWrapper ? styleBuilder(as.wrapper || 'div', 'wrapper') : null;
   const Stextarea = styleBuilder('textarea', 'input');
 
   const bootstrap = createBootstrap(processedStyle, 'textarea');
 
   const BaseComponent = (props: Props) => {
-    const { id, name, label, ariaLabel, styleProps, className, rest } = bootstrap(props);
-    const { style, labelStyle, inputStyle, wrapperStyle, ...others } = rest;
+    const { id, name, label, description, ariaLabel, styleProps, className, rest } = bootstrap(props);
+    const { style, labelStyle, descriptionStyle, inputStyle, wrapperStyle, ...others } = rest;
 
     const input = (
       <Stextarea aria-label={ariaLabel} {...others} id={id} name={name} style={inputStyle} className={INPUT_CLASS} />
@@ -52,6 +55,11 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
           <Slabel htmlFor={id} {...styleProps} style={labelStyle} className={LABEL_CLASS}>
             {label}
           </Slabel>
+        )}
+        {description && (
+          <Sdescription htmlFor={id} {...styleProps} style={descriptionStyle} className={DESCRIPTION_CLASS}>
+            {description}
+          </Sdescription>
         )}
         {Swapper ? (
           <Swapper {...styleProps} style={wrapperStyle} className={WRAPPER_CLASS}>

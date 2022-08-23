@@ -16,6 +16,12 @@ export const argTypes = {
   label: {
     description: 'The label for the filepicker.',
   },
+  description: {
+    control: {
+      type: 'text',
+    },
+    description: 'Optional description text that will be subordinate to the label if present.',
+  },
   name: {
     description: 'The name to pass on to the input. If not provided, one will be generated.',
   },

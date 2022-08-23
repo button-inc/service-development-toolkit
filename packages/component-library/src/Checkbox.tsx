@@ -6,6 +6,7 @@ export interface Props {
   id?: string;
   name?: string;
   label?: string;
+  description?: string;
   value?: string;
   className?: string;
   style?: object;
@@ -22,6 +23,7 @@ export interface StyleConfig {
 
 const CONTAINER_CLASS = 'pg-checkbox';
 const LABEL_CLASS = 'pg-checkbox-label';
+const DESCRIPTION_CLASS = 'pg-checkbox-description';
 const INPUT_CLASS = 'pg-checkbox-input';
 const CHECKMARK_CLASS = 'checkmark';
 
@@ -32,14 +34,15 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
   const as = config.as || {};
   const Scontainer = styleBuilder(as.container || 'div', 'container');
   const Slabel = styleBuilder('label', 'label');
+  const Sdescription = styleBuilder('label', 'description');
   const Scheckbox = styleBuilder('input', 'input');
   const Scheckmark = styleBuilder('span', 'checkmark');
 
   const bootstrap = createBootstrap(processedStyle, 'checkbox');
 
   const Checkbox = (props: Props) => {
-    const { id, name, label, ariaLabel, styleProps, className, rest } = bootstrap(props);
-    const { style, labelStyle, inputStyle, checkmarkStyle, ...others } = rest;
+    const { id, name, label, description, ariaLabel, styleProps, className, rest } = bootstrap(props);
+    const { style, labelStyle, descriptionStyle, inputStyle, checkmarkStyle, ...others } = rest;
 
     return (
       <Scontainer {...styleProps} style={style} className={cx(CONTAINER_CLASS, className)}>
@@ -56,6 +59,11 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
           <Scheckmark {...styleProps} style={checkmarkStyle} className={CHECKMARK_CLASS} />
           {label}
         </Slabel>
+        {description && (
+          <Sdescription htmlFor={id} {...styleProps} style={descriptionStyle} className={DESCRIPTION_CLASS}>
+            {description}
+          </Sdescription>
+        )}
       </Scontainer>
     );
   };
