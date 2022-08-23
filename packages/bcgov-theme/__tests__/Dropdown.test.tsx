@@ -44,7 +44,7 @@ describe('Dropdown', () => {
 
   it('Should accept static props', () => {
     render(<Dropdown fullWidth id="test" />);
-    const button = document.getElementById('test');
-    expect(button).toHaveStyle('width: 100%;');
+    const dropdown = document.getElementById('test');
+    expect(dropdown).toHaveStyle('width: 100%;');
   });
 });
