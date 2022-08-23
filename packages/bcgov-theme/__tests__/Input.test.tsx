@@ -18,18 +18,18 @@ describe('Input', () => {
 
   it('Should apply size styles from props to container', () => {
     render(<Input id="test" size="small" />);
-    const textarea = document.getElementById('test').parentElement;
+    const input = document.getElementById('test').parentElement;
     const stylesObject = changeSelectorToObject(styles.size.small.container);
-    expect(textarea).toHaveStyle(stylesObject.base);
+    expect(input).toHaveStyle(stylesObject.base);
   });
 
   it('Should pass through end-user props', () => {
     const handleClick = jest.fn();
     const handleChange = jest.fn();
     render(<Input onClick={handleClick} onChange={handleChange} id="test" />);
-    const textarea = document.getElementById('test');
-    fireEvent.click(textarea);
-    fireEvent.change(textarea, { target: { value: '2000-01-01' } });
+    const input = document.getElementById('test');
+    fireEvent.click(input);
+    fireEvent.change(input, { target: { value: '2000-01-01' } });
 
     expect(handleClick).toHaveBeenCalled();
     expect(handleChange).toHaveBeenCalled();
@@ -37,7 +37,7 @@ describe('Input', () => {
 
   it('Should accept the fullWidth static prop', () => {
     render(<Input id="test" fullWidth />);
-    const textarea = document.getElementById('test');
-    expect(textarea).toHaveStyle('width: 100%;');
+    const input = document.getElementById('test');
+    expect(input).toHaveStyle('width: 100%;');
   });
 });
