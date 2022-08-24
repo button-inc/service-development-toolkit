@@ -75,7 +75,9 @@ export const applyTheme = (styles, config: BaseStyleConfig, childStyles = {}) =>
 
     return (
       <NotificationContext.Provider value={{ checkboxId, styleProps, Sheader, Scontent, Sgroup, Sclose }}>
-        {closable && <InvisibleCheckbox id={checkboxId} onChange={event => event.target.checked && onClose && onClose() } />}
+        {closable && (
+          <InvisibleCheckbox id={checkboxId} onChange={event => event.target.checked && onClose && onClose()} />
+        )}
         <Scontainer {...styleProps} {...others} className={cx(CONTAINER_CLASS, className)}>
           {children}
         </Scontainer>
