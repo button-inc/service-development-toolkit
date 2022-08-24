@@ -1,0 +1,17 @@
+{
+  "name": "Node.js & TypeScript",
+  "build": {
+    "dockerfile": "Dockerfile",
+
+    "args": {
+      "VARIANT": "12"
+    },
+    "context": ".."
+  },
+
+  "settings": {},
+
+  "postCreateCommand": "yarn --dev | ${PRECOMMIT_ENV}/pre-commit install | yarn llink | yarn build",
+
+  "extensions": ["dbaeumer.vscode-eslint"]
+}
