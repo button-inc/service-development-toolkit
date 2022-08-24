@@ -69,13 +69,13 @@ export const applyTheme = (styles, config: BaseStyleConfig, childStyles = {}) =>
 
   const BaseComponent = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
-    const { closable, ...others } = rest;
+    const { closable, onClose, ...others } = rest;
 
     const checkboxId = `${id}-toggle`;
 
     return (
       <NotificationContext.Provider value={{ checkboxId, styleProps, Sheader, Scontent, Sgroup, Sclose }}>
-        {closable && <InvisibleCheckbox id={checkboxId} />}
+        {closable && <InvisibleCheckbox id={checkboxId} onChange={event => event.target.checked && onClose && onClose() } />}
         <Scontainer {...styleProps} {...others} className={cx(CONTAINER_CLASS, className)}>
           {children}
         </Scontainer>
