@@ -11,7 +11,7 @@
 The Service Development Toolkit is a toolkit to bring best practices to data intake applications built with [React](https://reactjs.org/).
 
 The toolkit can be used to easily create progressively enhanced, accessible form-based applications that are themable and focused on
-minimizing resource size. It consists of a component library for themed, accessible,  progressively enhanced components, and a form-builder application
+minimizing resource size. It consists of a component library for themed, accessible, progressively enhanced components, and a form-builder application
 to help create progressively enhanced forms with good UI pricnciples. See below for live demonstrations:
 
 - [Component Library Storybook](https://button-inc.github.io/service-development-toolkit/)
@@ -41,3 +41,7 @@ See the documentation below for getting setup in each tool:
 - Create a pull request to the **develop** branch.
 
 To make it easier to accept your pull request, add tests where possible to ensure code is working as expected. Thank you for your contributions!
+
+## NOTE
+
+This branch contains a number of features that have been removed for the code base. They live here for posterity, and in case we want to reincorporate them into the toolkit in the future.
