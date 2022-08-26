@@ -1,22 +1,23 @@
 # Form Schema
 
 **Contents**
-  - [Overview](#overview)
-  - [Getting Started](#getting-started)
-  - [Usage](#usage)
-    - [Schemas](#schemas)
-    - [Rendering Forms](#rendering-forms)
-    - [Posting Data](#posting-data)
-    - [Files](#files)
-    - [Custom Data Handling](#custom-data-handling)
-  - [Functions](#functions)
-    - [Builder](#builder)
-    - [validationFunction](#validationfunction)
-    - [handleReadStream](#handlereadstream)
-    - [onFileLoad](#onfileload)
-    - [onPost](#onpost)
-    - [onFormEnd](#onFormEnd)
-    - [getHandler](#getHandler)
+
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+  - [Schemas](#schemas)
+  - [Rendering Forms](#rendering-forms)
+  - [Posting Data](#posting-data)
+  - [Files](#files)
+  - [Custom Data Handling](#custom-data-handling)
+- [Functions](#functions)
+  - [Builder](#builder)
+  - [validationFunction](#validationfunction)
+  - [handleReadStream](#handlereadstream)
+  - [onFileLoad](#onfileload)
+  - [onPost](#onpost)
+  - [onFormEnd](#onFormEnd)
+  - [getHandler](#getHandler)
 
 ## Overview
 
@@ -31,13 +32,15 @@ Note that while this package makes it easier to meet these three goals, it is no
 ## Getting Started
 
 Install package:
+
 - `npm i @button-inc/form-schema` or `yarn add @button-inc/form-schema` depending on your package manager.
 
 Add to your app:
-- `import builder from @button-inc/form-schema`, or to use with themed components,
-`import {govBuilder} from @button-inc/form-schema`
 
-See below for specific use cases, or browse our [examples](https://github.com/button-inc/service-development-toolkit/tree/develop/examples) for a working setup.
+- `import builder from @button-inc/form-schema`, or to use with themed components,
+  `import {govBuilder} from @button-inc/form-schema`
+
+See below for specific use cases.
 
 ## Usage
 
