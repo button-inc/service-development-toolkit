@@ -41,4 +41,7 @@ export const argTypes = {
   maxLength: {
     description: 'The maximum length for the input.',
   },
+  fullWidth: {
+    description: 'Using this static prop ensures the component will be 100% of the available width.',
+  },
 };
