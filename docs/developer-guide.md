@@ -71,3 +71,32 @@ In order to avoid potential side effects using `lerna version/publish` commands,
    ```sh
        yarn sync-version --name=<package-name>
    ```
+<<<<<<< HEAD
+=======
+
+# Setup
+
+- Clone this repository
+- Run `yarn` to install package dependencies
+- Run `yarn bootstrap` lerna bootstrap
+- Run `yarn llink` lerna link
+- Run `yarn build` to compile all packages
+
+## Storybook
+
+To run locally, run `yarn llink` followed by `yarn storybook:<theme>` where theme is one of:
+
+- button
+- bcgov
+
+To build, run `yarn llink` followed by `yarn build-storybook:<theme>` where theme is one of:
+
+- button
+- bcgov
+
+To test build locally, run `npx http-server ./storybook-static` after building.
+
+## Test
+
+To run unit tests in all packages, run `yarn test:jest`
+>>>>>>> 3d3b9e1 (chore: update developer docs)
