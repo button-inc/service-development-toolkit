@@ -18,18 +18,18 @@ describe('Input', () => {
 
   it('Should apply size styles from props to container', () => {
     render(<Input id="test" size="small" />);
-    const datepicker = document.getElementById('test').parentElement;
+    const input = document.getElementById('test').parentElement;
     const stylesObject = changeSelectorToObject(styles.size.small.container);
-    expect(datepicker).toHaveStyle(stylesObject.base);
+    expect(input).toHaveStyle(stylesObject.base);
   });
 
   it('Should pass through end-user props', () => {
     const handleClick = jest.fn();
     const handleChange = jest.fn();
     render(<Input onClick={handleClick} onChange={handleChange} id="test" />);
-    const datePicker = document.getElementById('test');
-    fireEvent.click(datePicker);
-    fireEvent.change(datePicker, { target: { value: '2000-01-01' } });
+    const input = document.getElementById('test');
+    fireEvent.click(input);
+    fireEvent.change(input, { target: { value: '2000-01-01' } });
 
     expect(handleClick).toHaveBeenCalled();
     expect(handleChange).toHaveBeenCalled();
@@ -37,7 +37,7 @@ describe('Input', () => {
 
   it('Should accept the fullWidth static prop', () => {
     render(<Input id="test" fullWidth />);
-    const datepicker = document.getElementById('test');
-    expect(datepicker).toHaveStyle('width: 100%;');
+    const input = document.getElementById('test');
+    expect(input).toHaveStyle('width: 100%;');
   });
 });

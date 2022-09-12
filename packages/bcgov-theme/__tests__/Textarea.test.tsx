@@ -37,19 +37,19 @@ describe('Textarea', () => {
 
   it('Should accept the fullWidth static prop', () => {
     render(<Textarea id="test" fullWidth />);
-    const datepicker = document.getElementById('test');
-    expect(datepicker).toHaveStyle('width: 100%;');
+    const textarea = document.getElementById('test');
+    expect(textarea).toHaveStyle('width: 100%;');
   });
 
   it('Should accept the rounded prop', () => {
     render(<Textarea id="test" fullWidth rounded />);
-    const datepicker = document.getElementById('test');
-    expect(datepicker).toHaveStyle(styles.rounded.input);
+    const textarea = document.getElementById('test');
+    expect(textarea).toHaveStyle(styles.rounded.input);
   });
 
   it('Should pass on user attributes', () => {
     render(<Textarea id="test" fullWidth rounded cols={5} />);
-    const datepicker = document.getElementById('test');
-    expect(datepicker).toHaveAttribute('cols', '5');
+    const textarea = document.getElementById('test');
+    expect(textarea).toHaveAttribute('cols', '5');
   });
 });
