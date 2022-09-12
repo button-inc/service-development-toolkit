@@ -11,6 +11,7 @@
 ### Build and Run Storybook
 
 - Run `yarn` to install package dependencies (follow any prompts `asdf` provides)
+- Run `yarn bootstrap` to install necessary dependencies.
 - Run `yarn llink` to set up symlinks
 - Run `yarn build` to compile all packages
 - Run `yarn storybook:<theme>` where `<theme>` is `bcgov`, `button`, or your custom theme
@@ -24,10 +25,10 @@ To run unit tests in all packages, run `yarn test:jest`
 
 ### Build
 
-To build, run `yarn llink` followed by `yarn build-storybook:<theme>` where theme is one of:
+To build, run `yarn bootstrap` followed by `yarn llink` followed by `yarn build-storybook:<theme>` where theme is one of:
 
 - button
-- gov
+- bcgov
 
 To test build locally, run `npx http-server ./storybook-static` after building.
 
