@@ -10,7 +10,7 @@ expect.extend(toHaveNoViolations);
 describe('Textarea', () => {
   beforeAll(() => {
     // TODO: Remove this once https://github.com/nickcolley/jest-axe/issues/147 is fixed.
-    window.getComputedStyle = ():any => {};
+    window.getComputedStyle = (): any => {};
   });
   it('Should have no accessibility violations', async () => {
     const { container } = render(<Textarea />);
