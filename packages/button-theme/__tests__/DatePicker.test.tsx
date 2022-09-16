@@ -8,11 +8,6 @@ import 'regenerator-runtime/runtime';
 expect.extend(toHaveNoViolations);
 
 describe('DatePicker', () => {
-  beforeAll(() => {
-    // TODO: Remove this once https://github.com/nickcolley/jest-axe/issues/147 is fixed.
-    window.getComputedStyle = (): any => {};
-  });
-
   it('Should have no accessibility violations', async () => {
     const { container } = render(<DatePicker />);
     const results = await axe(container);
