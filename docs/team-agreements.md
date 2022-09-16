@@ -6,7 +6,7 @@
 - PR reviews can be done by the first person who gets to it. If the code needs explaining, request the author to walk you through it.
 - Follow [peer review best practices](https://google.github.io/eng-practices/review/reviewer/) by suggesting opportunities to improve code during peer review, and merging as soon as the code is better than the code in the target branch and release ready. Important best practices:
   - "It’s also useful to think about the [PR] in the context of the system as a whole. Is this [PR] improving the code health of the system or is it making the whole system more complex, less tested, etc.? **Don’t accept [PRs] that degrade the code health of the system.** Most systems become complex through many small changes that add up, so it’s important to prevent even small complexities in new changes."
-  - "If you see something nice in the CL, tell the developer, especially when they addressed one of your comments in a great way. Code reviews often just focus on mistakes, but they should offer encouragement and appreciation for good practices, as well. It’s sometimes even more valuable, in terms of mentoring, to tell a developer what they did right than to tell them what they did wrong."
+  - "If you see something nice in the [CL], tell the developer, especially when they addressed one of your comments in a great way. Code reviews often just focus on mistakes, but they should offer encouragement and appreciation for good practices, as well. It’s sometimes even more valuable, in terms of mentoring, to tell a developer what they did right than to tell them what they did wrong."
   - Feel free to comment on everything that could be improved in the PR. This doesn't mean that all of the comments have to be addressed. Such comments should be identified by the reviewer, and the author should decide to either:
     - address the comment, providing it doesn't result in the scope of the PR ballooning
     - record an issue to track the comment, often technical debt (see below)
@@ -14,6 +14,7 @@
 - PRs require only one reviewer's approval before merging but multiple reviewers are welcome.
 - When necessary, use git rebase to sync a feature branch with main. This keeps a tidier history in git, however, can be destructive, so do so cautiously.
 - Squash merge when merging into develop.
+- Once a PR is approved, either a reviewer or author can merge it. (If you're a reviewer, feel free to get in touch with the author if you have any concerns about the PR being ready.)
 
 ## Guardrails
 
