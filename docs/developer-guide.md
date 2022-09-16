@@ -1,25 +1,57 @@
 # Developer Guidelines
 
-## Continuous Integration (CI)
+## Setup for Local Development
+
+### Prerequisites
+
+1. Install `asdf` if not already installed
+2. Clone this repository
+3. `cd` into the repository
+
+### Build and Run Storybook
+
+- Run `yarn` to install package dependencies (follow any prompts `asdf` provides)
+- Run `yarn bootstrap` to install necessary dependencies.
+- Run `yarn llink` to set up symlinks
+- Run `yarn build` to compile all packages
+- Run `yarn storybook:<theme>` where `<theme>` is `bcgov`, `button`, or your custom theme
+- Storybook will open in a browser
+
+### Test
+
+To run unit tests in all packages, run `yarn test:jest`
+
+## Building, Continous Integration, Deploying, and Publishing
+
+### Build
+
+To build, run `yarn bootstrap` followed by `yarn llink` followed by `yarn build-storybook:<theme>` where theme is one of:
+
+- button
+- bcgov
+
+To test build locally, run `npx http-server ./storybook-static` after building.
+
+### Continuous Integration (CI)
 
 It runs a set of checks in github actions to ensure that new changes meet the code conventions and standards.
 
-### Checks
+#### Checks
 
 1. Unit tests
 1. Pre-commit hooks
 
-## Continuous Deployment (CD)
+### Continuous Deployment (CD)
 
 It generates build artifacts to deploy/publish a new storybook and NPM package versions.
 
-### Storybook
+#### Storybook
 
 - On `develop` merge event, new `Storybook` static artifacts are deployed to github pages in `storybook` branch.
 - [storybook-deployer](https://github.com/storybookjs/storybook-deployer) allows to generate a default index.html that links to all of the loaded storybooks in `packages` directory.
 - As `storybook-deployer` deploys storybook using [PAT](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) in CI environment, we only use `storybook-deployer` to generate the artifacts, and we force update `storybook` branch using [Deploy Key](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/github-glossary#deploy-key) to have fine-grained controls over permissions.
 
-### Publish Packages to NPM Registry
+#### Publish Packages to NPM Registry
 
 In order to avoid potential side effects using `lerna version/publish` commands, we deploy packages individually using helper scripts in the `scripts` directory.
 
@@ -39,33 +71,3 @@ In order to avoid potential side effects using `lerna version/publish` commands,
    ```sh
        yarn sync-version --name=<package-name>
    ```
-
-# Setup
-
-- Clone this repository
-- Run `yarn` to install package dependencies
-- Run `yarn build` to compile all packages
-
-```sh
-yarn bootstrap
-yarn llink
-yarn build
-```
-
-## Storybook
-
-To run locally, run `yarn llink` followed by `yarn storybook:<theme>` where theme is one of:
-
-- base
-- gov
-
-To build, run `yarn llink` followed by `yarn build-storybook:<theme>` where theme is one of:
-
-- base
-- gov
-
-To test build locally, run `npx http-server ./storybook-static` after building.
-
-## Test
-
-To run unit tests in all packages, run `yarn test:jest`
