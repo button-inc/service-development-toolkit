@@ -21,7 +21,14 @@ describe('Notification', () => {
         <Notification.Content>Content1</Notification.Content>
       </Notification>
     );
-
     expect(container.textContent).toMatch('Header1_Content1');
+  });
+
+  it('Should pass through end-user props', async () => {
+    const handleClick = jest.fn();
+    render(<Notification closable onClose={handleClick} id="test" />);
+    const notification = document.getElementById('test');
+    fireEvent.click(notification);
+    expect(handleClick).toHaveBeenCalled();
   });
 });
