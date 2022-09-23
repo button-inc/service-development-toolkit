@@ -32,7 +32,9 @@ describe('Notification', () => {
         <Notification.Content>Content1</Notification.Content>
       </Notification>
     );
-    fireEvent.click(screen.getByRole('checkbox'));
+    const checkbox = screen.getByRole('checkbox');
+    fireEvent.click(checkbox);
+
     expect(handleClick).toHaveBeenCalled();
   });
 });
