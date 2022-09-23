@@ -45,17 +45,11 @@ It runs a set of checks in github actions to ensure that new changes meet the co
 
 It generates build artifacts to deploy/publish a new storybook and NPM package versions.
 
-#### Storybook
-
-- On `develop` merge event, new `Storybook` static artifacts are deployed to github pages in `storybook` branch.
-- [storybook-deployer](https://github.com/storybookjs/storybook-deployer) allows to generate a default index.html that links to all of the loaded storybooks in `packages` directory.
-- As `storybook-deployer` deploys storybook using [PAT](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) in CI environment, we only use `storybook-deployer` to generate the artifacts, and we force update `storybook` branch using [Deploy Key](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/github-glossary#deploy-key) to have fine-grained controls over permissions.
-
 #### Publish Packages to NPM Registry
 
 In order to avoid potential side effects using `lerna version/publish` commands, we deploy packages individually using helper scripts in the `scripts` directory.
 
-1. Log into the NPM registry.
+1. Log into the NPM registry. (See Toolkit credentials in 1Password.)
    ```sh
        npm login
    ```
@@ -71,3 +65,13 @@ In order to avoid potential side effects using `lerna version/publish` commands,
    ```sh
        yarn sync-version --name=<package-name>
    ```
+
+#### Storybook
+
+- On `develop` merge event, new `Storybook` static artifacts are deployed to github pages in `storybook` branch.
+- Build and deploy storybook:
+  - `yarn build-storybook:button` or `yarn build-storybook:bcgov`
+  - `yarn deploy-storybook`
+    Running `yarn deploy-storybook` does this:
+    1. [storybook-deployer](https://github.com/storybookjs/storybook-deployer) allows to generate a default index.html that links to all of the loaded storybooks in `packages` directory.
+    1. As `storybook-deployer` deploys storybook using [PAT](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) in CI environment, we only use `storybook-deployer` to generate the artifacts, and we force update `storybook` branch using [Deploy Key](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/github-glossary#deploy-key) to have fine-grained controls over permissions.
