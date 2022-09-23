@@ -4,7 +4,7 @@ export const argTypes = {
       type: 'select',
       options: ['small', 'medium', 'large'],
     },
-    description: 'The size of the datepicker',
+    description: 'The size of the alert',
   },
   variant: {
     description: 'The style variant to use.',
