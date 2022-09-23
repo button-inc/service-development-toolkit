@@ -1,5 +1,5 @@
 import React from 'react';
-import { applyTheme, StyleConfig } from '@button-inc/component-library/Notification';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/Alert';
 import { CheckCircle, InfoCircle, ExclamationTriangle, ExclamationCircle, FaSVG } from './fontawesome';
 import styles from './styles';
 
