@@ -19,7 +19,7 @@
   "dependencies": {
     "@babel/runtime": "^7.4.2",
     "@bcgov/bc-sans": "^1.0.1",
-    "@button-inc/component-library": "1.0.1",
+    "@button-inc/component-library": "1.0.2",
     "lodash": "^4.17.21",
     "react-typography": "^0.16.19",
     "styled-components": "^5.2.1",
