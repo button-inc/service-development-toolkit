@@ -54,5 +54,5 @@ Warning.args = {
   variant: 'warning',
   size: 'medium',
   required: false,
-  fullWidth: true, 
+  fullWidth: true,
 };
