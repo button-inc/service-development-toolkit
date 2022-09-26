@@ -230,6 +230,7 @@ const styles = {
             `,
       content: `
               font-size: 0.8rem;
+              padding: 0.4rem;
             `,
       close: `
               font-size: 0.8rem;
@@ -254,6 +255,7 @@ const styles = {
             `,
       content: `
               font-size: 1rem;
+              padding: 0.6rem;
             `,
       close: `
               font-size: 1rem;
@@ -278,6 +280,7 @@ const styles = {
             `,
       content: `
               font-size: 1.2rem;
+              padding: 0.8rem;
             `,
       close: `
               font-size: 1.2rem;
