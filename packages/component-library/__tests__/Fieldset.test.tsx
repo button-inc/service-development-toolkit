@@ -1,9 +1,10 @@
 import { axe, toHaveNoViolations } from 'jest-axe';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
 import Fieldset from '../src/Fieldset';
 import '@testing-library/jest-dom/extend-expect';
 import 'regenerator-runtime/runtime';
+import { changeSelectorToObject } from '../../bcgov-theme/utils/test-helpers';
 
 expect.extend(toHaveNoViolations);
 
@@ -40,11 +41,17 @@ describe('Fieldset', () => {
     expect(input).toBeDisabled();
   });
 
-  it('Should accept fullHeight and fullWidth props', async () => {
-    render(<Fieldset id="test-fieldset" fullWidth fullHeight />);
-    const fieldset = document.querySelector('#test-fieldset');
-    const style = window.getComputedStyle(fieldset);
-    expect(style.height).toBe('100%');
-    expect(style.width).toBe('100%');
+  it('Should pass through end-user props', () => {
+    const handleClick = jest.fn();
+    render(<Fieldset onClick={handleClick} id="test" />);
+    const fieldset = document.getElementById('test');
+    fireEvent.click(fieldset);
+    expect(handleClick).toHaveBeenCalled();
+  });
+
+  it('Should accept the fullWidth static prop', () => {
+    render(<Fieldset id="test" fullWidth />);
+    const fieldset = document.getElementById('test');
+    expect(fieldset).toHaveStyle('width: 100%;');
   });
 });
