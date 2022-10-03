@@ -36,7 +36,7 @@ const config: StyleConfig = {
     size: 'medium',
   },
   staticProps: ['fullWidth'],
-  forwardProps: ['size', 'variant', 'disabled', 'required'],
+  forwardProps: ['size', 'variant', 'disabled', 'required', 'fullWidth'],
 };
 
 const Fieldset = applyTheme(styles, config);
