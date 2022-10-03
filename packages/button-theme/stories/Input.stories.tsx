@@ -45,6 +45,7 @@ Standard.args = {
   variant: 'standard',
   size: 'medium',
   required: false,
+  fullWidth: true,
 };
 
 export const Warning = Template.bind({});
@@ -53,4 +54,5 @@ Warning.args = {
   variant: 'warning',
   size: 'medium',
   required: false,
+  fullWidth: true,
 };

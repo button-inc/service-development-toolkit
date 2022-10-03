@@ -4,7 +4,7 @@ export const argTypes = {
       type: 'select',
       options: ['small', 'medium', 'large'],
     },
-    description: 'The size of the datepicker',
+    description: 'The size of the link',
   },
   content: {
     description: 'The text for the link to contain.',

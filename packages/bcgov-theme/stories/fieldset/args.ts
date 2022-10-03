@@ -4,7 +4,7 @@ export const argTypes = {
       type: 'select',
       options: ['small', 'medium', 'large'],
     },
-    description: 'The size of the checkbox',
+    description: 'The size of the fieldset',
   },
   onClick: { action: 'clicked' },
   title: {

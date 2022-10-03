@@ -4,7 +4,7 @@ export const argTypes = {
       type: 'select',
       options: ['small', 'medium', 'large'],
     },
-    description: 'The size of the datepicker',
+    description: 'The size of the input',
   },
   type: {
     control: {
@@ -14,7 +14,7 @@ export const argTypes = {
   },
   label: {
     description:
-      'The label for the datepicker. If an id is not provided, one will be created to connect the label to the datepicker.',
+      'The label for the input. If an id is not provided, one will be created to connect the label to the input.',
   },
   disabled: {
     description: 'Indicates whether the field is disabled.',
@@ -40,5 +40,8 @@ export const argTypes = {
   },
   maxLength: {
     description: 'The maximum length for the input.',
+  },
+  fullWidth: {
+    description: 'Using this static prop ensures the component will be 100% of the available width.',
   },
 };

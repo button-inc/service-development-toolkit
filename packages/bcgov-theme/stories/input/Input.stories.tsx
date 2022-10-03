@@ -30,6 +30,7 @@ Default.args = {
   id: 'name-input',
   rounded: true,
   maxLength: 10,
+  fullWidth: true,
 };
 
 export const HTML = HTMLTemplate.bind({});
