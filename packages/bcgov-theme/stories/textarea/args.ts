@@ -4,11 +4,11 @@ export const argTypes = {
       type: 'select',
       options: ['small', 'medium', 'large'],
     },
-    description: 'The size of the datepicker',
+    description: 'The size of the textarea',
   },
   label: {
     description:
-      'The label for the datepicker. If an id is not provided, one will be created to connect the label to the datepicker.',
+      'The label for the textarea. If an id is not provided, one will be created to connect the label to the textarea.',
   },
   resize: {
     description: 'Whether to allow the textarea to be resized.',
