@@ -4,11 +4,11 @@ export const argTypes = {
       type: 'select',
       options: ['small', 'medium', 'large'],
     },
-    description: 'The size of the datepicker',
+    description: 'The size of the radio button',
   },
   label: {
     description:
-      'The label for the datepicker. If an id is not provided, one will be created to connect the label to the datepicker.',
+      'The label for the radio button. If an id is not provided, one will be created to connect the label to the radio button.',
   },
   disabled: {
     description: 'Indicates whether the field is disabled.',
