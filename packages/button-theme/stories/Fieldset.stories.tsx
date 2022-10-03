@@ -25,6 +25,12 @@ export default {
     required: {
       description: 'Indicates whether the field is required.',
     },
+    fullWidth: {
+      description: 'Apply 100% width to the element.',
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 } as Meta;
 
