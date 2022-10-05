@@ -5,8 +5,9 @@ import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseS
 export interface Props {
   id?: string;
   className?: string;
+  children: React.ReactNode;
   style?: object;
-  href?: string;
+  href: string;
   [key: string]: any;
 }
 
@@ -21,9 +22,9 @@ const LINK_CLASS = 'pg-link';
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const processedStyle = processStyle(styles);
   const styleBuilder = createStyleBuilder(processedStyle, config);
-  const Slink = styleBuilder('link', 'link');
+  const Slink = styleBuilder('a', 'a');
 
-  const bootstrap = createBootstrap(processedStyle, 'link');
+  const bootstrap = createBootstrap(processedStyle, 'a');
 
   const Link = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
