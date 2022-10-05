@@ -1,6 +1,6 @@
 <br/>
 
-> 👋 Welcome! The toolkit's [component library](./packages/component-library) is in preview; this means the API is subject to change without notice. Keep an eye on [Announcements](./discussions/categories/announcements) or [Releases](./releases) for news on releases, or check out our [Roadmap](./projects/5) for priorities.
+> 👋 Welcome! The toolkit's [component library](./packages/component-library) is in preview; this means the API is subject to change without notice.
 >
 > If you're interested in production use of this codebase, we'd love to chat! Please reach out at [toolkit@button.is](mailto:toolkit@button.is).
 
