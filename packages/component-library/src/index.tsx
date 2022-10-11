@@ -4,6 +4,7 @@ export { default as DatePicker } from './DatePicker';
 export { default as Fieldset } from './Fieldset';
 export { default as FilePicker } from './FilePicker';
 export { default as Footer } from './Footer';
+export { default as HeroImage } from './HeroImage';
 export { default as Input } from './Input';
 export { default as Menu } from './Menu';
 export { default as Navigation } from './Navigation';
