@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
-import { processStyle, createStyleBuilder } from './helpers';
+import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
 export interface Props {
   id?: string;
@@ -20,27 +19,26 @@ const Container = styled.div`
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const processedStyle = processStyle(styles);
   const styleBuilder = createStyleBuilder(processedStyle, config);
-  
+
   const SContainer = styleBuilder(Container, 'container');
   const SInnerContainer = styleBuilder('div', 'innercontainer');
-  
+
   const bootstrap = createBootstrap(processedStyle, 'heroimage');
-  
-  
+
   const HeroImage = (props: Props) => {
     const { id, name, label, ariaLabel, styleProps, children, className, rest } = bootstrap(props);
     const { url, ...others } = rest;
-    
+
     return (
       <SContainer {...others} url={url}>
         <SInnerContainer>{children}</SInnerContainer>
       </SContainer>
-      );
-    }
-    
-    return HeroImage;
-  }
-  
-  const HeroImage = applyTheme({}, {});
+    );
+  };
 
-  export default HeroImage;
+  return HeroImage;
+};
+
+const HeroImage = applyTheme({}, {});
+
+export default HeroImage;
