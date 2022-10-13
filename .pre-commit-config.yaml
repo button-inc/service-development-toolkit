@@ -20,7 +20,7 @@ repos:
   - repo: local
     hooks:
       - id: eslint-prettier
-        name: Lint and Style
+        name: Code Challenge Stuff
         language: system
         files: \.(j|t)sx?$
         entry: bash -c 'yarn format && yarn lint'

@@ -1,4 +1,4 @@
-name: Run Lint and Style
+name: Code Challenge Stuff
 
 on: push
 
