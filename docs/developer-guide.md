@@ -49,6 +49,7 @@ It generates build artifacts to deploy/publish a new storybook and NPM package v
 
 In order to avoid potential side effects using `lerna version/publish` commands, we deploy packages individually using helper scripts in the `scripts` directory.
 
+1. Create a new branch off `develop` called [issue#]-release-[library] (library is base, button, or bcgov)
 1. Log into the NPM registry. (See Toolkit credentials in 1Password.)
    ```sh
        npm login
@@ -60,11 +61,12 @@ In order to avoid potential side effects using `lerna version/publish` commands,
        make publish
    ```
    - it copies `package.json`, `LICENSE`, and `README.md` files into `lib` directory to publish the packages based off `lib` directory.
-1. Update the version of the other packages that reference the updated package.
+1. If desired, update the version of the other packages that reference the updated package. (This happens automatically when you update the base library.)
    - In the root directory,
    ```sh
        yarn sync-version --name=<package-name>
    ```
+1. Merge the release branch into `develop`.
 
 #### Storybook
 
