@@ -1,4 +1,5 @@
 import React from 'react';
+import cx from 'clsx';
 import styled from 'styled-components';
 import { processStyle, createStyleBuilder, createBootstrap, StyleConfig as BaseStyleConfig } from './helpers';
 
@@ -22,6 +23,8 @@ const Container = styled.div`
   background-size: cover;
 `;
 
+const HEROIMAGE_CLASS = 'pg-hero-image';
+
 export const applyTheme = (styles, config: BaseStyleConfig) => {
   const processedStyle = processStyle(styles);
   const styleBuilder = createStyleBuilder(processedStyle, config);
@@ -36,7 +39,7 @@ export const applyTheme = (styles, config: BaseStyleConfig) => {
     const { url, ...others } = rest;
 
     return (
-      <SContainer {...others} url={url}>
+      <SContainer {...others} url={url} className={cx(HEROIMAGE_CLASS, className)}>
         <SInnerContainer>{children}</SInnerContainer>
       </SContainer>
     );
