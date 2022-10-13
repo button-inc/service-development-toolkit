@@ -11,6 +11,12 @@ export interface Props {
   [key: string]: any;
 }
 
+export interface StyleConfig {
+  defaultProps?: object;
+  staticProps?: string[];
+  breakProps?: string[];
+}
+
 const Container = styled.div`
   background-image: url(${(props: Props) => props.url});
   background-size: cover;
