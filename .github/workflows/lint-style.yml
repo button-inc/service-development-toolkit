@@ -1,4 +1,4 @@
-name: Run Lint and Style
+name: Install Packages Run Lint and Unit Tests
 
 on: push
 

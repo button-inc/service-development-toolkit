@@ -3,7 +3,7 @@ name: Deploy Storybook
 
 on:
   workflow_run:
-    workflows: ['Run Lint and Style']
+    workflows: ['Install Packages Run Lint and Unit Tests']
     branches: [develop]
     types:
       - completed
