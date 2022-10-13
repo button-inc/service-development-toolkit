@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import { ExternalLinkAlt, FaSVG } from './fontawesome';
+import { applyTheme, StyleConfig } from '@button-inc/component-library/Link';
 
 export const sizes: {
   [key: string]: string;
@@ -29,20 +28,15 @@ const StyledAnchor = styled.a`
   }
 `;
 
-export default function Link(props: any) {
-  const { content, external, children, ...rest } = props;
+const config: StyleConfig = {
+  defaultProps: {
+    variant: 'primary',
+    size: 'medium',
+  },
+  breakProps: [],
+  staticProps: [],
+};
 
-  return (
-    <StyledAnchor target={external ? '_blank' : '_self'} {...rest}>
-      {content || children}
-      {external && (
-        <>
-          &nbsp;
-          <FaSVG>
-            <path fill="currentColor" d={ExternalLinkAlt} />
-          </FaSVG>
-        </>
-      )}
-    </StyledAnchor>
-  );
-}
+const Button = applyTheme(styles, config);
+
+export default Button;
