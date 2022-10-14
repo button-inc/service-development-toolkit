@@ -1,3 +1,12 @@
+---
+name: Tech debt
+about: Record technical project debt
+title: ''
+labels: ''
+assignees: ''
+
+---
+
 ### Description
 A clear and concise description of what the tech debt is and the reason of being created
 
