@@ -1,9 +1,12 @@
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Checkbox';
 import { Check, toSvgUrl } from './fontawesome';
+import styles from './styles';
 
 const checkSVG = toSvgUrl(Check);
 
-export const styles = {
+export const checkboxStyles = {
+  ...styles,
+  // shared styles are applied to all variants
   shared: {
     label: `
       display: block;
@@ -56,23 +59,6 @@ export const styles = {
       }
     `,
   },
-  size: {
-    small: {
-      container: `
-        font-size: 0.8rem;
-      `,
-    },
-    medium: {
-      container: `
-        font-size: 1rem;
-      `,
-    },
-    large: {
-      container: `
-        font-size: 1.2rem;
-      `,
-    },
-  },
 };
 
 const config: StyleConfig = {
@@ -82,6 +68,6 @@ const config: StyleConfig = {
   staticProps: [],
 };
 
-const Checkbox = applyTheme(styles, config);
+const Checkbox = applyTheme(checkboxStyles, config);
 
 export default Checkbox;
