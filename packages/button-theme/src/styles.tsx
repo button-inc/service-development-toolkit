@@ -236,6 +236,7 @@ const styles = {
               font-size: 0.8rem;
               padding: 0.2rem;
             `,
+      a: `font-size: 0.8rem;`,
     },
     medium: {
       button: `
@@ -261,6 +262,7 @@ const styles = {
               font-size: 1rem;
               padding: 0.4rem;
             `,
+      a: `font-size: 1rem;`,
     },
     large: {
       button: `
@@ -286,6 +288,7 @@ const styles = {
               font-size: 1.2rem;
               padding: 0.6rem;
             `,
+      a: `font-size: 1.2rem`,
     },
   },
 };
