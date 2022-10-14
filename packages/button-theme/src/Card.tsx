@@ -3,9 +3,7 @@ import { applyTheme, StyleConfig } from '@button-inc/component-library/Card';
 import styles from './styles';
 
 const config: StyleConfig = {
-  defaultProps: {
-    size: 'medium',
-  },
+  defaultProps: {},
   staticProps: [],
 };
 
