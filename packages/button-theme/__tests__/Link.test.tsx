@@ -9,7 +9,11 @@ expect.extend(toHaveNoViolations);
 
 describe('Link', () => {
   it('Should have no accessibility violations', async () => {
-    const { container } = render(<Link content="link" href="#link" />);
+    const { container } = render(
+      <Link content="link" href="#link">
+        Link
+      </Link>
+    );
     const results = await axe(container);
 
     expect(results).toHaveNoViolations();
