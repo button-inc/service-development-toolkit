@@ -12,25 +12,23 @@ export default {
         type: 'select',
         options: ['small', 'medium', 'large'],
       },
-      description: 'The size of the checkbox',
+      description: 'The size of the callout',
     },
     content: {
       control: {
         type: 'text',
       },
-      description: 'String content to show in the callout. To render more complex content, pass them as children.',
+      description: 'String content to show in the callout. To render more complex content, pass it as children.',
     },
   },
 } as Meta;
 
-export const Template = args => (
-  <Callout args={args}>We're passionate about cultivating long-term digital partnerships.</Callout>
-);
+const Template: Story = args => <Callout {...args}>I'm text being passed as children</Callout>;
 
 const HTMLTemplate: Story = args => (
   <>
     <HtmlOnlyWrapper>
-      <Callout {...args}>We're passionate about cultivating long-term digital partnerships.</Callout>
+      <Callout {...args}>I'm text being passed as children</Callout>
     </HtmlOnlyWrapper>
   </>
 );
@@ -38,9 +36,11 @@ const HTMLTemplate: Story = args => (
 export const Default = Template.bind({});
 Default.args = {
   size: 'medium',
+  content: 'I am content',
 };
 
 export const HTML = HTMLTemplate.bind({});
 HTML.args = {
   size: 'medium',
+  content: 'I am content',
 };
