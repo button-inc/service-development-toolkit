@@ -12,10 +12,7 @@ export default {
         type: 'select',
         options: ['small', 'medium', 'large'],
       },
-      description: 'The size of the datepicker',
-    },
-    content: {
-      description: 'The text for the link to contain.',
+      description: 'The size of the link',
     },
     href: {
       description: 'The url that the hyperlink points to.',
@@ -26,12 +23,18 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => <Link {...args} />;
+const Template: Story = args => (
+  <Link {...args} href={args.href}>
+    Access your application
+  </Link>
+);
 
 const HTMLTemplate: Story = args => (
   <>
     <HtmlOnlyWrapper>
-      <Link {...args} />
+      <Link {...args} href={args.href}>
+        Access your application
+      </Link>
     </HtmlOnlyWrapper>
   </>
 );
@@ -39,7 +42,6 @@ const HTMLTemplate: Story = args => (
 const args = {
   href: '#',
   size: 'medium',
-  content: 'Access your application',
   external: true,
 };
 
