@@ -1,4 +1,4 @@
-name: Code Challenge Stuff
+name: Install Packages Run Lint and Unit Tests
 
 on: push
 
