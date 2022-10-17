@@ -15,7 +15,8 @@
     "sync-version": "node ../../scripts/sync-version.js --name=button-theme",
     "storybook": "start-storybook -p 6006",
     "test:jest": "yarn jest",
-    "happo": "happo run"
+    "happo": "happo run",
+    "happo-ci-github-actions": "happo-ci-github-actions"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.2",
