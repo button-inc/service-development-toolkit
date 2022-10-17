@@ -2,8 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Menu';
 import buttonLogoDataUrl from './dataurls/button_logo';
+import styles from './styles';
 
-export const styles = {
+export const footerStyles = {
+  ...styles,
+  // shared styles are applied to all variants
   shared: {
     container: `
       display: flex;
@@ -53,7 +56,7 @@ const config: StyleConfig = {
   },
 };
 
-export const BaseFooter = applyTheme(styles, config);
+export const BaseFooter = applyTheme(footerStyles, config);
 
 const BannerLogo = styled.div`
   background: url(${buttonLogoDataUrl});
