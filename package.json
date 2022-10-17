@@ -34,6 +34,8 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "glob": "^7.1.6",
+    "happo-plugin-storybook": "^3.0.0",
+    "happo.io": "^8.2.0",
     "html-react-parser": "^1.2.4",
     "jest": "^26.6.3",
     "jest-axe": "^4.1.0",
