@@ -1,5 +1,4 @@
 const styles = {
-  shared: {},
   variant: {
     primary: {
       button: `
@@ -19,7 +18,6 @@ const styles = {
         `,
       container: `
           background-color: #F6FAFE;
-          border-top: 3px solid #3978E5;
         `,
     },
     secondary: {
@@ -39,7 +37,6 @@ const styles = {
         `,
       container: `
           background-color: #fff;
-          border-top: 3px solid #000;
         `,
     },
     warning: {
