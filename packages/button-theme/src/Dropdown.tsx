@@ -1,6 +1,9 @@
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Select';
+import styles from './styles';
 
-export const styles = {
+export const dropdownStyles = {
+  ...styles,
+  // shared styles are applied to all variants
   shared: {
     container: `
     `,
@@ -58,32 +61,6 @@ export const styles = {
       }
     `,
   },
-  size: {
-    small: {
-      container: `
-        font-size: 0.8rem;
-      `,
-    },
-    medium: {
-      container: `
-        font-size: 1rem;
-      `,
-    },
-    large: {
-      container: `
-        font-size: 1.2rem;
-      `,
-    },
-  },
-  required: {
-    label: `
-      &:after {
-        margin: -0.2em 0em 0em 0.2em;
-        content: '*';
-        color: #DB2828;
-      }
-    `,
-  },
 };
 
 const config: StyleConfig = {
@@ -94,6 +71,6 @@ const config: StyleConfig = {
   includeWrapper: true,
 };
 
-const Dropdown = applyTheme(styles, config);
+const Dropdown = applyTheme(dropdownStyles, config);
 
 export default Dropdown;
