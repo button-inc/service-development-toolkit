@@ -4,6 +4,7 @@ import styles from './styles';
 
 const modalStyles = {
   ...styles,
+  // shared styles are applied to all variants
   shared: {
     container: `
         position: fixed;
