@@ -1,6 +1,9 @@
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Input';
+import styles from './styles';
 
-export const styles = {
+export const inputStyles = {
+  ...styles,
+  // shared styles are applied to all variants
   shared: {
     label: `
       display: block;
@@ -26,23 +29,6 @@ export const styles = {
       display: block;
     `,
   },
-  size: {
-    small: {
-      container: `
-        font-size: 0.8rem;
-      `,
-    },
-    medium: {
-      container: `
-        font-size: 1rem;
-      `,
-    },
-    large: {
-      container: `
-        font-size: 1.2rem;
-      `,
-    },
-  },
   variant: {
     standard: {
       input: `
@@ -55,15 +41,6 @@ export const styles = {
       `,
     },
   },
-  required: {
-    label: `
-      &:after {
-        margin: -0.2em 0em 0em 0.2em;
-        content: '*';
-        color: #DB2828;
-      }
-    `,
-  },
 };
 
 const config: StyleConfig = {
@@ -74,6 +51,6 @@ const config: StyleConfig = {
   staticProps: ['fullWidth'],
 };
 
-const Input = applyTheme(styles, config);
+const Input = applyTheme(inputStyles, config);
 
 export default Input;
