@@ -2,39 +2,16 @@ import React from 'react';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/FilePicker';
 import Button from './Button';
 import { Upload, FaSVG } from './fontawesome';
+import styles from './styles';
 
-export const styles = {
+export const filepickerStyles = {
+  ...styles,
+  // shared styles are applied to all variants
   shared: {
     label: `
       display: block;
       font-weight: 600;
       margin-bottom: 0.277em;
-    `,
-  },
-  size: {
-    small: {
-      label: `
-        font-size: 0.8rem;
-      `,
-    },
-    medium: {
-      label: `
-        font-size: 1rem;
-      `,
-    },
-    large: {
-      label: `
-        font-size: 1.2rem;
-      `,
-    },
-  },
-  required: {
-    label: `
-      &:after {
-        margin: -0.2em 0em 0em 0.2em;
-        content: '*';
-        color: #DB2828;
-      }
     `,
   },
 };
@@ -53,7 +30,7 @@ const config: StyleConfig = {
   `,
 };
 
-export const BaseFilePicker = applyTheme(styles, config);
+export const BaseFilePicker = applyTheme(filepickerStyles, config);
 
 export default function Component(props: any) {
   const { children, ...rest } = props;
