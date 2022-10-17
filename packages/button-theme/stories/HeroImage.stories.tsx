@@ -29,7 +29,7 @@ const HTMLTemplate: Story = args => (
   </HtmlOnlyWrapper>
 );
 
-const bgImage = 'https://picsum.photos/seed/button-inc/1000/100?blur';
+const bgImage = 'https://picsum.photos/seed/buttoninc/1000/100?blur';
 
 export const Default = Template.bind({});
 Default.args = {
