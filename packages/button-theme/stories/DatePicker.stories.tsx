@@ -14,6 +14,13 @@ export default {
         options: ['small', 'medium', 'large'],
       },
     },
+    variant: {
+      description: 'The style variant to use.',
+      control: {
+        type: 'select',
+        options: ['standard', 'warning'],
+      },
+    },
   },
 } as Meta;
 
