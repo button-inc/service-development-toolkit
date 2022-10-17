@@ -1,6 +1,9 @@
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Button';
+import styles from './styles';
 
-export const styles = {
+export const buttonStyles = {
+  ...styles,
+  // shared styles are applied to all variants
   shared: {
     button: `
       cursor: pointer;
@@ -31,100 +34,6 @@ export const styles = {
       -webkit-tap-highlight-color: transparent;
     `,
   },
-  size: {
-    small: {
-      button: `
-        font-size: 0.8rem;
-      `,
-    },
-    medium: {
-      button: `
-        font-size: 1rem;
-      `,
-    },
-    large: {
-      button: `
-        font-size: 1.2rem;
-      `,
-    },
-  },
-  variant: {
-    primary: {
-      button: `
-        color: #fff;
-        background-color: #2476ED;
-        box-shadow: 0px 0px 0px 1px #2476ED inset !important;
-
-        &:hover {
-          background-color: #4e96ff;
-          box-shadow: 0px 0px 0px 1px #4e96ff inset !important;
-          text-decoration: underline;
-        }
-
-        &:focus {
-          box-shadow: 0px 0px 0px 2px #FBDD01 inset !important;
-        }
-      `,
-    },
-    secondary: {
-      button: `
-        color: #2476ED;
-        background-color: transparent;
-        box-shadow: 0px 0px 0px 2px #2476ED inset !important;
-
-        &:hover {
-          background-color: #b9e2ff;
-          text-decoration: underline;
-        }
-
-        &:focus {
-          box-shadow: 0px 0px 0px 2px #FBDD01 inset !important;
-        }
-      `,
-    },
-    warning: {
-      button: `
-        color: #fff;
-        background-color: #F50E0E;
-        box-shadow: 0px 0px 0px 1px #F50E0E inset !important;
-
-        &:hover {
-          background-color: #FA7C7C;
-          box-shadow: 0px 0px 0px 1px #FA7C7C inset !important;
-          text-decoration: underline;
-        }
-
-        &:focus {
-          box-shadow: 0px 0px 0px 2px #FBDD01 inset !important;
-        }
-      `,
-    },
-    dark: {
-      button: `
-        color: #000;
-        background-color: #fff;
-        box-shadow: 0px 0px 0px 2px #000 inset !important;
-
-        &:hover {
-          color: #fff;
-          background-color: #000;
-          text-decoration: underline;
-        }
-
-        &:focus {
-          box-shadow: 0px 0px 0px 2px #FBDD01 inset !important;
-        }
-      `,
-    },
-  },
-  disabled: `
-    font-size: 1rem;
-    color: #fff !important;
-    background-color: #2476ED !important;
-    box-shadow: 0px 0px 0px 1px #2476ED inset !important;
-    text-decoration: none !important;
-    opacity: 0.43;
-  `,
 };
 
 const config: StyleConfig = {
@@ -136,6 +45,6 @@ const config: StyleConfig = {
   staticProps: [],
 };
 
-const Button = applyTheme(styles, config);
+const Button = applyTheme(buttonStyles, config);
 
 export default Button;

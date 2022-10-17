@@ -1,7 +1,10 @@
 import { applyTheme, StyleConfig } from '@button-inc/component-library/RadioButton';
+import styles from './styles';
 
 // The inner circles are two-thirds small than its outer circles.
-export const styles = {
+export const radioButtonStyles = {
+  ...styles,
+  // shared styles are applied to all variants
   shared: {
     label: `
       display: block;
@@ -53,23 +56,6 @@ export const styles = {
       }
     `,
   },
-  size: {
-    small: {
-      container: `
-        font-size: 0.8rem;
-      `,
-    },
-    medium: {
-      container: `
-        font-size: 1rem;
-      `,
-    },
-    large: {
-      container: `
-        font-size: 1.2rem;
-      `,
-    },
-  },
 };
 
 const config: StyleConfig = {
@@ -79,6 +65,6 @@ const config: StyleConfig = {
   staticProps: [],
 };
 
-const RadioButton = applyTheme(styles, config);
+const RadioButton = applyTheme(radioButtonStyles, config);
 
 export default RadioButton;

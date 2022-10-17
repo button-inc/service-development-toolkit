@@ -1,5 +1,3 @@
-import React from 'react';
-import styled from 'styled-components';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Grid';
 
 export const styles = {};
