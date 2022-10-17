@@ -3,8 +3,11 @@ import styled from 'styled-components';
 import noop from 'lodash/noop';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Card';
 import { Plus, Minus, FaSVG } from './fontawesome';
+import styles from './styles';
 
-export const styles = {
+export const accordionStyles = {
+  ...styles,
+  // shared styles are applied to all variants
   shared: {
     container: `
       font-size: 1rem;
@@ -39,7 +42,7 @@ const config: StyleConfig = {
   toggleable: true,
 };
 
-export const BaseAccordion = applyTheme(styles, config);
+export const BaseAccordion = applyTheme(accordionStyles, config);
 
 export default function Accordion(props: any) {
   const { title, children, onToggle, defaultToggled } = props;
