@@ -3,8 +3,11 @@ import styled from 'styled-components';
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Menu';
 import Button from './Button';
 import buttonLogoDataUrl from './dataurls/button_logo';
+import styles from './styles';
 
-export const styles = {
+export const headerStyles = {
+  ...styles,
+  // shared styles are applied to all variants
   shared: {
     container: `
       display: flex;
@@ -83,7 +86,7 @@ const config: StyleConfig = {
   staticProps: [],
 };
 
-export const BaseHeader = applyTheme(styles, config);
+export const BaseHeader = applyTheme(headerStyles, config);
 
 const BannerLogo = styled.div`
   background: url(${buttonLogoDataUrl});
