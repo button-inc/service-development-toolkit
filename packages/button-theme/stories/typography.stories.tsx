@@ -52,4 +52,4 @@ export default function Page() {
 
 const Template: Story = args => <pre>No visible component to show</pre>;
 
-export const Default = Template.bind({});
+export const Typography = Template.bind({});
