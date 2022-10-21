@@ -17,6 +17,14 @@
 - Run `yarn storybook:<theme>` where `<theme>` is `bcgov`, `button`, or your custom theme
 - Storybook will open in a browser
 
+### Set Up Pre-Commit Locally
+
+- See [docs](https://github.com/button-inc/digital_marketplace/blob/main/docs/pre-commit.md) for setup
+- Run `bash .git/hooks/pre-commit` from repo to execute pre-commit on staged files without commiting
+
+What are [pre-commit hooks](https://pre-commit.com/)?
+
+
 ### Test
 
 To run unit tests in all packages, run `yarn test:jest`
