@@ -6,7 +6,7 @@ const getHtmlWithCss = element => renderToStaticMarkup(element);
 
 const HtmlWithCssWrapper = ({ children }) => {
   const htmlWithCssString = getHtmlWithCss(children);
-  return parse(htmlWithCssString);
+  return parse(htmlWithCssString) as JSX.Element;
 };
 
 const HtmlOnlyWrapper = ({ children }) => {
