@@ -1,7 +1,8 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import Textarea from '../src/Textarea';
-import { HtmlOnlyWrapper } from '../../../stories/helpers';
+import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: 'Textarea',
@@ -56,13 +57,28 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => <Textarea {...args} />;
+const JSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <Textarea {...args} />
+  </>
+);
 
 const HTMLTemplate: Story = args => (
   <>
+    <ButtonTypography />
     <HtmlOnlyWrapper>
       <Textarea {...args} />
     </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Textarea {...args} />
+    </HtmlWithCssWrapper>
   </>
 );
 
@@ -76,8 +92,11 @@ const args = {
   maxLength: 10,
 };
 
-export const Default = Template.bind({});
-Default.args = args;
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
 
 export const HTML = HTMLTemplate.bind({});
 HTML.args = args;
