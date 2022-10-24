@@ -18,30 +18,40 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => (
+const JSTemplate: Story = args => (
   <>
     <ButtonTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <Checkbox {...args} />
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <Checkbox {...args} />
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
     <Checkbox {...args} />
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+const HTMLTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <Checkbox {...args} />
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Checkbox {...args} />
+    </HtmlWithCssWrapper>
+  </>
+);
+
+const args = {
   label: 'Lorem ipsum dolor sit amet',
   size: 'medium',
 };
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
+
+export const HTML = HTMLTemplate.bind({});
+HTML.args = args;
