@@ -18,31 +18,45 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => (
+const JSTemplate: Story = args => (
   <>
     <ButtonTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <RadioButton {...args} />
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <RadioButton {...args} />
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
+    <RadioButton {...args} />
     <RadioButton {...args} />
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+const HTMLTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <RadioButton {...args} />
+      <RadioButton {...args} />
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <RadioButton {...args} />
+      <RadioButton {...args} />
+    </HtmlWithCssWrapper>
+  </>
+);
+
+const args = {
   label: 'Lorem ipsum dolor sit amet',
   size: 'medium',
   name: 'samename',
 };
+
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
+
+export const HTML = HTMLTemplate.bind({});
+HTML.args = args;
