@@ -4,10 +4,11 @@ build
 dist
 packages/**/types
 yarn-error.log
+.env
 
 # storybook
 storybook-static
-out*
+.out*
 
 
 # next.js
