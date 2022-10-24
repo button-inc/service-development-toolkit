@@ -17,14 +17,6 @@ const Component = ({ args }) => {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus. In lectus magna, efficitur
         nec mi eu.
       </Accordion>
-      <Accordion {...args}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus. In lectus magna, efficitur
-        nec mi eu.
-      </Accordion>
-      <Accordion {...args}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus. In lectus magna, efficitur
-        nec mi eu.
-      </Accordion>
     </>
   );
 };
