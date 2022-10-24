@@ -120,27 +120,36 @@ const Component = props => (
   </Grid>
 );
 
-const Template: Story = args => (
+const JSTemplate: Story = args => (
   <>
     <ButtonTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <Component {...args} />
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <Component {...args} />
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
     <Component {...args} />
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = { collapse: '500' };
+const HTMLTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <Component {...args} />
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Component {...args} />
+    </HtmlWithCssWrapper>
+  </>
+);
+const args = { collapse: '500' };
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
+
+export const HTML = HTMLTemplate.bind({});
+HTML.args = args;

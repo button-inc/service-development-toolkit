@@ -1,7 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { Modal } from '../src/Modal';
-import { HtmlOnlyWrapper } from '../../../stories/helpers';
+import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: 'Modal',
@@ -13,32 +14,51 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => (
-  <Modal {...args} style={{ visibility: 'visible', position: 'relative' }}>
-    <Modal.Header>
-      I am a modal header placeholder. <Modal.Close>Close</Modal.Close>
-    </Modal.Header>
-    <Modal.Content>I am modal content placeholder.</Modal.Content>
-  </Modal>
+const Component = ({ args }) => {
+  return (
+    <Modal {...args} style={{ visibility: 'visible', position: 'relative' }}>
+      <Modal.Header>
+        I am a modal header placeholder. <Modal.Close>Close</Modal.Close>
+      </Modal.Header>
+      <Modal.Content>I am modal content placeholder.</Modal.Content>
+    </Modal>
+  );
+};
+
+const JSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <Component args={args} />
+  </>
 );
 
 const HTMLTemplate: Story = args => (
-  <HtmlOnlyWrapper>
-    <Modal {...args}>
-      <Modal.Header>
-        I am a modal header. <Modal.Close href="./?path=/story/modal--default">Close</Modal.Close>
-      </Modal.Header>
-      <Modal.Content>I am modal content.</Modal.Content>
-    </Modal>
-  </HtmlOnlyWrapper>
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <Component args={args} />
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Component args={args} />
+    </HtmlWithCssWrapper>
+  </>
 );
 
 const args = {
   id: 'modal',
 };
 
-export const Default = Template.bind({});
-Default.args = args;
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
 
 export const HTML = HTMLTemplate.bind({});
 HTML.args = args;

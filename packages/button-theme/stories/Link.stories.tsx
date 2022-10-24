@@ -1,7 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import Link from '../src/Link';
-import { HtmlOnlyWrapper } from '../../../stories/helpers';
+import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: 'Link',
@@ -23,19 +24,36 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => (
-  <Link {...args} href={args.href}>
-    Access your application
-  </Link>
+const Component = ({ args }) => {
+  return (
+    <Link {...args} href={args.href}>
+      Access your application
+    </Link>
+  );
+};
+
+const JSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <Component args={args} />
+  </>
 );
 
 const HTMLTemplate: Story = args => (
   <>
+    <ButtonTypography />
     <HtmlOnlyWrapper>
-      <Link {...args} href={args.href}>
-        Access your application
-      </Link>
+      <Component args={args} />
     </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Component args={args} />
+    </HtmlWithCssWrapper>
   </>
 );
 
@@ -45,8 +63,11 @@ const args = {
   external: true,
 };
 
-export const Default = Template.bind({});
-Default.args = args;
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
 
 export const HTML = HTMLTemplate.bind({});
 HTML.args = args;

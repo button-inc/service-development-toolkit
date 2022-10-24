@@ -1,7 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import HeroImage from '../src/HeroImage';
-import { HtmlOnlyWrapper } from '../../../stories/helpers';
+import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: 'HeroImage',
@@ -13,27 +14,48 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => (
-  <HeroImage {...args}>
-    <h1>Component child header</h1>
-    <p>Component child content</p>
-  </HeroImage>
-);
-
-const HTMLTemplate: Story = args => (
-  <HtmlOnlyWrapper>
+const Component = ({ args }) => {
+  return (
     <HeroImage {...args}>
       <h1>Component child header</h1>
       <p>Component child content</p>
     </HeroImage>
-  </HtmlOnlyWrapper>
-);
-
-const bgImage = 'https://picsum.photos/seed/buttoninc/1000/100?blur';
-
-export const Default = Template.bind({});
-Default.args = {
-  url: bgImage,
+  );
 };
 
+const JSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <Component args={args} />
+  </>
+);
+
+const HTMLTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <Component args={args} />
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Component args={args} />
+    </HtmlWithCssWrapper>
+  </>
+);
+
+const args = {
+  url: 'https://picsum.photos/seed/buttoninc/1000/100?blur',
+};
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
+
 export const HTML = HTMLTemplate.bind({});
+HTML.args = args;

@@ -9,39 +9,49 @@ export default {
   component: Footer,
   argTypes: {
     onBannerClick: { action: 'clicked' },
+    variant: {
+      description: 'The style variant to use.',
+      control: {
+        type: 'select',
+        options: ['primary', 'secondary'],
+      },
+    },
   },
 } as Meta;
 
-const Template: Story = args => (
+const JSTemplate: Story = args => (
   <>
     <ButtonTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <Footer {...args} />
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <Footer {...args} />
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
     <Footer {...args} />
   </>
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
+const HTMLTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <Footer {...args} />
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Footer {...args} />
+    </HtmlWithCssWrapper>
+  </>
+);
+const args = {
   variant: 'primary',
   onBannerClick: console.log,
 };
+export const JS = JSTemplate.bind({});
+JS.args = args;
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  variant: 'secondary',
-  onBannerClick: console.log,
-};
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
+
+export const HTML = HTMLTemplate.bind({});
+HTML.args = args;

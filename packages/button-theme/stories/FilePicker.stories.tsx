@@ -17,33 +17,42 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => (
+const JSTemplate: Story = args => (
   <>
     <ButtonTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <FilePicker {...args}>Choose File</FilePicker>
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <FilePicker {...args}>Choose File</FilePicker>
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
     <FilePicker {...args}>Choose File</FilePicker>
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+const HTMLTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <FilePicker {...args}>Choose File</FilePicker>
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <FilePicker {...args}>Choose File</FilePicker>
+    </HtmlWithCssWrapper>
+  </>
+);
+const args = {
   label: 'Upload a file',
   size: 'medium',
   required: false,
   disabled: false,
   onChange: console.log,
 };
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
+
+export const HTML = HTMLTemplate.bind({});
+HTML.args = args;

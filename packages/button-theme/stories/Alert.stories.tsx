@@ -1,7 +1,8 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import Alert from '../src/Alert';
-import { HtmlOnlyWrapper } from '../../../stories/helpers';
+import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: 'Alert',
@@ -30,28 +31,42 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => <Alert {...args} />;
+const Template: Story = args => (
+  <>
+    <ButtonTypography />
+    <Alert {...args} />
+  </>
+);
 
 const HTMLTemplate: Story = args => (
   <>
+    <ButtonTypography />
     <HtmlOnlyWrapper>
       <Alert {...args} />
     </HtmlOnlyWrapper>
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Alert {...args} />
+    </HtmlWithCssWrapper>
+  </>
+);
+const args = {
   variant: 'success',
   size: 'medium',
   closable: false,
   content: 'You have been alerted.',
 };
 
+export const JS = Template.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
+
 export const HTML = HTMLTemplate.bind({});
-HTML.args = {
-  variant: 'primary',
-  size: 'medium',
-  closable: false,
-  content: 'You have been alerted.',
-};
+HTML.args = args;

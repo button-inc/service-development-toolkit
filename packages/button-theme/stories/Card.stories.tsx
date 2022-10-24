@@ -3,7 +3,8 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Card from '../src/Card';
 import Link from '../src/Link';
 import Button from '../src/Button';
-import { HtmlOnlyWrapper } from '../../../stories/helpers';
+import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: 'Card',
@@ -15,41 +16,56 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => (
-  <Card {...args}>
-    If you'd like to register online please ensure that you have the <Link href="#link1">supporting documents</Link>{' '}
-    available
-    <br /> <br />
-    <Button>Click here to register</Button>
-    <br /> <br />
-    <Link href="#link1">
-      Already registered? Click here to <strong>login</strong>
-    </Link>
-  </Card>
+const Component = ({ args }) => {
+  return (
+    <>
+      {' '}
+      <Card {...args}>
+        If you'd like to register online please ensure that you have the <Link href="#link1">supporting documents</Link>{' '}
+        available
+        <br /> <br />
+        <Button>Click here to register</Button>
+        <br /> <br />
+        <Link href="#link1">
+          Already registered? Click here to <strong>login</strong>
+        </Link>
+      </Card>
+    </>
+  );
+};
+
+const JSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <Component args={args} />
+  </>
 );
 
-// duplication in template is to make code block show the children
 const HTMLTemplate: Story = args => (
-  <HtmlOnlyWrapper>
-    <Card {...args}>
-      If you'd like to register online please ensure that you have the <Link href="#link1">supporting documents</Link>{' '}
-      available
-      <br /> <br />
-      <Button>Click here to register</Button>
-      <br /> <br />
-      <Link href="#link1">
-        Already registered? Click here to <strong>login</strong>
-      </Link>
-    </Card>
-  </HtmlOnlyWrapper>
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <Component args={args} />
+    </HtmlOnlyWrapper>
+  </>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Component args={args} />
+    </HtmlWithCssWrapper>
+  </>
+);
+const args = {
   title: 'Online Registration',
 };
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
 
 export const HTML = HTMLTemplate.bind({});
-HTML.args = {
-  title: 'Online Registration',
-};
+HTML.args = args;

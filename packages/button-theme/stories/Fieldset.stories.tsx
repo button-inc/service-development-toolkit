@@ -2,7 +2,8 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import Fieldset from '../src/Fieldset';
 import Input from '../src/Input';
-import { HtmlOnlyWrapper } from '../../../stories/helpers';
+import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: 'Fieldset',
@@ -34,34 +35,50 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => (
-  <Fieldset {...args}>
-    <Input label="First Name" />
-    <Input label="Last Name" />
-  </Fieldset>
+const Component = ({ args }) => {
+  return (
+    <Fieldset {...args}>
+      <Input label="First Name" />
+      <Input label="Last Name" />
+    </Fieldset>
+  );
+};
+
+const JSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <Component args={args} />
+  </>
 );
 
 const HTMLTemplate: Story = args => (
   <>
+    <ButtonTypography />
     <HtmlOnlyWrapper>
-      <Fieldset {...args}>
-        <Input label="First Name" />
-        <Input label="Last Name" />
-      </Fieldset>
+      <Component args={args} />
     </HtmlOnlyWrapper>
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Component args={args} />
+    </HtmlWithCssWrapper>
+  </>
+);
+const args = {
   title: 'Please enter your name.',
   size: 'medium',
   disabled: false,
   required: false,
 };
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
 
 export const HTML = HTMLTemplate.bind({});
-HTML.args = {
-  title: 'Please enter your name.',
-  size: 'medium',
-};
+HTML.args = args;

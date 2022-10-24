@@ -27,31 +27,40 @@ const Component = props => (
   </Dropdown>
 );
 
-const Template: Story = args => (
+const JSTemplate: Story = args => (
   <>
     <ButtonTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <Component {...args}>Dropdown</Component>
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <Component {...args}>Dropdown</Component>
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
     <Component {...args}>Dropdown</Component>
   </>
 );
 
-export const Standard = Template.bind({});
-Standard.args = {
+const HTMLTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <Component {...args}>Dropdown</Component>
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Component {...args}>Dropdown</Component>
+    </HtmlWithCssWrapper>
+  </>
+);
+const args = {
   label: 'Field Label',
   size: 'medium',
   required: false,
 };
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
+
+export const HTML = HTMLTemplate.bind({});
+HTML.args = args;

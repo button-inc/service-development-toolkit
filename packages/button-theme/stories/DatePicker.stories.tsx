@@ -24,33 +24,42 @@ export default {
   },
 } as Meta;
 
-const Template: Story = args => (
+const JSTemplate: Story = args => (
   <>
     <ButtonTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <DatePicker {...args}>DatePicker</DatePicker>
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <DatePicker {...args}>DatePicker</DatePicker>
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
     <DatePicker {...args}>DatePicker</DatePicker>
   </>
 );
 
-export const Standard = Template.bind({});
-Standard.args = {
+const HTMLTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <DatePicker {...args}>DatePicker</DatePicker>
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <DatePicker {...args}>DatePicker</DatePicker>
+    </HtmlWithCssWrapper>
+  </>
+);
+const args = {
   label: 'Birthday',
   size: 'medium',
   required: false,
   rounded: true,
   fullWidth: false,
 };
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
+
+export const HTML = HTMLTemplate.bind({});
+HTML.args = args;

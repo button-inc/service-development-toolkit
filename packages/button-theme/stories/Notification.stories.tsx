@@ -14,74 +14,70 @@ export default {
         options: ['small', 'medium', 'large'],
       },
     },
+    variant: {
+      description: 'The style variant to use.',
+      control: {
+        type: 'select',
+        options: ['success', 'standard', 'warning', 'danger'],
+      },
+    },
   },
 } as Meta;
 
-const ExampleNotification = props => (
-  <Notification {...props}>
-    <Notification.Group>
-      <Notification.Header>Lectus Magna Efficitur</Notification.Header>
-      <Notification.Content>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus. In lectus magna, efficitur
-        nec mi eu, placerat lacinia sem.
-      </Notification.Content>
-    </Notification.Group>
-    <Notification.Group align="right">
-      <Notification.Close>Close</Notification.Close>
-    </Notification.Group>
-  </Notification>
-);
+const Component = ({ args }) => {
+  return (
+    <Notification {...args}>
+      <Notification.Group>
+        <Notification.Header>Lectus Magna Efficitur</Notification.Header>
+        <Notification.Content>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus. In lectus magna, efficitur
+          nec mi eu, placerat lacinia sem.
+        </Notification.Content>
+      </Notification.Group>
+      <Notification.Group align="right">
+        <Notification.Close>Close</Notification.Close>
+      </Notification.Group>
+    </Notification>
+  );
+};
 
-const Template: Story = args => (
+const JSTemplate: Story = args => (
   <>
     <ButtonTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <ExampleNotification {...args} />
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <ExampleNotification {...args} />
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
-    <ExampleNotification {...args} />
+    <Component args={args} />
   </>
 );
 
-export const Standard = Template.bind({});
-Standard.args = {
+const HTMLTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <Component args={args} />
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Component args={args} />
+    </HtmlWithCssWrapper>
+  </>
+);
+
+const args = {
   variant: 'standard',
   size: 'medium',
   flex: true,
   closable: true,
 };
 
-export const Warning = Template.bind({});
-Warning.args = {
-  variant: 'warning',
-  size: 'medium',
-  flex: true,
-  closable: true,
-};
+export const JS = JSTemplate.bind({});
+JS.args = args;
 
-export const Danger = Template.bind({});
-Danger.args = {
-  variant: 'danger',
-  size: 'medium',
-  flex: true,
-  closable: true,
-};
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
 
-export const Success = Template.bind({});
-Success.args = {
-  variant: 'success',
-  size: 'medium',
-  flex: true,
-  closable: true,
-};
+export const HTML = HTMLTemplate.bind({});
+HTML.args = args;

@@ -15,55 +15,50 @@ export default {
         options: ['small', 'medium', 'large'],
       },
     },
+    variant: {
+      description: 'The style variant to use.',
+      control: {
+        type: 'select',
+        options: ['primary', 'secondary', 'warning', 'dark'],
+      },
+    },
   },
 } as Meta;
 
-const Template: Story = args => (
+const JSTemplate: Story = args => (
   <>
     <ButtonTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <Button {...args}>Button</Button>
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <Button {...args}>Button</Button>
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
     <Button {...args}>Button</Button>
   </>
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
+const HTMLTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <Button {...args}>Button</Button>
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Button {...args}>Button</Button>
+    </HtmlWithCssWrapper>
+  </>
+);
+const args = {
   variant: 'primary',
   size: 'medium',
   disabled: false,
 };
+export const JS = JSTemplate.bind({});
+JS.args = args;
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  variant: 'secondary',
-  size: 'medium',
-  disabled: false,
-};
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
 
-export const Warning = Template.bind({});
-Warning.args = {
-  variant: 'warning',
-  size: 'medium',
-  disabled: false,
-};
-
-export const Dark = Template.bind({});
-Dark.args = {
-  variant: 'dark',
-  size: 'medium',
-  disabled: false,
-};
+export const HTML = HTMLTemplate.bind({});
+HTML.args = args;

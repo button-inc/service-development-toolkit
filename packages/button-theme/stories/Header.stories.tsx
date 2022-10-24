@@ -9,10 +9,17 @@ export default {
   component: Header,
   argTypes: {
     onBannerClick: { action: 'clicked' },
+    variant: {
+      description: 'The style variant to use.',
+      control: {
+        type: 'select',
+        options: ['primary', 'secondary'],
+      },
+    },
   },
 } as Meta;
 
-const Menu = () => (
+const Component = () => (
   <ul>
     <li>
       <a href=".">HOME</a>
@@ -26,42 +33,45 @@ const Menu = () => (
   </ul>
 );
 
-const Template: Story = args => (
+const JSTemplate: Story = args => (
   <>
     <ButtonTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <Header {...args}>
-        <Menu />
-      </Header>
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <Header {...args}>
-        <Menu />
-      </Header>
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
     <Header {...args}>
-      <Menu />
+      <Component />
     </Header>
   </>
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
+const HTMLTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <Header {...args}>
+        <Component />
+      </Header>
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Header {...args}>
+        <Component />
+      </Header>
+    </HtmlWithCssWrapper>
+  </>
+);
+const args = {
   variant: 'primary',
   onBannerClick: console.log,
 };
+export const JS = JSTemplate.bind({});
+JS.args = args;
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  variant: 'secondary',
-  onBannerClick: console.log,
-};
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
+
+export const HTML = HTMLTemplate.bind({});
+HTML.args = args;

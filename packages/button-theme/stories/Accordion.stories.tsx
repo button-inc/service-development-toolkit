@@ -9,17 +9,10 @@ export default {
   component: Accordion,
 } as Meta;
 
-const Example = ({ args }) => {
+const Component = ({ args }) => {
   return (
     <>
-      <Accordion {...args}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus. In lectus magna, efficitur
-        nec mi eu.
-      </Accordion>
-      <Accordion {...args}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus. In lectus magna, efficitur
-        nec mi eu.
-      </Accordion>
+      <ButtonTypography />
       <Accordion {...args}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus. In lectus magna, efficitur
         nec mi eu.
@@ -28,29 +21,32 @@ const Example = ({ args }) => {
   );
 };
 
-const Template: Story = args => (
+const JSTemplate: Story = args => <Component args={args} />;
+
+const HTMLTemplate: Story = args => (
   <>
-    <ButtonTypography />
-    <h3>HTML Only</h3>
     <HtmlOnlyWrapper>
-      <Example args={args} />
+      <Component args={args} />
     </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <Example args={args} />
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
-    <Example args={args} />
   </>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+const CSSTemplate: Story = args => (
+  <>
+    <HtmlWithCssWrapper>
+      <Component args={args} />
+    </HtmlWithCssWrapper>
+  </>
+);
+
+const args = {
   title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 };
+export const JS = JSTemplate.bind({});
+JS.args = args;
+
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
+
+export const HTML = HTMLTemplate.bind({});
+HTML.args = args;
