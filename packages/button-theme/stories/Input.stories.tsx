@@ -14,45 +14,51 @@ export default {
         options: ['small', 'medium', 'large'],
       },
     },
+    variant: {
+      control: {
+        type: 'select',
+        options: ['standard', 'warning'],
+      },
+    },
   },
 } as Meta;
 
-const Template: Story = args => (
+const JSTemplate: Story = args => (
   <>
     <ButtonTypography />
-    <h3>HTML Only</h3>
-    <HtmlOnlyWrapper>
-      <Input {...args}>Input</Input>
-    </HtmlOnlyWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS</h3>
-    <HtmlWithCssWrapper>
-      <Input {...args}>Input</Input>
-    </HtmlWithCssWrapper>
-
-    <Divider />
-
-    <h3>HTML + CSS + JS</h3>
     <Input {...args}>Input</Input>
   </>
 );
 
-export const Standard = Template.bind({});
-Standard.args = {
+const HTMLTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlOnlyWrapper>
+      <Input {...args}>Input</Input>
+    </HtmlOnlyWrapper>
+  </>
+);
+
+const CSSTemplate: Story = args => (
+  <>
+    <ButtonTypography />
+    <HtmlWithCssWrapper>
+      <Input {...args}>Input</Input>
+    </HtmlWithCssWrapper>
+  </>
+);
+const args = {
   label: 'Field Label',
   variant: 'standard',
   size: 'medium',
   required: false,
   fullWidth: true,
 };
+export const JS = JSTemplate.bind({});
+JS.args = args;
 
-export const Warning = Template.bind({});
-Warning.args = {
-  label: 'Field Label',
-  variant: 'warning',
-  size: 'medium',
-  required: false,
-  fullWidth: true,
-};
+export const CSS = CSSTemplate.bind({});
+CSS.args = args;
+
+export const HTML = HTMLTemplate.bind({});
+HTML.args = args;
