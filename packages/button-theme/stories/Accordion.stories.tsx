@@ -2,6 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper, Divider } from '../../../stories/helpers';
 import Accordion from '../src/Accordion';
+import ButtonTypography from './ButtonTypography';
 
 export default {
   title: 'Accordion',
@@ -11,6 +12,7 @@ export default {
 const Component = ({ args }) => {
   return (
     <>
+      <ButtonTypography />
       <Accordion {...args}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a tincidunt risus. In lectus magna, efficitur
         nec mi eu.
