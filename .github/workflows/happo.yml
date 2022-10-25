@@ -18,10 +18,8 @@ jobs:
         with:
           node-version: 16
       - run: |
-
-          cd ./packages/bcgov-theme
           yarn
-          yarn happo
+          yarn happo-ci-github-actions
 
         # working-directory: /app/packages/button-theme
         env:
