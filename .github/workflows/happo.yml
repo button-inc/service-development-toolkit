@@ -18,9 +18,6 @@ jobs:
         with:
           node-version: 16
       - run: |
-          yarn
-          yarn llink
-          yarn build
           cd ./packages/bcgov-theme
           yarn
           yarn happo-ci-github-actions
