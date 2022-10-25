@@ -15,7 +15,7 @@
     "sync-version": "node ../../scripts/sync-version.js --name=bcgov-theme",
     "storybook": "start-storybook -p 6006 -s ./.storybook/images --no-manager-cache",
     "test:jest": "yarn jest",
-    "happo": "happo run",
+    "happo": "happo",
     "happo-ci-github-actions": "happo-ci-github-actions"
   },
   "dependencies": {
