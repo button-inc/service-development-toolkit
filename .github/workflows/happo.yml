@@ -19,6 +19,7 @@ jobs:
           node-version: 16
       - run: |
           yarn
+          yarn bootstrap
           yarn llink
           yarn build
           yarn happo-ci-github-actions
