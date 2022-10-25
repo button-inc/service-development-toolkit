@@ -1,9 +1,9 @@
 name: Happo CI
 on:
   push:
-    branches: [develop]
+    branches: [563-happo]
   pull_request:
-    branches: [develop]
+    branches: [563-happo]
 jobs:
   happo:
     runs-on: ubuntu-latest
