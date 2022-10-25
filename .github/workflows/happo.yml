@@ -19,6 +19,8 @@ jobs:
           node-version: 16
       - run: |
           yarn
+          yarn llink
+          yarn build
           yarn happo-ci-github-actions
 
         # working-directory: /app/packages/button-theme
