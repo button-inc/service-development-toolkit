@@ -67,7 +67,7 @@
     "build-storybook:button": "build-storybook -c packages/button-theme/.storybook",
     "deploy-storybook": "storybook-to-ghpages --packages packages --branch=storybook",
     "happo": "lerna run happo",
-    "happo-ci-github-actions": "happo-ci-github-actions"
+    "happo-ci-github-actions": "lerna run happo-ci-github-actions"
   },
   "private": true,
   "resolutions": {
