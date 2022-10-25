@@ -18,16 +18,20 @@ jobs:
         with:
           node-version: 16
       - run: |
-          yarn
-          yarn bootstrap
-          yarn llink
-          yarn build
+
           cd ./packages/bcgov-theme
-          yarn happo-ci-github-actions
+          yarn
+          yarn happo
+
         # working-directory: /app/packages/button-theme
         env:
           HAPPO_API_KEY: ${{ secrets.HAPPO_API_KEY }}
           HAPPO_API_SECRET: ${{ secrets.HAPPO_API_SECRET }}
+  # yarn
+  # yarn bootstrap
+  # yarn llink
+  # yarn build
+  # yarn happo-ci-github-actions
 #   runs-on: ubuntu-latest
 #   steps:
 #     - uses: actions/checkout@v2
