@@ -37,6 +37,15 @@ To run happo tests:
 - create an `.env` file based on `env.example` and contact Button Inc. for credentials
 - `cd` into the desired package and run `yarn happo run`
 
+## Installing packages
+
+To install a new package
+
+- in the root directory, `yarn add [packageName] -W`
+- navigate to the root `package.json` and copy the package's line
+- navigate to the themes' `package.json` and paste the package's line
+- `cd` back into the root directory and re-run the commands from `Build and Run Storybook` above
+
 ## Building, Continous Integration, Deploying, and Publishing
 
 ### Build
