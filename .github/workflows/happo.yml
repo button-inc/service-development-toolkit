@@ -7,9 +7,9 @@ on:
 jobs:
   happo:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./packages/bcgov-theme
+    # defaults:
+    #   run:
+    #     working-directory: ./packages/bcgov-theme
     steps:
       - uses: actions/checkout@v2
         with:
@@ -19,7 +19,9 @@ jobs:
           node-version: 16
       - run: |
           yarn
+          yarn llink
           yarn build
+          cd ./packages/bcgov-theme
       - run: yarn happo-ci-github-actions
         # working-directory: /app/packages/button-theme
         env:
