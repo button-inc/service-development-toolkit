@@ -7,6 +7,9 @@ on:
 jobs:
   happo:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./packages/bcgov-theme
     steps:
       - uses: actions/checkout@v2
         with:
@@ -16,7 +19,7 @@ jobs:
           node-version: 16
       - run: yarn
       - run: yarn happo-ci-github-actions
-        working-directory: /app/packages/button-theme
+        # working-directory: /app/packages/button-theme
         env:
           HAPPO_API_KEY: ${{ secrets.HAPPO_API_KEY }}
           HAPPO_API_SECRET: ${{ secrets.HAPPO_API_SECRET }}
