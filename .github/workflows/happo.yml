@@ -22,7 +22,8 @@ jobs:
           yarn llink
           yarn build
           cd ./packages/bcgov-theme
-      - run: yarn happo-ci-github-actions
+          yarn
+          yarn happo-ci-github-actions
         # working-directory: /app/packages/button-theme
         env:
           HAPPO_API_KEY: ${{ secrets.HAPPO_API_KEY }}
