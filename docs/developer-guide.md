@@ -32,7 +32,7 @@ To run unit tests in all packages, run `yarn test:jest`
 
 #### Happo screenshots
 
-To run generate happo screenshots locally:
+To generate happo screenshots locally:
 
 - create an `.env` file based on `env.example` and contact Button Inc. for credentials
 - `cd` into the desired package and run `yarn happo run`
