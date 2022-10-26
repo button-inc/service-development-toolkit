@@ -5,7 +5,7 @@ import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Link',
+  title: 'Components/Link',
   component: Link,
   argTypes: {
     size: {

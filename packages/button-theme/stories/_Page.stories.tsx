@@ -15,7 +15,7 @@ import ButtonTypography from './ButtonTypography';
 import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
 
 export default {
-  title: '_Page',
+  title: 'Components/Page',
   argTypes: {
     size: {
       control: {

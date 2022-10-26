@@ -5,7 +5,7 @@ import Grid from '../src/Grid';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Grid',
+  title: 'Components/Grid',
   component: Grid,
 } as Meta;
 

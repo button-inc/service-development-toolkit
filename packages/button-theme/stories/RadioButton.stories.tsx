@@ -5,7 +5,7 @@ import RadioButton from '../src/RadioButton';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'RadioButton',
+  title: 'Components/RadioButton',
   component: RadioButton,
   argTypes: {
     onClick: { action: 'clicked' },

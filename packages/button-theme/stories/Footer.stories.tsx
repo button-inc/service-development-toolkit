@@ -5,7 +5,7 @@ import Footer from '../src/Footer';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Footer',
+  title: 'Components/Footer',
   component: Footer,
   argTypes: {
     onBannerClick: { action: 'clicked' },

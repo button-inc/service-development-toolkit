@@ -5,7 +5,7 @@ import Checkbox from '../src/Checkbox';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Checkbox',
+  title: 'Components/Checkbox',
   component: Checkbox,
   argTypes: {
     onClick: { action: 'clicked' },

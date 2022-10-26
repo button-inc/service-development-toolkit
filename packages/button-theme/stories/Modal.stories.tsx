@@ -5,7 +5,7 @@ import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Modal',
+  title: 'Components/Modal',
   component: Modal,
   argTypes: {
     id: {

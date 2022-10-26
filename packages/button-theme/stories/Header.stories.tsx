@@ -5,7 +5,7 @@ import Header from '../src/Header';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Header',
+  title: 'Components/Header',
   component: Header,
   argTypes: {
     onBannerClick: { action: 'clicked' },

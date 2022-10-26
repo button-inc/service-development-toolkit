@@ -5,7 +5,7 @@ import FilePicker from '../src/FilePicker';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'FilePicker',
+  title: 'Components/FilePicker',
   component: FilePicker,
   argTypes: {
     size: {

@@ -5,7 +5,7 @@ import DatePicker from '../src/DatePicker';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'DatePicker',
+  title: 'Components/DatePicker',
   component: DatePicker,
   argTypes: {
     size: {
