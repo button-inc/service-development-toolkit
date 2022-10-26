@@ -39,12 +39,10 @@ To run generate happo screenshots locally:
 
 ## Installing packages
 
-To install a new package
+To install a new package:
 
 - in the root directory, `yarn add [packageName] -W`
-- navigate to the root `package.json` and copy the package's line
-- navigate to the themes' `package.json` and paste the package's line
-- `cd` back into the root directory and re-run the commands from `Build and Run Storybook` above
+- if you have any trouble with directories or files not being found, re-run the commands from `Build and Run Storybook` above
 
 ## Building, Continous Integration, Deploying, and Publishing
 
