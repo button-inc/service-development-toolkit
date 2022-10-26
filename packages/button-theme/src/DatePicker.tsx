@@ -41,6 +41,11 @@ export const datepickerStyles = {
       `,
     },
   },
+  rounded: {
+    input: `
+      border-radius: 0.25em;
+    `,
+  },
 };
 
 const config: StyleConfig = {
