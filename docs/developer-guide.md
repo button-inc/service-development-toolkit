@@ -30,9 +30,9 @@ What are [pre-commit hooks](https://pre-commit.com/)?
 
 To run unit tests in all packages, run `yarn test:jest`
 
-#### Happo tests
+#### Happo screenshots
 
-To run happo tests:
+To run generate happo screenshots locally:
 
 - create an `.env` file based on `env.example` and contact Button Inc. for credentials
 - `cd` into the desired package and run `yarn happo run`
