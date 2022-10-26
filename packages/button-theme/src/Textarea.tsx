@@ -1,6 +1,8 @@
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Textarea';
+import styles from './styles';
 
-export const styles = {
+export const textareaStyles = {
+  ...styles,
   shared: {
     label: `
       display: block;
@@ -61,21 +63,6 @@ export const styles = {
       `,
     },
   },
-  resize: {
-    none: { input: 'resize: none;' },
-    both: { input: 'resize: both;' },
-    horizontal: { input: 'resize: horizontal;' },
-    vertical: { input: 'resize: vertical;' },
-  },
-  required: {
-    label: `
-      &:after {
-        margin: -0.2em 0em 0em 0.2em;
-        content: '*';
-        color: #DB2828;
-      }
-    `,
-  },
 };
 
 const config: StyleConfig = {
@@ -87,6 +74,6 @@ const config: StyleConfig = {
   staticProps: ['fullWidth'],
 };
 
-const Textarea = applyTheme(styles, config);
+const Textarea = applyTheme(textareaStyles, config);
 
 export default Textarea;
