@@ -12,7 +12,7 @@ The Service Development Toolkit is a toolkit to bring best practices to data int
 
 The toolkit can be used to easily create progressively enhanced, accessible form-based applications that are themable and focused on
 minimizing resource size. It consists of a component library for themed, accessible,  progressively enhanced components, and a form-builder application
-to help create progressively enhanced forms with good UI pricnciples. See below for live demonstrations:
+to help create progressively enhanced forms with good UI principles. See below for live demonstrations:
 
 - [Component Library Storybook](https://button-inc.github.io/service-development-toolkit/)
 - [Component Library Theme Builder](https://service-development-toolkit.herokuapp.com/theme-builder/button)
@@ -32,6 +32,10 @@ See the documentation below for getting setup in each tool:
 - [component-library](/packages/component-library/README.md#getting-started)
 - [form-schema](/packages/form-schema/README.md#getting-started)
 
+Some of this information is also available in the component's Storybooks:
+
+- [BCGov themed components](https://button-inc.github.io/service-development-toolkit/@button-inc/bcgov-theme/index.html?path=/docs/getting-started-using-the-kit--page)
+- [Button themed components](https://button-inc.github.io/service-development-toolkit/@button-inc/button-theme/index.html?path=/story/getting-started-using-the-kit--page)
 ## Contributing
 
 - To contribute, fork this repository. See the [developer guide](/docs/developer-guide.md) for getting a local instance running.
