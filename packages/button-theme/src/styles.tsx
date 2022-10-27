@@ -288,5 +288,10 @@ const styles = {
       a: `font-size: 1.2rem`,
     },
   },
+  rounded: {
+    input: `
+      border-radius: 0.25em;
+    `,
+  },
 };
 export default styles;
