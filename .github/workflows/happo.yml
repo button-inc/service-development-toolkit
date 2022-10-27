@@ -1,0 +1,26 @@
+name: Happo CI
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+jobs:
+  happo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 100
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: |
+          yarn
+          yarn bootstrap
+          yarn llink
+          yarn build
+          yarn happo-ci-github-actions
+        env:
+          HAPPO_COMMAND: /home/runner/work/service-development-toolkit/service-development-toolkit/node_modules/happo.io/build/cli.js
+          HAPPO_API_KEY: ${{ secrets.HAPPO_API_KEY }}
+          HAPPO_API_SECRET: ${{ secrets.HAPPO_API_SECRET }}

@@ -8,6 +8,13 @@
 2. Clone this repository
 3. `cd` into the repository
 
+### Set Up Pre-Commit Locally
+
+- See [docs](https://github.com/button-inc/digital_marketplace/blob/main/docs/pre-commit.md) for setup
+- Run `bash .git/hooks/pre-commit` from repo to execute pre-commit on staged files without commiting
+
+What are [pre-commit hooks](https://pre-commit.com/)?
+
 ### Build and Run Storybook
 
 - Run `yarn` to install package dependencies (follow any prompts `asdf` provides)
@@ -17,17 +24,25 @@
 - Run `yarn storybook:<theme>` where `<theme>` is `bcgov`, `button`, or your custom theme
 - Storybook will open in a browser
 
-### Set Up Pre-Commit Locally
+### Testing
 
-- See [docs](https://github.com/button-inc/digital_marketplace/blob/main/docs/pre-commit.md) for setup
-- Run `bash .git/hooks/pre-commit` from repo to execute pre-commit on staged files without commiting
-
-What are [pre-commit hooks](https://pre-commit.com/)?
-
-
-### Test
+#### Unit tests
 
 To run unit tests in all packages, run `yarn test:jest`
+
+#### Happo screenshots
+
+To generate happo screenshots locally:
+
+- create an `.env` file based on `env.example` and contact Button Inc. for credentials
+- `cd` into the desired package and run `yarn happo run`
+
+## Installing packages
+
+To install a new package:
+
+- in the root directory, `yarn add [packageName] -W`
+- if you have any trouble with directories or files not being found, re-run the commands from `Build and Run Storybook` above
 
 ## Building, Continous Integration, Deploying, and Publishing
 
