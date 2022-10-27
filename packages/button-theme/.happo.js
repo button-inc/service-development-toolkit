@@ -22,6 +22,7 @@ module.exports = {
       viewport: '375x667',
     }),
   },
+  project: 'button-theme',
   plugins: [
     // see https://github.com/happo/happo-plugin-storybook for a list of options you can pass to the plugin
     happoPluginStorybook(),
