@@ -3,8 +3,8 @@ const happoPluginStorybook = require('happo-plugin-storybook');
 require('dotenv').config();
 
 module.exports = {
-  apiKey: process.env.STORYBOOK_HAPPO_API_KEY,
-  apiSecret: process.env.STORYBOOK_HAPPO_API_SECRET,
+  apiKey: process.env.HAPPO_API_KEY || process.env.STORYBOOK_HAPPO_API_KEY,
+  apiSecret: process.env.HAPPO_API_SECRET || process.env.STORYBOOK_HAPPO_API_SECRET,
   targets: {
     chrome: new RemoteBrowserTarget('chrome', {
       viewport: '1024x768',
