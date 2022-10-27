@@ -22,5 +22,5 @@ jobs:
           yarn happo-ci-github-actions
         env:
           HAPPO_COMMAND: /home/runner/work/service-development-toolkit/service-development-toolkit/node_modules/happo.io/build/cli.js
-          HAPPO_API_KEY: ${{ secrets.HAPPO_API_KEY }}
-          HAPPO_API_SECRET: ${{ secrets.HAPPO_API_SECRET }}
+          HAPPO_API_KEY: ${{ secrets.HAPPO_STORYBOOK_API_KEY }}
+          HAPPO_API_SECRET: ${{ secrets.HAPPO_STORYBOOK_API_SECRET }}
