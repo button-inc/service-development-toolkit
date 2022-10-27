@@ -1,4 +1,4 @@
-name: Happo bc-gov theme
+name: Happo CI
 on:
   push:
     branches: [develop]
@@ -24,10 +24,3 @@ jobs:
           HAPPO_COMMAND: /home/runner/work/service-development-toolkit/service-development-toolkit/node_modules/happo.io/build/cli.js
           HAPPO_API_KEY: ${{ secrets.HAPPO_API_KEY }}
           HAPPO_API_SECRET: ${{ secrets.HAPPO_API_SECRET }}
-#  - run: |
-#           yarn
-#           yarn bootstrap
-#           yarn llink
-#           yarn build
-#           cd ./packages/bcgov-theme
-#           yarn happo-ci-github-actions
