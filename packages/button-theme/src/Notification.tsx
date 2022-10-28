@@ -30,49 +30,52 @@ export const notificationStyles = {
   },
   size: {
     small: {
+      ...styles.size.small,
       container: `
         padding: 0.8rem 0.9rem;
       `,
-      header: `
-        font-size: 1rem;
-      `,
+      // header: `
+      //   font-size: 1rem;
+      // `,
       content: `
         font-size: 0.8rem;
       `,
-      close: `
-        font-size: 0.8rem;
-        padding: 0.2rem;
-      `,
+      // close: `
+      //   font-size: 0.8rem;
+      //   padding: 0.2rem;
+      // `,
     },
     medium: {
+      ...styles.size.medium,
       container: `
         padding: 1rem 1.1rem;
       `,
-      header: `
-        font-size: 1.2rem;
-      `,
+      // header: `
+      //   font-size: 1.2rem;
+      // `,
       content: `
         font-size: 1rem;
       `,
-      close: `
-        font-size: 1rem;
-        padding: 0.4rem;
-      `,
+      // close: `
+      //   font-size: 1rem;
+      //   padding: 0.4rem;
+      // `,
     },
     large: {
+      ...styles.size.large,
       container: `
         padding: 1.2rem 1.3rem;
       `,
-      header: `
-        font-size: 1.4rem;
-      `,
+      // header: `
+      //   font-size: 1.4rem;
+      // `,
       content: `
         font-size: 1.2rem;
       `,
-      close: `
-        font-size: 1.2rem;
-        padding: 0.6rem;
-      `,
+      // close: `
+      //   font-size: 1.2rem;
+      //   padding: 0.6rem;
+      // `,
     },
   },
 };
