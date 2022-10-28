@@ -1,9 +1,23 @@
-import card_html from './img/card-html.png'
-import card_js from './img/card-js.png'
+import button_card_html from './img/button-card-html.png'
+import button_card_js from './img/button-card-js.png'
+import bcgov_card_html from './img/bcgov-card-html.png'
+import bcgov_card_js from './img/bcgov-card-js.png'
 import pe_controls from './img/pe-controls.png'
 import './css/pe.css';
 import './css/docs.css';
 
+export const getImageByTheme = (theme) => {
+  if (theme === 'bcgov') {
+    return {
+      html: bcgov_card_html,
+      js: bcgov_card_js,
+    }
+  }
+  return {
+    html: button_card_html,
+    js: button_card_js,
+  }
+}
 
 # Progressive Enhancement
 
@@ -17,11 +31,11 @@ Progressive enhancement is an approach that essentially **starts with a good fo
 
 <div className="images-container">
   <div className="image-container">
-    <img src={card_html} style={{width: '512px'}} alt="Card component in plain html" />
+    <img src={getImageByTheme(props.theme).html} style={{width: '512px'}} alt="Card component in plain html" />
     Plain HTML
   </div>
   <div className="image-container">
-    <img src={card_js} style={{width: '512px'}} alt="Card component with css & javascript applied" />
+    <img src={getImageByTheme(props.theme).js} style={{width: '512px'}} alt="Card component with css & javascript applied" />
     With JavaScript + CSS
   </div>
 </div>
