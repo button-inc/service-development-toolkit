@@ -29,6 +29,7 @@ export const notificationStyles = {
     `,
   },
   size: {
+    ...styles.size.small,
     small: {
       container: `
         padding: 0.8rem 0.9rem;
@@ -38,6 +39,7 @@ export const notificationStyles = {
       `,
     },
     medium: {
+      ...styles.size.medium,
       container: `
         padding: 1rem 1.1rem;
       `,
@@ -46,6 +48,7 @@ export const notificationStyles = {
       `,
     },
     large: {
+      ...styles.size.large,
       container: `
         padding: 1.2rem 1.3rem;
       `,
