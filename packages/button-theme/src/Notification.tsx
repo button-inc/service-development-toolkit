@@ -75,14 +75,6 @@ export const notificationStyles = {
       `,
     },
   },
-  flex: {
-    container: `
-      display: flex;
-    `,
-    group: `
-      margin: auto 0.5rem;
-    `,
-  },
 };
 
 const config: StyleConfig = {
