@@ -1,6 +1,8 @@
 import { applyTheme, StyleConfig } from '@button-inc/component-library/Notification';
+import styles from './styles';
 
-export const styles = {
+export const notificationStyles = {
+  ...styles,
   shared: {
     container: `
       position: relative;
@@ -203,6 +205,6 @@ const childStyles = {
   },
 };
 
-const Notification = applyTheme(styles, config, childStyles);
+const Notification = applyTheme(notificationStyles, config, childStyles);
 
 export default Notification;
