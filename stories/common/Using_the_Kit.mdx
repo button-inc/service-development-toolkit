@@ -4,12 +4,18 @@ import './css/docs.css';
 
 ## How to use the Components
 
-1. Install the package: `npm i @button-inc/button-theme`
-2. Import the components: `import Button from @button-inc/button-theme/Button`
+<!-- Due to how MDX v1 handles JSX & MD, any lines with props need to be in JSX -->
+<!-- see https://github.com/facebook/docusaurus/issues/6072#issuecomment-989516658 -->
+<!-- MDX v2 is optional as of Storybook v6.5, so there is potential for refactoring in the future -->
 
-_Note: you can also import components using the syntax `import {Button} from @button-inc/button-theme`, however the above method will reduce bundle size and is recommended._
+<ol>
+  <li>Install the package: <code>npm i @button-inc/{props.theme}-theme</code></li>
+  <li>Import the components: <code>import Card from @button-inc/{props.theme}-theme/Card</code></li>
+</ol>
 
-3. Include the component in your code: `<Button>Click!</Button>`
+<p><em>Note: you can also import components using the syntax <code>import &#123;Card&#125; from @button-inc/{props.theme}-theme</code>, however the above method will reduce bundle size and is recommended.</em></p>
+
+3. Include the component in your code: `<Card>Click!</Card>`
 
 ## Progressive Enhancement
 
@@ -23,11 +29,11 @@ The text below shows a quick way to get setup in a nextjs project. For more info
 
 1. Create a template application: from the directory you want your app to be in, run `npx create-next-app my-new-app-name`
 2. After installation completes, go to the project: `cd my-new-app-name`
-3. Install the package: `npm i @button-inc/button-theme`
+<li>Install the package: <code>npm i @button-inc/{props.theme}-theme</code></li>
 4. Replace all contents of _pages/index.js_ with the following code:
 
-```js
-import Header from '@button-inc/button-theme/Header';
+<pre><code>{`
+import Header from '@button-inc/${props.theme}-theme/Header';
 
 export default function Home() {
   return (
@@ -36,18 +42,19 @@ export default function Home() {
     </div>
   );
 }
-```
+`}</code></pre>
 
 5. Run `npm run dev` to see your site.
 
 ### Gatsby
 
 1. Follow Gatsby's [tutorial](https://www.gatsbyjs.com/docs/tutorial/part-0/) to get your environment setup. Once you have completed the [run your site locally](https://www.gatsbyjs.com/docs/tutorial/part-1/#run-your-site-locally) step, continue to step 2.
-2. Install the package: `npm i @button-inc/button-theme`
+<li>Install the package: <code>npm i @button-inc/{props.theme}-theme</code></li>
 3. Replace the contents of _src/pages/index.js_ with the code below:
-```js
+
+<pre><code>{`
 import * as React from "react"
-import Header from '@button-inc/button-theme/Header';
+import Header from '@button-inc/${props.theme}-theme/Header';
 
 // markup
 const IndexPage = () => {
@@ -57,8 +64,10 @@ const IndexPage = () => {
 }
 
 export default IndexPage
-```
-3. Run `npm run develop` to see your site.
+`}</code></pre>
+
+
+4. Run `npm run develop` to see your site.
 
 ## Props
 
