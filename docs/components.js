@@ -1,9 +1,23 @@
 const components = [
   {
+    name: 'Alert',
+    stylableSections: ['container', 'header', 'content', 'group', 'close'],
+    htmlOverrideSections: ['container', 'header', 'content', 'group'],
+    configOptions: ['as'],
+    rendersChildComponents: 'Yes',
+  },
+  {
     name: 'Button',
     stylableSections: [],
     htmlOverrideSections: [],
     configOptions: [],
+    rendersChildComponents: 'Yes',
+  },
+  {
+    name: 'Callout',
+    stylableSections: ['container'],
+    htmlOverrideSections: ['container'],
+    configOptions: ['as'],
     rendersChildComponents: 'Yes',
   },
   {
@@ -56,11 +70,25 @@ const components = [
     rendersChildComponents: 'Yes',
   },
   {
+    name: 'HeroImage',
+    stylableSections: ['container', 'innerContainer'],
+    htmlOverrideSections: [],
+    configOptions: ['url'],
+    rendersChildComponents: 'Yes',
+  },
+  {
     name: 'Input',
     stylableSections: ['container', 'label', 'input', 'wrapper'],
     htmlOverrideSections: ['container', 'wrapper'],
     configOptions: ['as', 'includeWrapper'],
     rendersChildComponents: 'No',
+  },
+  {
+    name: 'Link',
+    stylableSections: ['link'],
+    htmlOverrideSections: [],
+    configOptions: ['href'],
+    rendersChildComponents: 'Yes',
   },
   {
     name: 'Menu',
