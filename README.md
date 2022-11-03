@@ -1,6 +1,6 @@
 <br/>
 
-> 👋 Welcome! The toolkit's [component library](./packages/component-library) is in preview; this means the API is subject to change without notice.
+> 👋 Welcome! The toolkit [component library](./packages/component-library) is in preview; this means the API is subject to change without notice.
 >
 > If you're interested in production use of this codebase, we'd love to chat! Please reach out at [toolkit@button.is](mailto:toolkit@button.is).
 
@@ -11,8 +11,8 @@
 The Service Development Toolkit is a toolkit to bring best practices to data intake applications built with [React](https://reactjs.org/).
 
 The toolkit can be used to easily create progressively enhanced, accessible form-based applications that are themable and focused on
-minimizing resource size. It consists of a component library for themed, accessible,  progressively enhanced components, and a form-builder application
-to help create progressively enhanced forms with good UI principles. See below for live demonstrations:
+minimizing resource size. It consists of a component library for themed, accessible, progressively enhanced components, and a form-builder application
+to help create progressively enhanced forms with good UI pricnciples. See below for live demonstrations:
 
 - [Component Library Storybook](https://button-inc.github.io/service-development-toolkit/)
 - [Component Library Theme Builder](https://service-development-toolkit.herokuapp.com/theme-builder/button)
@@ -36,6 +36,7 @@ Information on getting started and usage of the themed component libraries is al
 
 - [BCGov themed components](https://button-inc.github.io/service-development-toolkit/@button-inc/bcgov-theme/index.html?path=/docs/getting-started-using-the-kit--page)
 - [Button themed components](https://button-inc.github.io/service-development-toolkit/@button-inc/button-theme/index.html?path=/story/getting-started-using-the-kit--page)
+
 ## Contributing
 
 - To contribute, fork this repository. See the [developer guide](/docs/developer-guide.md) for getting a local instance running.
