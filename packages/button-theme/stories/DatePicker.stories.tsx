@@ -54,6 +54,7 @@ const args = {
   required: false,
   rounded: true,
   fullWidth: false,
+  value: process.env.STORYBOOK_VISUAL_TESTING ? '2022-11-04' : undefined,
 };
 export const JS = JSTemplate.bind({});
 JS.args = args;

@@ -26,7 +26,7 @@ Default.args = {
   size: 'medium',
   disabled: false,
   required: false,
-  value: 'date',
+  value: process.env.STORYBOOK_VISUAL_TESTING ? '2022-11-04' : undefined,
   name: 'date',
   id: 'date-picker',
 };
