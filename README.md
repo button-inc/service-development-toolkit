@@ -32,7 +32,7 @@ See the documentation below for getting setup in each tool:
 - [component-library](/packages/component-library/README.md#getting-started)
 - [form-schema](/packages/form-schema/README.md#getting-started)
 
-Some of this information is also available in the component's Storybooks:
+Information on getting started and usage of the themed component libraries is also available in the component's Storybooks:
 
 - [BCGov themed components](https://button-inc.github.io/service-development-toolkit/@button-inc/bcgov-theme/index.html?path=/docs/getting-started-using-the-kit--page)
 - [Button themed components](https://button-inc.github.io/service-development-toolkit/@button-inc/button-theme/index.html?path=/story/getting-started-using-the-kit--page)
