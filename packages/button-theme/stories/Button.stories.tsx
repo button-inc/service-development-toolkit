@@ -5,7 +5,7 @@ import Button from '../src/Button';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
     onClick: { action: 'clicked' },

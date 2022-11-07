@@ -5,7 +5,7 @@ import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Textarea',
+  title: 'Components/Textarea',
   component: Textarea,
   argTypes: {
     size: {

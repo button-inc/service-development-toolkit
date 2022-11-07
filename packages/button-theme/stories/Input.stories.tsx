@@ -5,7 +5,7 @@ import Input from '../src/Input';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Input',
+  title: 'Components/Input',
   component: Input,
   argTypes: {
     size: {

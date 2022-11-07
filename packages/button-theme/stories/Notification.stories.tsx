@@ -5,7 +5,7 @@ import Notification from '../src/Notification';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Notification',
+  title: 'Components/Notification',
   component: Notification,
   argTypes: {
     size: {

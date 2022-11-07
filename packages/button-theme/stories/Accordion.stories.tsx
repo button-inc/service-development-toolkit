@@ -5,7 +5,7 @@ import Accordion from '../src/Accordion';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Accordion',
+  title: 'Components/Accordion',
   component: Accordion,
 } as Meta;
 

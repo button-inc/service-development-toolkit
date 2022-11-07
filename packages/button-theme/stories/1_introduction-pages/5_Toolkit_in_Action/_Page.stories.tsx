@@ -1,21 +1,21 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import Header from '../src/Header';
-import Footer from '../src/Footer';
-import Notification from '../src/Notification';
-import Input from '../src/Input';
-import DatePicker from '../src/DatePicker';
-import FilePicker from '../src/FilePicker';
-import Checkbox from '../src/Checkbox';
-import RadioButton from '../src/RadioButton';
-import Button from '../src/Button';
-import Dropdown from '../src/Dropdown';
-import Textarea from '../src/Textarea';
-import ButtonTypography from './ButtonTypography';
-import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
+import Header from '../../../src/Header';
+import Footer from '../../../src/Footer';
+import Notification from '../../../src/Notification';
+import Input from '../../../src/Input';
+import DatePicker from '../../../src/DatePicker';
+import FilePicker from '../../../src/FilePicker';
+import Checkbox from '../../../src/Checkbox';
+import RadioButton from '../../../src/RadioButton';
+import Button from '../../../src/Button';
+import Dropdown from '../../../src/Dropdown';
+import Textarea from '../../../src/Textarea';
+import ButtonTypography from '../../ButtonTypography';
+import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../../../stories/helpers';
 
 export default {
-  title: '_Page',
+  title: 'Getting Started/Toolkit in Action',
   argTypes: {
     size: {
       control: {

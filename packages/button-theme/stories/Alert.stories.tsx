@@ -5,7 +5,7 @@ import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Alert',
+  title: 'Components/Alert',
   component: Alert,
   argTypes: {
     size: {

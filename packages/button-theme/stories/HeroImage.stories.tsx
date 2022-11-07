@@ -5,7 +5,7 @@ import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'HeroImage',
+  title: 'Components/HeroImage',
   component: HeroImage,
   argTypes: {
     url: {

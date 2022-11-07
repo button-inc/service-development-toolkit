@@ -44,6 +44,12 @@ To install a new package:
 - in the root directory, `yarn add [packageName] -W`
 - if you have any trouble with directories or files not being found, re-run the commands from `Build and Run Storybook` above
 
+To install a new package to a Lerna sub-package
+
+- in the root directory, `lerna add [packageName] [--scope={subPackage}] [--dev]` (eg. `lerna add typescript --scope=@button-inc/button-theme --dev`)
+- see [the Lerna documentation](https://github.com/lerna/lerna/tree/main/commands/add)
+
+
 ## Building, Continous Integration, Deploying, and Publishing
 
 ### Build

@@ -5,7 +5,7 @@ import Dropdown from '../src/Dropdown';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Dropdown',
+  title: 'Components/Dropdown',
   component: Dropdown,
   argTypes: {
     size: {

@@ -1,0 +1,9 @@
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.images-container {
+  display: flex;
+}

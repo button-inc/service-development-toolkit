@@ -1,5 +1,3 @@
-// .storybook/manager.js
-
 import { addons } from '@storybook/addons';
 import theme from './Theme';
 import favicon from './images/favicon-32x32.png';

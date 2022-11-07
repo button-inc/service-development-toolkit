@@ -6,7 +6,7 @@ import { HtmlOnlyWrapper, HtmlWithCssWrapper } from '../../../stories/helpers';
 import ButtonTypography from './ButtonTypography';
 
 export default {
-  title: 'Fieldset',
+  title: 'Components/Fieldset',
   component: Fieldset,
   argTypes: {
     size: {
