@@ -29,6 +29,7 @@ Default.args = {
   value: process.env.STORYBOOK_VISUAL_TESTING ? '2022-11-04' : undefined,
   name: 'date',
   id: 'date-picker',
+  rounded: true,
 };
 
 export const HTML = HTMLTemplate.bind({});
