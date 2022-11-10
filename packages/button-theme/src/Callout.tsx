@@ -1,5 +1,5 @@
 import React from 'react';
-import { applyTheme, StyleConfig } from '@button-inc/component-library/Callout';
+import { applyTheme, StyleConfig, Props } from '@button-inc/component-library/Callout';
 import styles from './styles';
 
 const config: StyleConfig = {
@@ -12,7 +12,11 @@ const config: StyleConfig = {
 
 export const BaseCallout = applyTheme(styles, config);
 
-export default function Callout(props: any) {
+interface ExtendedProps extends Props {
+  content?: string;
+}
+
+export default function Callout(props: ExtendedProps) {
   const { content, children, ...rest } = props;
 
   return <BaseCallout {...rest}>{content ? <p>{content}</p> : children}</BaseCallout>;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { applyTheme, StyleConfig } from '@button-inc/component-library/Menu';
+import { applyTheme, StyleConfig, Props } from '@button-inc/component-library/Menu';
 import Button from './Button';
 import buttonLogoDataUrl from './dataurls/button_logo';
 import styles from './styles';
@@ -96,7 +96,12 @@ const BannerLogo = styled.div`
   background-repeat: no-repeat;
 `;
 
-export default function Component(props: any) {
+interface ExtendedProps extends Props {
+  title?: string;
+  onBannerClick?: React.MouseEventHandler<HTMLDivElement>;
+}
+
+export default function Header(props: ExtendedProps) {
   const { onBannerClick = () => null, children, ...rest } = props;
 
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { applyTheme, StyleConfig } from '@button-inc/component-library/Card';
+import { applyTheme, StyleConfig, Props } from '@button-inc/component-library/Card';
 import styles from './styles';
 
 const config: StyleConfig = {
@@ -9,7 +9,11 @@ const config: StyleConfig = {
 
 export const BaseCard = applyTheme(styles, config);
 
-export default function Card(props: any) {
+interface ExtendedProps extends Props {
+  title: string;
+}
+
+export default function Card(props: ExtendedProps) {
   const { title, children, ...rest } = props;
 
   return (
