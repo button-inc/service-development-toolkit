@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { applyTheme, StyleConfig } from '@button-inc/component-library/Menu';
+import { applyTheme, StyleConfig, Props } from '@button-inc/component-library/Menu';
 import bcgovLogoSVG from './svg/bcgov_logo';
 
 export const styles = {
@@ -98,7 +98,12 @@ const Title = styled.h1`
   margin-top: 10px;
 `;
 
-export default function Header(props: any) {
+interface ExtendedProps extends Props {
+  title?: string;
+  onBannerClick?: React.MouseEventHandler<HTMLAnchorElement>;
+}
+
+export default function Header(props: ExtendedProps) {
   const { title = '', onBannerClick = () => null, ...rest } = props;
 
   return (

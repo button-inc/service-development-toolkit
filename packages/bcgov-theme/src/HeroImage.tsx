@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 type Props = {
   url?: string;
+  children?: React.ReactNode;
+  [key: string]: any;
 };
 
 const Container = styled.div`
@@ -22,7 +24,7 @@ const InnerContainer = styled.div`
   }
 `;
 
-export default function Component(props: any) {
+export default function Component(props: Props) {
   const { url, children, ...rest } = props;
 
   return (
