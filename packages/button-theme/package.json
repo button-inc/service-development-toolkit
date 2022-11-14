@@ -1,6 +1,6 @@
 {
   "name": "@button-inc/button-theme",
-  "version": "1.0.0-alpha.5",
+  "version": "1.0.0-alpha.6",
   "description": "Accessible and progressively-enhancing Button component theme",
   "license": "Apache-2.0",
   "main": "lib/cjs/index.js",
