@@ -1,5 +1,5 @@
 import React from 'react';
-import { applyTheme, StyleConfig } from '@button-inc/component-library/Alert';
+import { applyTheme, StyleConfig, Props } from '@button-inc/component-library/Alert';
 import { CheckCircle, InfoCircle, ExclamationTriangle, ExclamationCircle, FaSVG } from './fontawesome';
 import styles from './styles';
 
@@ -40,7 +40,7 @@ const getIconPath = (variant: string) => {
   }
 };
 
-export default function Alert(props: any) {
+export default function Alert(props: Props) {
   return (
     <BaseAlert {...props}>
       <BaseAlert.Group>

@@ -12,6 +12,9 @@ export const sizes: {
 
 type Props = {
   size?: string;
+  content?: string;
+  external?: boolean;
+  children?: React.ReactNode;
 };
 
 const StyledAnchor = styled.a`
@@ -29,7 +32,7 @@ const StyledAnchor = styled.a`
   }
 `;
 
-export default function Link(props: any) {
+export default function Link(props: Props) {
   const { content, external, children, ...rest } = props;
 
   return (

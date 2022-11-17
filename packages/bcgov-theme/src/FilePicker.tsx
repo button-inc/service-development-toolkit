@@ -1,5 +1,5 @@
 import React from 'react';
-import { applyTheme, StyleConfig } from '@button-inc/component-library/FilePicker';
+import { applyTheme, StyleConfig, Props } from '@button-inc/component-library/FilePicker';
 import Button from './Button';
 import { Upload, FaSVG } from './fontawesome';
 
@@ -50,7 +50,12 @@ const config: StyleConfig = {
 
 export const BaseFilePicker = applyTheme(styles, config);
 
-export default function FilePicker(props: any) {
+interface ExtendedProps extends Props {
+  children?: React.ReactNode;
+  size?: 'small' | 'medium' | 'large';
+}
+
+export default function FilePicker(props: ExtendedProps) {
   const { children, ...rest } = props;
   const { size, disabled } = rest;
 

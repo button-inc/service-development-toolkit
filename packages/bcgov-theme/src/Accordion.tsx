@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import noop from 'lodash/noop';
-import { applyTheme, StyleConfig } from '@button-inc/component-library/Card';
+import { applyTheme, StyleConfig, Props } from '@button-inc/component-library/Card';
 import { Plus, Minus, FaSVG } from './fontawesome';
 
 export const styles = {
@@ -39,7 +39,13 @@ const config: StyleConfig = {
 
 export const BaseAccordion = applyTheme(styles, config);
 
-export default function Accordion(props: any) {
+interface ExtendedProps extends Props {
+  title?: string;
+  onToggle?: (event: React.SyntheticEvent) => void;
+  defaultToggled?: boolean;
+}
+
+export default function Accordion(props: ExtendedProps) {
   const { title, children, onToggle, defaultToggled, ...rest } = props;
 
   return (

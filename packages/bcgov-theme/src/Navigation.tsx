@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import isFunction from 'lodash/isFunction';
-import { applyTheme, StyleConfig } from '@button-inc/component-library/Navigation';
+import { applyTheme, StyleConfig, Props } from '@button-inc/component-library/Navigation';
 import { BaseHeader } from './Header';
 import { Bars, FaSVG } from './fontawesome';
 import bcgovLogoSVG from './svg/bcgov_logo';
@@ -74,7 +74,19 @@ const Title = styled.h1`
 
 const DEFAULT_MOBILE_BREAK_POINT = '900';
 
-export default function Navigation(props: any) {
+interface TitleContext {
+  mobileBreakPoint: string;
+}
+
+interface ExtendedProps extends Props {
+  title?: string | ((context?: TitleContext) => React.Component);
+  onBannerClick?: React.MouseEventHandler<HTMLElement>;
+  mobileMenu?: () => React.Component;
+  mobileBreakPoint?: string;
+  header?: 'main' | 'sub';
+}
+
+export default function Navigation(props: ExtendedProps) {
   const {
     title = '',
     onBannerClick = () => null,
@@ -84,7 +96,7 @@ export default function Navigation(props: any) {
     header,
     ...rest
   } = props;
-  const context = { mobileBreakPoint };
+  const context: TitleContext = { mobileBreakPoint };
 
   return (
     <BaseNavigation {...rest}>

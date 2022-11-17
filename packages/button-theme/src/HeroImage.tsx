@@ -1,5 +1,5 @@
 import React from 'react';
-import { applyTheme, StyleConfig } from '@button-inc/component-library/HeroImage';
+import { applyTheme, StyleConfig, Props } from '@button-inc/component-library/HeroImage';
 import styles from './styles';
 
 const heroImageStyles = {
@@ -27,7 +27,7 @@ const config: StyleConfig = {
 
 export const BaseHeroImage = applyTheme(heroImageStyles, config);
 
-export default function HeroImage(props: any) {
+export default function HeroImage(props: Props) {
   const { children, ...rest } = props;
 
   return <BaseHeroImage {...rest}>{children}</BaseHeroImage>;
