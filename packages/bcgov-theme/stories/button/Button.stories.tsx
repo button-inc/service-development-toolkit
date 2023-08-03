@@ -10,17 +10,21 @@ export default {
   argTypes,
 } as Meta;
 
-export const Template: Story = args => (
-  <>
-    {args.variant.endsWith('-inverse') ? (
-      <div style={{ backgroundColor: '#003366', padding: '15px' }}>
+export const Template: Story = args => {
+  const variant = args.variant || ''; // Default to an empty string if args.variant is undefined
+
+  return (
+    <>
+      {variant.endsWith('-inverse') ? (
+        <div style={{ backgroundColor: '#003366', padding: '15px' }}>
+          <Button {...args}>Click Me!</Button>
+        </div>
+      ) : (
         <Button {...args}>Click Me!</Button>
-      </div>
-    ) : (
-      <Button {...args}>Click Me!</Button>
-    )}
-  </>
-);
+      )}
+    </>
+  );
+};
 
 const HTMLTemplate: Story = args => (
   <>
